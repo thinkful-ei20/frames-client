@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import RegisterForm from './actions/Forms/registerForm';
+import RegisterForm from './components/Forms/registerForm';
 
 import './App.css';
 

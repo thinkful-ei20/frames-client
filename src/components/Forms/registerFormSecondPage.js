@@ -10,7 +10,7 @@ const passwordLength = length({ min: 8, max: 72 });
 const matchesPassword = matches('password');
 
 const RegisterFormSecondPage = props => {
-  const { handleSubmit, previousPage } = props;
+  const { handleSubmit, pristine, previousPage, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
       <Field
@@ -32,10 +32,23 @@ const RegisterFormSecondPage = props => {
         name="passwordConfirm"
         label="Confirm password"
         type="password"
-        component={Field}
+        component={renderField}
         validate={[required, nonEmpty, matchesPassword]}
         autocomplete="off"
       />
+      <button
+        type="button"
+        className="previous"
+        onClick={previousPage}
+      >
+        Previous
+      </button>
+      <button
+        type="submit"
+        disabled={pristine || submitting}
+      >
+        Submit
+      </button>
     </form>
   );
 };

@@ -33,7 +33,7 @@ class RegisterForm extends React.Component {
         {page === 2 &&
         <RegisterFormSecondPage
           previousPage={this.previousPage}
-          onSubmit={ onSubmit}
+          onSubmit={ onSubmit }
         />
         }
       </React.Fragment>
