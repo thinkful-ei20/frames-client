@@ -10,9 +10,10 @@ const passwordLength = length({ min: 8, max: 72 });
 const matchesPassword = matches('password');
 
 export const RegisterFormSecondPage = props => {
-  const { handleSubmit, pristine, previousPage, submitting } = props;
+  const { onSubmit, pristine, previousPage, submitting } = props;
+  console.log('SECOND PAGE PROPS', props);
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <Field
         name="email"
         label="Email"
