@@ -15,13 +15,13 @@ export class RegisterForm extends React.Component {
     };
   }
 
-  nextPage() {
+  nextPage = () => {
     this.setState({ page: this.state.page + 1 });
-  }
+  };
 
-  previousPage(){
+  previousPage = () => {
     this.setState({ page: this.state.page - 1 });
-  }
+  };
 
   onSubmit(values){
     console.log('onSubmit registerForm ran');
