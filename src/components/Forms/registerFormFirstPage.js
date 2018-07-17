@@ -9,19 +9,11 @@ export const RegisterFormFirstPage = props => {
   return (
     <form onSubmit={handleSubmit}>
       <Field
-        name="firstName"
-        label="First Name"
+        name="username"
+        label="Username"
         type="text"
         component={renderField}
-        validate={[nonEmpty, isTrimmed]}
-        autocomplete="off"
-      />
-      <Field
-        name="lastName"
-        label="Last Name"
-        type="text"
-        component={renderField}
-        validate={[nonEmpty, isTrimmed]}
+        validate={[required, nonEmpty, isTrimmed]}
         autocomplete="off"
       />
       <Field

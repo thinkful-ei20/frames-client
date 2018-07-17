@@ -25,14 +25,13 @@ export class LoginForm extends React.Component {
         {error}
         <label htmlFor="username">Username</label>
         <Field
-          name="email"
-          label="Email"
-          type="email"
+          name="username"
+          label="Username"
+          type="text"
           component={renderField}
-          validate={[required]}
+          validate={[required, nonEmpty, isTrimmed]}
           autocomplete="off"
         />
-
         <label htmlFor="password">Password</label>
         <Field
           name="password"
