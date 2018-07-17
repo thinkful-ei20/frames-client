@@ -18,6 +18,7 @@ const RegisterFormSecondPage = props => {
         label="Email"
         type="email"
         component={renderField}
+        validate={[required]}
         autocomplete="off"
       />
       <Field

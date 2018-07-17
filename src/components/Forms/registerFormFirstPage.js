@@ -43,7 +43,12 @@ const RegisterFormFirstPage = props => {
         autocomplete="off"
       />
       <div>
-        <button type="submit" className="next">Next</button>
+        <button
+          type="submit"
+          className="next"
+        >
+          Next
+        </button>
       </div>
     </form>
   );
