@@ -26,7 +26,7 @@ class RegisterForm extends React.Component {
     console.log('onSubmit registerForm ran');
 
     console.log(values);
-    return this.props.dispatch(createUser(user));
+    // return this.props.dispatch(createUser());
 
   }
 
