@@ -1,16 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import RegisterFormFirstPage from './registerFormFirstPage';
 import RegisterFormSecondPage from './registerFormSecondPage';
 
 
-class RegisterForm extends React.Component {
+export class RegisterForm extends React.Component {
   constructor() {
     super();
     this.state = {
       page: 1,
-    }
+    };
   }
 
   nextPage() {
@@ -44,9 +44,9 @@ class RegisterForm extends React.Component {
   }
 }
 
-RegisterForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// RegisterForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
 
 export default RegisterForm;
 

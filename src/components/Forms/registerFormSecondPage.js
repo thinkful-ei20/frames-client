@@ -9,7 +9,7 @@ const renderError = ({ meta: { touched, error } }) =>
 const passwordLength = length({ min: 8, max: 72 });
 const matchesPassword = matches('password');
 
-const RegisterFormSecondPage = props => {
+export const RegisterFormSecondPage = props => {
   const { handleSubmit, pristine, previousPage, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>

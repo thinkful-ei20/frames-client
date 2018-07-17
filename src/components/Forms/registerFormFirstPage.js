@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import {isTrimmed, nonEmpty, required, validPhone, validEmail, length, matches} from './formValidators';
 import renderField from './field';
 
-const RegisterFormFirstPage = props => {
+export const RegisterFormFirstPage = props => {
   console.log('PROPS from FIRST PAGE', props);
   const { handleSubmit } = props;
   return (

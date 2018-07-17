@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const Field = props => {
-  console.log('Field component rendered');
   const Element = props.element || 'input';
   return (
     <div className="form-field" id={props.id}>
