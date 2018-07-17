@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
+import createUser from '../../actions/users';
 import RegisterFormFirstPage from './registerFormFirstPage';
 import RegisterFormSecondPage from './registerFormSecondPage';
 
@@ -21,8 +22,11 @@ export class RegisterForm extends React.Component {
     this.setState({ page: this.state.page - 1 });
   }
 
-  onSubmit(){
-    console.log('form submitted!');
+  onSubmit(values){
+    console.log('onSubmit registerForm ran');
+
+    console.log(values);
+    return this.props.dispatch(createUser(user));
   }
 
   render() {
