@@ -1,7 +1,7 @@
 import authReducer from '../reducers/auth';
 import { setToken, requestLogin, clearToken, loginError, loginSuccess } from '../actions/auth';
 
-describe.only('Auth Reducer', () => {
+describe('Auth Reducer', () => {
   it('Should set the initial state when nothing is passed in', () => {
     const state = authReducer(undefined, {type: '@@notathing!'});
     expect(state).toEqual({

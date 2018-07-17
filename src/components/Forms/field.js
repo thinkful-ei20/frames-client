@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Field = props => {
+export const Field = props => {
   console.log('Field component rendered');
   const Element = props.element || 'input';
   return (

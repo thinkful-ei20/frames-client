@@ -13,17 +13,20 @@ class RegisterForm extends React.Component {
     }
   }
 
-  nextPage = () => {
+  nextPage() {
     this.setState({ page: this.state.page + 1 });
-  };
+  }
 
-  previousPage = () => {
+  previousPage(){
     this.setState({ page: this.state.page - 1 });
-  };
+  }
+
+  onSubmit(){
+    console.log('form submitted!');
+  }
 
   render() {
     console.log('PROPS', this.props.onSubmit);
-    const { onSubmit } = this.props;
     const { page } = this.state;
 
     return (
@@ -33,7 +36,7 @@ class RegisterForm extends React.Component {
         {page === 2 &&
         <RegisterFormSecondPage
           previousPage={this.previousPage}
-          onSubmit={ onSubmit }
+          onSubmit={ this.onSubmit }
         />
         }
       </React.Fragment>
