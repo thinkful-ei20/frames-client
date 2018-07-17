@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import createUser from '../../actions/users';
 import RegisterFormFirstPage from './registerFormFirstPage';
 import RegisterFormSecondPage from './registerFormSecondPage';
 
@@ -13,17 +14,24 @@ class RegisterForm extends React.Component {
     }
   }
 
-  nextPage = () => {
+  nextPage() {
     this.setState({ page: this.state.page + 1 });
-  };
+  }
 
-  previousPage = () => {
+  previousPage(){
     this.setState({ page: this.state.page - 1 });
-  };
+  }
+
+  onSubmit(values){
+    console.log('onSubmit registerForm ran');
+
+    console.log(values);
+    return this.props.dispatch(createUser(user));
+
+  }
 
   render() {
     console.log('PROPS', this.props.onSubmit);
-    const { onSubmit } = this.props;
     const { page } = this.state;
 
     return (
@@ -33,7 +41,7 @@ class RegisterForm extends React.Component {
         {page === 2 &&
         <RegisterFormSecondPage
           previousPage={this.previousPage}
-          onSubmit={ onSubmit }
+          onSubmit={ this.onSubmit }
         />
         }
       </React.Fragment>
