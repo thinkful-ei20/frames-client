@@ -3,7 +3,7 @@ import {SubmissionError} from 'redux-form';
 import { API_BASE_URL } from '../config';
 
 export const SET_TOKEN = 'SET_TOKEN';
-const setToken = token => {
+export const setToken = token => {
   return {
     type: SET_TOKEN,
     token
@@ -11,21 +11,21 @@ const setToken = token => {
 };
 
 export const CLEAR_TOKEN = 'CLEAR_TOKEN';
-const clearToken = () => {
+export const clearToken = () => {
   return {
     type: CLEAR_TOKEN
   };
 };
 
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
-const requestLogin = () => {
+export const requestLogin = () => {
   return {
     type: REQUEST_LOGIN
   };
 };
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-const loginSuccess = user=> {
+export const loginSuccess = user=> {
   return {
     type: LOGIN_SUCCESS,
     user
@@ -33,7 +33,7 @@ const loginSuccess = user=> {
 };
 
 export const LOGIN_ERROR = 'LOGIN_ERROR';
-const loginError = error => {
+export const loginError = error => {
   return {
     type: LOGIN_ERROR,
     error
