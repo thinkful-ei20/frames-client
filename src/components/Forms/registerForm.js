@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 import createUser from '../../actions/users';
@@ -44,6 +45,11 @@ export class RegisterForm extends React.Component {
           onSubmit={ this.onSubmit }
         />
         }
+        <p
+          className="">
+          Already have an account?
+          <Link to="/login">Log In</Link>
+        </p>
       </React.Fragment>
     );
   }

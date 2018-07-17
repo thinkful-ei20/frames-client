@@ -11,7 +11,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <LoginForm />
+        <Route exact path="/" component={LoginForm} />
         <Route exact path="/register" component={RegisterForm} />
       </div>
     );
