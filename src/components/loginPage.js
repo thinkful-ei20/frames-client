@@ -9,7 +9,7 @@ function LoginPage(props) {
   if(props.loggedIn) {
     return <Redirect to='/dashboard' />
   }
-  
+
   return (
     <React.Fragment>
       <NavBar />
