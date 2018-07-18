@@ -24,10 +24,10 @@ export const profileError = error => {
 
 
 // **************  GET PROFILE INFO  ************** //
-export const fetchProfile = () => dispatch => { 
+export const fetchProfile = adminId => dispatch => { 
   const token = localStorage.getItem('authToken');
   dispatch(requestProfile());
-  return fetch(`${API_BASE_URL}/admin/`,{//ENDPOINT MAY CHANGE!!
+  return fetch(`${API_BASE_URL}/admin/${adminId}`,{
     method : 'GET',
     headers : {
       'Content-Type' : 'application/json',
@@ -44,11 +44,11 @@ export const fetchProfile = () => dispatch => {
 };
 
 // **************  EDIT PROFILE INFO  ************** //
-export const editProfile = updatedProfile => dispatch => {
+export const editProfile = (adminId, updatedProfile) => dispatch => {
   const token = localStorage.getItem('authToken');
   dispatch(requestProfile);
-  return fetch(`${API_BASE_URL}/admin/`, {//ENDPOINT WILL CHANGE DEPENDING ON API DESIGN!! COME BACK TO THIS!
-    method : 'POST',
+  return fetch(`${API_BASE_URL}/admin/${adminId}`, {
+    method : 'PUT',
     headers: {
       'Content-Type' : 'application/json',
       'Authorization' : `Bearer ${token}`
@@ -65,10 +65,10 @@ export const editProfile = updatedProfile => dispatch => {
 };
 
 // **************  DELETE PROFILE INFO  ************** //
-export const deleteProfile = (history) => dispatch => {
+export const deleteProfile = (adminId, history) => dispatch => {
   const token = localStorage.getItem('authToken');
   dispatch(requestProfile());
-  return fetch(`${API_BASE_URL}/admin`, {
+  return fetch(`${API_BASE_URL}/admin/${adminId}`, {
     method : 'DELETE',
     headers : {
       'Content-Type' : 'application/json',
