@@ -24,15 +24,19 @@ class Card extends React.Component{
 
 		return(
 			<li className="card">
-				<div className="card-img"><img className="contain" src={imageUrl} alt={`${name}`}/></div>
-				<div className="card-name">{name}</div>
-				<div className="card-frame">{`from ${frame.start} to ${frame.end}`}</div>
-				<button className="opt-btn" onClick={(e) => this.handleToggle(e)}></button>
-				<div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
-					<div className='card-opt-panel-body'>
-						<div className="card-opt">option 1</div>
-						<div className="card-opt">option 2</div>
-						<div className="card-opt">option 3</div>
+				<div className="card-container">
+					<div className="card-info">
+						<div className="card-img"><img className="contain" src={imageUrl} alt={`${name}`}/></div>
+						<div className="card-name">{name}</div>
+						<div className="card-frame">{`from ${frame.start} to ${frame.end}`}</div>
+						<button className="opt-btn" onClick={(e) => this.handleToggle(e)}></button>
+					</div>
+					<div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
+						<div className='card-opt-panel-body'>
+							<div className="card-opt">option 1</div>
+							<div className="card-opt">option 2</div>
+							<div className="card-opt">option 3</div>
+						</div>
 					</div>
 				</div>
 			</li>
