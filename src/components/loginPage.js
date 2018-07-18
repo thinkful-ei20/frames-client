@@ -1,18 +1,18 @@
 import React from 'react';
 import NavBar from './navBar';
-import RegisterForm from './Forms/registerForm';
+import LoginForm from './Forms/loginForm';
 import Footer from './footer';
 
-export default function RegistrationPage() {
+export default function LoginPage() {
   return (
     <React.Fragment>
       <NavBar />
       <main>
         <section>
-          <RegisterForm />
+          <LoginForm />
         </section>
       </main>
-      <Footer />
+      <Footer/>
     </React.Fragment>
   );
 }

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
-
 import { createUser } from '../../actions/users';
 import RegisterFormFirstPage from './registerFormFirstPage';
 import RegisterFormSecondPage from './registerFormSecondPage';
 
+import './forms.css';
 
 export class RegisterForm extends React.Component {
   constructor() {
@@ -24,11 +23,11 @@ export class RegisterForm extends React.Component {
     this.setState({ page: this.state.page - 1 });
   };
 
-  onSubmit = e => {
+  handleCreateUser = values => {
     console.log('onSubmit registerForm ran');
-    e.preventDefault();
-    console.log(this.props.registerForm.values);
-    const values = this.props.registerForm.values;
+    // e.preventDefault();
+    // console.log(this.props.registerForm.values);
+    // const values = this.props.registerForm.values;
 
     const user = {
       username: values.username,
@@ -42,17 +41,26 @@ export class RegisterForm extends React.Component {
   };
 
   render() {
+    console.log('THIS PROPS ERROR', this.props.error);
+    if(this.props.loggedin){
+      console.log('LOGGED IN');
+      return <Redirect to="/dashboard" />;
+    }
+
+
     console.log('PROPS', this.props);
     const { page } = this.state;
 
     return (
-      <React.Fragment>
-        <div>Hello RegisterForm</div>
-        {page === 1 && <RegisterFormFirstPage onSubmit={ this.nextPage } />}
+      <div className="form-wrapper">
+        <h2 className="form-header">Register Company</h2>
+        {page === 1 &&
+        <RegisterFormFirstPage
+          onSubmit={this.nextPage} />}
         {page === 2 &&
         <RegisterFormSecondPage
-          previousPage={ this.previousPage }
-          onSubmit={ this.onSubmit }
+          previousPage={this.previousPage}
+          onSubmit={this.handleCreateUser}
         />
         }
         <p
@@ -60,14 +68,13 @@ export class RegisterForm extends React.Component {
           Already have an account?
           <Link to="/login">Log In</Link>
         </p>
-      </React.Fragment>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  // loggedIn: state.auth.currentUser !== null
-  registerForm: state.form.register
+  loggedIn: state.auth.user !== null
 });
 
 export default connect(mapStateToProps)(RegisterForm);
