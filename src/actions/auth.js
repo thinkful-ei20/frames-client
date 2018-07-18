@@ -75,3 +75,8 @@ export const login = (username, password) => dispatch => {
 			})
 	);
 };
+
+export const logout = (history) => dispatch => {
+	dispatch(clearToken());
+	history.push('/');
+};

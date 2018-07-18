@@ -1,4 +1,5 @@
 import API_BASE_URL from '../config';
+import { logout } from './auth';
 
 export const REQUEST_PROFILE = 'REQUEST_PROFILE';
 export const requestProfile = () => {
@@ -61,4 +62,19 @@ export const editProfile = updatedProfile => dispatch => {
       dispatch(fetchProfile());
     })
     .catch(err => dispatch(profileError(err)));
+};
+
+// **************  DELETE PROFILE INFO  ************** //
+export const deleteProfile = (history) => dispatch => {
+  const token = localStorage.getItem('authToken');
+  dispatch(requestProfile());
+  return fetch(`${API_BASE_URL}/admin`, {
+    method : 'DELETE',
+    headers : {
+      'Content-Type' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    }
+  })
+    .then(() => dispatch(logout(history)))
+    .catch((error) => dispatch(profileError(error)));
 };
