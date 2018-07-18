@@ -18,13 +18,7 @@ export const createUser = user => dispatch => {
       dispatch(login(user.username, user.password));
     })
     .catch(error => {
-      console.log('CATCH BLOCK', error);
-      const {reason, message, location} = error;
+      const {message} = error;
       return Promise.reject( new SubmissionError({_error : message}));
-      // if (reason === 'ValidationError'){
-        // return Promise.reject(new SubmissionError({
-        //   [location] : message
-        // }));
-      // }
     });
 };
