@@ -27,4 +27,4 @@ const mapStateToProps = state => ({
 	loggedIn: state.auth.authToken !== null
 });
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(LoginPage);
