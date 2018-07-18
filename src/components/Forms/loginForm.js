@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm, focus } from 'redux-form';
-import { Redirect } from 'react-router-dom';
 
 import renderField from './field';
 import { login } from '../../actions/auth';
 import {required, nonEmpty, isTrimmed} from './formValidators';
-
-
 
 export class LoginForm extends React.Component {
   onSubmit = (values) => {
@@ -23,10 +20,6 @@ export class LoginForm extends React.Component {
           {this.props.error}
         </div>
       );
-    }
-
-    if (this.props.loggedIn) {
-      return <Redirect to="/dashboard" />;
     }
 
     return (

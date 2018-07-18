@@ -30,7 +30,6 @@ export const RegisterFormFirstPage = props => {
 				label="Phone Number"
 				type="tel"
 				placeholder="123-456-7890"
-				// pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
 				component={renderField}
 				validate={[required, nonEmpty, isTrimmed, validPhone]}
 				autocomplete="off"
@@ -40,7 +39,7 @@ export const RegisterFormFirstPage = props => {
 					type="submit"
 					className="next"
 				>
-          Next
+					Next
 				</button>
 			</div>
 		</form>
