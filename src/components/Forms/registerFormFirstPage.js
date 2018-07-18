@@ -1,11 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {isTrimmed, nonEmpty, required, validPhone} from './formValidators';
+import PropTypes from 'prop-types';
 
+import {isTrimmed, nonEmpty, required, validPhone} from './formValidators';
 import renderField from './field';
 
 export const RegisterFormFirstPage = props => {
-	// console.log('PROPS from FIRST PAGE', props);
 	const { handleSubmit } = props;
 	return (
 		<form onSubmit={handleSubmit}>
@@ -45,6 +45,10 @@ export const RegisterFormFirstPage = props => {
 			</div>
 		</form>
 	);
+};
+
+RegisterFormFirstPage.propTypes = {
+	handleSubmit: PropTypes.func.required
 };
 
 export default reduxForm({

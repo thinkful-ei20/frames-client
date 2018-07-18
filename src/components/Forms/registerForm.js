@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
-
 import { createUser } from '../../actions/users';
 import RegisterFormFirstPage from './registerFormFirstPage';
 import RegisterFormSecondPage from './registerFormSecondPage';
 
+import './forms.css';
 
 export class RegisterForm extends React.Component {
   constructor() {
@@ -40,24 +39,37 @@ export class RegisterForm extends React.Component {
   };
 
   render() {
+
+    if(this.props.loggedin){
+      return <Redirect to="/dashboard" />;
+    }
+
     const { page } = this.state;
 
     return (
-      <React.Fragment>
-        <div>Hello RegisterForm</div>
-        {page === 1 && <RegisterFormFirstPage onSubmit={ this.nextPage } />}
-        {page === 2 && <RegisterFormSecondPage previousPage={ this.previousPage } onSubmit={ this.onSubmit }/>}
-        <p>
+      <div className="form-wrapper">
+        <h2 className="form-header">Register Company</h2>
+        {page === 1 &&
+        <RegisterFormFirstPage
+          onSubmit={this.nextPage} />}
+        {page === 2 &&
+        <RegisterFormSecondPage
+          previousPage={this.previousPage}
+          onSubmit={this.handleCreateUser}
+        />
+        }
+        <p
+          className="">
           Already have an account?
           <Link to="/login">Log In</Link>
         </p>
-      </React.Fragment>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  registerForm: state.form.register
+  loggedIn: state.auth.user !== null
 });
 
 export default connect(mapStateToProps)(RegisterForm);

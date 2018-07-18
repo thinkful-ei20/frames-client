@@ -1,0 +1,43 @@
+.form-wrapper {
+    border: 1px solid #a6a1a1;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 360px;
+}
+
+.form-wrapper h2 {
+    text-align: center;
+}
+
+.form-field {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-field label {
+    text-transform: uppercase;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-field input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    line-height: 22px;
+}
+
+.form-error {
+    color: red;
+}
+
+.form-field-error {
+    position: absolute;
+    bottom: -16px;
+    color: red;
+}
+
+.form-field-error, .form-field label {
+    font-size: 11px;
+
+}

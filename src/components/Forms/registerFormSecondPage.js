@@ -1,25 +1,35 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { required, isTrimmed, nonEmpty, length, matches } from './formValidators';
+import { Field, reduxForm, focus } from 'redux-form';
+import PropTypes from 'prop-types';
 
+import { required, isTrimmed, nonEmpty, length, matches, validEmail } from './formValidators';
 import renderField from './field';
-
-// const renderError = ({ meta: { touched, error } }) => touched && error ? <span>{error}</span> : false;
 
 const passwordLength = length({ min: 8, max: 72 });
 const matchesPassword = matches('password');
 
 export const RegisterFormSecondPage = props => {
-	const { onSubmit, pristine, previousPage, submitting } = props;
-	console.log('SECOND PAGE PROPS', props);
+	const { handleSubmit, pristine, previousPage, submitting } = props;
+
+	let error;
+	if (props.error) {
+		error = (
+			<div className="form-error" aria-live="polite">
+				{props.error}
+			</div>
+		);
+	}
+
 	return (
-		<form onSubmit={onSubmit}>
+
+		<form onSubmit={handleSubmit}>
+			{error}
 			<Field
 				name="email"
 				label="Email"
 				type="email"
 				component={renderField}
-				validate={[required]}
+				validate={[required, validEmail]}
 				autocomplete="off"
 			/>
 			<Field
@@ -55,9 +65,17 @@ export const RegisterFormSecondPage = props => {
 	);
 };
 
+RegisterFormSecondPage.propTypes = {
+	handleSubmit: PropTypes.func.required,
+	pristine: PropTypes.bool,
+	previousPage: PropTypes.number,
+	submitting: PropTypes.bool
+};
+
 export default reduxForm({
-	form: 'register', //                 <------ same form name
+	form: 'register', //               <------ same form name
 	destroyOnUnmount: false, //        <------ preserve form data
 	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-	// validate,
+	onSubmitFail: (errors, dispatch) =>
+		dispatch(focus('register', Object.keys(errors)[0]))
 })(RegisterFormSecondPage);
