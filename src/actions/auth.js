@@ -42,7 +42,7 @@ export const loginError = error => {
 };
 
 //Store in localStorage & decompose into state
-const storeToken = (token, dispatch) => {
+export const storeToken = (token, dispatch) => {
 	const decodedToken = jwtDecode(token);
 	dispatch(setToken(decodedToken));
 	dispatch(loginSuccess(decodedToken.user));

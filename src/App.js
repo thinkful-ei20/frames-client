@@ -6,6 +6,7 @@ import RegistrationPage from './components/registrationPage';
 import LoginPage from './components/loginPage';
 import Dashboard from './components/dashboard';
 import About from './components/about';
+import Profile from './components/profile';
 
 export default class App extends Component {
 	render() {
@@ -16,6 +17,7 @@ export default class App extends Component {
 				<Route exact path="/login" component={LoginPage} />
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/about" component={About} />
+				<Route exact path="/profile" component={Profile} />
 			</div>
 		);
 	}

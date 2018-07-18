@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { setToken } from './actions/auth';
+import { storeToken } from './actions/auth';
 
 const store = createStore(
 	rootReducer,
@@ -15,7 +15,7 @@ const store = createStore(
 const authToken = localStorage.getItem('authToken');
 if (authToken) {
 	const token = authToken;
-	store.dispatch(setToken(token));
+	storeToken(token, store.dispatch);
 }
 
 export default store;
