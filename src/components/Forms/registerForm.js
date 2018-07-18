@@ -23,9 +23,8 @@ export class RegisterForm extends React.Component {
     this.setState({ page: this.state.page - 1 });
   };
 
-  onSubmit = e => {
-    e.preventDefault();
-	const {username, email, companyName, password, phoneNumber} = this.props.registerForm.values;
+  handleCreateUser = values => {
+	const {username, email, companyName, password, phoneNumber} = values;
 
     const user = {
       username,

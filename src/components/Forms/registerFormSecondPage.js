@@ -10,7 +10,6 @@ const matchesPassword = matches('password');
 
 export const RegisterFormSecondPage = props => {
 	const { handleSubmit, pristine, previousPage, submitting } = props;
-
 	let error;
 	if (props.error) {
 		error = (
@@ -65,17 +64,21 @@ export const RegisterFormSecondPage = props => {
 	);
 };
 
-RegisterFormSecondPage.propTypes = {
-	handleSubmit: PropTypes.func.required,
-	pristine: PropTypes.bool,
-	previousPage: PropTypes.number,
-	submitting: PropTypes.bool
-};
+// RegisterFormSecondPage.propTypes = {
+// 	handleSubmit: PropTypes.func.required,
+// 	pristine: PropTypes.bool,
+// 	previousPage: PropTypes.func,
+// 	submitting: PropTypes.bool
+// };
 
 export default reduxForm({
 	form: 'register', //               <------ same form name
 	destroyOnUnmount: false, //        <------ preserve form data
 	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-	onSubmitFail: (errors, dispatch) =>
-		dispatch(focus('register', Object.keys(errors)[0]))
+	onSubmitFail: (errors, dispatch) => {
+		if(errors){
+			dispatch(focus('register', Object.keys(errors)[0]));
+		}
+		console.log('panic!');
+		}
 })(RegisterFormSecondPage);

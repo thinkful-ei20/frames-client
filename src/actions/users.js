@@ -15,6 +15,7 @@ export const createUser = user => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => {
 			res.json();
+			console.log(user);
 			dispatch(login(user.username, user.password));
 		})
 		.catch(error => {
