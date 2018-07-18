@@ -1,9 +1,16 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
+import {connect} from "react-redux";
 import NavBar from './navBar';
 import RegisterForm from './Forms/registerForm';
 import Footer from './footer';
 
-export default function RegistrationPage() {
+
+function RegistrationPage(props) {
+  if(props.loggedIn) {
+    return <Redirect to='/dashboard' />
+  }
+
   return (
     <React.Fragment>
       <NavBar />
@@ -16,3 +23,11 @@ export default function RegistrationPage() {
     </React.Fragment>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    loggedIn : state.auth.authToken !== null
+  };
+};
+
+export default connect(mapStateToProps)(RegistrationPage);

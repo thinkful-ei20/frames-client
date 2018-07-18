@@ -28,12 +28,16 @@
 }
 
 .form-error {
+    color: red;
+}
+
+.form-field-error {
     position: absolute;
     bottom: -16px;
     color: red;
 }
 
-.form-error, .form-field label {
+.form-field-error, .form-field label {
     font-size: 11px;
 
 }

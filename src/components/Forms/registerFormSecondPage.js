@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import { required, isTrimmed, nonEmpty, length, matches } from './formValidators';
+import { required, isTrimmed, nonEmpty, length, matches, validEmail } from './formValidators';
 import renderField from './field';
 
 const passwordLength = length({ min: 8, max: 72 });
@@ -28,7 +28,7 @@ export const RegisterFormSecondPage = props => {
         label="Email"
         type="email"
         component={renderField}
-        validate={[required]}
+        validate={[required, validEmail]}
         autocomplete="off"
       />
       <Field

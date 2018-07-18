@@ -9,7 +9,7 @@ export class LandingPage extends React.Component {
 
   render() {
 
-    if(this.props.loggedin){
+    if(this.props.loggedIn){
       return <Redirect to="/dashboard" />;
     }
     return (
@@ -62,7 +62,7 @@ export class LandingPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loggedin : state.auth.authToken !== null
+    loggedIn : state.auth.authToken !== null
   }; 
 };
 
