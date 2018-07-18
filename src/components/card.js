@@ -21,6 +21,7 @@ class Card extends React.Component{
 
 		const {imageUrl, name, frame}  = this.props;
 		const {isOpen} = this.state;
+		const chevron = isOpen? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
 
 		return(
 			<li className="card">
@@ -28,8 +29,10 @@ class Card extends React.Component{
 					<div className="card-info">
 						<div className="card-img"><img className="contain" src={imageUrl} alt={`${name}`}/></div>
 						<div className="card-name">{name}</div>
-						<div className="card-frame">{`from ${frame.start} to ${frame.end}`}</div>
-						<button className="opt-btn" onClick={(e) => this.handleToggle(e)}></button>
+						<div className="card-frame">{`${frame.start} to ${frame.end}`}</div>
+						<button className={`opt-btn ${isOpen ? 'is-open' : ''}`} onClick={(e) => this.handleToggle(e)}>
+							{chevron}
+						</button>
 					</div>
 					<div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
 						<div className='card-opt-panel-body'>
