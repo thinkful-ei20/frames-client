@@ -5,17 +5,17 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { setToken } from './actions/auth';
 
 const store = createStore(
-  rootReducer,
-  composeWithDevTools(
-    applyMiddleware(thunk)
-  )
+	rootReducer,
+	composeWithDevTools(
+		applyMiddleware(thunk)
+	)
 );
 
 // Hydrate the authToken from localStorage if it exist
 const authToken = localStorage.getItem('authToken');
 if (authToken) {
-  const token = authToken;
-  store.dispatch(setToken(token));
+	const token = authToken;
+	store.dispatch(setToken(token));
 }
 
 export default store;

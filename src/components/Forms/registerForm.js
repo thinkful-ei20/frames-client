@@ -25,38 +25,29 @@ export class RegisterForm extends React.Component {
   };
 
   onSubmit = e => {
-    console.log('onSubmit registerForm ran');
     e.preventDefault();
-    console.log(this.props.registerForm.values);
-    const values = this.props.registerForm.values;
+	const {username, email, companyName, password, phoneNumber} = this.props.registerForm.values;
 
     const user = {
-      username: values.username,
-      email: values.email,
-      companyName: values.companyName,
-      password: values.password,
-      phoneNumber: values.phoneNumber
+      username,
+      email,
+      companyName,
+      password,
+      phoneNumber
     };
 
-    return this.props.dispatch(createUser(user));
+    this.props.dispatch(createUser(user));
   };
 
   render() {
-    console.log('PROPS', this.props);
     const { page } = this.state;
 
     return (
       <React.Fragment>
         <div>Hello RegisterForm</div>
         {page === 1 && <RegisterFormFirstPage onSubmit={ this.nextPage } />}
-        {page === 2 &&
-        <RegisterFormSecondPage
-          previousPage={ this.previousPage }
-          onSubmit={ this.onSubmit }
-        />
-        }
-        <p
-          className="">
+        {page === 2 && <RegisterFormSecondPage previousPage={ this.previousPage } onSubmit={ this.onSubmit }/>}
+        <p>
           Already have an account?
           <Link to="/login">Log In</Link>
         </p>
@@ -66,7 +57,6 @@ export class RegisterForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  // loggedIn: state.auth.currentUser !== null
   registerForm: state.form.register
 });
 

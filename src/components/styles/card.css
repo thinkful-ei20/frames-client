@@ -1,0 +1,40 @@
+.card {
+	display: flex;
+	flex-direction: row;
+	height: 68px;
+	max-width: 40em;
+	justify-content: space-between;
+}
+
+.card-img {
+	display: inline-block;
+	max-width: 64px;
+	max-height: 64px;
+}
+
+.contain {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+.card-name {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.card-frame {
+
+}
+
+.opt-btn {
+
+}
+
+.card-opt-panel {
+	display: none;
+}
+
+.card-opt-panel .is-open {
+	display: block;
+}

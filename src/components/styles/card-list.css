@@ -1,0 +1,8 @@
+.card-list {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	list-style: none;
+	padding: 0;
+	max-width: 40em;
+}

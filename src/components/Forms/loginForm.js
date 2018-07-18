@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import { Link } from 'react-router-dom';
+
 import renderField from './field';
 // import { login } from '../actions/auth';
 import {required, nonEmpty, isTrimmed} from './formValidators';
@@ -20,7 +20,6 @@ export class LoginForm extends React.Component {
       );
     }
     return (
-      <React.Fragment>
         <form
           className="login-form"
           onSubmit={this.props.handleSubmit(this.onSubmit)}>
@@ -50,15 +49,6 @@ export class LoginForm extends React.Component {
             Log in
           </button>
         </form>
-        <p
-          className="">
-          New to Frames?
-          <Link to="/register">Sign Up</Link>
-        </p>
-      </React.Fragment>
-
-
-
     );
   }
 }

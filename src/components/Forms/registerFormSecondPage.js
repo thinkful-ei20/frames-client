@@ -1,63 +1,63 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { required, isTrimmed, nonEmpty, length, matches } from './formValidators';
+
 import renderField from './field';
 
-const renderError = ({ meta: { touched, error } }) =>
-  touched && error ? <span>{error}</span> : false;
+// const renderError = ({ meta: { touched, error } }) => touched && error ? <span>{error}</span> : false;
 
 const passwordLength = length({ min: 8, max: 72 });
 const matchesPassword = matches('password');
 
 export const RegisterFormSecondPage = props => {
-  const { onSubmit, pristine, previousPage, submitting } = props;
-  console.log('SECOND PAGE PROPS', props);
-  return (
-    <form onSubmit={onSubmit}>
-      <Field
-        name="email"
-        label="Email"
-        type="email"
-        component={renderField}
-        validate={[required]}
-        autocomplete="off"
-      />
-      <Field
-        name="password"
-        label="Password"
-        type="password"
-        component={renderField}
-        validate={[required, isTrimmed, passwordLength]}
-        autocomplete="off"
-      />
-      <Field
-        name="passwordConfirm"
-        label="Confirm password"
-        type="password"
-        component={renderField}
-        validate={[required, nonEmpty, matchesPassword]}
-        autocomplete="off"
-      />
-      <button
-        type="button"
-        className="previous"
-        onClick={previousPage}
-      >
+	const { onSubmit, pristine, previousPage, submitting } = props;
+	console.log('SECOND PAGE PROPS', props);
+	return (
+		<form onSubmit={onSubmit}>
+			<Field
+				name="email"
+				label="Email"
+				type="email"
+				component={renderField}
+				validate={[required]}
+				autocomplete="off"
+			/>
+			<Field
+				name="password"
+				label="Password"
+				type="password"
+				component={renderField}
+				validate={[required, isTrimmed, passwordLength]}
+				autocomplete="off"
+			/>
+			<Field
+				name="passwordConfirm"
+				label="Confirm password"
+				type="password"
+				component={renderField}
+				validate={[required, nonEmpty, matchesPassword]}
+				autocomplete="off"
+			/>
+			<button
+				type="button"
+				className="previous"
+				onClick={previousPage}
+			>
         Previous
-      </button>
-      <button
-        type="submit"
-        disabled={pristine || submitting}
-      >
+			</button>
+			<button
+				type="submit"
+				disabled={pristine || submitting}
+			>
         Submit
-      </button>
-    </form>
-  );
+			</button>
+		</form>
+	);
 };
 
 export default reduxForm({
-  form: 'register', //                 <------ same form name
-  destroyOnUnmount: false, //        <------ preserve form data
-  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  // validate,
+	form: 'register', //                 <------ same form name
+	destroyOnUnmount: false, //        <------ preserve form data
+	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+	// validate,
 })(RegisterFormSecondPage);
