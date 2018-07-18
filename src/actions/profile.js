@@ -1,3 +1,5 @@
+import API_BASE_URL from '../config';
+
 const REQUEST_PROFILE = 'REQUEST_PROFILE';
 const requestProfile = () => {
   return {
@@ -17,4 +19,16 @@ const profileError = error => {
     type: PROFILE_ERROR,
     error
   };
+};
+
+export const fetchProfile = (adminId) => dispatch => {
+  dispatch(requestProfile());
+  return fetch(`${API_BASE_URL}/admin/${adminId}`)
+    .then(res => res.json())
+    .then(data => {
+      dispatch(profileSuccess(data));
+    })
+    .catch(error => {
+      dispatch(profileError(error));
+    });
 };
