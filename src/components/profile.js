@@ -38,6 +38,10 @@ export class Profile extends React.Component {
 				<section>
 					<ProfileForm
 						adminId={this.props.adminId}
+						companyName={this.props.name}
+						username={this.props.username}
+						email={this.props.email}
+						phone={this.props.phone}
 						setEdit={() => this.setState({ editing: false })}
 					/>
 				</section>

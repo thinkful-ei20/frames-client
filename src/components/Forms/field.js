@@ -13,7 +13,7 @@ export const Field = props => {
 					type={props.type}
 					value={props.value}
 					aria-required="true"
-					// placeholder={props.label}
+					placeholder={props.placeholder ? props.placeholder : null }
 					{...props.input}
 				>
 					{props.children}
@@ -30,5 +30,7 @@ export const Field = props => {
 	// </React.Fragment>
 	);
 };
+
+
 
 export default Field;
