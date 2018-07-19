@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {}
+
 import './styles/card.css';
 
 class Card extends React.Component{
@@ -36,9 +38,8 @@ class Card extends React.Component{
 					</div>
 					<div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
 						<div className='card-opt-panel-body'>
-							<div className="card-opt">option 1</div>
-							<div className="card-opt">option 2</div>
-							<div className="card-opt">option 3</div>
+							<button className="card-opt" onClick={() => { }}>Reassign</button>
+							<button className="card-opt"onClick={() => { }}>Edit</button>
 						</div>
 					</div>
 				</div>
