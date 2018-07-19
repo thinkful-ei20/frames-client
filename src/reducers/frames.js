@@ -6,7 +6,7 @@ const initialState = {
 	error: null
 };
 
-export default function framesReducer(state = initialState, action){
+export default function framesReducer(state = initialState, action) {
 	if (action.type === REQUEST_FRAMES){
 		return {
 			...state,
