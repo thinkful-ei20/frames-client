@@ -3,6 +3,10 @@
 	text-align: center;
 	margin: 0 auto;
 	list-style: none;
-	padding: 0;
+	padding: 0.5em;
+	border-radius: 3px;
+	background-color: rgb(6, 59, 63);
 	max-width: 40em;
+	overflow: hidden;
+	overflow-y: scroll;
 }

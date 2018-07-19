@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Redirect, Link} from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import NavBar from './navBar';
-import LoginForm from './Forms/loginForm';
-import Footer from './footer';
+import LoginForm from './forms/loginForm';
 import About from './about';
 import Dashboard from './dashboard';
+import Footer from './footer';
 
 export class LandingPage extends React.Component {
 

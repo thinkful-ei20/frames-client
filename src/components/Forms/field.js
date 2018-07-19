@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './forms.css';
+import './styles/forms.css';
 
 export const Field = props => {
 	const Element = props.element || 'input';
