@@ -30,7 +30,8 @@ export class Profile extends React.Component {
 	render() {
 
 		if (this.state.editing) {
-			return (<main>
+			return (
+				<main>
 				<InnerNav />
 				<header>
 					<h1>{this.props.name}</h1>
