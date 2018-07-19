@@ -1,5 +1,5 @@
 import React from 'react';
-//import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 //import PropTypes from 'prop-types';
 
 import moment from 'moment';
@@ -8,25 +8,28 @@ import moment from 'moment';
 import CardList from './card-list';
 
 import './styles/dashboard.css';
+import { fetchFrames } from '../actions/frames';
 
 export class Dashboard extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			employees:[]
+			employees:[],
+			frames: []
 		};
 		this.getEmployees = this.getEmployees.bind(this);
+		this.getFrames = this.getFrames.bind(this);
 	}
 
 	componentDidMount() {
 		/* Fetch List of Employees based on adminId */
 		const employees = this.getEmployees();
-		this.setState({employees});
+		this.setState({ employees });
 	}
 
+	// EMPLOYEES
 	getEmployees(state) {
-
 		/* some api call to get employees can be used to map state to props,
 		 * for now we can use this dummy data
 		 *
@@ -34,7 +37,6 @@ export class Dashboard extends React.Component {
 		 */
 		const start = moment();
 		const end = start.clone().add(8, 'h');
-
 
 		const iconUrl = 'https://cdn.iconscout.com/public/images/icon/free/png-128/github-logo-brand-development-tools-318f14f5797bb6cc-128x128.png';
 		const fStart = start.format('ddd hA');
@@ -55,9 +57,23 @@ export class Dashboard extends React.Component {
 		];
 	}
 
+	// FRAMES
+	getFrames() {
+		// fetchFrames dispatches requestFrames
+		// Does the fetch to /frames/:adminId/startDate&endDate
+		// normalizesResponseErrors
+		// res.json
+		// dispatches framesSuccess(data)
+		const frames = this.props.dispatch(fetchFrames())
+		this.setState({ frames });
+	}
+
 	render() {
-		const {employees} = this.state;
-		console.log(employees);
+		console.log(this.props.employees)
+		const { employees, frames } = this.state;
+		// const { employees, frames } = this.props;
+		// console.log(employees);
+		// console.log(frames);
 		return(
 			<div className="dashboard">
 				<h1>DashBoard!</h1>
@@ -67,14 +83,18 @@ export class Dashboard extends React.Component {
 	}
 }
 
-/* Hook up our Reducer and make call to
+/* 
+ * Hook up our Reducer and make call to
  * initialize 'employees' prop with getEmployees()
  */
 
-//const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+	// frames: this.state.frames,
+	employees: this.state.employees
+});
 
 //Dashboard.PropTypes = {};
 
 // export default requiresLogin()(connect()(Dashboard));
 
-export default Dashboard;
+export default connect()(Dashboard);
