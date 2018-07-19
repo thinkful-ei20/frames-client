@@ -1,15 +1,36 @@
 .card {
+	display: block;
+	border: 2px solid #1Eb980;
+	background-color: #045D64;
+	border-radius: 3px;
+	padding: 1em;
+	margin: 0.5em 0;
+}
+
+.card-container {
+	max-width: 40em;
+	transition: 0.5s ease all;
+}
+
+.card-info {
 	display: flex;
 	flex-direction: row;
-	height: 68px;
-	max-width: 40em;
+	align-items: center;
 	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.card-name, .card-frame, .card-img {
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .card-img {
-	display: inline-block;
 	max-width: 64px;
 	max-height: 64px;
+	border:1px solid whitesmoke;
+	border-radius: 32px;
+	background-color:whitesmoke;
 }
 
 .contain {
@@ -18,23 +39,40 @@
 	object-fit: contain;
 }
 
-.card-name {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.card-frame {
-
+.card-name, .card-frame {
+	font-size: 20px;
+	color: whitesmoke;
 }
 
 .opt-btn {
-
+	border: none;
+	background: transparent;
+	color: whitesmoke;
+	font-size: 50px;
 }
 
 .card-opt-panel {
+	margin-top: 0.5em;
 	display: none;
 }
 
-.card-opt-panel .is-open {
+.card-opt-panel.is-open {
 	display: block;
+}
+
+.card-opt-panel-body {
+	background-color: rgb(8, 67, 71);
+	border-radius: 3px;
+}
+
+.card-opt {
+	color: whitesmoke;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 1em 0;
+	margin: 0 auto;
+	height: 3em;
 }
