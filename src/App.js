@@ -6,12 +6,13 @@ import RegistrationPage from './components/registrationPage';
 import LoginPage from './components/loginPage';
 import Dashboard from './components/dashboard';
 import About from './components/about';
-import Profile from './components/profile';
+import ModalConductor from './components/modals/modal-conductor';
 
 export default class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<ModalConductor/>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/register" component={RegistrationPage} />
 				<Route exact path="/login" component={LoginPage} />

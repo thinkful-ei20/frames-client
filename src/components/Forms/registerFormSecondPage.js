@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 import { required, isTrimmed, nonEmpty, length, matches, validEmail } from './formValidators';
 import renderField from './field';
@@ -80,5 +80,5 @@ export default reduxForm({
 			dispatch(focus('register', Object.keys(errors)[0]));
 		}
 		console.log('panic!');
-		}
+	}
 })(RegisterFormSecondPage);

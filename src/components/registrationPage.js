@@ -1,9 +1,9 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import NavBar from './navBar';
-import RegisterForm from './Forms/registerForm';
+import RegisterForm from './forms/registerForm';
 import Footer from './footer';
 
 
