@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
+//import {bindActionCreators} from 'redux';
+
 import {showModal} from '../actions/modals';
 
-// import {}
-
-// import './styles/card.css';
+import './styles/card.css';
 
 class Card extends React.Component{
 
@@ -61,7 +60,9 @@ Card.propTypes = {
 };
 
 // const mapDispatchToProps = (dispatch) => {
-// 	return bindActionCreators({showModal}, dispatch);
+// 	return bindActionCreators({
+// 		showModal: showModal
+// 	}, dispatch);
 // };
 
 export default connect()(Card);

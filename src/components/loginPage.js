@@ -1,8 +1,9 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import LoginForm from './forms/loginForm';
 import NavBar from './navBar';
-import LoginForm from './Forms/loginForm';
 import Footer from './footer';
 
 function LoginPage(props) {

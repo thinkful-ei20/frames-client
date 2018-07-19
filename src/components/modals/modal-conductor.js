@@ -1,40 +1,49 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import {connect} from 'react-redux';
-import { hideModal } from '../../actions/modals';
+import PropTypes from 'prop-types';
+
+import ReassignShiftForm from '../forms/reassign-shift-form';
+import EditShiftForm from '../forms/edit-shift-form';
+
+import {hideModal} from '../../actions/modals';
 
 export function ModalConductor(props) {
-  let contentLabel;
-  let content;
+	let contentLabel;
+	let content;
 
-  if(props.modalType === 'reassign'){
+	if(props.modalType === 'reassign'){
 
-    contentLabel = 'Reassign a Shift';
-    content = <div>test reassign</div>;
+		contentLabel = 'Reassign a Shift';
+		content = <ReassignShiftForm/>;
 
-  } else if (props.modalType === 'edit') {
+	} else if (props.modalType === 'edit') {
 
-    contentLabel = 'Edit a Shift';
-    content = <div>test edit</div>;
+		contentLabel = 'Edit a Shift';
+		content = <EditShiftForm/>;
 
-  }
+	}
 
-  return (<ReactModal
-    isOpen={props.modalType !== null}
-    onRequestClose={() => {props.dispatch(hideModal());}}
-    contentLabel={contentLabel}
-    shouldFocusAfterRender={true}
-    shouldCloseOnOverlayClick={false}
-    appElement={document.getElementById('root')}
-  >
-    {content}
-  </ReactModal>);
+	return (<ReactModal
+		isOpen={props.modalType !== null}
+		onRequestClose={() => {props.dispatch(hideModal());}}
+		contentLabel={contentLabel}
+		shouldFocusAfterRender={true}
+		shouldCloseOnOverlayClick={false}
+		appElement={document.getElementById('root')}
+	>
+		{content}
+	</ReactModal>);
 }
 
 const mapStateToProps = state => {
-  return {
-    modalType : state.modal.modalType
-  };
+	return {
+		modalType : state.modal.modalType
+	};
+};
+
+ModalConductor.propTypes = {
+	modalType: PropTypes.string
 };
 
 export default connect(mapStateToProps)(ModalConductor);
