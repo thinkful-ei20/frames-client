@@ -7,6 +7,8 @@ import {showModal} from '../actions/modals';
 
 import './styles/card.css';
 
+// Each card is expecting: imageUrl, frameId, name, start , end 
+
 class Card extends React.Component{
 
 	constructor(props) {
@@ -23,7 +25,8 @@ class Card extends React.Component{
 
 	render() {
 
-		const {imageUrl, name, frame, id}  = this.props;
+		const {imageUrl, name, start, end, id}  = this.props;
+
 		const {isOpen} = this.state;
 		const chevron = isOpen? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
 
@@ -33,7 +36,7 @@ class Card extends React.Component{
 					<div className="card-info">
 						<div className="card-img"><img className="contain" src={imageUrl} alt={`${name}`}/></div>
 						<div className="card-name">{name}</div>
-						<div className="card-frame">{`${frame.start} to ${frame.end}`}</div>
+						<div className="card-frame">{`${start} to ${end}`}</div>
 						<button className={`opt-btn ${isOpen ? 'is-open' : ''}`} onClick={(e) => this.handleToggle(e)}>
 							{chevron}
 						</button>
