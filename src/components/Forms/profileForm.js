@@ -15,8 +15,6 @@ export class ProfileForm extends React.Component {
 			}
 		});
     
-		console.log(updatedProfile);
-		console.log(this.props.adminId);
 		this.props.dispatch(editProfile(this.props.adminId, updatedProfile))
 			.then(this.props.setEdit);
 	}
@@ -31,24 +29,28 @@ export class ProfileForm extends React.Component {
 					label="Company Name"
 					type="text"
 					component={renderField}
+					placeholder={this.props.companyName}
 				/>
 				<Field
 					name="username"
 					label="Username"
 					type="text"
 					component={renderField}
+					placeholder={this.props.username}
 				/>
 				<Field
 					name="email"
 					label="Email Address"
 					type="text"
 					component={renderField}
+					placeholder={this.props.email}
 				/>
 				<Field
 					name="phoneNumber"
 					label="Phone Number"
 					type="text"
 					component={renderField}
+					placeholder={this.props.phone}
 				/>
 				<button type="submit">
           Save
@@ -60,6 +62,10 @@ export class ProfileForm extends React.Component {
 
 ProfileForm.propTypes = {
 	adminId : PropTypes.string,
+	companyName: PropTypes.string,
+	username : PropTypes.string,
+	email : PropTypes.string,
+	phone : PropTypes.number,
 	dispatch : PropTypes.func,
 	setEdit : PropTypes.func,
 	handleSubmit : PropTypes.func
