@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { fetchProfile } from '../actions/profile';
 import InnerNav from './inner-nav';
 import Footer from './footer';
+import ProfileForm from './Forms/profileForm';
 
 export class Profile extends React.Component {
 
@@ -34,6 +35,10 @@ export class Profile extends React.Component {
           <h1>{this.props.name}</h1>
         </header>
         <section>
+          <ProfileForm 
+            adminId={this.props.adminId}
+            setEdit={() => this.setState({editing: false})}
+          />
         </section>
         <button
           onClick={() => this.handleCancel()}
