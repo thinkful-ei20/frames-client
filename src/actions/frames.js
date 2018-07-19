@@ -24,17 +24,17 @@ export const framesError = error => {
   };
 };
 
-export const fetchFrames = (adminId, start, end) => dispatch => {
+export const fetchFrames = (start, end) => dispatch => {
   const token = localStorage.getItem('authToken');
-  dispatch(requestFrames);
-  return fetch(`${API_BASE_URL}/frames/${adminId}/?startDate=${start}&endDate=${end}`, {
+  dispatch(requestFrames());
+  return fetch(`${API_BASE_URL}/frames/?startDate=${start}&endDate=${end}`, {
     method : 'GET',
     headers : {
       'Content-Type' : 'application/json',
       'Authorization' : `Bearer ${token}`
     }
   })
-    .then(res => res.normalizeResponseErrors())
+    // .then(res => res.normalizeResponseErrors())
     .then(res => res.json())
     .then(data => dispatch(framesSuccess(data)))
     .catch(error => dispatch(framesError(error.message)));
