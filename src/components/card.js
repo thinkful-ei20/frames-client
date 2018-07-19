@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {showModal} from '../actions/modals';
 
-import {}
+// import {}
 
-import './styles/card.css';
+// import './styles/card.css';
 
 class Card extends React.Component{
 
@@ -21,7 +24,7 @@ class Card extends React.Component{
 
 	render() {
 
-		const {imageUrl, name, frame}  = this.props;
+		const {imageUrl, name, frame, id}  = this.props;
 		const {isOpen} = this.state;
 		const chevron = isOpen? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
 
@@ -38,8 +41,8 @@ class Card extends React.Component{
 					</div>
 					<div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
 						<div className='card-opt-panel-body'>
-							<button className="card-opt" onClick={() => { }}>Reassign</button>
-							<button className="card-opt"onClick={() => { }}>Edit</button>
+							<button className="card-opt" onClick={() => { this.props.dispatch(showModal('reassign', id));}}>Reassign</button>
+							<button className="card-opt"onClick={() => { this.props.dispatch(showModal('edit', id));}}>Edit</button>
 						</div>
 					</div>
 				</div>
@@ -57,4 +60,8 @@ Card.propTypes = {
 	})
 };
 
-export default Card;
+// const mapDispatchToProps = (dispatch) => {
+// 	return bindActionCreators({showModal}, dispatch);
+// };
+
+export default connect()(Card);

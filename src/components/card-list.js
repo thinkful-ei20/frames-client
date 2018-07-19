@@ -8,7 +8,7 @@ import './styles/card-list.css';
 export const CardList = (props) => {
 	return(
 		<ul className="card-list">
-			{props.list.map(em => <Card imageUrl={em.img} name={em.name} key={em.id} frame={em.frame[0]}/>)}
+			{props.list.map((em,index) => <Card imageUrl={em.img} name={em.name} key={index} id={em.id} frame={em.frame[0]}/>)}
 		</ul>
 	);
 };
