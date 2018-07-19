@@ -7,6 +7,7 @@ import LoginPage from './components/loginPage';
 import Dashboard from './components/dashboard';
 import About from './components/about';
 import ModalConductor from './components/modals/modal-conductor';
+import Profile from './components/profile';
 
 export default class App extends Component {
 	render() {

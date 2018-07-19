@@ -9,7 +9,7 @@ import framesReducer from './frames';
 export default combineReducers({
 	form: formReducer,
 	auth : authReducer,
-	profile : profileReducer
+	profile : profileReducer,
 	modal : modalReducer,
 	frames : framesReducer
 });

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { fetchProfile } from '../actions/profile';
 import InnerNav from './inner-nav';
 import Footer from './footer';
-import ProfileForm from './Forms/profileForm';
+import ProfileForm from './forms/profileForm';
 
 export class Profile extends React.Component {
 
