@@ -6,9 +6,17 @@ import Card from './card';
 import './styles/card-list.css';
 
 export const CardList = (props) => {
+	console.log(props.list);
 	return(
 		<ul className="card-list">
-			{props.list.map(em => <Card imageUrl={em.img} name={em.name} key={em.id} frame={em.frame[0]}/>)}
+			{props.list.map((em,index) => 
+				<Card 
+					imageUrl={'fake.img'} 
+					name={`${em.employeeId.firstname} ${em.employeeId.lastname}`} 
+					key={index} 
+					id={em.id} 
+					start={em.startFrame} 
+					end={em.endFrame}/>)}
 		</ul>
 	);
 };
