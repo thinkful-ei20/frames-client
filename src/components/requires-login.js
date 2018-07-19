@@ -20,7 +20,7 @@ export default () => Component => {
 
 	const mapStateToProps = (state) => ({
 		authenticating: state.auth.loading,
-		loggedIn: state.auth.currentUser !== null,
+		loggedIn: state.auth.user !== null,
 		error: state.auth.error
 	});
 

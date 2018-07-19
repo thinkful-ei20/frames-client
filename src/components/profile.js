@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProfile } from '../actions/profile';
-import InnerNav from './inner-nav';
 import Footer from './footer';
 import ProfileForm from './forms/profileForm';
 import PropTypes from 'prop-types';
+import NavBar from './navBar';
 
 export class Profile extends React.Component {
 
@@ -31,7 +31,7 @@ export class Profile extends React.Component {
 
 		if (this.state.editing) {
 			return (<main>
-				<InnerNav />
+				<NavBar />
 				<header>
 					<h1>{this.props.name}</h1>
 				</header>
@@ -55,7 +55,7 @@ export class Profile extends React.Component {
 		}
 		return (
 			<main>
-				<InnerNav />
+				<NavBar />
 				<header>
 					<h1>{this.props.name}</h1>
 				</header>

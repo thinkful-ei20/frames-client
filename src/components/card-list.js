@@ -9,13 +9,13 @@ export const CardList = (props) => {
 	console.log(props.list);
 	return(
 		<ul className="card-list">
-			{props.list.map((em,index) => 
-				<Card 
-					imageUrl={'fake.img'} 
-					name={`${em.employeeId.firstname} ${em.employeeId.lastname}`} 
-					key={index} 
-					id={em.id} 
-					start={em.startFrame} 
+			{props.list.map((em,index) =>
+				<Card
+					imageUrl={'fake.img'}
+					name={`${em.employeeId.firstname} ${em.employeeId.lastname}`}
+					key={index}
+					id={em.id}
+					start={em.startFrame}
 					end={em.endFrame}/>)}
 		</ul>
 	);
