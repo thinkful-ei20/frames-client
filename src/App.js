@@ -12,7 +12,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<ModalConductor />
+				<ModalConductor/>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/register" component={RegistrationPage} />
 				<Route exact path="/login" component={LoginPage} />

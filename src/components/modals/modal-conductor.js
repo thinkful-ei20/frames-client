@@ -13,7 +13,6 @@ export function ModalConductor(props) {
 	let content;
 
 	if(props.modalType === 'reassign'){
-
 		contentLabel = 'Reassign a Shift';
 		content = <ReassignShiftForm/>;
 
@@ -21,7 +20,6 @@ export function ModalConductor(props) {
 
 		contentLabel = 'Edit a Shift';
 		content = <EditShiftForm/>;
-
 	}
 
 	return (<ReactModal

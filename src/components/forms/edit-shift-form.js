@@ -1,9 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import './styles/forms.css';
 
 export class EditShiftForm extends React.Component {
 	render() {
-		return(<div> I will be the Edit Shift form!</div>);
+		return(
+			<div className="form-wrapper">
+				<h2 className="form-header">Edit Shift</h2>
+				<form>
+					<div>{'Placeholder Text'}</div>
+				</form>
+			</div>);
 	}
 }
 
-export default EditShiftForm;
+// const mapStateToProps = state => ({
+// 	isLoading: state.employee.reassign === null,
+// });
+
+export default connect()(EditShiftForm);
