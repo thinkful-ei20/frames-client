@@ -3,25 +3,25 @@ import { normalizeResponseErrors } from './utils';
 
 export const REQUEST_FRAMES = 'REQUEST_FRAMES';
 export const requestFrames = () => {
-  return {
-    type : REQUEST_FRAMES
-  };
+	return {
+		type : REQUEST_FRAMES
+	};
 };
 
 export const FRAMES_SUCCESS = 'FRAMES_SUCCESS';
 export const framesSuccess = data => {
-  return {
-    type : FRAMES_SUCCESS,
-    data 
-  };
+	return {
+		type : FRAMES_SUCCESS,
+		data
+	};
 };
 
 export const FRAMES_ERROR = 'FRAMES_ERROR';
 export const framesError = error => {
-  return {
-    type : FRAMES_ERROR,
-    error
-  };
+	return {
+		type : FRAMES_ERROR,
+		error
+	};
 };
 
 export const fetchFrames = (start, end) => dispatch => {

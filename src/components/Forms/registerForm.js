@@ -5,7 +5,7 @@ import { createUser } from '../../actions/users';
 import RegisterFormFirstPage from './registerFormFirstPage';
 import RegisterFormSecondPage from './registerFormSecondPage';
 
-import './forms.css';
+import './styles/forms.css';
 
 export class RegisterForm extends React.Component {
   constructor() {
