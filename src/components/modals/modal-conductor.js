@@ -41,7 +41,8 @@ const mapStateToProps = state => {
 };
 
 ModalConductor.propTypes = {
-	modalType: PropTypes.string
+	modalType: PropTypes.string,
+	dispatch: PropTypes.func
 };
 
 export default connect(mapStateToProps)(ModalConductor);
