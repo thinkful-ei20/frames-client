@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {showModal} from '../actions/modals';
 
 import './styles/card.css';
+import placeholder from '../images/placeholder_person.jpg';
 
 // Each card is expecting: imageUrl, frameId, name, start , end 
 
@@ -36,12 +37,14 @@ class Card extends React.Component{
 			<li className="card">
 				<div className="card-container">
 					<div className="card-info">
-						<div className="card-img"><img className="contain" src={imageUrl} alt={`${name}`}/></div>
-						<div className="card-name">{name}</div>
-						<div className="card-frame">
-							<p>{startReadable}</p>
-							<p>to</p>
-							<p>{endReadable}</p>
+						<div className="card-img"><img className="contain" src={placeholder} alt={`${name}`}/></div>
+						<div className="card-employee">
+              <div className="card-name">{name}</div>
+              <div className="card-frame">
+                <p>{startReadable} - {endReadable}</p>
+                {/*<p>to</p>*/}
+                {/*<p>{endReadable}</p>*/}
+              </div>
 						</div>
 						<button className={`opt-btn ${isOpen ? 'is-open' : ''}`} onClick={(e) => this.handleToggle(e)}>
 							{chevron}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import moment from 'moment';
 import CardList from './card-list';
 import NavBar from './navBar';
@@ -10,10 +9,13 @@ import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
 import { getThisWeek } from '../actions/utils';
 
+import './styles/dashboard.css';
+
 export class Dashboard extends React.Component {
 
 	componentDidMount() {
 		const dates = getThisWeek();
+		console.log('DATES', dates);
 		this.props.dispatch(fetchFrames(dates.start, dates.end));
 	}
 
@@ -22,19 +24,23 @@ export class Dashboard extends React.Component {
 			console.log('LOADING ..... FETCHING FRAMES');
 			return (<div>Loading...</div>);
 		}
-		if (this.props.error){
-			return (<div>{this.props.error}</div>);
-		}
+		// if (this.props.error){
+		// 	return (<div>{this.props.error}</div>);
+		// }
 
 		return(
 			<div className="dashboard">
-				<NavBar/>
-				<h1>DashBoard!</h1>
+				{/*<NavBar/>*/}
+				<h1
+					className="dashboard-header"
+				>
+					DASHBOARD
+				</h1>
 				<div>July, 20</div>
-				<div>
-					<div>
-            <div>Employee</div>
-            <div>Shifts</div>
+				<section className="dashboard-section">
+					<div className="dashboard-section-header">
+            <div>EMPLOYEES</div>
+            {/*<div>Shifts</div>*/}
 					</div>
 					{this.props.frames.length
 						?
@@ -42,7 +48,7 @@ export class Dashboard extends React.Component {
 						:
 						<div>No data</div>
 					}
-				</div>
+				</section>
 			</div>
 		);
 	}
