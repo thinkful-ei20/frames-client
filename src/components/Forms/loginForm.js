@@ -10,7 +10,7 @@ export class LoginForm extends React.Component {
 	onSubmit = (values) => {
 		console.log('Submit LoginForm ran');
 		return this.props.dispatch(login(values.username, values.password));
-	}
+	};
 
 	render() {
 		let error;

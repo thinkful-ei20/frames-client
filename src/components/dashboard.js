@@ -17,6 +17,7 @@ export class Dashboard extends React.Component {
 
 	render() {
 		if (this.props.loading){
+			console.log('LOADING ..... FETCHING FRAMES');
 			return (<div>Loading...</div>);
 		}
 		if (this.props.error){
