@@ -30,7 +30,7 @@ class Card extends React.Component{
 		const endReadable = new Date(end).toUTCString();
 
 		const {isOpen} = this.state;
-		const chevron = isOpen? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
+		const chevron = isOpen ? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
 
 		return(
 			<li className="card">
