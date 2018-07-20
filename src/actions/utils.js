@@ -19,8 +19,6 @@ export const normalizeResponseErrors = res => {
 		});
 	}
 	return res;
-<<<<<<< HEAD
-=======
 };
 
 export const getToday = () => {
@@ -32,5 +30,4 @@ export const getToday = () => {
 		start,
 		end
 	};
->>>>>>> 478c6b6144623fc35dbfcf874333806ab54c6e97
 };

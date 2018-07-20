@@ -31,12 +31,12 @@ export class Dashboard extends React.Component {
 				<div>July, 20</div>
 				<div>
 					<div>
-            <div>Employee</div>
-            <div>Shifts</div>
+						<div>Employee</div>
+						<div>Shifts</div>
 					</div>
 					{this.props.frames.length
 						?
-            <CardList list={this.props.frames} />
+						<CardList list={this.props.frames} />
 						:
 						<div>No data</div>
 					}
