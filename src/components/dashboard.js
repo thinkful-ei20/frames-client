@@ -9,12 +9,13 @@ import './styles/dashboard.css';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
 import { getThisWeek } from '../actions/utils';
+import {fetchEmployees} from '../actions/employee';
 
 export class Dashboard extends React.Component {
 
 	componentDidMount() {
-		const dates = getThisWeek();
-		this.props.dispatch(fetchFrames(dates.start, dates.end));
+		this.props.dispatch(fetchFrames('2018-05-17 10:00:00.000', '2018-10-19 13:00:00.000'));
+		this.props.dispatch(fetchEmployees());
 	}
 
 	render() {

@@ -24,10 +24,10 @@ export const reassignError = error => {
 	};
 };
 
-export const fetchReassignShift = (data) => dispatch => {
+export const fetchReassignShift = (frameId, data) => dispatch => {
 	const token = localStorage.getItem('authToken');
 	dispatch(reassignShift());
-	return fetch(`${API_BASE_URL}/frames/frames/${data.frameId}`, {
+	return fetch(`${API_BASE_URL}/frames/frame/${frameId}`, {
 		method: 'PUT',
 		headers : {
 			'Content-Type' : 'application/json',

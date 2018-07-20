@@ -5,11 +5,13 @@ import authReducer from './auth';
 import profileReducer from './profile';
 import modalReducer from './modals';
 import framesReducer from './frames';
+import employeesReducer from './employees';
 
 export default combineReducers({
 	form: formReducer,
 	auth : authReducer,
 	profile : profileReducer,
 	modal : modalReducer,
-	frames : framesReducer
+	frames : framesReducer,
+	employees : employeesReducer
 });
