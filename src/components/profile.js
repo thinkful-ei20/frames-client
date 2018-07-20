@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { fetchProfile } from '../actions/profile';
 import Footer from './footer';
 import ProfileForm from './forms/profileForm';
@@ -18,22 +19,20 @@ export class Profile extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.dispatch(fetchProfile(this.props.adminId));
+		this.props.dispatch(fetchProfile(this.props.adminId.id));
 	}
 
 	handleEdit = () => {
 		this.setState({ editing: !this.state.editing });
 	};
 
-	handleCancel = () => {
-		this.setState({ editing: false });
-  };
-
 	render() {
+		if (!this.props.loggedIn) {
+      return <Redirect to='/' />;
+		}
+
 		return (
-
 			<main className="profile-wrapper">
-
 				<header className="profile-header">
           <h2>Account Settings</h2>
 					<div>
@@ -44,7 +43,6 @@ export class Profile extends React.Component {
           </button>
 					</div>
 				</header>
-
 					{this.state.editing
 					?
             <ProfileForm
@@ -55,7 +53,7 @@ export class Profile extends React.Component {
                 email:this.props.email,
                 phoneNumber:this.props.phone
               }}
-              setEdit={this.handleCancel}
+              setEdit={this.handleEdit}
             />
 					:
             <section className="profile-section">
@@ -73,7 +71,6 @@ export class Profile extends React.Component {
 							</div>
             </section>
 					}
-
 				<Footer />
 			</main>
 		);
@@ -82,7 +79,8 @@ export class Profile extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		adminId: state.auth.user.id,
+		loggedIn: state.auth.authToken !== null,
+		adminId: state.auth.user,
 		username: state.profile.data.username,
 		name: state.profile.data.companyName,
 		phone: state.profile.data.phoneNumber,
@@ -92,7 +90,7 @@ const mapStateToProps = state => {
 
 Profile.propTypes = {
 	dispatch: PropTypes.func,
-	adminId: PropTypes.string,
+	adminId: PropTypes.object,
 	name: PropTypes.string,
 	username: PropTypes.string,
 	email: PropTypes.string,
