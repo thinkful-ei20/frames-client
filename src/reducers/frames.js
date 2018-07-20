@@ -7,8 +7,9 @@ const initialState = {
 	error: null
 };
 
+
 export default function framesReducer(state = initialState, action) {
-	if (action.type === REQUEST_FRAMES || REQUEST_EDIT_FRAME){
+	if (action.type === (REQUEST_FRAMES || REQUEST_EDIT_FRAME)){
 		return {
 			...state,
 			loading: true
@@ -24,7 +25,7 @@ export default function framesReducer(state = initialState, action) {
 		};
 	}
 
-	if (action.type === FRAMES_ERROR || EDIT_FRAME_ERROR){
+	if (action.type === (FRAMES_ERROR || EDIT_FRAME_ERROR)){
 		return {
 			...state,
 			loading: false,
