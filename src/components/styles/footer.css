@@ -2,51 +2,52 @@
   .footer-style {
     position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    right: 0px;
+    left: 0px;
     bottom: 0px;
-    height: 75px;
+    height: 50px;
     width: 100%;
     padding: 0px;
     margin: 0px;
-    color: #A8C686;
-    background-color: #231F20;
-    border-top: 2px solid #A8C686;
+    color: #edeef0;
+    background-color: #232633;
+    border-top: 1px solid #35df5c;
   }
 
   .footer-style p {
     display: flex;
+    width: 165px;
     padding: 10px 0px 0px 10px;
     margin: 0px 0px 0px 0px;
-    font-size: 12px;
-    /* border: 1px solid red; */
+    font-size: 10px;
   }
 
   .footer-style ul {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    /* border: 1px solid red; */
-    /* list-style-type: none; */
   }
 
   .footer-style li {
     display: flex;
     justify-content: flex-end;
-    /* list-style-type: none; */
   }
 
   .footer-style li img {
     height: 12px;
     width: 12px;
     margin-left: 3px;
-    background-color: #A8C686;
+    background-color: #edeef0;
     border-radius: 5px;
   }
 
   .footer-style li a {
-    font-size: 12px;
+    font-size: 10px;
     text-decoration: none;
-    color: #A8C686;
+    color: #edeef0;
   }
 }
 
@@ -56,14 +57,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    right: 0px;
+    left: 0px;
     bottom: 0px;
     height: 75px;
     width: 100%;
     padding: 0px;
     margin: 0px;
-    color: #A8C686;
-    background-color: #231F20;
-    border-top: 2px solid #A8C686;
+    color: #edeef0;
+    background-color: #232633;
+    border-top: 1px solid #35df5c;
   }
 
   .footer-style p {
@@ -89,13 +92,13 @@
     height: 12px;
     width: 12px;
     margin-left: 3px;
-    background-color: #A8C686;
+    background-color: #edeef0;
     border-radius: 5px;
   }
 
   .footer-style li a {
     font-size: 12px;
     text-decoration: none;
-    color: #A8C686;
+    color: #edeef0;
   }
 }

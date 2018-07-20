@@ -3,6 +3,7 @@ import {SubmissionError} from 'redux-form';
 import { API_BASE_URL } from '../config';
 import {normalizeResponseErrors} from './utils';
 
+// Puts full authToken into Redux state
 export const SET_TOKEN = 'SET_TOKEN';
 export const setToken = token => {
 	return {
@@ -11,6 +12,7 @@ export const setToken = token => {
 	};
 };
 
+// Removes authToken & user info from Redux state
 export const CLEAR_TOKEN = 'CLEAR_TOKEN';
 export const clearToken = () => {
 	return {
@@ -18,6 +20,7 @@ export const clearToken = () => {
 	};
 };
 
+// Set loading to true
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const requestLogin = () => {
 	return {
@@ -25,6 +28,7 @@ export const requestLogin = () => {
 	};
 };
 
+// Set loading to false & add user to Redux state
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const loginSuccess = user => {
 	return {
@@ -33,6 +37,7 @@ export const loginSuccess = user => {
 	};
 };
 
+// Set loading to false & add error to redux state
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const loginError = error => {
 	return {
@@ -45,8 +50,9 @@ export const loginError = error => {
 export const storeToken = (token, dispatch) => {
 	const decodedToken = jwtDecode(token);
 	dispatch(setToken(decodedToken));
-  localStorage.setItem('authToken', token);
-  dispatch(loginSuccess(decodedToken.user));
+	// set local storage BEFORE sending decoded token to avoid timing errors
+	localStorage.setItem('authToken', token);
+	dispatch(loginSuccess(decodedToken.user));
 };
 
 // Asynch login call
@@ -67,7 +73,6 @@ export const login = (username, password) => dispatch => {
 			.then(res => res.json())
 			.then(({authToken}) => storeToken(authToken, dispatch))
 			.catch(error => {
-				console.log('LOGIN ERROR', error);
 				const {status} = error.error;
 				const message = status === 401 ? 'Incorrect username or password' : 'Unable to login , please try again';
 				dispatch(loginError(error));
@@ -76,6 +81,7 @@ export const login = (username, password) => dispatch => {
 	);
 };
 
+// asynch logout function to clear both Redux and LocalStorage
 export const logout = () => dispatch => {
 	dispatch(clearToken());
 	localStorage.clear();
