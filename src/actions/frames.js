@@ -34,7 +34,7 @@ export const fetchFrames = (start, end) => dispatch => {
 			'Authorization' : `Bearer ${token}`
 		}
 	})
-	// .then(res => res.normalizeResponseErrors())
+		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(data => dispatch(framesSuccess(data)))
 		.catch(error => dispatch(framesError(error.message)));
