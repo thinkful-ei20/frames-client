@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard';
 import About from './components/about';
 import ModalConductor from './components/modals/modal-conductor';
 import Profile from './components/profile';
+import Footer from './components/footer';
 
 export default class App extends Component {
 	render() {
@@ -21,6 +22,7 @@ export default class App extends Component {
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/about" component={About} />
 				<Route exact path="/profile" component={Profile} />
+				<Footer />
 			</div>
 		);
 	}
