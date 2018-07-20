@@ -1,16 +1,18 @@
 .card {
 	display: block;
-	border: 2px solid #1Eb980;
-	background-color: #045D64;
+	/*border: 2px solid #1Eb980;*/
+	/*background-color: #045D64;*/
 	border-radius: 3px;
-	padding: 1em;
-	margin: 0.5em 0;
+	/*padding: 2.5%;*/
+	/*margin: 0.5em 0;*/
 }
 
 .card-container {
 	max-width: 40em;
 	transition: 0.5s ease all;
+
 }
+
 
 .card-info {
 	display: flex;
@@ -18,11 +20,13 @@
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
+
 }
 
 .card-name, .card-frame, .card-img {
 	display: inline-block;
 	vertical-align: middle;
+
 }
 
 .card-img {
@@ -33,6 +37,11 @@
 	background-color:whitesmoke;
 }
 
+.card-employee {
+	display: flex;
+	flex-direction: column;
+}
+
 .contain {
 	height: 100%;
 	width: 100%;
@@ -40,7 +49,7 @@
 }
 
 .card-name, .card-frame {
-	font-size: 20px;
+	font-size: 15px;
 	color: whitesmoke;
 }
 
@@ -48,7 +57,7 @@
 	border: none;
 	background: transparent;
 	color: whitesmoke;
-	font-size: 50px;
+	font-size: 25px;
 }
 
 .card-opt-panel {

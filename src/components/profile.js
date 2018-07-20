@@ -73,7 +73,6 @@ export class Profile extends React.Component {
 							</div>
             </section>
 					}
-				<Footer />
 			</main>
 		);
 	}

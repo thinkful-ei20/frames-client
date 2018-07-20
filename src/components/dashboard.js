@@ -10,31 +10,35 @@ import PropTypes from 'prop-types';
 
 import './styles/dashboard.css';
 
+import './styles/dashboard.css';
+
 export class Dashboard extends React.Component {
 
 	componentDidMount() {
 		const dates = getThisWeek();
 		this.props.dispatch(fetchFrames(dates.start, dates.end));
-		this.props.dispatch(fetchEmployees());
 	}
 
 	render() {
 		if (this.props.loading){
 			return (<div>Loading...</div>);
 		}
-		if (this.props.error){
-			return (<div>{this.props.error}</div>);
-		}
+		// if (this.props.error){
+		// 	return (<div>{this.props.error}</div>);
+		// }
 
 		return(
 			<div className="dashboard">
-				<NavBar/>
-				<h1>DashBoard!</h1>
+				{/*<NavBar/>*/}
+				<h1
+					className="dashboard-header"
+				>
+					DASHBOARD
+				</h1>
 				<div>July, 20</div>
-				<div>
-					<div>
-						<div>Employee</div>
-						<div>Shifts</div>
+				<section className="dashboard-section">
+					<div className="dashboard-section-header">
+            <div>EMPLOYEES</div>
 					</div>
 					{this.props.frames.length
 						?
@@ -42,7 +46,7 @@ export class Dashboard extends React.Component {
 						:
 						<div>No data</div>
 					}
-				</div>
+				</section>
 			</div>
 		);
 	}
