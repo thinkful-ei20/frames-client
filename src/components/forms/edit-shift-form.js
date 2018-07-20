@@ -39,8 +39,8 @@ export class EditShiftForm extends React.Component {
 	}
 }
 
-// const mapStateToProps = state => ({
-// 	isLoading: state.employee.reassign === null,
-// });
+const mapStateToProps = state => ({
+	
+});
 
 export default connect()(EditShiftForm);
