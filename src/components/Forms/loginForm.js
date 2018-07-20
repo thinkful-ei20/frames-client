@@ -7,7 +7,7 @@ import { login } from '../../actions/auth';
 import {required, nonEmpty, isTrimmed} from './formValidators';
 
 export class LoginForm extends React.Component {
-	onSubmit (values) {
+	onSubmit = (values) => {
 		console.log('Submit LoginForm ran');
 		return this.props.dispatch(login(values.username, values.password));
 	}
