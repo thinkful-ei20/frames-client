@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
+import NavBar from './components/navBar';
 import LandingPage from './components/landingPage';
 import RegistrationPage from './components/registrationPage';
 import Dashboard from './components/dashboard';
@@ -12,6 +13,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div className="App">
+        <NavBar />
 				<ModalConductor/>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/register" component={RegistrationPage} />

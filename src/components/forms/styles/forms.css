@@ -1,3 +1,12 @@
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
 .form-wrapper {
     border: 1px solid #a6a1a1;
     margin: 0 auto;
@@ -40,4 +49,34 @@
 .form-field-error, .form-field label {
     font-size: 11px;
 
+}
+
+.profile-form-wrapper {
+    border: none;
+    animation: fadein 0.5s;
+}
+
+.profile-save-btn-wrapper {
+    text-align: right;
+}
+
+.profile-save-btn {
+    border-radius: 50px;
+    background: transparent;
+    padding: 10px 50px;
+    border: 2px solid #35df5c;
+    color: #35df5c;
+    text-transform: uppercase;
+    font-size: 11px;
+    transition-property: background,color;
+    transition-duration: .2s;
+}
+
+.profile-save-btn:hover,
+.profile-save-btn:focus {
+    color: black;
+    background: #35df5c;
+    cursor: pointer;
+    transition-property: background,color;
+    transition-duration: .2s;
 }

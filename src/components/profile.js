@@ -6,10 +6,12 @@ import ProfileForm from './forms/profileForm';
 import PropTypes from 'prop-types';
 import NavBar from './navBar';
 
+import './profile.css';
+
 export class Profile extends React.Component {
 
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
 			editing: false
 		};
@@ -19,9 +21,9 @@ export class Profile extends React.Component {
 		this.props.dispatch(fetchProfile(this.props.adminId));
 	}
 
-	handleEdit() {
-		this.setState({ editing: true });
-	}
+	handleEdit = () => {
+		this.setState({ editing: !this.state.editing });
+	};
 
 	handleCancel = () => {
 		this.setState({ editing: false });
@@ -29,12 +31,20 @@ export class Profile extends React.Component {
 
 	render() {
 		return (
-			<main>
-				<NavBar />
-				<header>
-          <h1>Account Settings</h1>
+
+			<main className="profile-wrapper">
+
+				<header className="profile-header">
+          <h2>Account Settings</h2>
+					<div>
+						<button
+							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
+            	onClick={this.handleEdit}
+          >
+          </button>
+					</div>
 				</header>
-				<section>
+
 					{this.state.editing
 					?
             <ProfileForm
@@ -48,29 +58,22 @@ export class Profile extends React.Component {
               setEdit={this.handleCancel}
             />
 					:
-						<React.Fragment>
-              <ul>
-                <li>
-                  <h2>Username</h2>
-                  <p>{this.props.username}</p>
-                </li>
-                <li>
-                  <h2>Email Address</h2>
-                  <p>{this.props.email}</p>
-                </li>
-                <li>
-                  <h2>Phone Number</h2>
-                  <p>{this.props.phone}</p>
-                </li>
-              </ul>
-              <button
-                onClick={() => this.handleEdit()}
-              >
-                Edit
-              </button>
-						</React.Fragment>
+            <section className="profile-section">
+							<div className="profile-section-details">
+                <h3>Username</h3>
+                <p>{this.props.username}</p>
+							</div>
+              <div className="profile-section-details">
+                <h3>Email</h3>
+                <p>{this.props.email}</p>
+							</div>
+              <div className="profile-section-details">
+                <h3>Phone</h3>
+                <p>{this.props.phone}</p>
+							</div>
+            </section>
 					}
-				</section>
+
 				<Footer />
 			</main>
 		);
