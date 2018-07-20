@@ -16,15 +16,15 @@ export class ProfileForm extends React.Component {
 				updatedProfile[key] = values[key];
 			}
 		});
-
-		this.props.dispatch(editProfile(this.props.adminId, updatedProfile))
+		console.log('UPDATED PROFILE', updatedProfile);
+		console.log('ADMIN ID FROM PROFILE FORM', this.props);
+		this.props.dispatch(editProfile(this.props.initialValues.adminId, updatedProfile))
 			.then(this.props.setEdit);
 	}
 
 	render() {
 		return (
 			<form
-				model="user"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
 			>
 				<Field

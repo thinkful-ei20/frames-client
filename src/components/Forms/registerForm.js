@@ -39,7 +39,7 @@ export class RegisterForm extends React.Component {
 
   render() {
 
-    if(this.props.loggedin){
+    if(this.props.loggedIn){
       return <Redirect to="/dashboard" />;
     }
 

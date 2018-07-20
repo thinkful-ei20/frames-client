@@ -43,8 +43,8 @@ export class Profile extends React.Component {
 							companyName:this.props.name,
 							username:this.props.username,
 							email:this.props.email,
-							phoneNumber:this.props.phone}
-						}
+							phoneNumber:this.props.phone
+						}}
 						setEdit={() => this.setState({ editing: false })}
 					/>
 				</section>

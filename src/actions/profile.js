@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config';
 import { logout } from './auth';
+import { normalizeResponseErrors } from './utils';
 
 export const REQUEST_PROFILE = 'REQUEST_PROFILE';
 export const requestProfile = () => {
@@ -27,6 +28,7 @@ export const profileError = error => {
 export const fetchProfile = adminId => dispatch => {
 	const token = localStorage.getItem('authToken');
 	dispatch(requestProfile());
+	console.log('FETCH PROFILE RAN');
 	return fetch(`${API_BASE_URL}/admin/${adminId}`,{
 		method : 'GET',
 		headers : {
@@ -34,6 +36,7 @@ export const fetchProfile = adminId => dispatch => {
 			'Authorization' : `Bearer ${token}`
 		}
 	})
+		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(data => {
 			dispatch(profileSuccess(data));
@@ -55,8 +58,10 @@ export const editProfile = (adminId, updatedProfile) => dispatch => {
 			'Authorization' : `Bearer ${token}`
 		},
 		body : JSON.stringify(updatedProfile)})
+		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(() => {
+			console.log('SUCCESS EDIT PROFILE');
 			dispatch(fetchProfile(adminId));
 		})
 		.catch(err => dispatch(profileError(err)));
