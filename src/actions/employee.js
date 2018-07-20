@@ -26,7 +26,7 @@ export const employeesError = error => {
 	};
 };
 
-
+// Asynch action to fetch all employees from server
 export const fetchEmployees = () => dispatch => {
 	const token = localStorage.getItem('authToken');
 	dispatch(requestEmployees());

@@ -1,6 +1,7 @@
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
+// Set loading to true
 export const REQUEST_FRAMES = 'REQUEST_FRAMES';
 export const requestFrames = () => {
 	return {
@@ -8,6 +9,7 @@ export const requestFrames = () => {
 	};
 };
 
+// Set loading to false and update frames state
 export const FRAMES_SUCCESS = 'FRAMES_SUCCESS';
 export const framesSuccess = data => {
 	return {
@@ -16,6 +18,7 @@ export const framesSuccess = data => {
 	};
 };
 
+// Set loading to false and update error.message
 export const FRAMES_ERROR = 'FRAMES_ERROR';
 export const framesError = error => {
 	return {
@@ -24,6 +27,7 @@ export const framesError = error => {
 	};
 };
 
+// Fech all frames for a certain time span- must match current logged in user's adminID
 export const fetchFrames = (start, end) => dispatch => {
 	const token = localStorage.getItem('authToken');
 	dispatch(requestFrames());
@@ -38,8 +42,8 @@ export const fetchFrames = (start, end) => dispatch => {
 		.then(res => res.json())
 		.then(data => {
 			dispatch(framesSuccess(data));
-    })
+		})
 		.catch(error => {
 			dispatch(framesError(error.message));
-    });
+		});
 };

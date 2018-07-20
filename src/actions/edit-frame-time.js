@@ -1,6 +1,6 @@
 import {API_BASE_URL} from '../config';
 import { fetchFrames } from './frames';
-import { normalizeResponseErrors, getToday } from './utils';
+import { normalizeResponseErrors, getThisWeek } from './utils';
 import { hideModal } from './modals';
 
 // Set loading to true
@@ -25,7 +25,7 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 	dispatch(requestEditFrame());
 	const token = localStorage.getItem('authToken');
 	// Get Date information for next frames fetch
-	const today = getToday();
+	const today = getThisWeek();
 
 	return fetch(`${API_BASE_URL}/frames/frame/${frameId}`, {
 		method : 'PUT',

@@ -22,11 +22,8 @@ export class ReassignShiftForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const data = new FormData(e.target);
-		const dates = getThisWeek();
 		const employeeId = data.get('employee-select');
 		this.props.dispatch(fetchReassignShift(this.props.frameId, {employeeId}));
-		this.props.dispatch(hideModal());
-		this.props.dispatch(fetchFrames(dates.start, dates.end));
 	}
 
 	render() {
