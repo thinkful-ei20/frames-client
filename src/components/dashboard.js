@@ -8,11 +8,13 @@ import NavBar from './navBar';
 import './styles/dashboard.css';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
+import { fetchEmployees } from '../actions/employee';
 
 export class Dashboard extends React.Component {
 
 	componentDidMount() {
 		this.props.dispatch(fetchFrames('2018-05-17 10:00:00.000', '2018-10-19 13:00:00.000'));
+		this.props.dispatch(fetchEmployees());
 	}
 
 	render() {
