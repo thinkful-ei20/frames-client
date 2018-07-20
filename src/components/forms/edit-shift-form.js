@@ -10,15 +10,18 @@ export class EditShiftForm extends React.Component {
 
 	handleSubmit(e){
 		e.preventDefault();
+		//Grab data from the form and descructure into an object to send to the server
 		const data = new FormData(e.target);
 		const updatedFrame = {
 			startFrame : data.get('startDate'),
 			endFrame : data.get('endDate')
 		};
+		// grab the id of the current frame from the modal state
 		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
 	}
 
 	render() {
+		// Default values = the current start/end of the frame
 		const defaultStart = this.props.currentFrame.startFrame;
 		const defaultEnd = this.props.currentFrame.endFrame;
 
@@ -59,7 +62,7 @@ EditShiftForm.propTypes = {
 	currentFrame : PropTypes.object
 };
 
-const mapStateToProps = state => { 
+const mapStateToProps = state => {
 	const id = state.modal.currentId;
 	return {
 		currentFrame : state.frames.frames.filter(frame => frame.id === id)[0]

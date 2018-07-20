@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './styles/forms.css';
 
 export const Field = props => {
@@ -8,7 +8,6 @@ export const Field = props => {
 		<div className="form-field" id={props.id}>
 			<label htmlFor={props.input.name}>{props.label}
 				<Element
-					// id={props.input.name}
 					className={(props.meta.error && props.meta.touched) ? 'error-border' : 'placeholder-class'}
 					type={props.type}
 					value={props.value}
@@ -27,10 +26,19 @@ export const Field = props => {
       props.meta.touched &&
       <div className="form-error" aria-live="polite" role="alert">{props.meta.error}</div>}
 		</div>
-	// </React.Fragment>
 	);
 };
 
-
+Field.propTypes = {
+	element : PropTypes.string,
+	input : PropTypes.object,
+	id : PropTypes.string,
+	label : PropTypes.string,
+	meta : PropTypes.object,
+	type : PropTypes.string,
+	value : PropTypes.any,
+	placeholder : PropTypes.string,
+	children : PropTypes.any
+};
 
 export default Field;
