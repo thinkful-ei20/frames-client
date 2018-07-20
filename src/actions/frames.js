@@ -25,7 +25,10 @@ export const framesError = error => {
 };
 
 export const fetchFrames = (start, end) => dispatch => {
+	console.log('START DATE', start);
+	console.log('END DATE', end);
 	const token = localStorage.getItem('authToken');
+	console.log('TOKEN', token);
 	dispatch(requestFrames());
 	return fetch(`${API_BASE_URL}/frames/?startDate=${start}&endDate=${end}`, {
 		method : 'GET',
@@ -36,6 +39,12 @@ export const fetchFrames = (start, end) => dispatch => {
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(data => dispatch(framesSuccess(data)))
-		.catch(error => dispatch(framesError(error.message)));
+		.then(data => {
+			console.log('FRAMES DATA', data);
+			dispatch(framesSuccess(data))
+    })
+		.catch(error => {
+			console.log('ERROR FETCHING FRAMES', error);
+			dispatch(framesError(error.message))
+    });
 };
