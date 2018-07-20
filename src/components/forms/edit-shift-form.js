@@ -3,14 +3,29 @@ import {connect} from 'react-redux';
 
 import './styles/forms.css';
 import { hideModal } from '../../actions/modals';
+import { editFrame } from '../../actions/edit-frame-time';
+import PropTypes from 'prop-types';
 
 export class EditShiftForm extends React.Component {
+
+	handleSubmit(e){
+		e.preventDefault();
+		const data = new FormData(e.target);
+		const updatedFrame = {
+			startFrame : data.get('startDate'),
+			endFrame : data.get('endDate')
+		};
+		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
+	}
+
 	render() {
-		console.log(this.props);
+		const defaultStart = this.props.currentFrame.startFrame;
+		const defaultEnd = this.props.currentFrame.endFrame;
+
 		return(
 			<div className="form-wrapper">
 				<h2 className="form-header">Edit Shift</h2>
-				<form>
+				<form onSubmit={(e) => this.handleSubmit(e)}>
 					<fieldset>
 						<legend>
 							Choose New Start Time or Date
@@ -20,14 +35,14 @@ export class EditShiftForm extends React.Component {
 							type="datetime-local"
 							id="startDate"
 							name="startDate"
-							value="2018-06-12T19:30" //To be pulled from server
+							defaultValue={defaultStart.slice(0, -1)} //To be pulled from server
 						/>
 						<label htmlFor="endDate">End Time</label>
 						<input
 							type="datetime-local"
 							id="endDate"
 							name="endDate"
-							value="2018-06-12T19:30" //To be pulled from server
+							defaultValue={defaultEnd.slice(0,-1)} //To be pulled from server
 						/>
 					</fieldset>
 					<button type='submit'>Change Shift</button>
@@ -39,8 +54,16 @@ export class EditShiftForm extends React.Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	
-});
+EditShiftForm.propTypes = {
+	dispatch : PropTypes.func,
+	currentFrame : PropTypes.object
+};
 
-export default connect()(EditShiftForm);
+const mapStateToProps = state => { 
+	const id = state.modal.currentId;
+	return {
+		currentFrame : state.frames.frames.filter(frame => frame.id === id)[0]
+	};
+};
+
+export default connect(mapStateToProps)(EditShiftForm);
