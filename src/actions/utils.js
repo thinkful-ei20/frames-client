@@ -31,3 +31,14 @@ export const getToday = () => {
 		end
 	};
 };
+
+export const getThisWeek = () => {
+	const start = new Date().toISOString();
+	let end = new Date();
+	end.setDate(end.getDate() + 7);
+	end = end.toISOString();
+	return {
+		start,
+		end
+	};
+};

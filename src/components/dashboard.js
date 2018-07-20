@@ -8,7 +8,8 @@ import NavBar from './navBar';
 import './styles/dashboard.css';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
-import { fetchEmployees } from '../actions/employee';
+import { getThisWeek } from '../actions/utils';
+import {fetchEmployees} from '../actions/employee';
 
 export class Dashboard extends React.Component {
 
