@@ -17,6 +17,7 @@ export class ReassignShiftForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+		
 	}
 
 	render() {

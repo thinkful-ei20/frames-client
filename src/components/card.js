@@ -28,7 +28,7 @@ class Card extends React.Component{
 		const {imageUrl, name, start, end, id}  = this.props;
 
 		const {isOpen} = this.state;
-		const chevron = isOpen? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
+		const chevron = isOpen ? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
 
 		return(
 			<li className="card">
