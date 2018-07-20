@@ -1,6 +1,6 @@
 import { API_BASE_URL } from '../config';
-// import { normalizeResponseErrors } from './utils';
 
+// Set loading to true
 export const REQUEST_EMPLOYEES = 'REQUEST_EMPLOYEES';
 export const requestEmployees = () => {
 	return {
@@ -8,6 +8,7 @@ export const requestEmployees = () => {
 	};
 };
 
+// Set loading to false and add array of employees
 export const EMPLOYEES_SUCCESS = 'EMPLOYEES_SUCCESS';
 export const employeesSuccess = data => {
 	return {
@@ -16,6 +17,7 @@ export const employeesSuccess = data => {
 	};
 };
 
+//Set loading to false and add error.message
 export const EMPLOYEES_ERROR = 'EMPLOYEES_ERROR';
 export const employeesError = error => {
 	return {
@@ -26,17 +28,16 @@ export const employeesError = error => {
 
 
 export const fetchEmployees = () => dispatch => {
-  const token = localStorage.getItem('authToken');
-  dispatch(requestEmployees());
-  return fetch(`${API_BASE_URL}/employee`, {
-    method : 'GET',
-    headers : {
+	const token = localStorage.getItem('authToken');
+	dispatch(requestEmployees());
+	return fetch(`${API_BASE_URL}/employee`, {
+		method : 'GET',
+		headers : {
 			'Content-Type' : 'application/json',
 			'Authorization' : `Bearer ${token}`
 		}
-  })
-  // .then(res => res.normalizeResponseErrors())
-	.then(res => res.json())
-	.then(data => dispatch(employeesSuccess(data)))
-	.catch(error => dispatch(employeesError(error.message)));
+	})
+		.then(res => res.json())
+		.then(data => dispatch(employeesSuccess(data)))
+		.catch(error => dispatch(employeesError(error.message)));
 };
