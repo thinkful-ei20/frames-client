@@ -19,4 +19,18 @@ export const normalizeResponseErrors = res => {
 		});
 	}
 	return res;
+<<<<<<< HEAD
+=======
+};
+
+export const getToday = () => {
+	const start = new Date().toISOString();
+	let end = new Date();
+	end.setHours(end.getHours() + 24);
+	end = end.toISOString();
+	return {
+		start,
+		end
+	};
+>>>>>>> 478c6b6144623fc35dbfcf874333806ab54c6e97
 };

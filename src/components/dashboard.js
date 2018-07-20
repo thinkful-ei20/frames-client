@@ -28,7 +28,19 @@ export class Dashboard extends React.Component {
 			<div className="dashboard">
 				<NavBar/>
 				<h1>DashBoard!</h1>
-				<CardList list={this.props.frames}/>
+				<div>July, 20</div>
+				<div>
+					<div>
+            <div>Employee</div>
+            <div>Shifts</div>
+					</div>
+					{this.props.frames.length
+						?
+            <CardList list={this.props.frames} />
+						:
+						<div>No data</div>
+					}
+				</div>
 			</div>
 		);
 	}

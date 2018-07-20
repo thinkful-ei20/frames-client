@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import './styles/forms.css';
+import { fetchReassignShift } from '../../actions/reassignShift';
 
 export class ReassignShiftForm extends React.Component {
 
@@ -17,18 +18,21 @@ export class ReassignShiftForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		
+		console.log(e);
+		// this.props.dispatch(fetchReassignShift(e.data));
 	}
 
 	render() {
-		const employee = 'I Am place holder Employee!';
 		return(
 			<div className="form-wrapper">
 				<h2 className="form-header">Reassign Shift</h2>
 				<form onSubmit={this.handleSubmit}>
 					<select>
-						<option value='something'>{employee}</option>
+						<option value='Employee1'>Employee1</option>
+						<option value='Employee1'>Employee2</option>
+						<option value='OPEN'>OPEN</option>
 					</select>
+					<button type="submit">Submit</button>
 				</form>
 			</div>);
 	}

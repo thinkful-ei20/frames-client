@@ -1,5 +1,6 @@
 import { REQUEST_FRAMES, FRAMES_SUCCESS, FRAMES_ERROR } from '../actions/frames';
 import { REASSIGN_SHIFT, REASSIGN_SUCCESS, REASSIGN_ERROR } from '../actions/reassignShift';
+import { REQUEST_EDIT_FRAME, EDIT_FRAME_ERROR } from '../actions/edit-frame-time';
 
 const initialState = {
 	frames: [],
@@ -8,7 +9,7 @@ const initialState = {
 };
 
 export default function framesReducer(state = initialState, action) {
-	if (action.type === REQUEST_FRAMES){
+	if (action.type === REQUEST_FRAMES || REQUEST_EDIT_FRAME){
 		return {
 			...state,
 			loading: true
@@ -24,7 +25,7 @@ export default function framesReducer(state = initialState, action) {
 		};
 	}
 
-	if (action.type === FRAMES_ERROR){
+	if (action.type === FRAMES_ERROR || EDIT_FRAME_ERROR){
 		return {
 			...state,
 			loading: false,
