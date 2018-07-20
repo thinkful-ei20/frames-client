@@ -6,8 +6,10 @@ import Footer from './footer';
 import ProfileForm from './forms/profileForm';
 import PropTypes from 'prop-types';
 import NavBar from './navBar';
+import requiresLogin from './requires-login';
 
 import './profile.css';
+import {Dashboard} from "./dashboard";
 
 export class Profile extends React.Component {
 
@@ -27,9 +29,9 @@ export class Profile extends React.Component {
 	};
 
 	render() {
-		if (!this.props.loggedIn) {
-      return <Redirect to='/' />;
-		}
+		// if (!this.props.loggedIn) {
+     //  return <Redirect to='/' />;
+		// }
 
 		return (
 			<main className="profile-wrapper">
@@ -97,4 +99,4 @@ Profile.propTypes = {
 	phone: PropTypes.number
 };
 
-export default connect(mapStateToProps)(Profile);
+export default requiresLogin()(connect(mapStateToProps)(Profile));

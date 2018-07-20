@@ -45,8 +45,8 @@ export const loginError = error => {
 export const storeToken = (token, dispatch) => {
 	const decodedToken = jwtDecode(token);
 	dispatch(setToken(decodedToken));
-	dispatch(loginSuccess(decodedToken.user));
-	localStorage.setItem('authToken', token);
+  localStorage.setItem('authToken', token);
+  dispatch(loginSuccess(decodedToken.user));
 };
 
 // Asynch login call
