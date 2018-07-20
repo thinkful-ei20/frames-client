@@ -1,4 +1,31 @@
 .dashboard {
 	text-align: center;
 	margin: 0 auto;
+	background-color: #32364a;
+	padding: 5%;
+}
+
+.dashboard-header {
+
+	margin: 0;
+	padding: 1.5% 2.5% 1.5% 2.5%;
+	text-align: left;
+	font-size: 20px;
+}
+
+.dashboard-section {
+	background-color: #2b2d3d;
+}
+
+.dashboard-header,
+.dashboard-section-header {
+	color: #edeef0;
+	background-color: #232633;
+}
+
+.dashboard-section-header {
+	display: flex;
+	border-bottom: 2px solid #b94343;
+	margin-bottom: 2.5%;
+	padding: 1.5% 2.5% 1.5% 2.5%;
 }
