@@ -7,7 +7,7 @@ import { editProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 
 export class ProfileForm extends React.Component {
-	onSubmit(values) {
+	onSubmit = values => {
 		console.log('VALUES', values);
 		const updatedProfile = {};
 		Object.keys(values).forEach(key => {
@@ -20,45 +20,53 @@ export class ProfileForm extends React.Component {
 		console.log('ADMIN ID FROM PROFILE FORM', this.props);
 		this.props.dispatch(editProfile(this.props.initialValues.adminId, updatedProfile))
 			.then(this.props.setEdit);
-	}
+	};
 
 	render() {
 		return (
-			<form
-				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
-			>
-				<Field
-					name="companyName"
-					label="Company Name"
-					type="text"
-					component={renderField}
-					validate={[isTrimmed]}
-				/>
-				<Field
-					name="username"
-					label="Username"
-					type="text"
-					component={renderField}
-					validate={[isTrimmed]}
-				/>
-				<Field
-					name="email"
-					label="Email Address"
-					type="text"
-					component={renderField}
-					validate={[validEmail]}
-				/>
-				<Field
-					name="phoneNumber"
-					label="Phone Number"
-					type="text"
-					component={renderField}
-					validate={[validPhone]}
-				/>
-				<button type="submit">
-          Save
-				</button>
-			</form>
+      <div className="form-wrapper">
+				<form
+					onSubmit={this.props.handleSubmit(this.onSubmit)}
+				>
+					<Field
+						name="companyName"
+						label="Company Name"
+						type="text"
+						component={renderField}
+						validate={[isTrimmed]}
+					/>
+					<Field
+						name="username"
+						label="Username"
+						type="text"
+						component={renderField}
+						validate={[isTrimmed]}
+					/>
+					<Field
+						name="email"
+						label="Email Address"
+						type="text"
+						component={renderField}
+						validate={[validEmail]}
+					/>
+					<Field
+						name="phoneNumber"
+						label="Phone Number"
+						type="text"
+						component={renderField}
+						validate={[validPhone]}
+					/>
+					<button type="submit">
+						Save
+					</button>
+					<button
+						type="button"
+						onClick={this.props.setEdit	}
+					>
+						Cancel
+					</button>
+				</form>
+      </div>
 		);
 	}
 }

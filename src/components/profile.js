@@ -23,65 +23,53 @@ export class Profile extends React.Component {
 		this.setState({ editing: true });
 	}
 
-	handleCancel() {
+	handleCancel = () => {
 		this.setState({ editing: false });
-	}
+  };
 
 	render() {
-
-		if (this.state.editing) {
-
-			return (<main>
-				<NavBar />
-				<header>
-					<h1>{this.props.name}</h1>
-				</header>
-				<section>
-					<ProfileForm
-						initialValues={{
-							adminId:this.props.adminId,
-							companyName:this.props.name,
-							username:this.props.username,
-							email:this.props.email,
-							phoneNumber:this.props.phone
-						}}
-						setEdit={() => this.setState({ editing: false })}
-					/>
-				</section>
-				<button
-					onClick={() => this.handleCancel()}
-				>
-          Cancel
-				</button>
-			</main>
-			);
-		}
 		return (
 			<main>
 				<NavBar />
 				<header>
-					<h1>{this.props.name}</h1>
+          <h1>Account Settings</h1>
 				</header>
 				<section>
-					<ul>
-						<li>
-							<h2>Username</h2>
-							<p>{this.props.username}</p>
-						</li>
-						<li>
-							<h2>Email Address</h2>
-							<p>{this.props.email}</p>
-						</li>
-						<li>
-							<h2>Phone Number</h2>
-							<p>{this.props.phone}</p>
-						</li>
-					</ul>
-					<button
-						onClick={() => this.handleEdit()}
-					>
-            Edit
-					</button>
+					{this.state.editing
+					?
+            <ProfileForm
+              initialValues={{
+                adminId:this.props.adminId,
+                companyName:this.props.name,
+                username:this.props.username,
+                email:this.props.email,
+                phoneNumber:this.props.phone
+              }}
+              setEdit={this.handleCancel}
+            />
+					:
+						<React.Fragment>
+              <ul>
+                <li>
+                  <h2>Username</h2>
+                  <p>{this.props.username}</p>
+                </li>
+                <li>
+                  <h2>Email Address</h2>
+                  <p>{this.props.email}</p>
+                </li>
+                <li>
+                  <h2>Phone Number</h2>
+                  <p>{this.props.phone}</p>
+                </li>
+              </ul>
+              <button
+                onClick={() => this.handleEdit()}
+              >
+                Edit
+              </button>
+						</React.Fragment>
+					}
 				</section>
 				<Footer />
 			</main>
