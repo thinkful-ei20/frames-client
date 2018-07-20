@@ -14,31 +14,30 @@ export class ReassignShiftForm extends React.Component {
 	componentDidMount() {
 		/* Make the call to the API to fetch employees */
 		// this.props.dispatch(fetchFrames());
+		
 	}
 
-	handleSubmit(e, values) {
+	handleSubmit(e) {
 		e.preventDefault();
 		const data = new FormData(e.target);
-		// console.log(`data: ${data}`);
-		console.log(values);
+		console.log(`data: ${data.getAll('employee-select')}`);
 		// this.props.dispatch(fetchReassignShift(e.data));
 	}
 
 	render() {
-		// console.log('FRAMES:', this.props.frames.frames.map(frame => <option value={`${frame.employeeId.firstname} ${frame.employeeId.lastname}`}>
-		// 	{`${frame.employeeId.firstname} ${frame.employeeId.lastname}`}
-		// </option>));
 		return(
 			<div className="form-wrapper">
 				<h2 className="form-header">Reassign Shift</h2>
 				<form onSubmit={(e) => this.handleSubmit(e)}>
-					<select>
+					<select id="employee-select">
 						<option>SELECT EMPLOYEE</option>
-						{this.props.frames.frames.map(frame => {
-							<option value={`${frame.employeeId.firstname} ${frame.employeeId.lastname}`}>
-								{`${frame.employeeId.firstname} ${frame.employeeId.lastname}`}
-							</option>;
-						})}
+						{this.props.employees.employees.map((employee, i) => {
+							return (
+								<option key={i} value={employee.id}>
+									{`${employee.firstname} ${employee.lastname}`}
+								</option>
+							);})}
+						<option value='open'>OPEN</option>
 					</select>
 					<button type="submit">Submit</button>
 				</form>
@@ -49,7 +48,8 @@ export class ReassignShiftForm extends React.Component {
 
 const mapStateToProps = state => ({
 	// isLoading: state.employee.reassign === null,
-	frames: state.frames
+	frames: state.frames,
+	employees: state.employees
 });
 
 export default connect(mapStateToProps)(ReassignShiftForm);
