@@ -21,6 +21,7 @@ export const normalizeResponseErrors = res => {
 	return res;
 };
 
+// Return an object with start and end 24 hours apart
 export const getToday = () => {
 	const start = new Date().toISOString();
 	let end = new Date();
@@ -32,6 +33,7 @@ export const getToday = () => {
 	};
 };
 
+// Return and object with start and end 7 days apart
 export const getThisWeek = () => {
 	const start = new Date().toISOString();
 	let end = new Date();

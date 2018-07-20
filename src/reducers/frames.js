@@ -42,15 +42,6 @@ export default function framesReducer(state = initialState, action) {
 		};
 	}
 
-	if (action.type === REASSIGN_SUCCESS) {
-		return {
-			...state,
-			loading: false,
-			frames : action.data,
-			error: null
-		};
-	}
-
 	if (action.type === REASSIGN_ERROR) {
 		return {
 			...state,

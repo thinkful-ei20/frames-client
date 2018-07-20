@@ -1,6 +1,6 @@
 import React from 'react';
-import { Field, reduxForm, focus } from 'redux-form';
-//import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
 
 import { required, isTrimmed, nonEmpty, length, matches, validEmail } from './formValidators';
 import renderField from './field';
@@ -64,21 +64,16 @@ export const RegisterFormSecondPage = props => {
 	);
 };
 
-// RegisterFormSecondPage.propTypes = {
-// 	handleSubmit: PropTypes.func.required,
-// 	pristine: PropTypes.bool,
-// 	previousPage: PropTypes.func,
-// 	submitting: PropTypes.bool
-// };
+RegisterFormSecondPage.propTypes = {
+	handleSubmit: PropTypes.func.required,
+	pristine: PropTypes.bool,
+	previousPage: PropTypes.func,
+	submitting: PropTypes.bool,
+	error : PropTypes.string
+};
 
 export default reduxForm({
 	form: 'register', //               <------ same form name
 	destroyOnUnmount: false, //        <------ preserve form data
-	forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-	onSubmitFail: (errors, dispatch) => {
-		if(errors){
-			dispatch(focus('register', Object.keys(errors)[0]));
-		}
-		console.log('panic!');
-	}
+	forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(RegisterFormSecondPage);

@@ -6,7 +6,6 @@ import Card from './card';
 import './styles/card-list.css';
 
 export const CardList = (props) => {
-	console.log(props.list);
 	return(
 		<ul className="card-list">
 			{props.list.map((em,index) =>

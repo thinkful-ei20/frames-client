@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default () => Component => {
 	function RequiresLogin(props) {
@@ -24,5 +25,12 @@ export default () => Component => {
 		error: state.auth.error
 	});
 
+	RequiresLogin.propTypes = {
+		authenticating : PropTypes.bool,
+		loggedIn : PropTypes.bool,
+		error : PropTypes.string
+	};
+
 	return connect(mapStateToProps)(RequiresLogin);
 };
+

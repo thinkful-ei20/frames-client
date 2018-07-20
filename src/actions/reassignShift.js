@@ -1,6 +1,9 @@
 import { API_BASE_URL } from '../config';
-import { normalizeResponseErrors } from './utils';
+import { normalizeResponseErrors, getThisWeek } from './utils';
+import { hideModal } from './modals';
+import { fetchFrames } from './frames';
 
+// Uses frame reducer to set loading to true
 export const REASSIGN_SHIFT = 'REASSIGN_SHIFT';
 export const reassignShift = () => {
 	return {
@@ -8,13 +11,6 @@ export const reassignShift = () => {
 	};
 };
 
-export const REASSIGN_SUCCESS = 'REASSIGN_SUCCESS';
-export const reassignSuccess = data => {
-	return {
-		type: REASSIGN_SUCCESS,
-		data
-	};
-};
 
 export const REASSIGN_ERROR = 'REASSIGN_ERROR';
 export const reassignError = error => {
@@ -24,8 +20,12 @@ export const reassignError = error => {
 	};
 };
 
+// Send a put request to /api/frames/frame/:frameId with {employeId : '124'}
+// On Success, fetch frames again and close the modal
 export const fetchReassignShift = (frameId, data) => dispatch => {
 	const token = localStorage.getItem('authToken');
+	// Get Date information for next frames fetch
+	const today = getThisWeek();
 	dispatch(reassignShift());
 	return fetch(`${API_BASE_URL}/frames/frame/${frameId}`, {
 		method: 'PUT',
@@ -37,6 +37,9 @@ export const fetchReassignShift = (frameId, data) => dispatch => {
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(data => dispatch(reassignSuccess(data)))
+		.then(() => {
+			dispatch(fetchFrames(today.start, today.end));
+			dispatch(hideModal());
+		})
 		.catch(error => dispatch(reassignError(error.message)));
 };

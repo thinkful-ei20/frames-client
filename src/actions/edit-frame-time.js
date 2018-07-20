@@ -1,8 +1,9 @@
 import {API_BASE_URL} from '../config';
 import { fetchFrames } from './frames';
-import { normalizeResponseErrors, getToday } from './utils';
+import { normalizeResponseErrors, getThisWeek } from './utils';
 import { hideModal } from './modals';
 
+// Set loading to true
 export const REQUEST_EDIT_FRAME = 'REQUEST_EDIT_FRAME';
 export const requestEditFrame = () => {
 	return {
@@ -10,7 +11,7 @@ export const requestEditFrame = () => {
 	};
 };
 
-
+// Set loading to false and set error
 export const EDIT_FRAME_ERROR = 'EDIT_FRAME_ERROR';
 export const editFrameError = error => {
 	return {
@@ -19,12 +20,12 @@ export const editFrameError = error => {
 	};
 };
 
+// Asynch edit frame action to grab and store Frames array
 export const editFrame = (frameId, updatedFrame) => dispatch => {
 	dispatch(requestEditFrame());
 	const token = localStorage.getItem('authToken');
-	
 	// Get Date information for next frames fetch
-	const today = getToday();
+	const today = getThisWeek();
 
 	return fetch(`${API_BASE_URL}/frames/frame/${frameId}`, {
 		method : 'PUT',
@@ -40,6 +41,6 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 			dispatch(fetchFrames(today.start, today.end));
 			dispatch(hideModal());
 		})
-		.catch(error => dispatch(editFrameError()));
+		.catch(error => dispatch(editFrameError(error)));
 };
 

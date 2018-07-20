@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import LoginForm from './forms/loginForm';
 import NavBar from './navBar';
 import Footer from './footer';
@@ -23,6 +23,10 @@ function LoginPage(props) {
 		</React.Fragment>
 	);
 }
+
+LoginPage.propTypes = {
+	loggedIn : PropTypes.bool
+};
 
 const mapStateToProps = state => ({
 	loggedIn: state.auth.authToken !== null

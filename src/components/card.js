@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-//import {bindActionCreators} from 'redux';
-
 import {showModal} from '../actions/modals';
 
 import './styles/card.css';
 import placeholder from '../images/placeholder_person.jpg';
-
-// Each card is expecting: imageUrl, frameId, name, start , end 
 
 class Card extends React.Component{
 
@@ -65,16 +61,10 @@ class Card extends React.Component{
 Card.propTypes = {
 	imageUrl: PropTypes.string,
 	name: PropTypes.string,
-	frame: PropTypes.shape({
-		start: PropTypes.string,
-		end: PropTypes.string
-	})
+	dispatch : PropTypes.func,
+	start : PropTypes.string,
+	end : PropTypes.string,
+	id : PropTypes.string
 };
-
-// const mapDispatchToProps = (dispatch) => {
-// 	return bindActionCreators({
-// 		showModal: showModal
-// 	}, dispatch);
-// };
 
 export default connect()(Card);

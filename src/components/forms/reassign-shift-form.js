@@ -1,32 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
-import './styles/forms.css';
 import { fetchReassignShift } from '../../actions/reassignShift';
-import { fetchFrames } from '../../actions/frames';
 import { hideModal } from '../../actions/modals';
-import { getThisWeek } from '../../actions/utils';
+import PropTypes from 'prop-types';
+import './styles/forms.css';
 
 export class ReassignShiftForm extends React.Component {
-	constructor(props) {
-		super(props);
-
-	}
-
-	componentDidMount() {
-		/* Make the call to the API to fetch employees */
-		// this.props.dispatch(fetchFrames());
-		
-	}
 
 	handleSubmit(e) {
 		e.preventDefault();
 		const data = new FormData(e.target);
-		const dates = getThisWeek();
 		const employeeId = data.get('employee-select');
 		this.props.dispatch(fetchReassignShift(this.props.frameId, {employeeId}));
-		this.props.dispatch(hideModal());
-		this.props.dispatch(fetchFrames(dates.start, dates.end));
 	}
 
 	render() {
@@ -50,13 +35,17 @@ export class ReassignShiftForm extends React.Component {
 				<button onClick={() => this.props.dispatch(hideModal())}
 				>Cancel</button>
 			</div>
-			
 		);
 	}
 }
 
+ReassignShiftForm.propTypes = {
+	employees : PropTypes.object,
+	dispatch : PropTypes.func,
+	frameId : PropTypes.string
+};
+
 const mapStateToProps = state => ({
-	// isLoading: state.employee.reassign === null,
 	frameId : state.modal.currentId,
 	employees: state.employees
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { logout } from '../actions/auth';
+import PropTypes from 'prop-types';
 
 export class NavBar extends React.Component {
 	constructor(props) {
@@ -12,7 +13,6 @@ export class NavBar extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 		let menu;
 		if (this.state.isOpen & !this.props.loggedIn) {
 			menu = (
@@ -42,6 +42,11 @@ export class NavBar extends React.Component {
 		);
 	}
 }
+
+NavBar.propTypes = {
+	loggedIn : PropTypes.bool,
+	dispatch : PropTypes.func
+};
 
 const mapStateToProps = state => {
 	return {
