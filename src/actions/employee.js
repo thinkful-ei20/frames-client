@@ -1,5 +1,5 @@
 import { API_BASE_URL } from '../config';
-import { normalizeResponseErrors } from './utils';
+// import { normalizeResponseErrors } from './utils';
 
 export const REQUEST_EMPLOYEES = 'REQUEST_EMPLOYEES';
 export const requestEmployees = () => {
@@ -24,11 +24,11 @@ export const employeesError = error => {
 	};
 };
 
-/*
+
 export const fetchEmployees = () => dispatch => {
   const token = localStorage.getItem('authToken');
   dispatch(requestEmployees());
-  return fetch(`${API_BASE_URL}/-----------`, {
+  return fetch(`${API_BASE_URL}/employee`, {
     method : 'GET',
     headers : {
 			'Content-Type' : 'application/json',
@@ -40,4 +40,3 @@ export const fetchEmployees = () => dispatch => {
 	.then(data => dispatch(employeesSuccess(data)))
 	.catch(error => dispatch(employeesError(error.message)));
 };
-*/

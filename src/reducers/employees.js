@@ -1,4 +1,4 @@
-import { REQUEST_EMPLOYEES, EMPLOYEES_SUCCESS, EMPLOYEES_ERROR } from '../actions/employees';
+import { REQUEST_EMPLOYEES, EMPLOYEES_SUCCESS, EMPLOYEES_ERROR } from '../actions/employee';
 
 const initialState = {
 	employees: [],
