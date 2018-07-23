@@ -24,15 +24,12 @@ class Card extends React.Component{
 	render() {
 
 		const { employeeId, startFrame, endFrame, id, key}  = this.props.employee;
-			const emplName = `${employeeId.firstname} ${employeeId.lastname}`;
+		const emplName = `${employeeId.firstname} ${employeeId.lastname}`;
 
-			const start = moment(startFrame).format('LT');
-			const end = moment(endFrame).format('LT');
-			console.log(moment(endFrame).diff(moment(startFrame), 'hours'));
-			const timeDiff = moment(endFrame).diff(moment(startFrame), 'hours');
+		const start = moment(startFrame).format('LT');
+		const end = moment(endFrame).format('LT');
 
-		const {isOpen} = this.state;
-		const chevron = isOpen ? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
+		const timeDiff = moment(endFrame).diff(moment(startFrame), 'hours');
 
 		return(
 			<article className="card" key={key}>
@@ -40,27 +37,25 @@ class Card extends React.Component{
 					<div className="card-info">
 						<div className="card-img"><img className="contain" src={placeholder} alt={emplName}/></div>
 						<div className="card-employee">
-              <div className="card-name">{emplName}</div>
-              <div className="card-frame">
-                <p>{start} - {end}</p>
-                {/*<p>to</p>*/}
-                {/*<p>{endReadable}</p>*/}
-              </div>
+							<div className="card-name">{emplName}</div>
+							<div className="card-frame">
+								<p>{start} - {end}</p>
+							</div>
 						</div>
 						<div className="card-time">
-              <div className="card-time-diff">{timeDiff} hr</div>
+							<div className="card-time-diff">{timeDiff} hr</div>
 
 						</div>
-						<button className={`opt-btn ${isOpen ? 'is-open' : ''}`} onClick={() => { this.props.dispatch(showModal('edit', id));}}>
-							{chevron}
+						<button className='opt-btn' onClick={() => { this.props.dispatch(showModal('edit', id));}}>
+							<i className="fa fa-ellipsis-h"></i>
 						</button>
 					</div>
-					<div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
+					{/* <div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
 						<div className='card-opt-panel-body'>
 							<button className="card-opt" onClick={() => { this.props.dispatch(showModal('reassign', id));}}>Reassign</button>
 							<button className="card-opt"onClick={() => { this.props.dispatch(showModal('edit', id));}}>Edit</button>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</article>
 		);
