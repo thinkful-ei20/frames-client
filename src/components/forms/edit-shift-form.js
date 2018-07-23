@@ -21,8 +21,10 @@ export class EditShiftForm extends React.Component {
 	}
 
 	render() {
+		const foo = this.props.currentFrame.startFrame.replace(" ", "T");
+		console.log(foo);
 		// Default values = the current start/end of the frame
-		const defaultStart = this.props.currentFrame.startFrame;
+		const defaultStart = this.props.currentFrame.startFrame.replace(" ", "T");
 		const defaultEnd = this.props.currentFrame.endFrame;
 
 		return(
@@ -38,7 +40,7 @@ export class EditShiftForm extends React.Component {
 							type="datetime-local"
 							id="startDate"
 							name="startDate"
-							defaultValue={defaultStart.slice(0, -1)} //To be pulled from server
+							defaultValue={defaultStart} //To be pulled from server
 						/>
 						<label htmlFor="endDate">End Time</label>
 						<input

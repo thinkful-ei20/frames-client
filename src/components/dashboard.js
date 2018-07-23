@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import CardList from './card-list';
 import NavBar from './navBar';
 import { fetchFrames } from '../actions/frames';
@@ -27,19 +28,23 @@ export class Dashboard extends React.Component {
 		// 	return (<div>{this.props.error}</div>);
 		// }
 
+		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
+		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
+
 		return(
 			<div className="dashboard">
 				{/*<NavBar/>*/}
-				<h1
-					className="dashboard-header"
-				>
-					DASHBOARD
-				</h1>
-				<div>July, 20</div>
+				{/*<h1*/}
+					{/*className="dashboard-header"*/}
+				{/*>*/}
+					{/*SCHEDULE*/}
+				{/*</h1>*/}
+        <div className="dashboard-section-header">
+          <div>{startSchedule} - {endSchedule}</div>
+        </div>
+				{/*<div>{startSchedule} - {endSchedule}</div>*/}
 				<section className="dashboard-section">
-					<div className="dashboard-section-header">
-            <div>EMPLOYEES</div>
-					</div>
+
 					{this.props.frames.length
 						?
 						<CardList list={this.props.frames} />
