@@ -37,6 +37,7 @@ export default function authReducer(state = initialState, action) {
 		};
 	}
 	if (action.type === LOGIN_ERROR){
+		console.log('Login error reducer ran', action.error);
 		return {
 			...state,
 			error: action.error,
