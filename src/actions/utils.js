@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 // Boilerplate code for handling errors from the API.  If the error response
 // contains JSON then we return a rejected promise containing the decoded
 // JSON.  If the error doesn't contain JSON then we return a rejected promise
@@ -35,10 +37,16 @@ export const getToday = () => {
 
 // Return and object with start and end 7 days apart
 export const getThisWeek = () => {
-	const start = new Date().toISOString();
-	let end = new Date();
-	end.setDate(end.getDate() + 7);
-	end = end.toISOString();
+	// const start = new Date().toISOString();
+	// let end = new Date();
+	// end.setDate(end.getDate() + 7);
+	// end = end.toISOString();
+
+  const start = moment().startOf('day').format();
+  const end = moment().endOf('day').day(7).format();
+
+
+
 	return {
 		start,
 		end

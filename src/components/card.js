@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import moment from 'moment';
 import {showModal} from '../actions/modals';
 
 import './styles/card.css';
@@ -22,27 +23,35 @@ class Card extends React.Component{
 
 	render() {
 
-		const {imageUrl, name, start, end, id}  = this.props;
-		const startReadable = new Date(start).toUTCString();
-		const endReadable = new Date(end).toUTCString();
+		const { employeeId, startFrame, endFrame, id, key}  = this.props.employee;
+			const emplName = `${employeeId.firstname} ${employeeId.lastname}`;
+
+			const start = moment(startFrame).format('LT');
+			const end = moment(endFrame).format('LT');
+			console.log(moment(endFrame).diff(moment(startFrame), 'hours'));
+			const timeDiff = moment(endFrame).diff(moment(startFrame), 'hours');
 
 		const {isOpen} = this.state;
 		const chevron = isOpen ? <i className="fa fa-angle-double-up"></i> : <i className="fa fa-angle-double-down"></i>;
 
 		return(
-			<li className="card">
+			<article className="card" key={key}>
 				<div className="card-container">
 					<div className="card-info">
-						<div className="card-img"><img className="contain" src={placeholder} alt={`${name}`}/></div>
+						<div className="card-img"><img className="contain" src={placeholder} alt={emplName}/></div>
 						<div className="card-employee">
-              <div className="card-name">{name}</div>
+              <div className="card-name">{emplName}</div>
               <div className="card-frame">
-                <p>{startReadable} - {endReadable}</p>
+                <p>{start} - {end}</p>
                 {/*<p>to</p>*/}
                 {/*<p>{endReadable}</p>*/}
               </div>
 						</div>
-						<button className={`opt-btn ${isOpen ? 'is-open' : ''}`} onClick={(e) => this.handleToggle(e)}>
+						<div className="card-time">
+              <div className="card-time-diff">{timeDiff} hr</div>
+
+						</div>
+						<button className={`opt-btn ${isOpen ? 'is-open' : ''}`} onClick={() => { this.props.dispatch(showModal('edit', id));}}>
 							{chevron}
 						</button>
 					</div>
@@ -53,7 +62,7 @@ class Card extends React.Component{
 						</div>
 					</div>
 				</div>
-			</li>
+			</article>
 		);
 	}
 }
