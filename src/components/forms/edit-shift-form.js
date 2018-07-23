@@ -13,6 +13,7 @@ export class EditShiftForm extends React.Component {
 		//Grab data from the form and descructure into an object to send to the server
 		const data = new FormData(e.target);
 		const updatedFrame = {
+			employeeId : data.get('employee-select'),
 			startFrame : data.get('startDate'),
 			endFrame : data.get('endDate')
 		};
@@ -21,16 +22,32 @@ export class EditShiftForm extends React.Component {
 	}
 
 	render() {
-		const foo = this.props.currentFrame.startFrame.replace(" ", "T");
+		const foo = this.props.currentFrame.startFrame.replace(' ', 'T');
 		console.log(foo);
 		// Default values = the current start/end of the frame
-		const defaultStart = this.props.currentFrame.startFrame.replace(" ", "T");
+		const defaultStart = this.props.currentFrame.startFrame.replace(' ', 'T');
 		const defaultEnd = this.props.currentFrame.endFrame;
 
 		return(
 			<div className="form-wrapper">
 				<h2 className="form-header">Edit Shift</h2>
 				<form onSubmit={(e) => this.handleSubmit(e)}>
+					<fieldset>
+						<legend>
+							Reassign to Another Employee
+						</legend>
+						<label htmlFor="employee-select">Select an Employee</label>
+						<select id="employee-select" name="employee-select">
+							<option>SELECT EMPLOYEE</option>
+							{this.props.employees.employees.map((employee, i) => {
+								return (
+									<option key={i} value={employee.id}>
+										{`${employee.firstname} ${employee.lastname}`}
+									</option>
+								);})}
+							<option value='open'>OPEN</option>
+						</select>
+					</fieldset>
 					<fieldset>
 						<legend>
 							Choose New Start Time or Date
@@ -61,13 +78,15 @@ export class EditShiftForm extends React.Component {
 
 EditShiftForm.propTypes = {
 	dispatch : PropTypes.func,
-	currentFrame : PropTypes.object
+	currentFrame : PropTypes.object,
+	employees : PropTypes.object
 };
 
 const mapStateToProps = state => {
 	const id = state.modal.currentId;
 	return {
-		currentFrame : state.frames.frames.filter(frame => frame.id === id)[0]
+		currentFrame : state.frames.frames.filter(frame => frame.id === id)[0],
+		employees: state.employees
 	};
 };
 
