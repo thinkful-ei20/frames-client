@@ -3,7 +3,6 @@ import ReactModal from 'react-modal';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ReassignShiftForm from '../forms/reassign-shift-form';
 import EditShiftForm from '../forms/edit-shift-form';
 
 import {hideModal} from '../../actions/modals';
@@ -12,11 +11,7 @@ export function ModalConductor(props) {
 	let contentLabel;
 	let content;
 
-	if(props.modalType === 'reassign'){
-		contentLabel = 'Reassign a Shift';
-		content = <ReassignShiftForm/>;
-
-	} else if (props.modalType === 'edit') {
+	if (props.modalType === 'edit') {
 
 		contentLabel = 'Edit a Shift';
 		content = <EditShiftForm/>;

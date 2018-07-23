@@ -2,14 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import CardList from './card-list';
-import NavBar from './navBar';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
 import { getThisWeek } from '../actions/utils';
 import {fetchEmployees} from '../actions/employee';
 import PropTypes from 'prop-types';
-
-import './styles/dashboard.css';
 
 import './styles/dashboard.css';
 

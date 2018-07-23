@@ -44,18 +44,11 @@ class Card extends React.Component{
 						</div>
 						<div className="card-time">
 							<div className="card-time-diff">{timeDiff} hr</div>
-
 						</div>
 						<button className='opt-btn' onClick={() => { this.props.dispatch(showModal('edit', id));}}>
 							<i className="fa fa-ellipsis-h"></i>
 						</button>
 					</div>
-					{/* <div className={`card-opt-panel ${isOpen ? 'is-open' : ''} `}>
-						<div className='card-opt-panel-body'>
-							<button className="card-opt" onClick={() => { this.props.dispatch(showModal('reassign', id));}}>Reassign</button>
-							<button className="card-opt"onClick={() => { this.props.dispatch(showModal('edit', id));}}>Edit</button>
-						</div>
-					</div> */}
 				</div>
 			</article>
 		);
@@ -68,7 +61,8 @@ Card.propTypes = {
 	dispatch : PropTypes.func,
 	start : PropTypes.string,
 	end : PropTypes.string,
-	id : PropTypes.string
+	id : PropTypes.string,
+	employee : PropTypes.object
 };
 
 export default connect()(Card);
