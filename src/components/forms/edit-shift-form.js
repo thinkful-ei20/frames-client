@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import './styles/forms.css';
 import { hideModal } from '../../actions/modals';
-import { editFrame } from '../../actions/edit-frame-time';
+import { editFrame } from '../../actions/edit-frame';
 import PropTypes from 'prop-types';
 
 export class EditShiftForm extends React.Component {

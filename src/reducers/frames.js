@@ -1,5 +1,5 @@
 import { REQUEST_FRAMES, FRAMES_SUCCESS, FRAMES_ERROR } from '../actions/frames';
-import { REQUEST_EDIT_FRAME, EDIT_FRAME_ERROR } from '../actions/edit-frame-time';
+import { REQUEST_EDIT_FRAME, EDIT_FRAME_ERROR } from '../actions/edit-frame';
 
 const initialState = {
 	frames: [],
