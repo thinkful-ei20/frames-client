@@ -24,24 +24,15 @@ export class Dashboard extends React.Component {
 		if (this.props.loading){
 			return (<div>Loading...</div>);
 		}
-		// if (this.props.error){
-		// 	return (<div>{this.props.error}</div>);
-		// }
 
 		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
 		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
 
 		return(
 			<div className="dashboard">
-				{/*<NavBar/>*/}
-				{/*<h1*/}
-					{/*className="dashboard-header"*/}
-				{/*>*/}
-					{/*SCHEDULE*/}
-				{/*</h1>*/}
-        <div className="dashboard-section-header">
-          <div>{startSchedule} - {endSchedule}</div>
-        </div>
+				<div className="dashboard-section-header">
+					<div>{startSchedule} - {endSchedule}</div>
+				</div>
 				{/*<div>{startSchedule} - {endSchedule}</div>*/}
 				<section className="dashboard-section">
 

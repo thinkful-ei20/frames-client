@@ -20,7 +20,7 @@ export default class App extends Component {
 				<Route exact path="/login" component={LandingPage} />
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/profile" component={Profile} />
-				{/*<Footer />*/}
+				<Footer />
 			</div>
 		);
 	}
