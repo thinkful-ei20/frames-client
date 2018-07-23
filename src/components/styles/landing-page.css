@@ -1,0 +1,17 @@
+
+main {
+	background-color: #232633;
+	margin: 0 auto;
+	text-align: center;
+	color: #edeef0;
+}
+
+.sign-up > a {
+	margin: 0.5em;
+	text-decoration: none;
+	color: #b94343;
+}
+
+.sign-up > a:hover {
+	text-decoration: underline;
+}

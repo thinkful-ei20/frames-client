@@ -8,7 +8,7 @@
 }
 
 .form-wrapper {
-    border: 1px solid #a6a1a1;
+	border: 1px solid #a6a1a1;
     margin: 0 auto;
     padding: 20px;
     max-width: 360px;
@@ -33,7 +33,7 @@
     display: block;
     width: 100%;
     margin-top: 5px;
-    line-height: 22px;
+	line-height: 22px;
 }
 
 .form-error {
@@ -50,6 +50,8 @@
     font-size: 11px;
 
 }
+
+/* PROFILE FORM */
 
 .profile-form-wrapper {
     border: none;
@@ -89,6 +91,47 @@
 
 .profile-save-btn:hover,
 .profile-save-btn:focus {
+    color: black;
+    background: #35df5c;
+    cursor: pointer;
+    transition-property: background,color;
+    transition-duration: .2s;
+}
+
+/* LOGIN FORM */
+
+.login-form-wrapper {
+	border-left: 2px solid #35df5c;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 360px;
+}
+
+.login-form > div > label > input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+	line-height: 22px;
+	border: 0;
+	border-radius: 3px;
+	background-color: #2b2d3d;
+	color: #edeef0;
+}
+
+.login-form-btn {
+	border-radius: 50px;
+    background: transparent;
+    padding: 10px 50px;
+    border: 2px solid #35df5c;
+    color: #35df5c;
+    text-transform: uppercase;
+	font-size: 11px;
+	transition-property: background,color;
+    transition-duration: .2s;
+}
+
+.login-form-btn:hover,
+.login-form-btn:focus {
     color: black;
     background: #35df5c;
     cursor: pointer;

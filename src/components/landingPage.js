@@ -3,28 +3,27 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import NavBar from './navBar';
 import LoginForm from './forms/loginForm';
 import About from './about';
-import Dashboard from './dashboard';
-import Footer from './footer';
+
+import './styles/landing-page.css';
 
 export class LandingPage extends React.Component {
 
 	render() {
-		if(this.props.loggedIn){
+
+		if(this.props.loggedIn) {
 			return <Redirect to="/dashboard" />;
 		}
 
 		return (
 			<main role="main">
 				<header role="banner">
-					<NavBar />
 					<h1>FRAMES</h1>
 				</header>
 				<section>
 					<LoginForm />
-					<p className="">
+					<p className="sign-up">
 						New to Frames?
 						<Link to="/register">Sign Up</Link>
 					</p>
@@ -33,7 +32,7 @@ export class LandingPage extends React.Component {
 					<About/>
 				</section>
 				<section>
-					<Dashboard/>
+					{/*<Dashboard/>*/}
 				</section>
 				{/* <Footer /> */}
 			</main>

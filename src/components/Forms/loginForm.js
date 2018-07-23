@@ -23,7 +23,7 @@ export class LoginForm extends React.Component {
 		}
 
 		return (
-			<div className="form-wrapper">
+			<div className="login-form-wrapper">
 				<h2 className="form-header">Log in</h2>
 				<form
 					className="login-form"
@@ -46,7 +46,7 @@ export class LoginForm extends React.Component {
 						autocomplete="off"
 					/>
 					<button
-						className="register-form-btn"
+						className="login-form-btn"
 						disabled={this.props.pristine || this.props.submitting}
 					>
             Log in
