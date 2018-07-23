@@ -35,7 +35,7 @@ export class LandingPage extends React.Component {
 				<section>
 					<Dashboard/>
 				</section>
-				<Footer />
+				{/* <Footer /> */}
 			</main>
 		);
 	}
