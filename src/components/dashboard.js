@@ -18,6 +18,7 @@ export class Dashboard extends React.Component {
 	componentDidMount() {
 		const dates = getThisWeek();
 		this.props.dispatch(fetchFrames(dates.start, dates.end));
+		this.props.dispatch(fetchEmployees());
 	}
 
 	render() {
