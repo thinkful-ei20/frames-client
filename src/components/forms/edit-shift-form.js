@@ -38,7 +38,6 @@ export class EditShiftForm extends React.Component {
 						</legend>
 						<label htmlFor="employee-select">Select an Employee</label>
 						<select id="employee-select" name="employee-select">
-							<option>SELECT EMPLOYEE</option>
 							{this.props.employees.employees.map((employee, i) => {
 								return (
 									<option key={i} value={employee.id}>
