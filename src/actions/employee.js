@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import { hideModal } from './modals';
 
 // Set loading to true
 export const REQUEST_EMPLOYEES = 'REQUEST_EMPLOYEES';
@@ -40,4 +41,29 @@ export const fetchEmployees = () => dispatch => {
 		.then(res => res.json())
 		.then(data => dispatch(employeesSuccess(data)))
 		.catch(error => dispatch(employeesError(error.message)));
+};
+
+// Asynch action to update an employee
+export const updateEmployee = (employeeId, updatedEmployee) => dispatch => {
+	dispatch(requestEmployees());
+	const token = localStorage.getItem('authToken');
+	return fetch(`${API_BASE_URL}/employee/${employeeId}`, {
+		method : 'PUT',
+		headers : {
+			'Content-Type' : 'application/json',
+			'Authorization' : `Bearer ${token}`
+		},
+		body: JSON.stringify(updatedEmployee)
+	})
+		.then(result => {
+			if (result.ok){
+				return result.json();
+			}
+			throw new Error(result.json());
+		})
+		.then(() => {
+			dispatch(fetchEmployees());
+			dispatch(hideModal());
+		})
+		.catch(error => dispatch(employeesError(error)));
 };
