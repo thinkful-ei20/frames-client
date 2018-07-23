@@ -40,6 +40,7 @@ export const loginSuccess = user => {
 // Set loading to false & add error to redux state
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const loginError = error => {
+	console.log('Login error action ran');
 	return {
 		type: LOGIN_ERROR,
 		error
@@ -73,10 +74,13 @@ export const login = (username, password) => dispatch => {
 			.then(res => res.json())
 			.then(({authToken}) => storeToken(authToken, dispatch))
 			.catch(error => {
-				const {status} = error.error;
-				const message = status === 401 ? 'Incorrect username or password' : 'Unable to login , please try again';
-				dispatch(loginError(error));
-				return Promise.reject( new SubmissionError({_error : message}));
+				if (error.error) {
+          const {status} = error.error;
+          const message = status === 401 ? 'Incorrect username or password' : 'Unable to login , please try again';
+          return Promise.reject( new SubmissionError({_error : message}));
+        }
+				dispatch(loginError('Unable to login , please try again'));
+        return Promise.reject( new SubmissionError({_error : 'Unable to login , please try again'}));
 			})
 	);
 };
