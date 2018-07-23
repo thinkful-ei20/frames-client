@@ -13,13 +13,13 @@ function RegistrationPage(props) {
 
 	return (
 		<React.Fragment>
-			<NavBar />
+			{/*<NavBar />*/}
 			<main>
 				<section>
 					<RegisterForm />
 				</section>
 			</main>
-			<Footer />
+			{/*<Footer />*/}
 		</React.Fragment>
 	);
 }
