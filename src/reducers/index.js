@@ -6,6 +6,7 @@ import profileReducer from './profile';
 import modalReducer from './modals';
 import framesReducer from './frames';
 import employeesReducer from './employees';
+import filterReducer from './filter';
 
 export default combineReducers({
 	form: formReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
 	profile : profileReducer,
 	modal : modalReducer,
 	frames : framesReducer,
-	employees : employeesReducer
+	employees : employeesReducer,
+	filter: filterReducer
 });

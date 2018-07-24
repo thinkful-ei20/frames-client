@@ -3,12 +3,16 @@ import {connect} from 'react-redux';
 
 import './styles/forms.css';
 import { hideModal } from '../../actions/modals';
-import { editFrame } from '../../actions/edit-frame';
+import { editFrame, deleteFrame } from '../../actions/edit-frame';
 import PropTypes from 'prop-types';
 
 export class EditShiftForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { employee: props.currentFrame.employeeId.id }
+	}
 
-	handleSubmit(e){
+	handleSubmit = e => {
 		e.preventDefault();
 		//Grab data from the form and descructure into an object to send to the server
 		const data = new FormData(e.target);
@@ -19,58 +23,55 @@ export class EditShiftForm extends React.Component {
 		};
 		// grab the id of the current frame from the modal state
 		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
-	}
+	};
+
+	handleEmployeeSelect = e => {
+		console.log(e.target.value);
+		this.setState({employee: e.target.value})
+	};
 
 	render() {
-		const foo = this.props.currentFrame.startFrame.replace(' ', 'T');
-		console.log(foo);
-		// Default values = the current start/end of the frame
+		// Define default values for the form
 		const defaultStart = this.props.currentFrame.startFrame.replace(' ', 'T');
-		const defaultEnd = this.props.currentFrame.endFrame;
+		const defaultEnd = this.props.currentFrame.endFrame.replace(' ', 'T');
 
 		return(
 			<div className="form-wrapper">
 				<h2 className="form-header">Edit Shift</h2>
-				<form onSubmit={(e) => this.handleSubmit(e)}>
-					<fieldset>
-						<legend>
-							Reassign to Another Employee
-						</legend>
-						<label htmlFor="employee-select">Select an Employee</label>
-						<select id="employee-select" name="employee-select">
-							{this.props.employees.employees.map((employee, i) => {
-								return (
-									<option key={i} value={employee.id}>
-										{`${employee.firstname} ${employee.lastname}`}
-									</option>
-								);})}
-							<option value='open'>OPEN</option>
-						</select>
-					</fieldset>
-					<fieldset>
-						<legend>
-							Choose New Start Time or Date
-						</legend>
-						<label htmlFor="startDate">Start Time</label>
-						<input
-							type="datetime-local"
-							id="startDate"
-							name="startDate"
-							defaultValue={defaultStart} //To be pulled from server
-						/>
-						<label htmlFor="endDate">End Time</label>
-						<input
-							type="datetime-local"
-							id="endDate"
-							name="endDate"
-							defaultValue={defaultEnd.slice(0,-1)} //To be pulled from server
-						/>
-					</fieldset>
+				<form onSubmit={this.handleSubmit}>
+					<label htmlFor="employee-select">Employee</label>
+					<select
+						id="employee-select"
+						name="employee-select"
+						defaultValue={this.state.employee}
+						onChange={this.handleEmployeeSelect}
+					>
+						{this.props.employees.employees.map((employee, i) =>
+								<option key={i} value={employee.id}>
+									{`${employee.firstname} ${employee.lastname}`}
+								</option>
+							)}
+						<option value='open'>OPEN</option>
+					</select>
+					<label htmlFor="startDate">Start Time</label>
+					<input
+						type="datetime-local"
+						id="startDate"
+						name="startDate"
+						defaultValue={defaultStart}
+					/>
+					<label htmlFor="endDate">End Time</label>
+					<input
+						type="datetime-local"
+						id="endDate"
+						name="endDate"
+						defaultValue={defaultEnd}
+					/>
 					<button type='submit'>Change Shift</button>
+          <input type="reset"/>
 				</form>
-				<button
-					onClick={() => this.props.dispatch(hideModal())}
-				>Cancel</button>
+				<button onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
+        <button onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}><i className="fa fa-trash-o" aria-hidden="true"></i></button>
 			</div>);
 	}
 }
