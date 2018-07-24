@@ -29,11 +29,12 @@ export class NavBar extends React.Component {
 				<ul className="navbar-links">
 					<li><Link to="/dashboard"><i className="fa fa-calendar-o" aria-hidden="true"></i></Link></li>
 					<li><Link to="/profile"><i className="fa fa-user" aria-hidden="true"></i></Link></li>
+					<li><Link to="/employees"><i className="fa fa-users" aria-hidden="true"></i></Link></li>
 					<li>
 						<button
 							className="navbar-signout-btn"
 							onClick={() => this.props.dispatch(logout())}>
-              <i className="fa fa-sign-out" aria-hidden="true"></i>
+							<i className="fa fa-sign-out" aria-hidden="true"></i>
 						</button>
 					</li>
 				</ul>
@@ -43,12 +44,12 @@ export class NavBar extends React.Component {
 		return (
 			<header className="navbar-header">
 				<div>
-          <Link to="/"><i className="fa fa-window-restore" aria-hidden="true"></i></Link>
+					<Link to="/"><i className="fa fa-window-restore" aria-hidden="true"></i></Link>
 				</div>
-        <nav>
-          {/*<button onClick={() => this.setState({ isOpen: !this.state.isOpen })}>Menu</button>*/}
-          {menu}
-        </nav>
+				<nav>
+					{/*<button onClick={() => this.setState({ isOpen: !this.state.isOpen })}>Menu</button>*/}
+					{menu}
+				</nav>
 			</header>
 
 		);
