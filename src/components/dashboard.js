@@ -45,7 +45,7 @@ export class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
-	frames: PropTypes.object,
+	frames: PropTypes.array,
 	error : PropTypes.string,
 	loading: PropTypes.bool,
 	dispatch: PropTypes.func

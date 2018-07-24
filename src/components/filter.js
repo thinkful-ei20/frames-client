@@ -17,7 +17,7 @@ export class Filter extends React.Component {
 				<select htmlFor="filterByTime" onChange={(e) => this.filterByTimeFrame(e)}>
 					<option>FILTER TIME FRAMES</option>
 					<option value="open">OPEN</option>
-					{this.props.frames.frames.map((frame, i) => {
+					{this.props.frames.map((frame, i) => {
 						return <option key={i} value={`${frame.startFrame} - ${frame.endFrame}`}>{frame.startFrame} - {frame.endFrame}</option>;
 					})}
 				</select>
@@ -27,7 +27,7 @@ export class Filter extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	frames: state.frames
+	frames: state.frames.frames
 });
 
 export default connect(mapStateToProps)(Filter);
