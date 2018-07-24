@@ -38,7 +38,7 @@ export class Dashboard extends React.Component {
 		this.setState({
 			advanFilter: !this.state.advanFilter
 		});
-	}
+	};
 
 	render() {
 		if (this.props.loading){
