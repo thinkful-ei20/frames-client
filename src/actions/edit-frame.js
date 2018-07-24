@@ -65,8 +65,7 @@ export const addFrame = frame => dispatch => {
     })
     .catch(error => {
       const {message} = error;
-      console.log('MESSAGE', message);
-      return new SubmissionError({_error : message});
+      return Promise.reject( new SubmissionError({_error : message}));
     });
 };
 
