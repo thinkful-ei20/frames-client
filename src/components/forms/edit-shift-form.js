@@ -22,11 +22,9 @@ export class EditShiftForm extends React.Component {
 	}
 
 	render() {
-		const foo = this.props.currentFrame.startFrame.replace(' ', 'T');
-		console.log(foo);
 		// Default values = the current start/end of the frame
 		const defaultStart = this.props.currentFrame.startFrame.replace(' ', 'T');
-		const defaultEnd = this.props.currentFrame.endFrame;
+		const defaultEnd = this.props.currentFrame.endFrame.replace(' ', 'T');
 
 		return(
 			<div className="form-wrapper">
@@ -64,14 +62,19 @@ export class EditShiftForm extends React.Component {
 							type="datetime-local"
 							id="endDate"
 							name="endDate"
-							defaultValue={defaultEnd.slice(0,-1)} //To be pulled from server
+							defaultValue={defaultEnd} //To be pulled from server
 						/>
 					</fieldset>
 					<button type='submit'>Change Shift</button>
 				</form>
 				<button
-					onClick={() => this.props.dispatch(hideModal())}
-				>Cancel</button>
+        onClick={() => this.props.dispatch(hideModal())}
+      >Cancel</button>
+        <button
+          onClick={() => this.props.dispatch(hideModal())}
+        >
+					<i className="fa fa-trash-o" aria-hidden="true"></i>
+				</button>
 			</div>);
 	}
 }
