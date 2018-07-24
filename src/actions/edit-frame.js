@@ -2,6 +2,7 @@ import {API_BASE_URL} from '../config';
 import { fetchFrames } from './frames';
 import { normalizeResponseErrors, getThisWeek } from './utils';
 import { hideModal } from './modals';
+import {SubmissionError} from "redux-form";
 
 // Set loading to true
 export const REQUEST_EDIT_FRAME = 'REQUEST_EDIT_FRAME';
@@ -45,7 +46,7 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 };
 
 export const addFrame = frame => dispatch => {
-	dispatch(requestEditFrame());
+	// dispatch(requestEditFrame());
 	const token = localStorage.getItem('authToken');
   const week = getThisWeek();
 
@@ -62,7 +63,11 @@ export const addFrame = frame => dispatch => {
     .then(() => {
       dispatch(fetchFrames(week.start, week.end));
     })
-    .catch(error => dispatch(editFrameError(error)));
+    .catch(error => {
+      const {message} = error;
+      console.log('MESSAGE', message);
+      return new SubmissionError({_error : message});
+    });
 };
 
 export const deleteFrame = frameId => dispatch => {

@@ -18,16 +18,18 @@ class AddShiftForm extends React.Component {
   handleSubmit = values => {
     console.log(values);
     const frame = {
-      employeeId: values.employee !== 'open' ? values.employee : null,
-      startFrame: values.startDate,
+      employeeId: (values.employee && (values.employee !== 'open')) ? values.employee : null,
+      // startFrame: values.startDate,
       endFrame: values.endDate
     };
+    console.log('FRAME', frame);
     this.props.dispatch(addFrame(frame));
   }
 
   ;
 
   render() {
+    console.log('ADD SHIFT ERROR', this.props);
     // Render nothing if the "show" prop is false
     if(!this.props.show) {
       return null;
@@ -47,6 +49,7 @@ class AddShiftForm extends React.Component {
       <div className="backdrop">
         <div className="add-shift-modal">
           <div className="add-shift-form-wrapper">
+            {this.props.error}
             <h2>Add Shift</h2>
             <form
               className="add-shift-form"
@@ -54,8 +57,8 @@ class AddShiftForm extends React.Component {
             >
               {error}
               <Field
-                name="employees"
-                label="Employees"
+                name="employee"
+                label="Employee"
                 element="select"
                 component={renderField}
               >
@@ -101,12 +104,12 @@ AddShiftForm.propTypes = {
 
 AddShiftForm = reduxForm({
   form: 'add-shift',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('', ''))
+  // onSubmitFail: (errors, dispatch) => dispatch(focus('add-shift', 'employee'))
 })(AddShiftForm);
 
 export default AddShiftForm = connect(state => {
   return {
     employees: state.employees.employees,
-    error: state.employees.error
+    // error: state.employees.error
   };
 })(AddShiftForm);

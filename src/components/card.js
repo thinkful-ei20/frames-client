@@ -24,7 +24,7 @@ class Card extends React.Component{
 	render() {
 
 		const { employeeId, startFrame, endFrame, id, key}  = this.props.employee;
-		const emplName = `${employeeId.firstname} ${employeeId.lastname}`;
+		const emplName = employeeId ? `${employeeId.firstname} ${employeeId.lastname}` : 'OPEN';
 
 		const start = moment(startFrame).format('LT');
 		const end = moment(endFrame).format('LT');
