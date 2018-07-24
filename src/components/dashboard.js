@@ -15,11 +15,11 @@ import AdvancedFilter from './modals/advanced-filter-modal';
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
+	constructor(props) {
+		super(props);
+		this.state = {
 			addShiftOpen: false,
-			advanFilter: false 
+			advanFilter: false
 		};
 	}
 
@@ -30,11 +30,12 @@ export class Dashboard extends React.Component {
 	}
 
 	handleAddShiftPrompt = () => {
-  	this.setState({ addShiftOpen: !this.state.addShiftOpen })
-	};
-	
+  	this.setState({
+			addShiftOpen: !this.state.addShiftOpen
+		});
+	}
+
 	toggleAdvancedFilter = () => {
-		console.log('Toggle Advanced Filter');
 		this.setState({
 			advanFilter: !this.state.advanFilter
 		});
@@ -52,40 +53,38 @@ export class Dashboard extends React.Component {
 		let frameList = this.props.frames;
 		let filteredFrames = frameList.filter(frame => {
 			if (this.props.filter !== null) {
-				return frame.startFrame === this.props.filter.split('|')[0];	
+				return frame.startFrame === this.props.filter.split('|')[0];
 			}
 		});
 		let listOfFramesToBeRendered = frameList;
 
 		if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
-      listOfFramesToBeRendered = frameList;
-    } else if (this.props.filter !== null) {
-      listOfFramesToBeRendered = filteredFrames;
+			listOfFramesToBeRendered = frameList;
+		} else if (this.props.filter !== null) {
+			listOfFramesToBeRendered = filteredFrames;
 		}
-		
 
-		console.log(`filteredFrames: ${filteredFrames}`);
 		return(
 			<React.Fragment>
-			<div className="dashboard">
-				<button
-					type="button"
-					onClick={this.handleAddShiftPrompt}
-				>
-					<i className="fa fa-plus" aria-hidden="true"></i>
-				</button>
-				<div className="dashboard-section-header">
-					<div>{startSchedule} - {endSchedule}</div>
-					<Filter />
-					<button onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
-					<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
-				</div>
-				<section className="dashboard-section">
-						{listOfFramesToBeRendered.length 
-							? <CardList list={listOfFramesToBeRendered} /> 
+				<div className="dashboard">
+					<button
+						type="button"
+						onClick={this.handleAddShiftPrompt}
+					>
+						<i className="fa fa-plus" aria-hidden="true"></i>
+					</button>
+					<div className="dashboard-section-header">
+						<div>{startSchedule} - {endSchedule}</div>
+						<Filter />
+						<button onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
+						<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
+					</div>
+					<section className="dashboard-section">
+						{listOfFramesToBeRendered.length
+							? <CardList list={listOfFramesToBeRendered} />
 							: <div>No data</div>}
-				</section>
-			</div>
+					</section>
+				</div>
 				<AddShiftForm
 					initialValues={{
 						startDate: defaultTime,
@@ -93,7 +92,7 @@ export class Dashboard extends React.Component {
 					}}
 					show={this.state.addShiftOpen}
 					onClose={this.handleAddShiftPrompt}/>
-      </React.Fragment>
+			</React.Fragment>
 		);
 	}
 }
