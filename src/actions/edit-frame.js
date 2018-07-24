@@ -44,3 +44,23 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 		.catch(error => dispatch(editFrameError(error)));
 };
 
+export const deleteFrame = frameId => dispatch => {
+	dispatch(requestEditFrame());
+	const token = localStorage.getItem('authToken');
+	const week = getThisWeek();
+
+	return fetch(`${API_BASE_URL}/frames/frame/${frameId}`, {
+		method: 'DELETE',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${token}`,
+      'Content-type': 'application/json'
+    }
+	})
+		.then(res => normalizeResponseErrors(res))
+		.then(() => {
+			dispatch(fetchFrames(week.start, week.end));
+			dispatch(hideModal());
+		})
+		.catch(error => dispatch(editFrameError(error)));
+};
