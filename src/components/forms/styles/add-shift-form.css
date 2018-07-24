@@ -8,7 +8,7 @@
     padding: 50px;
 }
 
-.modal {
+.add-shift-modal {
     color: #edeef0;
     background-color: #1b1c22;
     border-radius: 5px;
@@ -18,7 +18,7 @@
     padding: 30px;
 }
 
-.modal input {
+.add-shift-modal input {
     display: block;
     width: 100%;
     margin-top: 5px;

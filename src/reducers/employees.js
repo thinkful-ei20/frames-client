@@ -17,7 +17,7 @@ export default function employeesReducer(state = initialState, action) {
 	if (action.type === EMPLOYEES_SUCCESS) {
 		return {
 			...state,
-			loading: true,
+			loading: false,
 			employees: action.data,
 			error: null
 		};
@@ -26,7 +26,7 @@ export default function employeesReducer(state = initialState, action) {
 	if (action.type === EMPLOYEES_ERROR) {
 		return {
 			...state,
-			loading: true,
+			loading: false,
 			error: action.error
 		};
 	}
