@@ -19,17 +19,15 @@ class AddShiftForm extends React.Component {
     console.log(values);
     const frame = {
       employeeId: (values.employee && (values.employee !== 'open')) ? values.employee : null,
-      // startFrame: values.startDate,
+      startFrame: values.startDate,
       endFrame: values.endDate
     };
     console.log('FRAME', frame);
     this.props.dispatch(addFrame(frame));
-  }
-
-  ;
+    this.props.onClose();
+  };
 
   render() {
-    console.log('ADD SHIFT ERROR', this.props);
     // Render nothing if the "show" prop is false
     if(!this.props.show) {
       return null;
