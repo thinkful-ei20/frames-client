@@ -1,10 +1,8 @@
-
-
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { filterSuccess } from '../actions/filter';
 import './styles/filter.css';
+import PropTypes from 'prop-types';
 
 export class Filter extends React.Component {
 	filterByTimeFrame(e) {
@@ -25,6 +23,13 @@ export class Filter extends React.Component {
 		);
 	}
 }
+
+Filter.propTypes = {
+	frames: PropTypes.array,
+	error : PropTypes.string,
+	loading: PropTypes.bool,
+	dispatch: PropTypes.func
+};
 
 const mapStateToProps = state => ({
 	frames: state.frames.frames
