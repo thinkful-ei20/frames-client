@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import EditShiftForm from '../forms/edit-shift-form';
 
 import {hideModal} from '../../actions/modals';
+import EditEmployeeForm from '../forms/edit-employee-form';
+import AddEmployeeForm from '../forms/create-employee-form';
 
 export function ModalConductor(props) {
 	let contentLabel;
@@ -15,6 +17,12 @@ export function ModalConductor(props) {
 
 		contentLabel = 'Edit a Shift';
 		content = <EditShiftForm/>;
+	} else if (props.modalType === 'employee'){
+		contentLabel = 'Edit an Employee';
+		content = <EditEmployeeForm/>;
+	} else if (props.modalType === 'newEmployee'){
+		contentLabel= 'Create an Employee';
+		content = <AddEmployeeForm />;
 	}
 
 	return (<ReactModal
