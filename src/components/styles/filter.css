@@ -1,4 +1,21 @@
 .filter {
-  width: 350px;
-  /* border: 1px solid red; */
+  color: #edeef0;
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  background-color: #35df5c;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+  border-radius: 5px;
+}
+
+.filter select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  padding: 5px;
+  width: 268px;
 }

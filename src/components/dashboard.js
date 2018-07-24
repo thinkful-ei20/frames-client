@@ -34,15 +34,10 @@ export class Dashboard extends React.Component {
 					<div>{startSchedule} - {endSchedule}</div>
 					<Filter />
 				</div>
-				{/*<div>{startSchedule} - {endSchedule}</div>*/}
 				<section className="dashboard-section">
-
 					{this.props.frames.length
-						?
-						<CardList list={this.props.frames} />
-						:
-						<div>No data</div>
-					}
+						? <CardList list={this.props.frames} />
+						: <div>No data</div> }
 				</section>
 			</div>
 		);
