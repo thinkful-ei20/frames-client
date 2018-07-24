@@ -13,7 +13,7 @@ export class Filter extends React.Component {
 		return (
 			<div className="filter">
 				<select htmlFor="filterByTime" onChange={(e) => this.filterByTimeFrame(e)}>
-					<option>FILTER TIME FRAMES</option>
+					<option value={null}>FILTER TIME FRAMES</option>
 					<option value="open">OPEN</option>
 					{this.props.frames.map((frame, i) => {
 						return <option key={i} value={`${frame.startFrame} - ${frame.endFrame}`}>{frame.startFrame} - {frame.endFrame}</option>;

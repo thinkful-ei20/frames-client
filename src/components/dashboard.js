@@ -9,15 +9,27 @@ import {fetchEmployees} from '../actions/employee';
 import PropTypes from 'prop-types';
 
 import Filter from './filter';
+import AdvancedFilter from './modals/advanced-filter-modal';
 
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { advanFilter: false };
+	}
 
 	componentDidMount() {
 		const dates = getThisWeek();
 		this.props.dispatch(fetchFrames(dates.start, dates.end));
 		this.props.dispatch(fetchEmployees());
+	}
+
+	toggleAdvancedFilter = () => {
+		console.log('Toggle Advanced Filter');
+		this.setState({
+			advanFilter: !this.state.advanFilter
+		});
 	}
 
 	render() {
@@ -33,6 +45,8 @@ export class Dashboard extends React.Component {
 				<div className="dashboard-section-header">
 					<div>{startSchedule} - {endSchedule}</div>
 					<Filter />
+					<button onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
+					<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
 				</div>
 				<section className="dashboard-section">
 					{this.props.frames.length
