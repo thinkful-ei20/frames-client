@@ -10,14 +10,18 @@ import {fetchEmployees} from '../actions/employee';
 import PropTypes from 'prop-types';
 
 import Filter from './filter';
+import AdvancedFilter from './modals/advanced-filter-modal';
 
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { addShiftOpen: false };
-  }
+    this.state = { 
+			addShiftOpen: false,
+			advanFilter: false 
+		};
+	}
 
 	componentDidMount() {
 		const dates = getThisWeek();
@@ -28,6 +32,13 @@ export class Dashboard extends React.Component {
 	handleAddShiftPrompt = () => {
   	this.setState({ addShiftOpen: !this.state.addShiftOpen })
 	};
+	
+	toggleAdvancedFilter = () => {
+		console.log('Toggle Advanced Filter');
+		this.setState({
+			advanFilter: !this.state.advanFilter
+		});
+	}
 
 	render() {
 		if (this.props.loading){
@@ -38,6 +49,22 @@ export class Dashboard extends React.Component {
 		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
 		const defaultTime = getToday().start;
 
+		let frameList = this.props.frames;
+		let filteredFrames = frameList.filter(frame => {
+			if (this.props.filter !== null) {
+				return frame.startFrame === this.props.filter.split('|')[0];	
+			}
+		});
+		let listOfFramesToBeRendered = frameList;
+
+		if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
+      listOfFramesToBeRendered = frameList;
+    } else if (this.props.filter !== null) {
+      listOfFramesToBeRendered = filteredFrames;
+		}
+		
+
+		console.log(`filteredFrames: ${filteredFrames}`);
 		return(
 			<React.Fragment>
 			<div className="dashboard">
@@ -50,14 +77,13 @@ export class Dashboard extends React.Component {
 				<div className="dashboard-section-header">
 					<div>{startSchedule} - {endSchedule}</div>
 					<Filter />
+					<button onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
+					<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
 				</div>
 				<section className="dashboard-section">
-					{this.props.frames.length
-						?
-						<CardList list={this.props.frames} />
-						:
-						<div>No data</div>
-					}
+						{listOfFramesToBeRendered.length 
+							? <CardList list={listOfFramesToBeRendered} /> 
+							: <div>No data</div>}
 				</section>
 			</div>
 				<AddShiftForm
@@ -73,17 +99,19 @@ export class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
-	frames: PropTypes.object,
+	frames: PropTypes.array,
 	error : PropTypes.string,
 	loading: PropTypes.bool,
-	dispatch: PropTypes.func
+	dispatch: PropTypes.func,
+	filter: PropTypes.string
 };
 
 const mapStateToProps = state => ({
 	loggedIn : state.auth.user !== null,
 	frames: state.frames.frames,
 	loading : state.frames.loading,
-	error : state.frames.error
+	error : state.frames.error,
+	filter: state.filter.filter
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));

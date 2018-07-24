@@ -23,11 +23,11 @@ class Card extends React.Component{
 
 	render() {
 
-		const { employeeId, startFrame, endFrame, id, key}  = this.props.employee;
-		const emplName = employeeId ? `${employeeId.firstname} ${employeeId.lastname}` : 'OPEN';
+		const { employeeId, startFrame, endFrame, id, key }  = this.props.employee;
+		const emplName = (employeeId !== null) ? `${employeeId.firstname} ${employeeId.lastname}` : 'OPEN';
 
-		const start = moment(startFrame).format('LT');
-		const end = moment(endFrame).format('LT');
+		// const start = moment(startFrame).format('LT');
+		// const end = moment(endFrame).format('LT');
 
 		const timeDiff = moment(endFrame).diff(moment(startFrame), 'hours');
 
@@ -39,7 +39,7 @@ class Card extends React.Component{
 						<div className="card-employee">
 							<div className="card-name">{emplName}</div>
 							<div className="card-frame">
-								<p>{start} - {end}</p>
+								<p>{startFrame} - {endFrame}</p>
 							</div>
 						</div>
 						<div className="card-time">
