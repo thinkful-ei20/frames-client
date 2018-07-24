@@ -9,7 +9,9 @@ import PropTypes from 'prop-types';
 export class EditShiftForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { employee: props.currentFrame.employeeId.id }
+		this.state = {
+			employee: props.currentFrame.employeeId ? props.currentFrame.employeeId.id : 'open'
+		}
 	}
 
 	handleSubmit = e => {
