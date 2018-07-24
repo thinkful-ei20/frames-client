@@ -8,6 +8,8 @@ import { getThisWeek } from '../actions/utils';
 import {fetchEmployees} from '../actions/employee';
 import PropTypes from 'prop-types';
 
+import Filter from './filter';
+
 import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
@@ -30,6 +32,7 @@ export class Dashboard extends React.Component {
 			<div className="dashboard">
 				<div className="dashboard-section-header">
 					<div>{startSchedule} - {endSchedule}</div>
+					<Filter />
 				</div>
 				{/*<div>{startSchedule} - {endSchedule}</div>*/}
 				<section className="dashboard-section">
