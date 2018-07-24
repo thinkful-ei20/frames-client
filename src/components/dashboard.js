@@ -5,7 +5,7 @@ import CardList from './card-list';
 import AddShiftForm from './forms/add-shift-form';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
-import { getThisWeek } from '../actions/utils';
+import { getThisWeek, getToday } from '../actions/utils';
 import {fetchEmployees} from '../actions/employee';
 import PropTypes from 'prop-types';
 
@@ -36,6 +36,7 @@ export class Dashboard extends React.Component {
 
 		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
 		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
+		const defaultTime = getToday().start;
 
 		return(
 			<React.Fragment>
@@ -60,6 +61,10 @@ export class Dashboard extends React.Component {
 				</section>
 			</div>
 				<AddShiftForm
+					initialValues={{
+						startDate: defaultTime,
+						endDate: defaultTime
+					}}
 					show={this.state.addShiftOpen}
 					onClose={this.handleAddShiftPrompt}/>
       </React.Fragment>

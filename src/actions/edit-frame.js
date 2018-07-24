@@ -44,6 +44,27 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 		.catch(error => dispatch(editFrameError(error)));
 };
 
+export const addFrame = frame => dispatch => {
+	dispatch(requestEditFrame());
+	const token = localStorage.getItem('authToken');
+  const week = getThisWeek();
+
+	return fetch(`${API_BASE_URL}/frames/frame`, {
+    method : 'POST',
+    headers : {
+      'Content-Type' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    },
+    body: JSON.stringify(frame)
+	})
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(() => {
+      dispatch(fetchFrames(week.start, week.end));
+    })
+    .catch(error => dispatch(editFrameError(error)));
+};
+
 export const deleteFrame = frameId => dispatch => {
 	dispatch(requestEditFrame());
 	const token = localStorage.getItem('authToken');
