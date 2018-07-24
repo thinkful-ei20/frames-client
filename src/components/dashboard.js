@@ -68,7 +68,7 @@ export class Dashboard extends React.Component {
 					{/* {this.props.frames.length
 						? <CardList list={this.props.frames} />
 						: <div>No data</div> } */}
-						{listOfFramesToBeRendered.length ? listOfFramesToBeRendered.map(frame => <CardList list={listOfFramesToBeRendered} />) : <div>No data</div>}
+						{listOfFramesToBeRendered.length ? <CardList list={listOfFramesToBeRendered} /> : <div>No data</div>}
 				</section>
 			</div>
 		);
