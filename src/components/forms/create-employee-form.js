@@ -1,28 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { updateEmployee, deleteEmployee } from '../../actions/employee';
+import { createEmployee } from '../../actions/employee';
 import PropTypes from 'prop-types';
 import { hideModal } from '../../actions/modals';
 
-class EditEmployeeForm extends React.Component {
+class AddEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
-		const updatedEmployee = {
+		const newEmployee = {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
 			email : data.get('email'),
-			phoneNumber : data.get('phoneNumber')
+			phoneNumber : data.get('phoneNumber'),
+			img : data.get('image'),
+			password : data.get('password')
 		};
-		this.props.dispatch(updateEmployee(this.props.id, updatedEmployee));
+		this.props.dispatch(createEmployee(newEmployee));
 	}
 
 	handleCancel() {
 		this.props.dispatch(hideModal());
-	}
-
-	handleDelete() {
-		this.props.dispatch(deleteEmployee(this.props.id));
 	}
 
 	render(){
@@ -32,14 +30,13 @@ class EditEmployeeForm extends React.Component {
 				<form onSubmit={e => this.handleSubmit(e)}>
 					<fieldset>
 						<legend>
-              Full Name
+              Personal Details
 						</legend>
 						<label htmlFor="firstname">First Name</label>
 						<input
 							type='text'
 							id='firstname'
 							name='firstname'
-							defaultValue={this.props.employee.firstname}
 						/>
 
 						<label htmlFor="lastname">Last Name</label>
@@ -47,7 +44,13 @@ class EditEmployeeForm extends React.Component {
 							type='text'
 							id='lasttname'
 							name='lastname'
-							defaultValue={this.props.employee.lastname}
+						/>
+
+						<label htmlFor="image">Link to Image of Employee</label>
+						<input
+							type='text'
+							id='image'
+							name='image'
 						/>
 					</fieldset>
 
@@ -60,38 +63,39 @@ class EditEmployeeForm extends React.Component {
 							type='email'
 							id='email'
 							name='email'
-							defaultValue={this.props.employee.email}
 						/>
 						<label htmlFor="phoneNumber">Phone Number</label>
 						<input
 							type='tel'
 							id='phoneNumber'
 							name='phoneNumber'
-							defaultValue={this.props.employee.phoneNumber}
 						/>
 					</fieldset>
-					<button type='submit'>Update Employee</button>
+
+					<fieldset>
+						<legend>
+              Login details
+						</legend>
+						<label htmlFor="password">Password</label>
+						<input
+							type='text'
+							id='password'
+							name='password'
+						/>
+					</fieldset>
+					<button type='submit'>Create Employee</button>
 				</form>
-				<button onClick={() => this.handleDelete()}>Delete</button>
 				<button onClick={() => this.handleCancel()}>Cancel</button>
 			</React.Fragment>
 		);
 	}
 }
 
-const mapStateToProps = state => {
-	const id = state.modal.currentId;
-	const currentEmployee = state.employees.employees.filter(employee => employee.id === id)[0];
-	return {
-		employee : currentEmployee,
-		id
-	};
-};
 
-EditEmployeeForm.propTypes = {
+AddEmployeeForm.propTypes = {
 	dispatch : PropTypes.func,
 	id : PropTypes.string,
 	employee : PropTypes.object
 };
 
-export default connect(mapStateToProps)(EditEmployeeForm);
+export default connect()(AddEmployeeForm);

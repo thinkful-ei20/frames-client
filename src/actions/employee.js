@@ -67,3 +67,41 @@ export const updateEmployee = (employeeId, updatedEmployee) => dispatch => {
 		})
 		.catch(error => dispatch(employeesError(error)));
 };
+
+//Asynch action to create an employee
+export const createEmployee = newEmployee => dispatch => {
+	dispatch(requestEmployees());
+	const token = localStorage.getItem('authToken');
+	return fetch(`${API_BASE_URL}/employee`, {
+		method : 'POST',
+		headers : {
+			'Content-Type' : 'application/json',
+			'Authorization' : `Bearer ${token}`
+		},
+		body : JSON.stringify(newEmployee)
+	})
+		.then(() => {
+			dispatch(fetchEmployees());
+			dispatch(hideModal());
+		})
+		.catch(error => dispatch(employeesError(error.message)));
+};
+
+
+//Asynch action to delete an employee
+export const deleteEmployee = employeeId => dispatch => {
+	dispatch(requestEmployees());
+	const token = localStorage.getItem('authToken');
+	return fetch(`${API_BASE_URL}/employee/${employeeId}`, {
+		method : 'DELETE',
+		headers : {
+			'Content-Type' : 'application/json',
+			'Authorization' : `Bearer ${token}`
+		}
+	})
+		.then(() => {
+			dispatch(fetchEmployees());
+			dispatch(hideModal());
+		})
+		.catch(error => dispatch(employeesError(error.message)));
+};

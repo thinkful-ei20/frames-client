@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchEmployees } from '../actions/employee';
+import { fetchEmployees, createEmployee } from '../actions/employee';
 import EmployeeCard from './employee-card';
 import PropTypes from 'prop-types';
+import { showModal } from '../actions/modals';
 
 class Employees extends React.Component {
 
@@ -17,6 +18,7 @@ class Employees extends React.Component {
 					<h1>Employees</h1>
 				</header>
 				<section>
+					<button onClick={() => this.props.dispatch(showModal('newEmployee', null))}>New Employee</button>
 					{this.props.employees.map(employee => {
 						return (
 							<EmployeeCard
