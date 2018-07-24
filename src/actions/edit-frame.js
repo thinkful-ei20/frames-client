@@ -2,7 +2,7 @@ import {API_BASE_URL} from '../config';
 import { fetchFrames } from './frames';
 import { normalizeResponseErrors, getThisWeek } from './utils';
 import { hideModal } from './modals';
-import {SubmissionError} from "redux-form";
+import {SubmissionError} from 'redux-form';
 
 // Set loading to true
 export const REQUEST_EDIT_FRAME = 'REQUEST_EDIT_FRAME';
@@ -15,6 +15,7 @@ export const requestEditFrame = () => {
 // Set loading to false and set error
 export const EDIT_FRAME_ERROR = 'EDIT_FRAME_ERROR';
 export const editFrameError = error => {
+	console.log(error);
 	return {
 		type: EDIT_FRAME_ERROR,
 		error
@@ -26,7 +27,7 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 	dispatch(requestEditFrame());
 	const token = localStorage.getItem('authToken');
 	// Get Date information for next frames fetch
-	const today = getThisWeek();
+	const week = getThisWeek();
 
 	return fetch(`${API_BASE_URL}/frames/frame/${frameId}`, {
 		method : 'PUT',
@@ -39,35 +40,35 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(() => {
-			dispatch(fetchFrames(today.start, today.end));
+			dispatch(fetchFrames(week.start, week.end));
 			dispatch(hideModal());
 		})
 		.catch(error => dispatch(editFrameError(error)));
 };
 
 export const addFrame = frame => dispatch => {
-	// dispatch(requestEditFrame());
+	dispatch(requestEditFrame());
 	const token = localStorage.getItem('authToken');
-  const week = getThisWeek();
+	const week = getThisWeek();
 
 	return fetch(`${API_BASE_URL}/frames/frame`, {
-    method : 'POST',
-    headers : {
-      'Content-Type' : 'application/json',
-      'Authorization' : `Bearer ${token}`
-    },
-    body: JSON.stringify(frame)
+		method : 'POST',
+		headers : {
+			'Content-Type' : 'application/json',
+			'Authorization' : `Bearer ${token}`
+		},
+		body: JSON.stringify(frame)
 	})
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then(() => {
-      dispatch(fetchFrames(week.start, week.end));
-    })
-    .catch(error => {
-      const {message} = error;
-      console.log('MESSAGE', message);
-      return new SubmissionError({_error : message});
-    });
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(() => {
+			dispatch(fetchFrames(week.start, week.end));
+			dispatch(hideModal());
+		})
+		.catch(error => {
+			//dispatch(editFrameError(error.message));
+			return Promise.reject( new SubmissionError({_error : error.message}));
+		});
 };
 
 export const deleteFrame = frameId => dispatch => {
@@ -77,11 +78,11 @@ export const deleteFrame = frameId => dispatch => {
 
 	return fetch(`${API_BASE_URL}/frames/frame/${frameId}`, {
 		method: 'DELETE',
-    headers: {
-      // Provide our auth token as credentials
-      Authorization: `Bearer ${token}`,
-      'Content-type': 'application/json'
-    }
+		headers: {
+			// Provide our auth token as credentials
+			Authorization: `Bearer ${token}`,
+			'Content-type': 'application/json'
+		}
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(() => {

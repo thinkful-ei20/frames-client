@@ -9,6 +9,7 @@ const initialState = {
 
 
 export default function framesReducer(state = initialState, action) {
+	console.log('TAG!',action);
 	if (action.type === (REQUEST_FRAMES || REQUEST_EDIT_FRAME)){
 		return {
 			...state,
@@ -25,7 +26,16 @@ export default function framesReducer(state = initialState, action) {
 		};
 	}
 
-	if (action.type === (FRAMES_ERROR || EDIT_FRAME_ERROR)){
+	if (action.type === FRAMES_ERROR){
+		return {
+			...state,
+			loading: false,
+			error: action.error
+		};
+	}
+
+	if (action.type === EDIT_FRAME_ERROR){
+		console.log('In The Reducer',action.error);
 		return {
 			...state,
 			loading: false,

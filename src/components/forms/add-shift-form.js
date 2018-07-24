@@ -16,20 +16,15 @@ class AddShiftForm extends React.Component {
   }
 
   handleSubmit = values => {
-    console.log(values);
     const frame = {
       employeeId: (values.employee && (values.employee !== 'open')) ? values.employee : null,
       // startFrame: values.startDate,
       endFrame: values.endDate
     };
-    console.log('FRAME', frame);
     this.props.dispatch(addFrame(frame));
   }
 
-  ;
-
   render() {
-    console.log('ADD SHIFT ERROR', this.props);
     // Render nothing if the "show" prop is false
     if(!this.props.show) {
       return null;
@@ -104,12 +99,12 @@ AddShiftForm.propTypes = {
 
 AddShiftForm = reduxForm({
   form: 'add-shift',
-  // onSubmitFail: (errors, dispatch) => dispatch(focus('add-shift', 'employee'))
+  onSubmitFail: (errors, dispatch) => dispatch(focus('add-shift', 'employee'))
 })(AddShiftForm);
 
 export default AddShiftForm = connect(state => {
   return {
     employees: state.employees.employees,
-    // error: state.employees.error
+    error: state.employees.error
   };
 })(AddShiftForm);
