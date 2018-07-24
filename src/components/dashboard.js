@@ -40,6 +40,22 @@ export class Dashboard extends React.Component {
 		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
 		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
 
+		let frameList = this.props.frames;
+		let filteredFrames = frameList.filter(frame => {
+			if (this.props.filter !== null) {
+				return frame.startFrame === this.props.filter.split('|')[0];	
+			}
+		});
+		let listOfFramesToBeRendered = frameList;
+
+		if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
+      listOfFramesToBeRendered = frameList;
+    } else if (this.props.filter !== null) {
+      listOfFramesToBeRendered = filteredFrames;
+		}
+		
+
+		console.log(`filteredFrames: ${filteredFrames}`);
 		return(
 			<div className="dashboard">
 				<div className="dashboard-section-header">
@@ -49,9 +65,10 @@ export class Dashboard extends React.Component {
 					<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
 				</div>
 				<section className="dashboard-section">
-					{this.props.frames.length
+					{/* {this.props.frames.length
 						? <CardList list={this.props.frames} />
-						: <div>No data</div> }
+						: <div>No data</div> } */}
+						{listOfFramesToBeRendered.length ? listOfFramesToBeRendered.map(frame => <CardList list={listOfFramesToBeRendered} />) : <div>No data</div>}
 				</section>
 			</div>
 		);
@@ -62,14 +79,16 @@ Dashboard.propTypes = {
 	frames: PropTypes.array,
 	error : PropTypes.string,
 	loading: PropTypes.bool,
-	dispatch: PropTypes.func
+	dispatch: PropTypes.func,
+	filter: PropTypes.string
 };
 
 const mapStateToProps = state => ({
 	loggedIn : state.auth.user !== null,
 	frames: state.frames.frames,
 	loading : state.frames.loading,
-	error : state.frames.error
+	error : state.frames.error,
+	filter: state.filter.filter
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
