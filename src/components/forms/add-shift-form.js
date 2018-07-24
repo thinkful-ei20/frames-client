@@ -18,11 +18,12 @@ class AddShiftForm extends React.Component {
   handleSubmit = values => {
     const frame = {
       employeeId: (values.employee && (values.employee !== 'open')) ? values.employee : null,
-      // startFrame: values.startDate,
+      startFrame: values.startDate,
       endFrame: values.endDate
     };
     this.props.dispatch(addFrame(frame));
-  }
+    this.props.onClose();
+  };
 
   render() {
     // Render nothing if the "show" prop is false
