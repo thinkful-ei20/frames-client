@@ -17,7 +17,7 @@ export const CardList = (props) => {
 
 				if (currDayValue > dayWrapper) {
 					dayWrapper = currDayValue;
-        	return (
+					return (
 						<React.Fragment>
 							<p className="card-date">{currDay}</p>
 							<Card
@@ -27,7 +27,7 @@ export const CardList = (props) => {
 						</React.Fragment>
 					);
 				}
-        	return (
+				return (
 					<Card
 						// imageUrl={'fake.img'}
 						// name={`${em.employeeId.firstname} ${em.employeeId.lastname}`}
@@ -38,7 +38,6 @@ export const CardList = (props) => {
 						// end={em.endFrame}
 					/>
 				);
-
 			})
 			}
 		</section>
