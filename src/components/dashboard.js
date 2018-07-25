@@ -13,6 +13,7 @@ import Filter from './filter';
 import AdvancedFilter from './modals/advanced-filter-modal';
 
 import './styles/dashboard.css';
+import { showModal } from '../actions/modals';
 
 export class Dashboard extends React.Component {
 	constructor(props) {
@@ -27,12 +28,6 @@ export class Dashboard extends React.Component {
 		const dates = getThisWeek();
 		this.props.dispatch(fetchFrames(dates.start, dates.end));
 		this.props.dispatch(fetchEmployees());
-	}
-
-	handleAddShiftPrompt = () => {
-  	this.setState({
-			addShiftOpen: !this.state.addShiftOpen
-		});
 	}
 
 	toggleAdvancedFilter = () => {
@@ -90,7 +85,7 @@ export class Dashboard extends React.Component {
 				<div className="dashboard">
 					<button
 						type="button"
-						onClick={this.handleAddShiftPrompt}
+						onClick={() => this.props.dispatch(showModal('newShift', null))}
 					>
 						<i className="fa fa-plus" aria-hidden="true"></i>
 					</button>
@@ -106,13 +101,6 @@ export class Dashboard extends React.Component {
 							: <div>No data</div>}
 					</section>
 				</div>
-				<AddShiftForm
-					initialValues={{
-						startDate: defaultTime,
-						endDate: defaultTime
-					}}
-					show={this.state.addShiftOpen}
-					onClose={this.handleAddShiftPrompt}/>
 			</React.Fragment>
 		);
 	}

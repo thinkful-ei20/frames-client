@@ -5,6 +5,7 @@ import { addFrame } from '../../actions/edit-frame';
 
 import '../../App.css';
 import { getToday } from '../../actions/utils';
+import { hideModal } from '../../actions/modals';
 
 class CreateShiftForm extends React.Component {
 	constructor(props) {
@@ -40,12 +41,11 @@ class CreateShiftForm extends React.Component {
 		}
 	}
 
-	render() {
+	handleCancel() {
+		this.props.dispatch(hideModal());
+	}
 
-		// Render nothing if the "show" prop is false
-		if(!this.props.show) {
-			return null;
-		}
+	render() {
 
 		// Alert user if unable to populate employees
 		let error = null;
@@ -58,47 +58,55 @@ class CreateShiftForm extends React.Component {
 		}
 
 		return (
-			<div className="backdrop">
-				<div className="modal">
-					<button className="modal-close-btn" onClick={this.props.onClose}>
+			<React.Fragment>
+
+				<div className="add-shift-form-wrapper">
+					{this.props.error}
+					{error}
+					<h2 className='form-header'>Add Shift</h2>
+					<button className="modal-close-btn" onClick={() => this.handleCancel()}>
 					</button>
-					<div className="add-shift-form-wrapper">
-						{this.props.error}
-						{error}
-						<h2>Add Shift</h2>
-						<p>{this.state.frameError}</p>
+					<p>{this.state.frameError}</p>
+					<div className="form-wrapper">
 						<form
-							className="add-shift-form"
 							onSubmit={e => this.handleSubmit(e)}
 						>
-							<label htmlFor='employee-select'>Employee</label>
-							<select
-								id="employee-select"
-								name="employee-select"
-							>
-								{this.props.employees.map((employee, i) =>
-									<option key={i} value={employee.id}>
-										{`${employee.firstname} ${employee.lastname}`}
-									</option>
-								)}
-								<option value='open'>OPEN</option>
-							</select>
-							<label htmlFor="startDate">From</label>
-							<input
-								name="startDate"
-								id="startDate"
-								type="datetime-local"
-								defaultValue={getToday().start}
-								onChange={() => this.validateFrame()}
-							/>
-							<label htmlFor="endDate">To</label>
-							<input
-								name="endDate"
-								id="endDate"
-								type="datetime-local"
-								defaultValue={getToday().start}
-								onChange={() => this.validateFrame()}
-							/>
+							<div className="form-field">
+								<label htmlFor='employee-select'>Employee</label>
+								<select
+									id="employee-select"
+									name="employee-select"
+								>
+									{this.props.employees.map((employee, i) =>
+										<option key={i} value={employee.id}>
+											{`${employee.firstname} ${employee.lastname}`}
+										</option>
+									)}
+									<option value='open'>OPEN</option>
+								</select>
+							</div>
+
+							<div className="form-field">
+								<label htmlFor="startDate">From</label>
+								<input
+									name="startDate"
+									id="startDate"
+									type="datetime-local"
+									defaultValue={getToday().start}
+									onChange={() => this.validateFrame()}
+								/>
+							</div>
+
+							<div className="form-field">
+								<label htmlFor="endDate">To</label>
+								<input
+									name="endDate"
+									id="endDate"
+									type="datetime-local"
+									defaultValue={getToday().start}
+									onChange={() => this.validateFrame()}
+								/>
+							</div>
 							<button
 								type='submit'
 								className="form-submit-btn">
@@ -107,7 +115,7 @@ class CreateShiftForm extends React.Component {
 						</form>
 					</div>
 				</div>
-			</div>
+			</React.Fragment>
 		);
 	}
 }
