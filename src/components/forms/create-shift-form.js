@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { addFrame } from '../../actions/edit-frame';
 
 import '../../App.css';
+import { getToday } from '../../actions/utils';
 
 class CreateShiftForm extends React.Component {
 	constructor(props) {
@@ -13,23 +14,34 @@ class CreateShiftForm extends React.Component {
 		};
 	}
 
-	handleSubmit (values) {
-		// const frame = {
-		//   employeeId: (values.employee && (values.employee !== 'open')) ? values.employee : null,
-		//   startFrame: values.startDate,
-		//   endFrame: values.endDate
-		// };
-		// this.props.dispatch(addFrame(frame));
-		// this.props.onClose();
+	handleSubmit (e) {
+		e.preventDefault();
+
+		const data = new FormData(e.target);
+		const newFrame = {
+			employeeId : data.get('employee-select'),
+			startFrame : data.get('startDate'),
+			endFrame : data.get('endDate')
+		};
+
+		this.props.dispatch(addFrame(newFrame));
+		this.props.onClose();
 	}
 
 	validateFrame() {
+		// Validate that the endFrame is later than the start frame
+		const start = new Date(document.getElementById('startDate').value);
+		const end = new Date(document.getElementById('endDate').value);
 
+		if(start > end){
+			this.setState({frameError : 'The end of the shift must be later than the start'});
+		} else {
+			this.setState({frameError : null});
+		}
 	}
 
 	render() {
 
-    console.log(new Date().toLocaleString());
 		// Render nothing if the "show" prop is false
 		if(!this.props.show) {
 			return null;
@@ -53,9 +65,10 @@ class CreateShiftForm extends React.Component {
 					<div className="add-shift-form-wrapper">
 						{this.props.error}
 						<h2>Add Shift</h2>
+						<p>{this.state.frameError}</p>
 						<form
 							className="add-shift-form"
-							onSubmit={this.handleSubmit()}
+							onSubmit={e => this.handleSubmit(e)}
 						>
 							<label htmlFor='employee-select'>Employee</label>
 							<select
@@ -74,15 +87,22 @@ class CreateShiftForm extends React.Component {
 								name="startDate"
 								id="startDate"
 								type="datetime-local"
-								defaultValue={new Date().toLocaleString()}
+								defaultValue={getToday().start}
+								onChange={() => this.validateFrame()}
 							/>
 							<label htmlFor="endDate">To</label>
 							<input
 								name="endDate"
 								id="endDate"
 								type="datetime-local"
+								defaultValue={getToday().start}
+								onChange={() => this.validateFrame()}
 							/>
-							<button className="form-submit-btn">Save</button>
+							<button
+								type='submit'
+								className="form-submit-btn">
+                Save
+							</button>
 						</form>
 					</div>
 				</div>
@@ -94,7 +114,9 @@ class CreateShiftForm extends React.Component {
 CreateShiftForm.propTypes = {
 	onClose: PropTypes.func.isRequired,
 	show: PropTypes.bool,
-	children: PropTypes.node
+	dispatch: PropTypes.func,
+	error : PropTypes.any,
+	employees : PropTypes.object
 };
 
 const mapStateToProps = state => {
