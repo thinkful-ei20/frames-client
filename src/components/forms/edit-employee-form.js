@@ -68,6 +68,7 @@ class EditEmployeeForm extends React.Component {
 								defaultValue={this.props.employee.phoneNumber}
 							/>
 						</div>
+						<input className="form-reset-btn" type="reset"/>
 						<div className="form-btns">
 							<button className="form-submit-btn" type='submit'>Save</button>
 							<button className="form-delete-btn" onClick={() => this.handleDelete()}>
