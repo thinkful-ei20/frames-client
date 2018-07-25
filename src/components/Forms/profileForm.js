@@ -24,7 +24,7 @@ export class ProfileForm extends React.Component {
 
 	render() {
 		return (
-      <div className="form-wrapper profile-form-wrapper">
+      <div className="form-wrapper">
 				<form
 					onSubmit={this.props.handleSubmit(this.onSubmit)}
 				>
@@ -56,9 +56,9 @@ export class ProfileForm extends React.Component {
 						component={renderField}
 						validate={[validPhone]}
 					/>
-					<div className="form-field profile-save-btn-wrapper">
+					<div className="form-field profile-form-field">
             <button
-              className="profile-save-btn"
+              className="form-submit-btn"
               type="submit">
               Save
             </button>

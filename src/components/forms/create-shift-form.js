@@ -10,7 +10,7 @@ import { required } from './formValidators';
 
 import './styles/add-shift-form.css';
 
-class AddShiftForm extends React.Component {
+class CreateShiftForm extends React.Component {
   componentDidMount() {
     // this.props.dispatch(fetchEmployees());
   }
@@ -92,20 +92,20 @@ class AddShiftForm extends React.Component {
   }
 }
 
-AddShiftForm.propTypes = {
+CreateShiftForm.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
   children: PropTypes.node
 };
 
-AddShiftForm = reduxForm({
+CreateShiftForm = reduxForm({
   form: 'add-shift',
   onSubmitFail: (errors, dispatch) => dispatch(focus('add-shift', 'employee'))
-})(AddShiftForm);
+})(CreateShiftForm);
 
-export default AddShiftForm = connect(state => {
+export default CreateShiftForm = connect(state => {
   return {
     employees: state.employees.employees,
     error: state.employees.error
   };
-})(AddShiftForm);
+})(CreateShiftForm);

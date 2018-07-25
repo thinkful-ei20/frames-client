@@ -46,7 +46,7 @@ export class LoginForm extends React.Component {
 						autocomplete="off"
 					/>
 					<button
-						className="login-form-btn"
+						className="form-submit-btn"
 						disabled={this.props.pristine || this.props.submitting}
 					>
             Log in

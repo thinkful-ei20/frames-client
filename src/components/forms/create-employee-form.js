@@ -26,65 +26,60 @@ class AddEmployeeForm extends React.Component {
 	render(){
 		return (
 			<React.Fragment>
-				<h2>Edit an Employee</h2>
-				<form onSubmit={e => this.handleSubmit(e)}>
-					<fieldset>
-						<legend>
-              Personal Details
-						</legend>
-						<label htmlFor="firstname">First Name</label>
-						<input
-							type='text'
-							id='firstname'
-							name='firstname'
-						/>
-
-						<label htmlFor="lastname">Last Name</label>
-						<input
-							type='text'
-							id='lasttname'
-							name='lastname'
-						/>
-
-						<label htmlFor="image">Link to Image of Employee</label>
-						<input
-							type='text'
-							id='image'
-							name='image'
-						/>
-					</fieldset>
-
-					<fieldset>
-						<legend>
-              Contact Details
-						</legend>
-						<label htmlFor="email">Email Address</label>
-						<input
-							type='email'
-							id='email'
-							name='email'
-						/>
-						<label htmlFor="phoneNumber">Phone Number</label>
-						<input
-							type='tel'
-							id='phoneNumber'
-							name='phoneNumber'
-						/>
-					</fieldset>
-
-					<fieldset>
-						<legend>
-              Login details
-						</legend>
-						<label htmlFor="password">Password</label>
-						<input
-							type='text'
-							id='password'
-							name='password'
-						/>
-					</fieldset>
-					<button type='submit'>Create Employee</button>
-				</form>
+				<h2>New Employee</h2>
+        <div className="form-wrapper">
+					<form onSubmit={e => this.handleSubmit(e)}>
+            <div className="form-field">
+							<label htmlFor="firstname">First Name</label>
+							<input
+								type='text'
+								id='firstname'
+								name='firstname'
+							/>
+						</div>
+            <div className="form-field">
+							<label htmlFor="lastname">Last Name</label>
+							<input
+								type='text'
+								id='lasttname'
+								name='lastname'
+							/>
+						</div>
+            <div className="form-field">
+							<label htmlFor="image">Link to Image of Employee</label>
+							<input
+								type='text'
+								id='image'
+								name='image'
+							/>
+						</div>
+            <div className="form-field">
+							<label htmlFor="email">Email Address</label>
+							<input
+								type='email'
+								id='email'
+								name='email'
+							/>
+						</div>
+            <div className="form-field">
+							<label htmlFor="phoneNumber">Phone Number</label>
+							<input
+								type='tel'
+								id='phoneNumber'
+								name='phoneNumber'
+							/>
+						</div>
+            <div className="form-field">
+							<label htmlFor="password">Password</label>
+							<input
+								type='text'
+								id='password'
+								name='password'
+							/>
+						</div>
+						<button className="form-submit-btn" type='submit'>Save</button>
+					</form>
+				</div>
 				<button onClick={() => this.handleCancel()}>Cancel</button>
 			</React.Fragment>
 		);

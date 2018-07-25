@@ -1,0 +1,75 @@
+.employees-wrapper {
+    height: 130vh;
+    color: #edeef0;
+    background-color: #2b2d3d;
+    padding: 5%;
+}
+
+.employee-header {
+    display: flex;
+    align-items: center;
+    padding: 0 5% 0 5%;
+    background-color: #232633;
+    border-bottom: 1px solid #35df5c;
+}
+
+.employee-header h2 {
+    flex: 0 0 90%;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: left;
+}
+
+.employee-header div {
+    flex: 0 0 10%;
+    text-align: center;
+}
+
+
+.employee-section {
+    background-color: #232633;
+    animation: fadein 0.8s;
+    padding: 0 5% 0 5%;
+    margin: 0;
+}
+
+.employee-section-details {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2b2d3d;
+}
+
+.employee-section-details div:first-child {
+    flex: 0 0 90%;
+}
+
+.employee-section-details div:last-child {
+    flex: 0 0 10%;
+    text-align: center;
+}
+
+.employee-section-details:last-child {
+    border-bottom: none;
+}
+
+.employee-section h3 {
+    margin: 0;
+    padding: 2.5% 0 2.5% 0;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #6a77b6;
+}
+
+.employee-section p {
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0 0 2.5% 0;
+
+}
+
+.employee-add-btn {
+    background: none;
+    border: none;
+    color: #edeef0;
+    font-size: 20px;
+}

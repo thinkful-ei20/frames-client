@@ -28,50 +28,48 @@ class EditEmployeeForm extends React.Component {
 	render(){
 		return (
 			<React.Fragment>
-				<h2>Edit an Employee</h2>
-				<form onSubmit={e => this.handleSubmit(e)}>
-					<fieldset>
-						<legend>
-              Full Name
-						</legend>
-						<label htmlFor="firstname">First Name</label>
-						<input
-							type='text'
-							id='firstname'
-							name='firstname'
-							defaultValue={this.props.employee.firstname}
-						/>
-
-						<label htmlFor="lastname">Last Name</label>
-						<input
-							type='text'
-							id='lasttname'
-							name='lastname'
-							defaultValue={this.props.employee.lastname}
-						/>
-					</fieldset>
-
-					<fieldset>
-						<legend>
-              Contact Details
-						</legend>
-						<label htmlFor="email">Email Address</label>
-						<input
-							type='email'
-							id='email'
-							name='email'
-							defaultValue={this.props.employee.email}
-						/>
-						<label htmlFor="phoneNumber">Phone Number</label>
-						<input
-							type='tel'
-							id='phoneNumber'
-							name='phoneNumber'
-							defaultValue={this.props.employee.phoneNumber}
-						/>
-					</fieldset>
-					<button type='submit'>Update Employee</button>
-				</form>
+				<h2>Edit Employee</h2>
+				<div className="form-wrapper">
+					<form onSubmit={e => this.handleSubmit(e)}>
+						<div className="form-field">
+              <label htmlFor="firstname">First Name</label>
+              <input
+                type='text'
+                id='firstname'
+                name='firstname'
+                defaultValue={this.props.employee.firstname}
+              />
+						</div>
+            <div className="form-field">
+							<label htmlFor="lastname">Last Name</label>
+							<input
+								type='text'
+								id='lasttname'
+								name='lastname'
+								defaultValue={this.props.employee.lastname}
+							/>
+						</div>
+            <div className="form-field">
+							<label htmlFor="email">Email Address</label>
+							<input
+								type='email'
+								id='email'
+								name='email'
+								defaultValue={this.props.employee.email}
+							/>
+						</div>
+            <div className="form-field">
+							<label htmlFor="phoneNumber">Phone Number</label>
+							<input
+								type='tel'
+								id='phoneNumber'
+								name='phoneNumber'
+								defaultValue={this.props.employee.phoneNumber}
+							/>
+						</div>
+						<button className="form-submit-btn" type='submit'>Save</button>
+					</form>
+        </div>
 				<button onClick={() => this.handleDelete()}>Delete</button>
 				<button onClick={() => this.handleCancel()}>Cancel</button>
 			</React.Fragment>

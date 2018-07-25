@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import LoginForm from './forms/loginForm';
 import About from './about';
+import Footer from './footer'
 
 import './styles/landing-page.css';
 
@@ -32,9 +33,8 @@ export class LandingPage extends React.Component {
 					<About/>
 				</section>
 				<section>
-					{/*<Dashboard/>*/}
 				</section>
-				{/* <Footer /> */}
+				 <Footer />
 			</main>
 		);
 	}

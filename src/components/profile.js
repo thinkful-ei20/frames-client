@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import NavBar from './navBar';
 import requiresLogin from './requires-login';
 
-import './profile.css';
+import './styles/profile.css';
 import {Dashboard} from "./dashboard";
 
 export class Profile extends React.Component {
@@ -36,7 +36,7 @@ export class Profile extends React.Component {
 		return (
 			<main className="profile-wrapper">
 				<header className="profile-header">
-          <h2>Account Settings</h2>
+          <h2>My profile</h2>
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
@@ -59,6 +59,10 @@ export class Profile extends React.Component {
             />
 					:
             <section className="profile-section">
+              <div className="profile-section-details">
+                <h3>Company</h3>
+                <p>{this.props.name}</p>
+              </div>
 							<div className="profile-section-details">
                 <h3>Username</h3>
                 <p>{this.props.username}</p>

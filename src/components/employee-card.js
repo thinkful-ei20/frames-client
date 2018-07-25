@@ -5,13 +5,18 @@ import PropTypes from 'prop-types';
 
 function EmployeeCard (props){
 	return (
-		<div>
-			<h2>{props.name}</h2>
-			<p>{props.email}</p>
-			<p>{props.phoneNumber}</p>
-			<button onClick={() => props.dispatch(showModal('employee', props.id))}>
-				<i className="fa fa-ellipsis-h"></i>
-			</button>
+		<div className="employee-section-details">
+			<div>
+				<h3>{props.name}</h3>
+				<p>{props.email}</p>
+				<p>{props.phoneNumber}</p>
+      </div>
+			<div>
+        <button className="opt-btn" onClick={() => props.dispatch(showModal('employee', props.id))}>
+          <i className="fa fa-address-card" aria-hidden="true"></i>
+        </button>
+			</div>
+
 		</div>
 	);
 }

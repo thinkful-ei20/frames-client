@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import CardList from './card-list';
-import AddShiftForm from './forms/add-shift-form';
+import AddShiftForm from './forms/create-shift-form';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
 import { getThisWeek, getToday } from '../actions/utils';

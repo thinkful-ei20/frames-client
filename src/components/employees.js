@@ -5,6 +5,8 @@ import EmployeeCard from './employee-card';
 import PropTypes from 'prop-types';
 import { showModal } from '../actions/modals';
 
+import './styles/employees.css';
+
 class Employees extends React.Component {
 
 	componentDidMount(){
@@ -13,12 +15,18 @@ class Employees extends React.Component {
 
 	render(){
 		return (
-			<React.Fragment>
-				<header>
-					<h1>Employees</h1>
+			<main className="employees-wrapper">
+				<header className="employee-header">
+					<h2>Employees</h2>
+					<div>
+            <button className="employee-add-btn" onClick={() => this.props.dispatch(showModal('newEmployee', null))}>
+              <i className="fa fa-plus-circle" aria-hidden="true"></i>
+						</button>
+					</div>
+
 				</header>
-				<section>
-					<button onClick={() => this.props.dispatch(showModal('newEmployee', null))}>New Employee</button>
+				<section className="employee-section">
+
 					{this.props.employees.map(employee => {
 						return (
 							<EmployeeCard
@@ -31,7 +39,7 @@ class Employees extends React.Component {
 						);
 					})}
 				</section>
-			</React.Fragment>
+			</main>
 		);
 	}
 }

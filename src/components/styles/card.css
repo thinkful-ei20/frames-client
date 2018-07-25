@@ -12,9 +12,7 @@
 .card-container {
 	max-width: 40em;
 	transition: 0.5s ease all;
-
 }
-
 
 .card-info {
 	display: flex;
@@ -28,10 +26,6 @@
 .card-name, .card-img {
 	display: inline-block;
 	vertical-align: middle;
-
-}
-
-.card-frame {
 
 }
 
@@ -70,7 +64,8 @@
 	border: none;
 	background: transparent;
 	color: whitesmoke;
-	font-size: 25px;
+	font-size: 18px;
+	padding: 0;
 }
 
 .card-opt-panel {

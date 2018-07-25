@@ -8,10 +8,11 @@
 }
 
 .form-wrapper {
-	border: 1px solid #a6a1a1;
     margin: 0 auto;
     padding: 20px;
-    max-width: 360px;
+    /*max-width: 360px;*/
+    background-color: #232633;
+    animation: fadein 0.8s;
 }
 
 .form-wrapper h2 {
@@ -27,66 +28,62 @@
     text-transform: uppercase;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
+    color: #8e909a;
+    font-size: 11px;
 }
 
 .form-field input {
     display: block;
     width: 100%;
     margin-top: 5px;
-	line-height: 22px;
-}
-
-.form-error {
-    color: red;
-}
-
-.form-field-error {
-    position: absolute;
-    bottom: -16px;
-    color: red;
-}
-
-.form-field-error, .form-field label {
-    font-size: 11px;
-
-}
-
-/* PROFILE FORM */
-
-.profile-form-wrapper {
-    border: none;
-    animation: fadein 0.5s;
-}
-
-.profile-form-wrapper label {
-    color: #8e909a;
-    padding-left: 2.5%;
-}
-
-.profile-form-wrapper input {
+	line-height: 30px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-color: #32364a;
     color: #FFFFFF;
-    line-height: 35px;
-    border: 2px inset #3b3c41;
+    border: 1px solid #32364a;
+    /*border: 2px inset #3b3c41;*/
     padding-left: 2.5%;
 }
 
-.profile-save-btn-wrapper {
-    text-align: right;
-}
-
-.profile-save-btn {
-    border-radius: 50px;
+.form-submit-btn {
+	border-radius: 50px;
     background: transparent;
     padding: 10px 50px;
     border: 2px solid #35df5c;
     color: #35df5c;
     text-transform: uppercase;
-    font-size: 11px;
+	font-size: 12px;
+	transition-property: background,color;
+    transition-duration: .2s;
+    letter-spacing: 1px;
+}
+
+.form-submit-btn:hover,
+.form-submit-btn:focus {
+    color: black;
+    background: #35df5c;
+    cursor: pointer;
     transition-property: background,color;
     transition-duration: .2s;
+}
+
+.form-error {
+    position: absolute;
+    bottom: -18px;
+    color: #ce3d3d;
+    font-size: 12px;
+}
+
+.error-border {
+    border: 1px solid #ce3d3d !important;
+}
+
+/* PROFILE FORM */
+
+.profile-form-field {
+    text-align: center;
+    padding-top: 25px;
 }
 
 .profile-save-btn:hover,
@@ -101,40 +98,9 @@
 /* LOGIN FORM */
 
 .login-form-wrapper {
-	border-left: 2px solid #35df5c;
+    border-left: 2px solid #35df5c;
     margin: 0 auto;
     padding: 20px;
     max-width: 360px;
 }
 
-.login-form > div > label > input {
-    display: block;
-    width: 100%;
-    margin-top: 5px;
-	line-height: 22px;
-	border: 0;
-	border-radius: 3px;
-	background-color: #2b2d3d;
-	color: #edeef0;
-}
-
-.login-form-btn {
-	border-radius: 50px;
-    background: transparent;
-    padding: 10px 50px;
-    border: 2px solid #35df5c;
-    color: #35df5c;
-    text-transform: uppercase;
-	font-size: 11px;
-	transition-property: background,color;
-    transition-duration: .2s;
-}
-
-.login-form-btn:hover,
-.login-form-btn:focus {
-    color: black;
-    background: #35df5c;
-    cursor: pointer;
-    transition-property: background,color;
-    transition-duration: .2s;
-}

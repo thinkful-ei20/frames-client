@@ -25,13 +25,13 @@ export const isTrimmed = value => {
 // Use regex to confirm the value looks like an email
 export const validEmail = value =>
 	!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-		? 'Please enter a valid email address'
+		? 'Invalid email'
 		: undefined;
 
 // Use regex to confirm the value looks like a phone number   
 export const validPhone = value =>
 	!/^\d{10}(?:\*55\d{0,4})?$/.test(value)
-		? 'Please enter a valid phone number'
+		? 'Invalid phone number'
 		: undefined;
 
 // check length is as long and short as it should be
