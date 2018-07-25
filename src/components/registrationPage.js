@@ -26,7 +26,8 @@ RegistrationPage.propTypes = {
 
 const mapStateToProps = state => {
 	return {
-		loggedIn : state.auth.authToken !== null
+		// loggedIn : state.auth.authToken !== null,
+		loggedIn : state.auth.user !== null
 	};
 };
 

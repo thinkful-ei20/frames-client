@@ -1,23 +1,22 @@
-import { SET_TOKEN, CLEAR_TOKEN, REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/auth';
+import { /*SET_TOKEN,*/ CLEAR_TOKEN, REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/auth';
 
 const initialState = {
-	authToken: null,
+	// authToken: null,
 	user: null,
 	loading: false,
 	error: null
 };
 
 export default function authReducer(state = initialState, action) {
-	if (action.type === SET_TOKEN){
-		return {
-			...state,
-			authToken : action.token
-		};
-	}
+	// if (action.type === SET_TOKEN){
+	// 	return {
+	// 		...state,
+	// 		authToken : action.token
+	// 	};
+	// }
 	if (action.type === CLEAR_TOKEN){
 		return {
 			...state,
-			authToken: null,
 			user: null
 		};
 	}
@@ -37,7 +36,6 @@ export default function authReducer(state = initialState, action) {
 		};
 	}
 	if (action.type === LOGIN_ERROR){
-		console.log('Login error reducer ran', action.error);
 		return {
 			...state,
 			error: action.error,

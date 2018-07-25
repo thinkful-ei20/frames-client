@@ -76,7 +76,7 @@ export class Profile extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		loggedIn: state.auth.authToken !== null,
+		loggedIn: state.auth.user !== null,
 		adminId: state.auth.user,
 		username: state.profile.data.username,
 		name: state.profile.data.companyName,

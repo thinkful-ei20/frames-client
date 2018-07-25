@@ -10,11 +10,11 @@ function EmployeeCard (props){
 				<h3>{props.name}</h3>
 				<p>{props.email}</p>
 				<p>{props.phoneNumber}</p>
-      </div>
+			</div>
 			<div>
-        <button className="opt-btn" onClick={() => props.dispatch(showModal('employee', props.id))}>
-          <i className="fa fa-address-card" aria-hidden="true"></i>
-        </button>
+				<button className="opt-btn" onClick={() => props.dispatch(showModal('employee', props.id))}>
+					<i className="fa fa-address-card" aria-hidden="true"></i>
+				</button>
 			</div>
 
 		</div>

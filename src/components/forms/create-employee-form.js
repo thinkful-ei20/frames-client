@@ -27,9 +27,9 @@ class AddEmployeeForm extends React.Component {
 		return (
 			<React.Fragment>
 				<h2>New Employee</h2>
-        <div className="form-wrapper">
+				<div className="form-wrapper">
 					<form onSubmit={e => this.handleSubmit(e)}>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="firstname">First Name</label>
 							<input
 								type='text'
@@ -37,7 +37,7 @@ class AddEmployeeForm extends React.Component {
 								name='firstname'
 							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="lastname">Last Name</label>
 							<input
 								type='text'
@@ -45,7 +45,7 @@ class AddEmployeeForm extends React.Component {
 								name='lastname'
 							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="image">Link to Image of Employee</label>
 							<input
 								type='text'
@@ -53,7 +53,7 @@ class AddEmployeeForm extends React.Component {
 								name='image'
 							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="email">Email Address</label>
 							<input
 								type='email'
@@ -61,7 +61,7 @@ class AddEmployeeForm extends React.Component {
 								name='email'
 							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="phoneNumber">Phone Number</label>
 							<input
 								type='tel'
@@ -69,10 +69,10 @@ class AddEmployeeForm extends React.Component {
 								name='phoneNumber'
 							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="password">Password</label>
 							<input
-								type='text'
+								type='password'
 								id='password'
 								name='password'
 							/>

@@ -19,8 +19,8 @@ class Employees extends React.Component {
 				<header className="employee-header">
 					<h2>Employees</h2>
 					<div>
-            <button className="employee-add-btn" onClick={() => this.props.dispatch(showModal('newEmployee', null))}>
-              <i className="fa fa-plus-circle" aria-hidden="true"></i>
+						<button className="employee-add-btn" onClick={() => this.props.dispatch(showModal('newEmployee', null))}>
+							<i className="fa fa-plus-circle" aria-hidden="true"></i>
 						</button>
 					</div>
 

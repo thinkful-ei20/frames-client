@@ -32,15 +32,15 @@ class EditEmployeeForm extends React.Component {
 				<div className="form-wrapper">
 					<form onSubmit={e => this.handleSubmit(e)}>
 						<div className="form-field">
-              <label htmlFor="firstname">First Name</label>
-              <input
-                type='text'
-                id='firstname'
-                name='firstname'
-                defaultValue={this.props.employee.firstname}
-              />
+							<label htmlFor="firstname">First Name</label>
+							<input
+								type='text'
+								id='firstname'
+								name='firstname'
+								defaultValue={this.props.employee.firstname}
+							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="lastname">Last Name</label>
 							<input
 								type='text'
@@ -49,7 +49,7 @@ class EditEmployeeForm extends React.Component {
 								defaultValue={this.props.employee.lastname}
 							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="email">Email Address</label>
 							<input
 								type='email'
@@ -58,7 +58,7 @@ class EditEmployeeForm extends React.Component {
 								defaultValue={this.props.employee.email}
 							/>
 						</div>
-            <div className="form-field">
+						<div className="form-field">
 							<label htmlFor="phoneNumber">Phone Number</label>
 							<input
 								type='tel'
@@ -69,7 +69,7 @@ class EditEmployeeForm extends React.Component {
 						</div>
 						<button className="form-submit-btn" type='submit'>Save</button>
 					</form>
-        </div>
+				</div>
 				<button onClick={() => this.handleDelete()}>Delete</button>
 				<button onClick={() => this.handleCancel()}>Cancel</button>
 			</React.Fragment>
