@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchEmployees, createEmployee } from '../actions/employee';
+import { fetchEmployees } from '../actions/employee';
 import EmployeeCard from './employee-card';
 import PropTypes from 'prop-types';
 import { showModal } from '../actions/modals';

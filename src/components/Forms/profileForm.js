@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 
 export class ProfileForm extends React.Component {
 	onSubmit = values => {
-		console.log('VALUES', values);
 		const updatedProfile = {};
 		Object.keys(values).forEach(key => {
 			//Check to see if the user made a change, and only pass back key/values that are submitted
@@ -16,8 +15,6 @@ export class ProfileForm extends React.Component {
 				updatedProfile[key] = values[key];
 			}
 		});
-		console.log('UPDATED PROFILE', updatedProfile);
-		console.log('ADMIN ID FROM PROFILE FORM', this.props);
 		this.props.dispatch(editProfile(this.props.initialValues.adminId, updatedProfile))
 			.then(this.props.setEdit);
 	};
@@ -63,7 +60,6 @@ export class ProfileForm extends React.Component {
               Save
             </button>
 					</div>
-
 				</form>
       </div>
 		);

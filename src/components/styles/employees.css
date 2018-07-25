@@ -10,7 +10,7 @@
     align-items: center;
     padding: 0 5% 0 5%;
     background-color: #232633;
-    border-bottom: 1px solid #35df5c;
+    border-bottom: 1px solid #eabb32;
 }
 
 .employee-header h2 {
@@ -56,15 +56,15 @@
     margin: 0;
     padding: 2.5% 0 2.5% 0;
     font-size: 15px;
-    text-transform: uppercase;
-    color: #6a77b6;
+    /*text-transform: uppercase;*/
+    color: #edeef0;
 }
 
 .employee-section p {
     font-size: 0.8em;
     margin: 0;
     padding: 0 0 2.5% 0;
-
+    color: #9fa0a4;
 }
 
 .employee-add-btn {
@@ -72,4 +72,12 @@
     border: none;
     color: #edeef0;
     font-size: 20px;
+}
+
+.employee-add-btn:hover,
+.employee-add-btn:focus {
+    text-shadow: 0 0 1px #8aff37,
+    0 0 10px rgba(64, 199, 57, 0.8);
+    /*-webkit-transform: scale(1.2);*/
+    /*transform: scale(1.2);*/
 }

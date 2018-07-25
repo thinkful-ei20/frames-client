@@ -3,17 +3,12 @@ import { connect } from 'react-redux';
 import { reduxForm, Field, focus } from 'redux-form';
 import PropTypes from 'prop-types';
 import renderField from './field';
-import { fetchEmployees } from '../../actions/employee';
 import { addFrame } from '../../actions/edit-frame';
-import { getToday } from '../../actions/utils';
 import { required } from './formValidators';
 
-import './styles/add-shift-form.css';
+import '../../App.css';
 
 class CreateShiftForm extends React.Component {
-  componentDidMount() {
-    // this.props.dispatch(fetchEmployees());
-  }
 
   handleSubmit = values => {
     const frame = {
@@ -43,7 +38,9 @@ class CreateShiftForm extends React.Component {
 
     return (
       <div className="backdrop">
-        <div className="add-shift-modal">
+        <div className="modal">
+            <button className="modal-close-btn" onClick={this.props.onClose}>
+            </button>
           <div className="add-shift-form-wrapper">
             {this.props.error}
             <h2>Add Shift</h2>
@@ -77,15 +74,10 @@ class CreateShiftForm extends React.Component {
                 component={renderField}
                 validate={[required]}
               />
-              <button type="submit">Save</button>
+              <button className="form-submit-btn">Save</button>
             </form>
           </div>
           {this.props.children}
-          <div className="footer">
-            <button onClick={this.props.onClose}>
-              Close
-            </button>
-          </div>
         </div>
       </div>
     );

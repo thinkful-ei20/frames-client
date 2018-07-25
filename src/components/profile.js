@@ -1,15 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { fetchProfile } from '../actions/profile';
-import Footer from './footer';
 import ProfileForm from './forms/profileForm';
 import PropTypes from 'prop-types';
-import NavBar from './navBar';
 import requiresLogin from './requires-login';
 
 import './styles/profile.css';
-import {Dashboard} from "./dashboard";
 
 export class Profile extends React.Component {
 
@@ -29,10 +25,6 @@ export class Profile extends React.Component {
 	};
 
 	render() {
-		// if (!this.props.loggedIn) {
-     //  return <Redirect to='/' />;
-		// }
-
 		return (
 			<main className="profile-wrapper">
 				<header className="profile-header">

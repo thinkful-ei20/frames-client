@@ -1,9 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import NavBar from './navBar';
 import RegisterForm from './forms/registerForm';
-import Footer from './footer';
 import PropTypes from 'prop-types';
 
 function RegistrationPage(props) {
@@ -13,13 +11,11 @@ function RegistrationPage(props) {
 
 	return (
 		<React.Fragment>
-			{/*<NavBar />*/}
 			<main>
 				<section>
 					<RegisterForm />
 				</section>
 			</main>
-			{/*<Footer />*/}
 		</React.Fragment>
 	);
 }

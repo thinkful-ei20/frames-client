@@ -9,7 +9,6 @@ const initialState = {
 
 
 export default function framesReducer(state = initialState, action) {
-	console.log('TAG!',action);
 	if (action.type === (REQUEST_FRAMES || REQUEST_EDIT_FRAME)){
 		return {
 			...state,
