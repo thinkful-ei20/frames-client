@@ -9,6 +9,8 @@ import {hideModal} from '../../actions/modals';
 import EditEmployeeForm from '../forms/edit-employee-form';
 import AddEmployeeForm from '../forms/create-employee-form';
 
+import './styles/modal.css';
+
 export function ModalConductor(props) {
 	let contentLabel;
 	let content;
@@ -32,6 +34,8 @@ export function ModalConductor(props) {
 		shouldFocusAfterRender={true}
 		shouldCloseOnOverlayClick={false}
 		appElement={document.getElementById('root')}
+		overlayClassName="modal-overlay"
+		className="modal-content"
 	>
 		{content}
 	</ReactModal>);
