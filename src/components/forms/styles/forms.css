@@ -76,6 +76,11 @@
     font-size: 12px;
 }
 
+.form-modal-error {
+    color: #ce3d3d;
+    font-size: 12px;
+}
+
 .error-border {
     border: 1px solid #ce3d3d !important;
 }
