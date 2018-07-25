@@ -48,7 +48,7 @@ class CreateShiftForm extends React.Component {
 		}
 
 		// Alert user if unable to populate employees
-		let error;
+		let error = null;
 		if (this.props.error) {
 			error = (
 				<div className="form-error" aria-live="polite">
@@ -64,6 +64,7 @@ class CreateShiftForm extends React.Component {
 					</button>
 					<div className="add-shift-form-wrapper">
 						{this.props.error}
+						{error}
 						<h2>Add Shift</h2>
 						<p>{this.state.frameError}</p>
 						<form
