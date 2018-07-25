@@ -7,6 +7,8 @@
     }
 }
 
+
+
 .form-wrapper {
     margin: 0 auto;
     padding: 20px;
@@ -85,6 +87,33 @@
     border: 1px solid #ce3d3d !important;
 }
 
+.form-delete-btn {
+    border-radius: 50px;
+    background: transparent;
+    padding: 5px 10px;
+    border: 2px solid #ce3d3d;
+    color: #ce3d3d;
+	font-size: 28px;
+	transition-property: background,color;
+    transition-duration: .2s;
+    letter-spacing: 1px;
+    margin: 0 10px;
+}
+
+.form-delete-btn:hover,
+.form-delete-btn:focus {
+    color: black;
+    background: #ce3d3d;
+    cursor: pointer;
+    transition-property: background,color;
+    transition-duration: .2s;
+}
+
+.form-btns {
+    display: flex;
+    align-items: center;
+}
+
 /* PROFILE FORM */
 
 .profile-form-field {
@@ -108,5 +137,9 @@
     margin: 0 auto;
     padding: 20px;
     max-width: 360px;
+}
+
+.form-header {
+    color: white;
 }
 

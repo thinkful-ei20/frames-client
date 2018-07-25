@@ -26,7 +26,8 @@ class AddEmployeeForm extends React.Component {
 	render(){
 		return (
 			<React.Fragment>
-				<h2>New Employee</h2>
+				<h2 className='form-header'>New Employee</h2>
+				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
         <div className="form-wrapper">
 					<form onSubmit={e => this.handleSubmit(e)}>
             <div className="form-field">
@@ -80,7 +81,7 @@ class AddEmployeeForm extends React.Component {
 						<button className="form-submit-btn" type='submit'>Save</button>
 					</form>
 				</div>
-				<button onClick={() => this.handleCancel()}>Cancel</button>
+				
 			</React.Fragment>
 		);
 	}
