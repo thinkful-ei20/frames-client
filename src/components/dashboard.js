@@ -64,6 +64,12 @@ export class Dashboard extends React.Component {
 				// if there is no employee assigned to a frame, it's open
 				if ((range.start === 'open') || (range.end === 'open')) {
 					return frame.employeeId === null;
+				} 
+				else if ((range.start === 'open') && (range.end)) {
+					return ((frame.employeeId === null) && (frame.endFrame <= range.end))
+				} 
+				else if ((range.start) && (range.end === 'open')) {
+					return ((frame.employeeId === null) && (frame.startFrame >= range.start))
 				}
 
 				// range.start - range.end, everything in between the range
