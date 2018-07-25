@@ -49,7 +49,7 @@ class Card extends React.Component{
 							</div>
 						</div>
 						<div className="card-time">
-							<div className="card-time-diff">{timeDiff} hr</div>
+							<div className="card-time-diff">{`${timeDiff} ${timeDiff === 1 ? 'hr' : 'hrs'}`}</div>
 						</div>
 						<button className='opt-btn' onClick={() => { this.props.dispatch(showModal('edit', id));}}>
 							<i className="fa fa-ellipsis-h"></i>
