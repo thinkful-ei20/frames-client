@@ -18,9 +18,10 @@ class AdvancedFilter extends React.Component {
 	advanfilterByTimeFrame(e) {
 		e.preventDefault();
 		console.log('Submitting Advanced Filter');
-		// console.log(`FILTER TO BE: ${this.props.start} - ${this.props.end}`);
-		// let filter = `${this.props.start} - ${this.props.end}`;
-		// this.props.dispatch(advancedFilterSuccess(filter));
+		let filter = `${this.props.start}|${this.props.end}`;
+		console.log(filter);
+		this.props.dispatch(advancedFilterSuccess(filter));
+		this.props.onClose();
 	}
 
 	// RENDER
@@ -49,7 +50,7 @@ class AdvancedFilter extends React.Component {
 								return <option key={i} value={frame.endFrame}>{frame.endFrame}</option>;
 							})}
 				    </select>
-						<button type="submit" onClick={this.props.onClose}>Submit Filter</button>
+						<button type="submit">Submit Filter</button>
 					</form>
 					<button onClick={this.props.onClose}>Cancel</button>
 				</div>

@@ -51,12 +51,27 @@ export class Dashboard extends React.Component {
 		const defaultTime = getToday().start;
 
 		let frameList = this.props.frames;
+		let listOfFramesToBeRendered = frameList;
+
+		// Filtered array of frames that meet filter start and end range values
 		let filteredFrames = frameList.filter(frame => {
-			if (this.props.filter !== null) {
-				return frame.startFrame === this.props.filter.split('|')[0];
+			if(this.props.filter !== null) {
+				let range = {
+					start: this.props.filter.split('|')[0],
+					end: this.props.filter.split('|')[1]
+				}
+
+				// if there is no employee assigned to a frame, it's open
+				if ((range.start === 'open') || (range.end === 'open')) {
+					return frame.employeeId === null;
+				}
+
+				// range.start - range.end, everything in between the range
+				if (range.start && range.end) {
+					return ((frame.startFrame >= range.start) && (frame.endFrame <= range.end));
+				}
 			}
 		});
-		let listOfFramesToBeRendered = frameList;
 
 		if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
 			listOfFramesToBeRendered = frameList;
