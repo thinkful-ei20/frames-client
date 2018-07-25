@@ -12,6 +12,7 @@
     color: #edeef0;
     background-color: #2b2d3d;
     padding: 5%;
+    
 }
 
 .profile-section {
@@ -19,6 +20,7 @@
     animation: fadein 0.8s;
     padding: 0 5% 0 5%;
     margin: 0;
+    text-align: left;
 }
 
 .profile-section-details {
