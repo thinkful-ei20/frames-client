@@ -17,7 +17,6 @@ export class Filter extends React.Component {
 					<option value='null'>FILTER TIME FRAMES</option>
 					<option value="open">OPEN</option>
 					{this.props.frames.map((frame, i) => {
-						// return <option key={i} value={`${frame.startFrame} ${frame.endFrame}`}>{frame.startFrame} - {frame.endFrame}</option>;
 						return <option key={i} value={`${frame.startFrame}|${frame.endFrame}`}>{frame.startFrame} - {frame.endFrame}</option>;
 					})}
 				</select>

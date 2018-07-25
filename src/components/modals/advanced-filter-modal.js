@@ -6,21 +6,22 @@ import { filterSuccess, setStartValue, setEndValue, advancedFilterSuccess } from
 class AdvancedFilter extends React.Component {
 
 	setStartParameter(e) {
-		console.log(`START: ${e.target.value}`);
+		console.log(`AF-START: ${e.target.value}`);
 		this.props.dispatch(setStartValue(e.target.value));
 	}
 
 	setEndParameter(e) {
-		console.log(`END: ${e.target.value}`);
+		console.log(`AF-END: ${e.target.value}`);
 		this.props.dispatch(setEndValue(e.target.value));
 	}
 
 	advanfilterByTimeFrame(e) {
 		e.preventDefault();
 		console.log('Submitting Advanced Filter');
-		console.log(`FILTER TO BE: ${this.props.start} - ${this.props.end}`);
-		let filter = `${this.props.start} - ${this.props.end}`;
+		let filter = `${this.props.start}|${this.props.end}`;
+		console.log(filter);
 		this.props.dispatch(advancedFilterSuccess(filter));
+		this.props.onClose();
 	}
 
 	// RENDER
@@ -51,7 +52,7 @@ class AdvancedFilter extends React.Component {
 				    </select>
 						<button type="submit">Submit Filter</button>
 					</form>
-
+					<button onClick={this.props.onClose}>Cancel</button>
 				</div>
 			</div>
 		);
