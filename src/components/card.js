@@ -25,17 +25,23 @@ class Card extends React.Component{
 
 		const { employeeId, startFrame, endFrame, id, key }  = this.props.employee;
 		const emplName = (employeeId !== null) ? `${employeeId.firstname} ${employeeId.lastname}` : 'OPEN';
-
+		let img = placeholder;
+		//check that employee has loaded
+		// THEN check that img is defined
+		if(this.props.employee.employeeId){
+			if(this.props.employee.employeeId.img){
+				img = this.props.employee.employeeId.img;
+			}
+		}
 		// const start = moment(startFrame).format('LT');
 		// const end = moment(endFrame).format('LT');
 
 		const timeDiff = moment(endFrame).diff(moment(startFrame), 'hours');
-
 		return(
 			<article className="card" key={key}>
 				<div className="card-container">
 					<div className="card-info">
-						<div className="card-img"><img className="contain" src={placeholder} alt={emplName}/></div>
+						<div className="card-img"><img className="contain" src={img} alt={emplName}/></div>
 						<div className="card-employee">
 							<div className="card-name">{emplName}</div>
 							<div className="card-frame">
