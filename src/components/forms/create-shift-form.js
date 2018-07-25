@@ -26,7 +26,7 @@ class CreateShiftForm extends React.Component {
 		};
 
 		this.props.dispatch(addFrame(newFrame));
-		this.props.onClose();
+		this.props.dispatch(hideModal());
 	}
 
 	validateFrame() {
