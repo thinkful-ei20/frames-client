@@ -66,8 +66,9 @@ class CreateShiftForm extends React.Component {
 					<h2 className='form-header'>Add Shift</h2>
 					<button className="modal-close-btn" onClick={() => this.handleCancel()}>
 					</button>
-					<p>{this.state.frameError}</p>
+					
 					<div className="form-wrapper">
+					<p className="form-modal-error" >{this.state.frameError}</p>
 						<form
 							onSubmit={e => this.handleSubmit(e)}
 						>
