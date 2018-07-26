@@ -129,7 +129,7 @@ CreateShiftForm.propTypes = {
 	show: PropTypes.bool,
 	dispatch: PropTypes.func,
 	error : PropTypes.any,
-	employees : PropTypes.object
+	employees : PropTypes.array
 };
 
 const mapStateToProps = state => {
