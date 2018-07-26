@@ -91,7 +91,7 @@ Profile.propTypes = {
 	name: PropTypes.string,
 	username: PropTypes.string,
 	email: PropTypes.string,
-	phone: PropTypes.number
+	phone: PropTypes.string
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Profile));

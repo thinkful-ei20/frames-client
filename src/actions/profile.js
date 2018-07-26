@@ -66,8 +66,8 @@ export const editProfile = (adminId, updatedProfile) => dispatch => {
 		.then(res => res.json())
 		.then(() => {
 			dispatch(fetchProfile(adminId));
-		})
-		.catch(error => dispatch(profileError(error.message)));
+		})	/* Not a Dispatch */
+		.catch(error => profileError(error.message));
 };
 
 // **************  DELETE PROFILE INFO  ************** //
@@ -82,5 +82,7 @@ export const deleteProfile = (adminId, history) => dispatch => {
 		}
 	})
 		.then(() => dispatch(logout(history)))
-		.catch((error) => dispatch(profileError(error.message)));
+		.catch((error) => {
+			return dispatch(profileError(error.message));
+		});
 };
