@@ -22,6 +22,7 @@ export const employeesSuccess = data => {
 //Set loading to false and add error.message
 export const EMPLOYEES_ERROR = 'EMPLOYEES_ERROR';
 export const employeesError = error => {
+	console.log(error);
 	return {
 		type: EMPLOYEES_ERROR,
 		error
@@ -56,17 +57,13 @@ export const updateEmployee = (employeeId, updatedEmployee) => dispatch => {
 		},
 		body: JSON.stringify(updatedEmployee)
 	})
-		.then(result => {
-			if (result.ok){
-				return result.json();
-			}
-			throw new Error(result.json());
-		})
+		.then(res => normalizeResponseErrors(res))
 		.then(() => {
 			dispatch(fetchEmployees());
 			dispatch(hideModal());
 		})
-		.catch(error => dispatch(employeesError(error)));
+		.catch(error => {
+			dispatch(employeesError(error))});
 };
 
 //Asynch action to create an employee
