@@ -29,7 +29,6 @@ LoginPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	// loggedIn: state.auth.authToken !== null
 	loggedIn: state.auth.user !== null
 });
 

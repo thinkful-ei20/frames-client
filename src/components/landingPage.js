@@ -42,7 +42,6 @@ export class LandingPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		// loggedIn : state.auth.authToken !== null
 		loggedIn: state.auth.user !== null
 	};
 };
