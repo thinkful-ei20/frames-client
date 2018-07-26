@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import LoginForm from './forms/loginForm';
 import About from './about';
-import Footer from './footer'
+import Footer from './footer';
 
 import './styles/landing-page.css';
 
@@ -42,7 +42,7 @@ export class LandingPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		loggedIn : state.auth.authToken !== null
+		loggedIn: state.auth.user !== null
 	};
 };
 

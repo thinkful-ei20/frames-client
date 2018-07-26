@@ -63,7 +63,7 @@ NavBar.propTypes = {
 
 const mapStateToProps = state => {
 	return {
-		loggedIn : state.auth.user !== null
+		loggedIn: state.auth.user !== null
 	};
 };
 
