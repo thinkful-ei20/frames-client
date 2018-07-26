@@ -24,7 +24,7 @@ function EmployeeCard (props){
 EmployeeCard.propTypes = {
 	name : PropTypes.string,
 	email : PropTypes.string,
-	phoneNumber : PropTypes.number,
+	phoneNumber : PropTypes.string,
 	dispatch : PropTypes.func,
 	id : PropTypes.string
 };

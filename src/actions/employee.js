@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '../config';
 import { hideModal } from './modals';
+import {normalizeResponseErrors} from './utils';
 
 // Set loading to true
 export const REQUEST_EMPLOYEES = 'REQUEST_EMPLOYEES';
@@ -80,6 +81,7 @@ export const createEmployee = newEmployee => dispatch => {
 		},
 		body : JSON.stringify(newEmployee)
 	})
+		.then(res => normalizeResponseErrors(res))
 		.then(() => {
 			dispatch(fetchEmployees());
 			dispatch(hideModal());

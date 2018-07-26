@@ -24,11 +24,22 @@ class AddEmployeeForm extends React.Component {
 	}
 
 	render(){
+		let error;
+
+		if(this.props.error) {
+			error = (
+				<div className="form-modal-error" aria-live="polite">
+					{this.props.error}
+				</div>
+			);
+		}
+
 		return (
 			<React.Fragment>
-				<h2 className='form-header'>New Employee</h2>
-				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
-				<div className="form-wrapper">
+        <button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<div className="modal-form-wrapper">
+					<div className="form-wrapper">
+          <h2 className='form-header'>New Employee</h2>
 					<form onSubmit={e => this.handleSubmit(e)}>
 						<div className="form-field">
 							<label htmlFor="firstname">First Name</label>
@@ -78,10 +89,14 @@ class AddEmployeeForm extends React.Component {
 								name='password'
 							/>
 						</div>
-						<button className="form-submit-btn" type='submit'>Save</button>
+						<div className="form-field form-btns">
+							<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+              <button className="form-submit-btn" type='submit'>Save</button>
+						</div>
+            {error}
 					</form>
 				</div>
-
+        </div>
 			</React.Fragment>
 		);
 	}
@@ -94,4 +109,10 @@ AddEmployeeForm.propTypes = {
 	employee : PropTypes.object
 };
 
-export default connect()(AddEmployeeForm);
+const mapStateToProps = state => {
+	return {
+		error: state.employees.error
+	}
+};
+
+export default connect(mapStateToProps)(AddEmployeeForm);
