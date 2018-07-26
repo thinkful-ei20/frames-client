@@ -25,10 +25,10 @@ export class LoginForm extends React.Component {
 		return (
 			<div className="login-form-wrapper">
 				<h2 className="form-header">Log in</h2>
+				{error}
 				<form
 					className="login-form"
 					onSubmit={this.props.handleSubmit(this.onSubmit)}>
-					{error}
 					<Field
 						name="username"
 						label="Username"
@@ -59,12 +59,14 @@ export class LoginForm extends React.Component {
 
 LoginForm = reduxForm({
 	form: 'login',
-	onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+	onSubmitFail: (errors, dispatch) => {
+		dispatch(focus('login', 'username'))
+	},
 })(LoginForm);
 
 export default LoginForm = connect(state => {
 	return {
 		loggedIn: state.auth.user !== null,
-		user: state.auth.user,
+		user: state.auth.user
 	};
 })(LoginForm);
