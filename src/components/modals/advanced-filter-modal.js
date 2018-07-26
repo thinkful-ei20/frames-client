@@ -3,6 +3,9 @@ import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setStartValue, setEndValue, advancedFilterSuccess } from '../../actions/filter';
 
+import './styles/advanced-filter-modal.css';
+
+
 class AdvancedFilter extends React.Component {
 
 	setStartParameter(e) {
@@ -50,9 +53,9 @@ class AdvancedFilter extends React.Component {
 								return <option key={i} value={frame.endFrame}>{frame.endFrame}</option>;
 							})}
 				    </select>
-						<button type="submit">Submit Filter</button>
+						<button className="filter-btn" type="submit">Submit Filter</button>
 					</form>
-					<button onClick={this.props.onClose}>Cancel</button>
+					<button className="filter-btn" onClick={this.props.onClose}>Cancel</button>
 				</div>
 			</div>
 		);

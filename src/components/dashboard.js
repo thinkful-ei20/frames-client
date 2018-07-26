@@ -92,7 +92,7 @@ export class Dashboard extends React.Component {
 					<div className="dashboard-section-header">
 						<div>{startSchedule} - {endSchedule}</div>
 						<Filter />
-						<button onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
+						<button className="advanFilter-btn" onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
 						<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
 					</div>
 					<section className="dashboard-section">

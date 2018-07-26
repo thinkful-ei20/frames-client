@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { filterSuccess } from '../actions/filter';
-// import './styles/filter.css';
+import './styles/filter.css';
 import PropTypes from 'prop-types';
 
 export class Filter extends React.Component {
