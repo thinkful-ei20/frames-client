@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { filterSuccess, setStartValue, setEndValue, advancedFilterSuccess } from '../../actions/filter';
+import { setStartValue, setEndValue, advancedFilterSuccess } from '../../actions/filter';
 
 class AdvancedFilter extends React.Component {
 

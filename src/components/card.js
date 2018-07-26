@@ -33,10 +33,13 @@ class Card extends React.Component{
 				img = this.props.employee.employeeId.img;
 			}
 		}
-		// const start = moment(startFrame).format('LT');
-		// const end = moment(endFrame).format('LT');
+
+		// format the moments to be just times
+		const start = moment(startFrame).format('LT');
+		const end = moment(endFrame).format('LT');
 
 		const timeDiff = moment(endFrame).diff(moment(startFrame), 'hours');
+
 		return(
 			<article className="card" key={key}>
 				<div className="card-container">
@@ -45,7 +48,7 @@ class Card extends React.Component{
 						<div className="card-employee">
 							<div className="card-name">{emplName}</div>
 							<div className="card-frame">
-								<p>{startFrame} - {endFrame}</p>
+								<p>{start} - {end}</p>
 							</div>
 						</div>
 						<div className="card-time">
