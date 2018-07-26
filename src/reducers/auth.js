@@ -1,4 +1,4 @@
-import { SET_TOKEN, CLEAR_TOKEN, REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/auth';
+import { SET_TOKEN, REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/auth';
 
 const initialState = {
 	authToken: null,
