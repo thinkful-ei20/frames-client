@@ -1,6 +1,5 @@
 import React , {Component} from 'React';
 import requiresLogin from '../components/requires-login';
-import {shallow, mount} from 'enzyme';
 
 //Test Component
 class Test extends Component {
