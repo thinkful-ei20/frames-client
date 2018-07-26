@@ -29,7 +29,7 @@ export const RegisterFormFirstPage = props => {
 				name="phoneNumber"
 				label="Phone Number"
 				type="tel"
-				placeholder="123-456-7890"
+				placeholder="1234567890"
 				component={renderField}
 				validate={[required, nonEmpty, isTrimmed, validPhone]}
 				autocomplete="off"

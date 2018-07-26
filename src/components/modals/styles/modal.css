@@ -22,4 +22,19 @@
     text-align: center;
     padding: 5%;
     cursor: pointer;
+    text-align: left;
 }
+
+/* React Modal Transitions */
+.ReactModal__Content {
+    opacity: 0;
+  }
+  
+  .ReactModal__Content--after-open {
+    opacity: 1;
+    transition: opacity 50ms;
+  }
+  
+  .ReactModal__Content--before-close {
+    opacity: 0;
+  }

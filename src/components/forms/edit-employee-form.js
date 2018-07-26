@@ -28,7 +28,8 @@ class EditEmployeeForm extends React.Component {
 	render(){
 		return (
 			<React.Fragment>
-				<h2>Edit Employee</h2>
+				<h2 className="form-header">Edit Employee</h2>
+				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="form-wrapper">
 					<form onSubmit={e => this.handleSubmit(e)}>
 						<div className="form-field">
@@ -67,11 +68,15 @@ class EditEmployeeForm extends React.Component {
 								defaultValue={this.props.employee.phoneNumber}
 							/>
 						</div>
-						<button className="form-submit-btn" type='submit'>Save</button>
+						<input className="form-reset-btn" type="reset"/>
+						<div className="form-btns">
+							<button className="form-submit-btn" type='submit'>Save</button>
+							<button className="form-delete-btn" onClick={() => this.handleDelete()}>
+								<i className="fa fa-trash-o" aria-hidden="true"></i>
+							</button>
+						</div>
 					</form>
 				</div>
-				<button onClick={() => this.handleDelete()}>Delete</button>
-				<button onClick={() => this.handleCancel()}>Cancel</button>
 			</React.Fragment>
 		);
 	}

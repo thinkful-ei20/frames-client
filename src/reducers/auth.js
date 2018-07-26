@@ -1,19 +1,13 @@
-import { /*SET_TOKEN,*/ CLEAR_TOKEN, REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/auth';
+
+import {CLEAR_TOKEN, REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/auth';
 
 const initialState = {
-	// authToken: null,
 	user: null,
 	loading: false,
 	error: null
 };
 
 export default function authReducer(state = initialState, action) {
-	// if (action.type === SET_TOKEN){
-	// 	return {
-	// 		...state,
-	// 		authToken : action.token
-	// 	};
-	// }
 	if (action.type === CLEAR_TOKEN){
 		return {
 			...state,

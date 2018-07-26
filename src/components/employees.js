@@ -14,6 +14,8 @@ class Employees extends React.Component {
 	}
 
 	render(){
+
+
 		return (
 			<main className="employees-wrapper">
 				<header className="employee-header">
@@ -26,18 +28,19 @@ class Employees extends React.Component {
 
 				</header>
 				<section className="employee-section">
-
-					{this.props.employees.map(employee => {
-						return (
-							<EmployeeCard
-								key={employee.id}
-								name={`${employee.firstname} ${employee.lastname}`}
-								email={employee.email}
-								phoneNumber={employee.phoneNumber}
-								id={employee.id}
-							/>
-						);
-					})}
+					{(this.props.employees.length)
+						? this.props.employees.map(employee => {
+							return (
+								<EmployeeCard
+									key={employee.id}
+									name={`${employee.firstname} ${employee.lastname}`}
+									email={employee.email}
+									phoneNumber={employee.phoneNumber}
+									id={employee.id}
+								/>
+							);
+						})
+						: <div>No data</div>}
 				</section>
 			</main>
 		);

@@ -11,14 +11,14 @@ export const CardList = (props) => {
 	return(
 		<section className="card-list">
 			{props.list.map((em, index) => {
-
 				let currDayValue = moment(em.startFrame.slice(0, 10)).valueOf();
 				let currDay = moment(em.startFrame).format('dddd, MMM, DD');
+				// console.log(`Current Day: ${currDay}`);
 
 				if (currDayValue > dayWrapper) {
 					dayWrapper = currDayValue;
 					return (
-						<React.Fragment>
+						<React.Fragment key={index}>
 							<p className="card-date">{currDay}</p>
 							<Card
 								key={index}
@@ -29,13 +29,8 @@ export const CardList = (props) => {
 				}
 				return (
 					<Card
-						// imageUrl={'fake.img'}
-						// name={`${em.employeeId.firstname} ${em.employeeId.lastname}`}
 						key={index}
 						employee={em}
-						// id={em.id}
-						// start={em.startFrame}
-						// end={em.endFrame}
 					/>
 				);
 			})

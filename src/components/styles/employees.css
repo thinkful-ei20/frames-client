@@ -31,16 +31,20 @@
     animation: fadein 0.8s;
     padding: 0 5% 0 5%;
     margin: 0;
+    display: flex;
+    align-items: space-between;
+    flex-direction: column; 
 }
 
 .employee-section-details {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #2b2d3d;
+    border-bottom: 1px solid #393c50;
 }
 
 .employee-section-details div:first-child {
     flex: 0 0 90%;
+    text-align: left;
 }
 
 .employee-section-details div:last-child {

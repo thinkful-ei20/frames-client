@@ -10,7 +10,8 @@ export class EditShiftForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			employee: props.currentFrame.employeeId ? props.currentFrame.employeeId.id : 'open'
+			employee: props.currentFrame.employeeId ? props.currentFrame.employeeId.id : 'open',
+			error: null
 		}
 	}
 
@@ -23,57 +24,101 @@ export class EditShiftForm extends React.Component {
 			startFrame : data.get('startDate'),
 			endFrame : data.get('endDate')
 		};
+
+		// If shift is open, send employeeId as null
+		if (updatedFrame.employeeId === 'open'){
+			updatedFrame.employeeId = null;
+		}
+
 		// grab the id of the current frame from the modal state
 		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
 	};
 
 	handleEmployeeSelect = e => {
-		console.log(e.target.value);
 		this.setState({employee: e.target.value})
 	};
 
+	validateFrame = () => {
+		// Validate that the endFrame is later than the start frame
+		const start = new Date(document.getElementById('startDate').value);
+		const end = new Date(document.getElementById('endDate').value);
+		
+		if(start > end){
+			this.setState({error : 'The end of the shift must be later than the start'});
+		} else {
+			this.setState({error : null});
+		}
+	}
+
+	handleCancel() {
+		this.props.dispatch(hideModal());
+	}
+
 	render() {
-		// Define default values for the form
-		const defaultStart = this.props.currentFrame.startFrame.replace(' ', 'T');
-		const defaultEnd = this.props.currentFrame.endFrame.replace(' ', 'T');
+		// Define default values for the form, remove the trailing Z
+		const defaultStart = this.props.currentFrame.startFrame.slice(0,-1);
+		const defaultEnd = this.props.currentFrame.endFrame.slice(0, -1);
 
 		return(
-			<div className="form-wrapper">
+			<div>
 				<h2 className="form-header">Edit Shift</h2>
+				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<p className='form-modal-error'>{this.state.error}</p>
+				<div className="form-wrapper">
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="employee-select">Employee</label>
-					<select
-						id="employee-select"
-						name="employee-select"
-						defaultValue={this.state.employee}
-						onChange={this.handleEmployeeSelect}
-					>
-						{this.props.employees.employees.map((employee, i) =>
-								<option key={i} value={employee.id}>
-									{`${employee.firstname} ${employee.lastname}`}
-								</option>
-							)}
-						<option value='open'>OPEN</option>
-					</select>
-					<label htmlFor="startDate">Start Time</label>
-					<input
-						type="datetime-local"
-						id="startDate"
-						name="startDate"
-						defaultValue={defaultStart}
-					/>
-					<label htmlFor="endDate">End Time</label>
-					<input
-						type="datetime-local"
-						id="endDate"
-						name="endDate"
-						defaultValue={defaultEnd}
-					/>
-					<button type='submit'>Change Shift</button>
-          <input type="reset"/>
-				</form>
-				<button onClick={() => this.props.dispatch(hideModal())}>Cancel</button>
-        <button onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}><i className="fa fa-trash-o" aria-hidden="true"></i></button>
+					<div className="form-field">
+						<label htmlFor="employee-select">Employee</label>
+						<select
+							id="employee-select"
+							name="employee-select"
+							defaultValue={this.state.employee}
+							onChange={this.handleEmployeeSelect}
+						>
+							{this.props.employees.employees.map((employee, i) =>
+									<option key={i} value={employee.id}>
+										{`${employee.firstname} ${employee.lastname}`}
+									</option>
+								)}
+							<option value='open'>OPEN</option>
+						</select>
+					</div>
+					<div className="form-field">
+						<label htmlFor="startDate">Start Time</label>
+						<input
+							type="datetime-local"
+							id="startDate"
+							name="startDate"
+							defaultValue={defaultStart}
+							onChange={this.validateFrame}
+						/>
+					</div>
+					<div className="form-field">
+						<label htmlFor="endDate">End Time</label>
+						<input
+							type="datetime-local"
+							id="endDate"
+							name="endDate"
+							defaultValue={defaultEnd}
+							onChange={this.validateFrame}
+						/>
+					</div>
+					<input className="form-reset-btn" type="reset" onClick={() => this.setState({error: null})}/>
+					<div className="form-btns">
+						<button 
+						className="form-submit-btn"
+						type='submit'
+						disabled={this.state.error ? true : false}>
+							Change Shift
+						</button>
+						<button 
+							className="form-delete-btn"
+							onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
+							<i className="fa fa-trash-o" aria-hidden="true"></i>
+						</button>
+						
+					</div>
+				</form>        
+			</div>
 			</div>);
 	}
 }
