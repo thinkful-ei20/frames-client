@@ -49,7 +49,7 @@ export class EditShiftForm extends React.Component {
 		} else {
 			this.setState({error : null});
 		}
-	}
+	};
 
 	handleCancel() {
 		this.props.dispatch(hideModal());
@@ -58,7 +58,7 @@ export class EditShiftForm extends React.Component {
 	render() {
 		// Define default values for the form, remove the trailing GMT times
 		const defaultStart = moment(this.props.currentFrame.startFrame).format().slice(0,-6);
-		const defaultEnd = moment(this.props.currentFrame.endFrame).format().slice(0,-6)
+		const defaultEnd = moment(this.props.currentFrame.endFrame).format().slice(0,-6);
 
 		return(
 			<div>
