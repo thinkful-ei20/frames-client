@@ -2,10 +2,36 @@
   border-radius: 50px;
   background: transparent;
   padding: 5px 10px;
+  margin-bottom: 5px;
   border: 1px solid #35df5c;
   color: #35df5c;
   text-transform: uppercase;
   font-size: 12px;
+  -webkit-transition-property: background,color;
+  -o-transition-property: background,color;
+  transition-property: background,color;
+  -webkit-transition-duration: .2s;
+  -o-transition-duration: .2s;
+  transition-duration: .2s;
+  letter-spacing: 1px;
+}
+
+.modal form > select {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  padding: 0px 60px;
+  border: 2px solid #35df5c;
+  color: #35df5c;
+  text-transform: uppercase;
+  font-size: 12px;
+  height: 29px;
+  width: 240px;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  border-radius: 5px;
   -webkit-transition-property: background,color;
   -o-transition-property: background,color;
   transition-property: background,color;
@@ -21,6 +47,4 @@
 .filter-btn:focus {
     text-shadow: 0 0 1px #8aff37,
                  0 0 10px rgba(64, 199, 57, 0.8);
-    /*-webkit-transform: scale(1.2);*/
-    /*transform: scale(1.2);*/
 }

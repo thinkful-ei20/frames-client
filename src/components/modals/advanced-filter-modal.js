@@ -39,7 +39,7 @@ class AdvancedFilter extends React.Component {
 
 					<form onSubmit={(e) => this.advanfilterByTimeFrame(e)}>
 						<select onChange={(e) => this.setStartParameter(e)}>
-							<option value={null}>START</option>
+							<option value={null}>BEGINNING OF SHIFT</option>
 							<option value="open">OPEN</option>
 							{this.props.frames.map((frame, i) => {
 								return <option key={i} value={frame.startFrame}>{frame.startFrame}</option>;
@@ -47,7 +47,7 @@ class AdvancedFilter extends React.Component {
 						</select>
 
 						<select onChange={(e) => this.setEndParameter(e)}>
-							<option value={null}>END</option>
+							<option value={null}>END OF SHIFT</option>
 							<option value="open">OPEN</option>
 							{this.props.frames.map((frame, i) => {
 								return <option key={i} value={frame.endFrame}>{frame.endFrame}</option>;
