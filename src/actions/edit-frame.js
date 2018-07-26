@@ -84,9 +84,7 @@ export const deleteFrame = frameId => dispatch => {
 		}
 	})
 		.then(res => normalizeResponseErrors(res))
-		.then(() => {
-			dispatch(fetchFrames(week.start, week.end));
-			dispatch(hideModal());
-		})
-		.catch(error => dispatch(editFrameError(error)));
+		.then(() => dispatch(fetchFrames(week.start, week.end)))
+		.then(() => dispatch(hideModal()))
+		.catch(error =>	dispatch(editFrameError(error)));
 };
