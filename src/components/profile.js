@@ -25,10 +25,19 @@ export class Profile extends React.Component {
 	};
 
 	render() {
+		let {error} = this.props
+		if(error) {
+			error = (
+				<div className="profile-error">
+					{error}
+				</div>
+			)
+		}
 		return (
 			<main className="profile-wrapper">
 				<header className="profile-header">
           <h2>My profile</h2>
+					{error}
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
@@ -81,7 +90,8 @@ const mapStateToProps = state => {
 		username: state.profile.data.username,
 		name: state.profile.data.companyName,
 		phone: state.profile.data.phoneNumber,
-		email: state.profile.data.email
+		email: state.profile.data.email,
+		error: state.profile.error
 	};
 };
 

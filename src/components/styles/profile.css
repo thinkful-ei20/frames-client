@@ -31,6 +31,15 @@
     border-bottom: none;
 }
 
+.profile-error {
+	white-space: nowrap;
+	margin: 0 auto;
+	width: 100px;
+	text-align: center;
+	color: red;
+	font-size: 20px;
+}
+
 .profile-section h3 {
     margin: 0;
     padding: 2.5% 0 2.5% 0;
@@ -48,14 +57,14 @@
 
 .profile-header {
     display: flex;
-    align-items: center;
+	align-items: center;
+	justify-content: space-between;
     padding: 0 5% 0 5%;
     background-color: #232633;
     border-bottom: 1px solid #35df5c;
 }
 
 .profile-header h2 {
-    flex: 0 0 90%;
     text-transform: uppercase;
     font-size: 20px;
     text-align: left;
