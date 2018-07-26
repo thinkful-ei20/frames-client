@@ -14,13 +14,7 @@ export default function authReducer(state = initialState, action) {
 			authToken : action.token
 		};
 	}
-	if (action.type === CLEAR_TOKEN){
-		return {
-			...state,
-			authToken: null,
-			user: null
-		};
-	}
+
 	if (action.type === REQUEST_LOGIN){
 		return {
 			...state,
