@@ -17,16 +17,15 @@ export function ModalConductor(props) {
 	let content;
 
 	if (props.modalType === 'edit') {
-
 		contentLabel = 'Edit a Shift';
 		content = <EditShiftForm/>;
-	} else if (props.modalType === 'employee'){
+	} else if (props.modalType === 'employee') {
 		contentLabel = 'Edit an Employee';
 		content = <EditEmployeeForm/>;
-	} else if (props.modalType === 'newEmployee'){
+	} else if (props.modalType === 'newEmployee') {
 		contentLabel= 'Create an Employee';
 		content = <AddEmployeeForm />;
-	} else if (props.modalType === 'newShift'){
+	} else if (props.modalType === 'newShift') {
 		contentLabel = 'Create a Shift';
 		content = <CreateShiftForm />;
 	}

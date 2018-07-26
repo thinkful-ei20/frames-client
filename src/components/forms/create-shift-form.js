@@ -64,16 +64,15 @@ class CreateShiftForm extends React.Component {
 
 		return (
 			<React.Fragment>
-
 				<div className="add-shift-form-wrapper">
 					{this.props.error}
 					{error}
 					<h2 className='form-header'>Add Shift</h2>
 					<button className="modal-close-btn" onClick={() => this.handleCancel()}>
 					</button>
-					
+
 					<div className="form-wrapper">
-					<p className="form-modal-error" >{this.state.frameError}</p>
+						<p className="form-modal-error" >{this.state.frameError}</p>
 						<form
 							onSubmit={e => this.handleSubmit(e)}
 						>
@@ -127,7 +126,6 @@ class CreateShiftForm extends React.Component {
 }
 
 CreateShiftForm.propTypes = {
-	onClose: PropTypes.func.isRequired,
 	show: PropTypes.bool,
 	dispatch: PropTypes.func,
 	error : PropTypes.any,
