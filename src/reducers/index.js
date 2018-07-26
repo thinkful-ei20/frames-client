@@ -7,8 +7,9 @@ import modalReducer from './modals';
 import framesReducer from './frames';
 import employeesReducer from './employees';
 import filterReducer from './filter';
+import { CLEAR_TOKEN } from '../actions/auth';
 
-export default combineReducers({
+const appReducer = combineReducers({
 	form: formReducer,
 	auth : authReducer,
 	profile : profileReducer,
@@ -17,3 +18,12 @@ export default combineReducers({
 	employees : employeesReducer,
 	filter: filterReducer
 });
+
+const rootReducer = (state, action) => {
+  if (action.type === CLEAR_TOKEN){
+    state = undefined
+  }
+  return appReducer(state, action);
+};
+
+export default rootReducer;
