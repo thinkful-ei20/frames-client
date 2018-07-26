@@ -41,7 +41,7 @@ export class Profile extends React.Component {
 					?
             <ProfileForm
               initialValues={{
-                adminId:this.props.adminId,
+                adminId:this.props.adminId.id,
                 companyName:this.props.name,
                 username:this.props.username,
                 email:this.props.email,
