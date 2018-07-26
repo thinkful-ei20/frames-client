@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import moment from 'moment';
 
 import './styles/forms.css';
 import { hideModal } from '../../actions/modals';
@@ -55,9 +56,9 @@ export class EditShiftForm extends React.Component {
 	}
 
 	render() {
-		// Define default values for the form, remove the trailing Z
-		const defaultStart = this.props.currentFrame.startFrame.slice(0,-1);
-		const defaultEnd = this.props.currentFrame.endFrame.slice(0, -1);
+		// Define default values for the form, remove the trailing GMT times
+		const defaultStart = moment(this.props.currentFrame.startFrame).format().slice(0,-6);
+		const defaultEnd = moment(this.props.currentFrame.endFrame).format().slice(0,-6)
 
 		return(
 			<div>
