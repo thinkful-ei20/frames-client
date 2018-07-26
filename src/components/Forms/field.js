@@ -6,19 +6,18 @@ export const Field = props => {
 	const Element = props.element || 'input';
 	return (
 		<div className="form-field" id={props.id}>
-			<label htmlFor={props.input.name}>{props.label}
-				<Element
-					className={(props.meta.error && props.meta.touched) ? 'error-border' : 'placeholder-class'}
-					type={props.type}
-					value={props.value}
-					aria-required="true"
-					placeholder={props.placeholder ? props.placeholder : null }
-					// defaultValue={props.defaultValue ? props.defaultValue : null}
-					{...props.input}
-				>
-					{props.children}
-				</Element>
-			</label>
+			<label htmlFor={props.input.name}>{props.label}</label>
+			<Element
+				className={(props.meta.error && props.meta.touched) ? 'error-border' : 'placeholder-class'}
+				type={props.type}
+				value={props.value}
+				aria-required="true"
+				placeholder={props.placeholder ? props.placeholder : null }
+				// defaultValue={props.defaultValue ? props.defaultValue : null}
+				{...props.input}
+			>
+				{props.children}
+			</Element>
 			{/*
         If error evaluates to true -> show span element
         if error is undefined -> React ignores the span element
