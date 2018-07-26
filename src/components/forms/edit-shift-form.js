@@ -24,6 +24,12 @@ export class EditShiftForm extends React.Component {
 			startFrame : data.get('startDate'),
 			endFrame : data.get('endDate')
 		};
+
+		// If shift is open, send employeeId as null
+		if (updatedFrame.employeeId === 'open'){
+			updatedFrame.employeeId = null;
+		}
+
 		// grab the id of the current frame from the modal state
 		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
 	};
@@ -49,9 +55,9 @@ export class EditShiftForm extends React.Component {
 	}
 
 	render() {
-		// Define default values for the form
-		const defaultStart = this.props.currentFrame.startFrame.replace(' ', 'T');
-		const defaultEnd = this.props.currentFrame.endFrame.replace(' ', 'T');
+		// Define default values for the form, remove the trailing Z
+		const defaultStart = this.props.currentFrame.startFrame.slice(0,-1);
+		const defaultEnd = this.props.currentFrame.endFrame.slice(0, -1);
 
 		return(
 			<div>
