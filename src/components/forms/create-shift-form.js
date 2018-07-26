@@ -64,14 +64,14 @@ class CreateShiftForm extends React.Component {
 
 		return (
 			<React.Fragment>
-				<div className="add-shift-form-wrapper">
+				<div className="modal-form-wrapper">
 					{this.props.error}
 					{error}
-					<h2 className='form-header'>Add Shift</h2>
 					<button className="modal-close-btn" onClick={() => this.handleCancel()}>
 					</button>
 
 					<div className="form-wrapper">
+            <h2 className='form-header'>Add Shift</h2>
 						<p className="form-modal-error" >{this.state.frameError}</p>
 						<form
 							onSubmit={e => this.handleSubmit(e)}
