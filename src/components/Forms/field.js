@@ -13,7 +13,7 @@ export const Field = props => {
 					value={props.value}
 					aria-required="true"
 					placeholder={props.placeholder ? props.placeholder : null }
-					defaultValue={props.defaultValue ? props.defaultValue : null}
+					// defaultValue={props.defaultValue ? props.defaultValue : null}
 					{...props.input}
 				>
 					{props.children}
