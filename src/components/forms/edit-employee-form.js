@@ -77,7 +77,6 @@ class EditEmployeeForm extends React.Component {
 						</div>
 					</form>
 				</div>
-
 			</React.Fragment>
 		);
 	}

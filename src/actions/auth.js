@@ -4,13 +4,13 @@ import { API_BASE_URL } from '../config';
 import {normalizeResponseErrors} from './utils';
 
 // Puts full authToken into Redux state
-export const SET_TOKEN = 'SET_TOKEN';
-export const setToken = token => {
-	return {
-		type: SET_TOKEN,
-		token
-	};
-};
+// export const SET_TOKEN = 'SET_TOKEN';
+// export const setToken = token => {
+// 	return {
+// 		type: SET_TOKEN,
+// 		token
+// 	};
+// };
 
 // Removes authToken & user info from Redux state
 export const CLEAR_TOKEN = 'CLEAR_TOKEN';
@@ -50,7 +50,7 @@ export const loginError = error => {
 //Store in localStorage & decompose into state
 export const storeToken = (token, dispatch) => {
 	const decodedToken = jwtDecode(token);
-	dispatch(setToken(decodedToken));
+	// dispatch(setToken(decodedToken));
 	// set local storage BEFORE sending decoded token to avoid timing errors
 	localStorage.setItem('authToken', token);
 	dispatch(loginSuccess(decodedToken.user));
@@ -88,5 +88,5 @@ export const login = (username, password) => dispatch => {
 // asynch logout function to clear both Redux and LocalStorage
 export const logout = () => dispatch => {
 	dispatch(clearToken());
-	localStorage.clear();
+	localStorage.removeItem('authToken');
 };
