@@ -16,6 +16,24 @@
   letter-spacing: 1px;
 }
 
+.filter-cancel-btn {
+  border-radius: 50px;
+  background: transparent;
+  padding: 3px 8px;
+  margin-bottom: 5px;
+  border: 2px solid #ce3d3d;
+  color: #ce3d3d;
+  text-transform: uppercase;
+  font-size: 12px;
+  -webkit-transition-property: background,color;
+  -o-transition-property: background,color;
+  transition-property: background,color;
+  -webkit-transition-duration: .2s;
+  -o-transition-duration: .2s;
+  transition-duration: .2s;
+  letter-spacing: 1px;
+}
+
 .modal form > select {
   display: flex;
   flex-direction: column;
@@ -47,4 +65,12 @@
 .filter-btn:focus {
     text-shadow: 0 0 1px #8aff37,
                  0 0 10px rgba(64, 199, 57, 0.8);
+}
+
+.filter-cancel-btn:hover,
+.filter-cancel-btn:hover,
+.filter-cancel-btn:focus,
+.filter-cancel-btn:focus {
+    text-shadow: 0 0 1px #ce3d3d,
+                 0 0 10px rgb(206, 61, 61, 0.8)
 }

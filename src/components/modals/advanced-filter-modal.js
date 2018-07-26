@@ -55,7 +55,7 @@ class AdvancedFilter extends React.Component {
 				    </select>
 						<button className="filter-btn" type="submit">Submit Filter</button>
 					</form>
-					<button className="filter-btn" onClick={this.props.onClose}>Cancel</button>
+					<button className="filter-cancel-btn" onClick={this.props.onClose}>Cancel</button>
 				</div>
 			</div>
 		);
