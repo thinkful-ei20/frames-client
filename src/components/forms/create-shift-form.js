@@ -25,6 +25,11 @@ class CreateShiftForm extends React.Component {
 			endFrame : data.get('endDate')
 		};
 
+		//Check to see if frame is 'open' and set employeeID to null
+		if (newFrame.employeeId === 'open'){
+			newFrame.employeeId = null;
+		}
+
 		this.props.dispatch(addFrame(newFrame));
 		this.props.dispatch(hideModal());
 	}
