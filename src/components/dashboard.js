@@ -37,6 +37,37 @@ export class Dashboard extends React.Component {
 		});
 	};
 
+	getRange() {
+		if(this.props.filter !== null) {
+			let range;
+
+			// filter
+			if (this.props.filter === 'open') {
+				range = 'open';
+			}
+
+			// filter (Any filter coming out of filter will be length(2))
+			if (this.props.filter.split('|').length === 2) {
+				range = {
+					start: this.props.filter.split('|')[0],
+					end: this.props.filter.split('|')[1]
+				}
+			}
+
+			// advanced-filter (Any filter coming out of advanced-filter will be length(3))
+			// if the split filter.length is 3, then there should be a day, as well as a start and end 
+			if (this.props.filter.split('|').length === 3) {
+				range = {
+					start: this.props.filter.split('|')[0],
+					end: this.props.filter.split('|')[1],
+					day: this.props.filter.split('|')[2]
+				}
+			}	
+			return range; //should be a map
+		}
+
+}
+
 	render() {
 		if (this.props.loading){
 			return (<div>Loading...</div>);
@@ -51,34 +82,7 @@ export class Dashboard extends React.Component {
 
 		// Filtered array of frames that meet filter start and end range values
 		let filteredFrames = frameList.filter(frame => {
-			// if there is a filter
-			if(this.props.filter !== null) {
-				let range;
-
-				// filter
-				if (this.props.filter === 'open') {
-					range = 'open';
-				}
-
-				// filter (Any filter coming out of filter will be length(2))
-				if (this.props.filter.split('|').length === 2) {
-					range = {
-						start: this.props.filter.split('|')[0],
-						end: this.props.filter.split('|')[1]
-					}
-				}
-
-				// advanced-filter (Any filter coming out of advanced-filter will be length(3))
-				// if the split filter.length is 3, then there should be a day, as well as a start and end 
-				if (this.props.filter.split('|').length === 3) {
-					range = {
-						start: this.props.filter.split('|')[0],
-						end: this.props.filter.split('|')[1],
-						day: this.props.filter.split('|')[2]
-					}
-				}	
-				console.log(`RANGE: ${JSON.stringify(range, null, 2)}`);
-
+				const range = this.getRange();
 				// if start or end is undefined, return all frames
 				if (range === undefined) {
 					return frame;
@@ -103,7 +107,7 @@ export class Dashboard extends React.Component {
 				if (range.start && range.end) {
 					return ((moment(frame.startFrame).format('LT') >= range.start) && (moment(frame.endFrame).format('LT') <= range.end));
 				}
-			}
+			
 		});
 
 		if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
@@ -123,12 +127,13 @@ export class Dashboard extends React.Component {
 					</button>
 					<div className="dashboard-section-header">
 						<div>{startSchedule} - {endSchedule}</div>
-						<Filter />
+						{/* <Filter />
 						<button className="advanFilter-btn" onClick={() => {
 							this.props.dispatch(resetFilterState());
 							this.toggleAdvancedFilter()
 							}}>Advanced Filter</button>
-						<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
+						<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} /> */}
+						<button onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
 					</div>
 					<section className="dashboard-section">
 						{listOfFramesToBeRendered.length
