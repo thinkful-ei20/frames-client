@@ -37,13 +37,19 @@
     display: block;
     width: 100%;
     margin-top: 5px;
-	line-height: 30px;
+	line-height: 24px;
+    /*font-size: calc(.5rem + .9vw);*/
+    font-size: 12px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-color: #32364a;
     color: #FFFFFF;
     border: 1px solid #32364a;
     padding-left: 2.5%;
+}
+
+.form-field select {
+    padding: 5px;
 }
 
 .form-submit-btn {
