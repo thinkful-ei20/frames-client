@@ -12,13 +12,6 @@ import './styles/dashboard.css';
 import { showModal } from '../actions/modals';
 
 export class Dashboard extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			addShiftOpen: false,
-			advanFilter: false
-		};
-	}
 
 	componentDidMount() {
 		const dates = getThisWeek();
@@ -30,6 +23,8 @@ export class Dashboard extends React.Component {
 		if (this.props.loading){
 			return (<div>Loading...</div>);
 		}
+
+		let error = this.props.error ? this.props.error : undefined;
 
 		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
 		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
@@ -65,6 +60,7 @@ export class Dashboard extends React.Component {
 		return(
 			<React.Fragment>
 				<div className="dashboard">
+					{error}
 					<button
 						onClick={() => this.props.dispatch(showModal('newShift', null))}
 					>

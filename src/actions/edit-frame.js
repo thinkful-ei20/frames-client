@@ -2,7 +2,6 @@ import {API_BASE_URL} from '../config';
 import { fetchFrames } from './frames';
 import { normalizeResponseErrors, getThisWeek } from './utils';
 import { hideModal } from './modals';
-import {SubmissionError} from 'redux-form';
 
 // Set loading to true
 export const REQUEST_EDIT_FRAME = 'REQUEST_EDIT_FRAME';
@@ -62,10 +61,10 @@ export const addFrame = frame => dispatch => {
 		.then(res => res.json())
 		.then(() => {
 			dispatch(fetchFrames(week.start, week.end));
-      dispatch(hideModal());
+			dispatch(hideModal());
 
-    })
-    .catch(error => dispatch(editFrameError(error.message)));
+		})
+		.catch(error => dispatch(editFrameError(error.message)));
 };
 
 export const deleteFrame = frameId => dispatch => {

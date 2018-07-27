@@ -1,12 +1,18 @@
 import React from 'React';
-import {shallow, mount} from 'enzyme';
-import thunk from 'redux-thunk';
-import ConnectedDashboard, {Dashboard} from '../components/dashboard';
-import {Provider} from 'react-redux';
-import {fetchFrames} from '../actions/frames';
-import {fetchEmployees} from '../actions/employee';
-import configureMockStore from 'redux-mock-store';
-import {AdvancedFilter} from '../components/modals/advanced-filter-modal';
+import {shallow} from 'enzyme';
+import {showModal} from '../actions/modals';
+import {Dashboard} from '../components/dashboard';
+
+/**
+ * TODO:
+ * 	Figure out how to test lifecycle methods
+ */
+
+// import {Provider} from 'react-redux';
+// import {fetchFrames} from '../actions/frames';
+// import {fetchEmployees} from '../actions/employee';
+// import configureMockStore from 'redux-mock-store';
+// import thunk from 'redux-thunk';
 
 describe('Dashboard', () => {
 
@@ -19,7 +25,11 @@ describe('Dashboard', () => {
 			frames: [],
 			loading : false,
 			error : null,
-			filter: 'test'
+			filter: {
+				employeeId: '000020test1989812379817',
+				startFrame: '2018-07-27T12:00:00.000Z',
+				endFrame: '2018-07-27T15:00:00.000Z',
+			}
 		};
 
 		const dispatch = jest.fn();
@@ -32,33 +42,22 @@ describe('Dashboard', () => {
 			expect(wrapper).toHaveLength(1);
 		});
 
-		it('should have the correct initial state', () => {
-			let {advanFilter,addShiftOpen} = wrapper.instance().state;
-			expect(advanFilter).toEqual(false);
-			expect(addShiftOpen).toEqual(false);
+		it('toggle dispatch showModal() on clicking "newShift" button',() => {
+			const newShiftButton = wrapper.find('button').at(0);
+
+			newShiftButton.simulate('click');
+			expect(dispatch).toHaveBeenCalledWith(showModal('newShift', null));
 		});
 
-		it('toggle "advanFitler" state on toggleAdvancedFilter',() => {
-			const instance = wrapper.instance();
+		it('should dispatch showModal() on clicking "superFilter" button',() => {
+			const superFilterButton = wrapper.find('button').at(1);
 
-			instance.toggleAdvancedFilter();
-			const on = instance.state.advanFilter;
-			instance.toggleAdvancedFilter();
-			const off = instance.state.advanFilter;
-			expect(on).toEqual(true);
-			expect(off).toEqual(false);
-		});
-
-		it('toggle "show" prop on clicking "Advanced Filter" button',() => {
-			const advancedFilterButton = wrapper.find('button').at(1);
-
-			expect(wrapper.find('div .dashboard-section-header').children().at(3).props().show).toEqual(false);
-			advancedFilterButton.simulate('click');
-			expect(wrapper.find('div .dashboard-section-header').children().at(3).props().show).toEqual(true);
+			superFilterButton.simulate('click');
+			expect(dispatch).toHaveBeenCalledWith(showModal('superFilter', null));
 		});
 	});
 
-	// describe('Connected', () => {
+	describe('Connected', () => {});
 
 	// 	let wrapper;
 	// 	let store;
