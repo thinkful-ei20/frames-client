@@ -1,10 +1,16 @@
-import { FILTER_SUCCESS, ADVANCED_FILTER_SUCCESS, SET_START_VALUE, SET_END_VALUE } from '../actions/filter';
+import { FILTER_SUCCESS, ADVANCED_FILTER_SUCCESS, SET_START_VALUE, SET_END_VALUE, SET_DAY_VALUE, RESET_FILTER_STATE } from '../actions/filter';
 
 export const initialState = {
 	filter: null
 };
 
 export default (state = initialState, action) => {
+	if (action.type === RESET_FILTER_STATE) {
+		return {
+			filter: null
+		};
+	}
+
 	if (action.type === FILTER_SUCCESS) {
 		return {
 			...state,
@@ -25,7 +31,14 @@ export default (state = initialState, action) => {
 			end: action.end
 		};
 	}
-	
+
+	if (action.type === SET_DAY_VALUE) {
+		return {
+			...state,
+			day: action.day
+		};
+	}
+
 	if (action.type === ADVANCED_FILTER_SUCCESS) {
 		return {
 			...state,
