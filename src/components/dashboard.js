@@ -59,16 +59,19 @@ export class Dashboard extends React.Component {
 				}
 				return (frame.employeeId && (frame.employeeId.id === this.props.filter.employeeId));
 			});
-			console.log('LOFTBR: ', listOfFramesToBeRendered);
 		}
 
 		// if filter.start is not an empty string
 		if (this.props.filter.start !== '') {
-			listOfFramesToBeRendered = frameList.filter(frame => {
-				console.log(`StartFrame: ${frame.startFrame}`);
-				console.log(`filter.start UTC: ${moment(this.props.filter.start).local()}`);
-				// return moment(frame.startFrame) === moment(this.props.filter.start);
-				return frame.startFrame === moment(this.props.filter.start).local();
+			listOfFramesToBeRendered = listOfFramesToBeRendered.filter(frame => {
+				return moment(frame.startFrame).format('YYYY-MM-DDTHH:mm') >= moment(this.props.filter.start).format('YYYY-MM-DDTHH:mm');
+			});
+		}
+
+		// if filter.end is not an empty string
+		if (this.props.filter.end !== '') {
+			listOfFramesToBeRendered = listOfFramesToBeRendered.filter(frame => {
+				return moment(frame.startFrame).format('YYYY-MM-DDTHH:mm') <= moment(this.props.filter.end).format('YYYY-MM-DDTHH:mm');
 			});
 		}
 
