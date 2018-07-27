@@ -23,16 +23,16 @@
 }
 
 .dashboard-section-header {
-	/*display: flex;*/
 	border-bottom: 2px solid #b94343;
 	margin-bottom: 2.5%;
 	padding: 1.5% 2.5% 1.5% 2.5%;
 }
 
-.advanFilter-btn {
+.super-filter-btn {
 	border-radius: 50px;
   background: transparent;
   padding: 5px 10px;
+  margin-top: 5px;
   border: 1px solid #35df5c;
   color: #35df5c;
   text-transform: uppercase;
@@ -46,12 +46,10 @@
   letter-spacing: 1px;
 }
 
-.advanFilter-btn:hover,
-.advanFilter-btn:hover,
-.advanFilter-btn:focus,
-.advanFilter-btn:focus {
+.super-filter-btn:hover,
+.super-filter-btn:hover,
+.super-filter-btn:focus,
+.super-filter-btn:focus {
     text-shadow: 0 0 1px #8aff37,
                  0 0 10px rgba(64, 199, 57, 0.8);
-    /*-webkit-transform: scale(1.2);*/
-    /*transform: scale(1.2);*/
 }

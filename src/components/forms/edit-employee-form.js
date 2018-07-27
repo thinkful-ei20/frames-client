@@ -4,7 +4,7 @@ import { updateEmployee, deleteEmployee } from '../../actions/employee';
 import PropTypes from 'prop-types';
 import { hideModal } from '../../actions/modals';
 
-class EditEmployeeForm extends React.Component {
+export class EditEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
@@ -62,6 +62,7 @@ class EditEmployeeForm extends React.Component {
 								type='email'
 								id='email'
 								name='email'
+								required
 								defaultValue={this.props.employee.email}
 							/>
 						</div>
@@ -71,6 +72,7 @@ class EditEmployeeForm extends React.Component {
 								type='tel'
 								id='phoneNumber'
 								name='phoneNumber'
+								required
 								defaultValue={this.props.employee.phoneNumber}
 								pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
 							/>
