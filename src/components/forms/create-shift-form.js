@@ -70,7 +70,9 @@ class CreateShiftForm extends React.Component {
 							onSubmit={e => this.handleSubmit(e)}
 						>
 							<div className="form-field">
-								<label htmlFor='employee-select'>Employee</label>
+								<label htmlFor='employee-select'>Employee
+
+								</label>
 								<select
 									id="employee-select"
 									name="employee-select"
@@ -104,11 +106,10 @@ class CreateShiftForm extends React.Component {
 									onChange={() => this.validateFrame()}
 								/>
 							</div>
-							<button
-								type='submit'
-								className="form-submit-btn">
-                Save
-							</button>
+							<div className="form-field form-btns">
+								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+								<button className="form-submit-btn">Save</button>
+							</div>
 							{error}
 						</form>
 					</div>

@@ -7,8 +7,6 @@
     }
 }
 
-
-
 .form-wrapper {
     margin: 0 auto;
     padding: 20px;
@@ -29,8 +27,7 @@
 	display: block;
 	text-align: left;
     text-transform: uppercase;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
     color: #8e909a;
     font-size: 11px;
 }
@@ -46,7 +43,6 @@
     background-color: #32364a;
     color: #FFFFFF;
     border: 1px solid #32364a;
-    /*border: 2px inset #3b3c41;*/
     padding-left: 2.5%;
 }
 
@@ -74,7 +70,10 @@
 
 .form-error {
     color: #ce3d3d;
-    font-size: 12px;
+    font-size: 11px;
+    position: absolute;
+    bottom: -1.5rem;
+    text-transform: uppercase;
 }
 
 .error-border {

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Field, reduxForm, } from 'redux-form';
 import renderField from './field';
-import {isTrimmed, validEmail, validPhone} from './formValidators';
+import {isTrimmed, nonEmpty, required, validEmail, validPhone} from './formValidators';
 import { editProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 
@@ -55,35 +55,32 @@ export class ProfileForm extends React.Component {
 						label="Company Name"
 						type="text"
 						component={renderField}
-						validate={[isTrimmed]}
+						validate={[required, nonEmpty, isTrimmed]}
 					/>
 					<Field
 						name="username"
 						label="Username"
 						type="text"
 						component={renderField}
-						validate={[isTrimmed]}
+						validate={[required, nonEmpty, isTrimmed]}
 					/>
 					<Field
 						name="email"
 						label="Email Address"
 						type="text"
 						component={renderField}
-						validate={[validEmail]}
+						validate={[required, validEmail]}
 					/>
 					<Field
 						name="phoneNumber"
 						label="Phone Number"
-						type="text"
+						type="tel"
 						component={renderField}
-						validate={[validPhone]}
+						validate={[required, nonEmpty, isTrimmed, validPhone]}
 					/>
-					<div className="form-field profile-form-field">
-            <button
-              className="form-submit-btn"
-              type="submit">
-              Save
-            </button>
+					<div className="form-field profile-form-field form-btns">
+            <button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+						<button className="form-submit-btn" type="submit">Save</button>
 					</div>
 				</form>
       </div>
