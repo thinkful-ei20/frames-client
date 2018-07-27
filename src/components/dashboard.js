@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import CardList from './card-list';
-import AddShiftForm from './forms/create-shift-form';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
 import { getThisWeek, getToday } from '../actions/utils';
@@ -84,14 +83,13 @@ export class Dashboard extends React.Component {
 			<React.Fragment>
 				<div className="dashboard">
 					<button
-						type="button"
 						onClick={() => this.props.dispatch(showModal('newShift', null))}
 					>
 						<i className="fa fa-plus" aria-hidden="true"></i>
 					</button>
 					<div className="dashboard-section-header">
 						<div>{startSchedule} - {endSchedule}</div>
-						<Filter />
+						<Filter/>
 						<button onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
 						<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
 					</div>

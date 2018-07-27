@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setStartValue, setEndValue, advancedFilterSuccess } from '../../actions/filter';
 
-class AdvancedFilter extends React.Component {
+export class AdvancedFilter extends React.Component {
 
 	setStartParameter(e) {
 		console.log(`AF-START: ${e.target.value}`);
