@@ -1,4 +1,4 @@
-import { FILTER_SUCCESS, RESET_FILTER_STATE } from '../actions/filter';
+import { FILTER_SUCCESS } from '../actions/filter';
 
 export const initialState = {
 	employeeId: '',
@@ -7,10 +7,6 @@ export const initialState = {
 };
 
 export default (state = initialState, action) => {
-	if (action.type === RESET_FILTER_STATE) {
-		return initialState;
-	}
-
 	if (action.type === FILTER_SUCCESS) {
 		return {
 			employeeId: action.employeeId,
