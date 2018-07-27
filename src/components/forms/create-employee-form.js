@@ -4,7 +4,7 @@ import { createEmployee } from '../../actions/employee';
 import PropTypes from 'prop-types';
 import { hideModal } from '../../actions/modals';
 
-class AddEmployeeForm extends React.Component {
+export class AddEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
