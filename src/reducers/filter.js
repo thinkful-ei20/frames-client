@@ -1,13 +1,16 @@
-import { FILTER_SUCCESS, ADVANCED_FILTER_SUCCESS, SET_START_VALUE, SET_END_VALUE, SET_DAY_VALUE } from '../actions/filter';
+import { FILTER_SUCCESS, ADVANCED_FILTER_SUCCESS, SET_START_VALUE, SET_END_VALUE, SET_DAY_VALUE, RESET_FILTER_STATE } from '../actions/filter';
 
 export const initialState = {
-	filter: null,
-	start: null,
-	end: null,
-	day: null
+	filter: null
 };
 
 export default (state = initialState, action) => {
+	if (action.type === RESET_FILTER_STATE) {
+		return {
+			filter: null
+		};
+	}
+
 	if (action.type === FILTER_SUCCESS) {
 		return {
 			...state,

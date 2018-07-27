@@ -6,7 +6,7 @@ import AddShiftForm from './forms/create-shift-form';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
 import { getThisWeek, getToday } from '../actions/utils';
-import {fetchEmployees} from '../actions/employee';
+import { fetchEmployees } from '../actions/employee';
 import PropTypes from 'prop-types';
 
 import Filter from './filter';
@@ -14,6 +14,7 @@ import AdvancedFilter from './modals/advanced-filter-modal';
 
 import './styles/dashboard.css';
 import { showModal } from '../actions/modals';
+import { resetFilterState } from '../actions/filter';
 
 export class Dashboard extends React.Component {
 	constructor(props) {
@@ -52,17 +53,22 @@ export class Dashboard extends React.Component {
 		let filteredFrames = frameList.filter(frame => {
 			// if there is a filter
 			if(this.props.filter !== null) {
-				// declare a range
 				let range;
-				// if the split filter.length is 2, then there should only be a start and end, and no day
+
+				// filter
+				if (this.props.filter === 'open') {
+					range = 'open';
+				}
+
+				// filter (Any filter coming out of filter will be length(2))
 				if (this.props.filter.split('|').length === 2) {
 					range = {
 						start: this.props.filter.split('|')[0],
-						end: this.props.filter.split('|')[1],
-						day: null
+						end: this.props.filter.split('|')[1]
 					}
 				}
 
+				// advanced-filter (Any filter coming out of advanced-filter will be length(3))
 				// if the split filter.length is 3, then there should be a day, as well as a start and end 
 				if (this.props.filter.split('|').length === 3) {
 					range = {
@@ -71,47 +77,32 @@ export class Dashboard extends React.Component {
 						day: this.props.filter.split('|')[2]
 					}
 				}	
+				console.log(`RANGE: ${JSON.stringify(range, null, 2)}`);
 
-				// if the state.filter.day is a day of the week, and start and end are null
-				if ((this.props.filter.start  === (null || 'null')) && (this.props.filter.end === (null || 'null')) (this.props.filter.day === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) ) {
-					range = {
-						start: null,
-						end: null,
-						day: this.props.filter
-					}
+				// if start or end is undefined, return all frames
+				if (range === undefined) {
+					return frame;
 				}
-
-				// if the state.filter.day is a day of the week, assign it the day of the week
-				// and if start or end = open, set them to open
-				if (((this.props.filter.start === ('open' || null || 'null')) || (this.props.filter.start === ('open' || null || 'null'))) && (this.props.filter.day === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) ) {
-					range = {
-						start: null,
-						end: null,
-						day: this.props.filter
-					}
+				// if the filter range = 'open', return all open shifts
+				if (range === 'open') {
+					return frame.employeeId === null;
 				}
-				console.log(range);
-
-				/*
 				// if there is no employee assigned to a frame, it's open
 				if ((range.start === 'open') || (range.end === 'open')) {
 					return frame.employeeId === null;
 				} 
-				else if ((range.start === 'open') && (range.end)) {
-					return ((frame.employeeId === null) && (frame.endFrame <= range.end))
+				// if range.start = 'open' and range.end != null, return all open frames, and all frames less than the end
+				if ((range.start === 'open') && (range.end)) {
+					return ((frame.employeeId === null) && (moment(frame.endFrame).format('LT') <= range.end))
 				} 
-				else if ((range.start) && (range.end === 'open')) {
-					return ((frame.employeeId === null) && (frame.startFrame >= range.start))
+				// if range.start != null and range.end = 'open, return all open frames, and all frames greater than the the start
+				if ((range.start) && (range.end === 'open')) {
+					return ((frame.employeeId === null) && (moment(frame.startFrame).format('LT') >= range.start))
 				}
-				else if (this.props.day === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) {
-					// return frame.startFrame === 
-				}
-
 				// range.start - range.end, everything in between the range
 				if (range.start && range.end) {
-					return ((frame.startFrame >= range.start) && (frame.endFrame <= range.end));
+					return ((moment(frame.startFrame).format('LT') >= range.start) && (moment(frame.endFrame).format('LT') <= range.end));
 				}
-				*/
 			}
 		});
 
@@ -133,7 +124,10 @@ export class Dashboard extends React.Component {
 					<div className="dashboard-section-header">
 						<div>{startSchedule} - {endSchedule}</div>
 						<Filter />
-						<button className="advanFilter-btn" onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
+						<button className="advanFilter-btn" onClick={() => {
+							this.props.dispatch(resetFilterState());
+							this.toggleAdvancedFilter()
+							}}>Advanced Filter</button>
 						<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
 					</div>
 					<section className="dashboard-section">

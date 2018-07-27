@@ -1,3 +1,8 @@
+export const RESET_FILTER_STATE = 'RESET_FILTER_STATE';
+export const resetFilterState = () => ({
+	type: RESET_FILTER_STATE
+});
+
 export const FILTER_SUCCESS = 'FILTER_SUCCESS';
 export const filterSuccess = (filter) => ({
 	type: FILTER_SUCCESS,

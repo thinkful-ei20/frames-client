@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setStartValue, setEndValue, setDayValue, advancedFilterSuccess } from '../../actions/filter';
+import { advancedFilterSuccess } from '../../actions/filter';
 import moment from 'moment';
 
 import './styles/advanced-filter-modal.css';
@@ -19,21 +19,18 @@ class AdvancedFilter extends React.Component {
 	// sets the state.start
 	setStartParameter(e) {
 		console.log(`Setting state.start: ${e.target.value}`);
-		// this.props.dispatch(setStartValue(e.target.value));
 		this.setState({ start: e.target.value });
 	}
 
 	// set end state.end
 	setEndParameter(e) {
 		console.log(`Setting state.end: ${e.target.value}`);
-		// this.props.dispatch(setEndValue(e.target.value));
 		this.setState({ end: e.target.value });
 	}
 
 	// set state.day
 	setDayParameter(e) {
 		console.log(`Setting state.day: ${e.target.value}`);
-		// this.props.dispatch(setDayValue(e.target.value));
 		this.setState({ day: e.target.value });
 	}
 
@@ -41,22 +38,23 @@ class AdvancedFilter extends React.Component {
 	advanfilterByTimeFrame(e) {
 		e.preventDefault();
 		let filter;
-		// if the start and end are null but the day is not, the filter is the day
-		if ((this.state.start === null && this.state.end === null) && (this.state.day !== ('' || null || 'null'))) {
-			filter = `${this.state.day}`;
-		}
-		// if the start and end are not null but the day is, the filter is the start|end
-		if ((this.state.start !== null && this.state.end !== null) && this.state.day === null) {
-			filter = `${this.state.start}|${this.state.end}`;
-		}
-		// if all three are not null, the filter is start|end|day
-		if (this.state.start !== null && this.state.end !== null && this.state.day !== null) {
+		if (this.state.start !== null || this.state.end !== null || this.state.day !== null) {
 			filter = `${this.state.start}|${this.state.end}|${this.state.day}`;
 		}
-		console.log(`LOCAL STATE: ${this.state}`);
-		console.log(`state.filter: ${filter}`);
+		else if (this.state.start || this.state.end || this.state.day) {
+			filter = `${this.state.start}|${this.state.end}|${this.state.day}`;
+		}
+		else {
+			filter = null;
+		}
 		console.log('Submitting Advanced Filter');
+		console.log(`state.filter: ${filter}`);
 		this.props.dispatch(advancedFilterSuccess(filter));
+		this.setState({
+			start: null,
+			end: null,
+			day: null
+		});
 		this.props.onClose();
 	}
 
@@ -81,7 +79,8 @@ class AdvancedFilter extends React.Component {
 								return(
 									<option
 										key={i}
-										value={moment(frame.startFrame).format('LT')}
+										// value={moment(frame.startFrame).format('LT')}
+										value={frame.startFrame}
 									>
 										{moment(frame.startFrame).format('LT')}
 									</option>);
@@ -95,7 +94,8 @@ class AdvancedFilter extends React.Component {
 								return (
 									<option
 										key={i}
-										value={moment(frame.endFrame).format('LT')}
+										// value={moment(frame.endFrame).format('LT')}
+										value={frame.endFrame}
 									>
 										{moment(frame.endFrame).format('LT')}
 									</option>
@@ -128,11 +128,7 @@ class AdvancedFilter extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	frames: state.frames.frames,
-	// start: state.filter.start,
-	// end: state.filter.end,
-	// day: state.filter.day,
-	// filter: state.filter.filter
+	frames: state.frames.frames
 });
 
 AdvancedFilter.propTypes = {
