@@ -30,13 +30,9 @@ export class SuperFilter extends React.Component{
 			end = data.get('enddatetime');
 		}
 
-		const range = {
-			employeeId : data.get('employee-select'),
-			start,
-			end
-		};
+		const employeeId = data.get('employee-select');
 
-		this.props.dispatch(filterSuccess(range));
+		this.props.dispatch(filterSuccess(employeeId, start, end));
 		this.props.dispatch(hideModal());
 	}
 

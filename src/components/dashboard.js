@@ -10,7 +10,7 @@ import { fetchEmployees } from '../actions/employee';
 import PropTypes from 'prop-types';
 
 import Filter from './filter';
-import AdvancedFilter from './modals/advanced-filter-modal';
+// import AdvancedFilter from './modals/advanced-filter-modal';
 
 import './styles/dashboard.css';
 import { showModal } from '../actions/modals';
@@ -50,6 +50,9 @@ export class Dashboard extends React.Component {
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
 
+		if (this.props.filter.employeeId !== '') {
+			console.log('Hi');
+		}
 		// // Filtered array of frames that meet filter start and end range values
 		// let filteredFrames = frameList.filter(frame => {
 		// 		const range = this.getRange();
@@ -77,7 +80,6 @@ export class Dashboard extends React.Component {
 		// 		if (range.start && range.end) {
 		// 			return ((moment(frame.startFrame).format('LT') >= range.start) && (moment(frame.endFrame).format('LT') <= range.end));
 		// 		}
-			
 		// });
 
 		// if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
@@ -129,7 +131,7 @@ const mapStateToProps = state => ({
 	frames: state.frames.frames,
 	loading : state.frames.loading,
 	error : state.frames.error,
-	filter: state.filter.filter
+	filter: state.filter
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
