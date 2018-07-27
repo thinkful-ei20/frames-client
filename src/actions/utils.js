@@ -45,7 +45,7 @@ export const getToday = () => {
 // Return and object with start and end 7 days apart
 export const getThisWeek = () => {
 	const start = moment().startOf('day').format();
-	const end = moment().endOf('day').day(7).format();
+	const end = moment().startOf('day').add(7, 'days').format();
 	return {
 		start,
 		end

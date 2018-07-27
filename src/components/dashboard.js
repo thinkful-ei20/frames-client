@@ -27,7 +27,9 @@ export class Dashboard extends React.Component {
 		let error = this.props.error ? this.props.error : undefined;
 
 		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
+		console.log(startSchedule);
 		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
+		console.log(getThisWeek());
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
