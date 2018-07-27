@@ -7,7 +7,7 @@ import '../../App.css';
 import { getToday } from '../../actions/utils';
 import { hideModal } from '../../actions/modals';
 
-class CreateShiftForm extends React.Component {
+export class CreateShiftForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -29,9 +29,7 @@ class CreateShiftForm extends React.Component {
 		if (newFrame.employeeId === 'open'){
 			newFrame.employeeId = null;
 		}
-
 		this.props.dispatch(addFrame(newFrame));
-		this.props.dispatch(hideModal());
 	}
 
 	validateFrame() {
@@ -51,12 +49,11 @@ class CreateShiftForm extends React.Component {
 	}
 
 	render() {
-
-		// Alert user if unable to populate employees
+		// Alert user if unable to submit form
 		let error = null;
 		if (this.props.error) {
 			error = (
-				<div className="form-error" aria-live="polite">
+				<div className="form-modal-error" aria-live="polite">
 					{this.props.error}
 				</div>
 			);
@@ -64,12 +61,8 @@ class CreateShiftForm extends React.Component {
 
 		return (
 			<React.Fragment>
+        <button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
-					{this.props.error}
-					{error}
-					<button className="modal-close-btn" onClick={() => this.handleCancel()}>
-					</button>
-
 					<div className="form-wrapper">
             <h2 className='form-header'>Add Shift</h2>
 						<p className="form-modal-error" >{this.state.frameError}</p>
@@ -77,7 +70,9 @@ class CreateShiftForm extends React.Component {
 							onSubmit={e => this.handleSubmit(e)}
 						>
 							<div className="form-field">
-								<label htmlFor='employee-select'>Employee</label>
+								<label htmlFor='employee-select'>Employee
+
+								</label>
 								<select
 									id="employee-select"
 									name="employee-select"
@@ -101,7 +96,6 @@ class CreateShiftForm extends React.Component {
 									onChange={() => this.validateFrame()}
 								/>
 							</div>
-
 							<div className="form-field">
 								<label htmlFor="endDate">To</label>
 								<input
@@ -112,11 +106,11 @@ class CreateShiftForm extends React.Component {
 									onChange={() => this.validateFrame()}
 								/>
 							</div>
-							<button
-								type='submit'
-								className="form-submit-btn">
-                Save
-							</button>
+							<div className="form-field form-btns">
+								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+								<button className="form-submit-btn">Save</button>
+							</div>
+							{error}
 						</form>
 					</div>
 				</div>
@@ -135,7 +129,7 @@ CreateShiftForm.propTypes = {
 const mapStateToProps = state => {
 	return {
 		employees: state.employees.employees,
-		error: state.employees.error
+		error: state.frames.error
 	};
 };
 

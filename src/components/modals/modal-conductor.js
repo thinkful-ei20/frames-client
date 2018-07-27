@@ -11,6 +11,7 @@ import AddEmployeeForm from '../forms/create-employee-form';
 
 import './styles/modal.css';
 import CreateShiftForm from '../forms/create-shift-form';
+import SuperFilter from '../super-filter';
 
 export function ModalConductor(props) {
 	let contentLabel;
@@ -28,6 +29,9 @@ export function ModalConductor(props) {
 	} else if (props.modalType === 'newShift') {
 		contentLabel = 'Create a Shift';
 		content = <CreateShiftForm />;
+	} else if (props.modalType === 'superFilter') {
+		contentLabel='Filter';
+		content = <SuperFilter />;
 	}
 
 

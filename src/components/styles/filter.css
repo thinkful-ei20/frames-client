@@ -1,21 +1,35 @@
 .filter {
-  color: #edeef0;
-  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-  background-color: #35df5c;
+  background: transparent;
+  padding: 0px;
+  border: 1px solid #35df5c;
+  color: #35df5c;
+  text-transform: uppercase;
+  font-size: 12px;
   height: 29px;
+  width: 180px;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
   overflow: hidden;
-  width: 240px;
   border-radius: 5px;
+  /* background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0; */
+  -webkit-transition-property: background,color;
+  -o-transition-property: background,color;
+  transition-property: background,color;
+  -webkit-transition-duration: .2s;
+  -o-transition-duration: .2s;
+  transition-duration: .2s;
+  letter-spacing: 1px;
 }
 
 .filter select {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  appearance: none; */
   background: transparent;
   border: none;
-  font-size: 14px;
-  height: 29px;
-  padding: 5px;
-  width: 268px;
+  font-size: 12px;
+  height: 25px;
+  width: 165px;
+  color: #35df5c;
 }

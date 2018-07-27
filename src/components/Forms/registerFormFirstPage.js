@@ -47,7 +47,7 @@ export const RegisterFormFirstPage = props => {
 };
 
 RegisterFormFirstPage.propTypes = {
-	handleSubmit: PropTypes.func.required
+	handleSubmit: PropTypes.func
 };
 
 export default reduxForm({

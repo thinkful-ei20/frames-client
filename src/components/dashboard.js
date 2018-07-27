@@ -4,12 +4,9 @@ import moment from 'moment';
 import CardList from './card-list';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
-import { getThisWeek, getToday } from '../actions/utils';
-import {fetchEmployees} from '../actions/employee';
+import { getThisWeek } from '../actions/utils';
+import { fetchEmployees } from '../actions/employee';
 import PropTypes from 'prop-types';
-
-import Filter from './filter';
-import AdvancedFilter from './modals/advanced-filter-modal';
 
 import './styles/dashboard.css';
 import { showModal } from '../actions/modals';
@@ -29,12 +26,6 @@ export class Dashboard extends React.Component {
 		this.props.dispatch(fetchEmployees());
 	}
 
-	toggleAdvancedFilter = () => {
-		this.setState({
-			advanFilter: !this.state.advanFilter
-		});
-	};
-
 	render() {
 		if (this.props.loading){
 			return (<div>Loading...</div>);
@@ -42,41 +33,33 @@ export class Dashboard extends React.Component {
 
 		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
 		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
-		const defaultTime = getToday().start;
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
 
-		// Filtered array of frames that meet filter start and end range values
-		let filteredFrames = frameList.filter(frame => {
-			if(this.props.filter !== null) {
-				let range = {
-					start: this.props.filter.split('|')[0],
-					end: this.props.filter.split('|')[1]
-				}
-
-				// if there is no employee assigned to a frame, it's open
-				if ((range.start === 'open') || (range.end === 'open')) {
+		// if filter.employeeId is not equal to an empty string( if a filter exists )
+		if (this.props.filter.employeeId !== '') {
+			listOfFramesToBeRendered = frameList.filter(frame => {
+				// if employeeId = open, filter by frames that have an employeeId of null
+				if (this.props.filter.employeeId === 'open') {
 					return frame.employeeId === null;
-				} 
-				else if ((range.start === 'open') && (range.end)) {
-					return ((frame.employeeId === null) && (frame.endFrame <= range.end))
-				} 
-				else if ((range.start) && (range.end === 'open')) {
-					return ((frame.employeeId === null) && (frame.startFrame >= range.start))
 				}
+				return (frame.employeeId && (frame.employeeId.id === this.props.filter.employeeId));
+			});
+		}
 
-				// range.start - range.end, everything in between the range
-				if (range.start && range.end) {
-					return ((frame.startFrame >= range.start) && (frame.endFrame <= range.end));
-				}
-			}
-		});
+		// if filter.start is not an empty string
+		if (this.props.filter.start !== '') {
+			listOfFramesToBeRendered = listOfFramesToBeRendered.filter(frame => {
+				return moment(frame.startFrame).format('YYYY-MM-DDTHH:mm') >= moment(this.props.filter.start).format('YYYY-MM-DDTHH:mm');
+			});
+		}
 
-		if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
-			listOfFramesToBeRendered = frameList;
-		} else if (this.props.filter !== null) {
-			listOfFramesToBeRendered = filteredFrames;
+		// if filter.end is not an empty string
+		if (this.props.filter.end !== '') {
+			listOfFramesToBeRendered = listOfFramesToBeRendered.filter(frame => {
+				return moment(frame.startFrame).format('YYYY-MM-DDTHH:mm') <= moment(this.props.filter.end).format('YYYY-MM-DDTHH:mm');
+			});
 		}
 
 		return(
@@ -89,9 +72,7 @@ export class Dashboard extends React.Component {
 					</button>
 					<div className="dashboard-section-header">
 						<div>{startSchedule} - {endSchedule}</div>
-						<Filter/>
-						<button onClick={this.toggleAdvancedFilter}>Advanced Filter</button>
-						<AdvancedFilter show={this.state.advanFilter} onClose={this.toggleAdvancedFilter} />
+						<button onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
 					</div>
 					<section className="dashboard-section">
 						{listOfFramesToBeRendered.length
@@ -109,7 +90,7 @@ Dashboard.propTypes = {
 	error : PropTypes.string,
 	loading: PropTypes.bool,
 	dispatch: PropTypes.func,
-	filter: PropTypes.string
+	filter: PropTypes.object
 };
 
 const mapStateToProps = state => ({
@@ -117,7 +98,7 @@ const mapStateToProps = state => ({
 	frames: state.frames.frames,
 	loading : state.frames.loading,
 	error : state.frames.error,
-	filter: state.filter.filter
+	filter: state.filter
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));

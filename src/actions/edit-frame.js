@@ -62,11 +62,10 @@ export const addFrame = frame => dispatch => {
 		.then(res => res.json())
 		.then(() => {
 			dispatch(fetchFrames(week.start, week.end));
-		})
-		.catch(error => {
-			const {message} = error;
-			return Promise.reject( new SubmissionError({_error : message}));
-		});
+      dispatch(hideModal());
+
+    })
+    .catch(error => dispatch(editFrameError(error.message)));
 };
 
 export const deleteFrame = frameId => dispatch => {

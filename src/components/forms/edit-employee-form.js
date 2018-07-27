@@ -26,6 +26,12 @@ class EditEmployeeForm extends React.Component {
 	}
 
 	render(){
+
+		let formError;
+		if (this.props.error){
+			formError = this.props.error.message;
+		}
+
 		return (
 			<React.Fragment>
 				<h2 className="form-header">Edit Employee</h2>
@@ -66,6 +72,7 @@ class EditEmployeeForm extends React.Component {
 								id='phoneNumber'
 								name='phoneNumber'
 								defaultValue={this.props.employee.phoneNumber}
+								pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
 							/>
 						</div>
 						<input className="form-reset-btn" type="reset"/>
@@ -75,6 +82,7 @@ class EditEmployeeForm extends React.Component {
 								<i className="fa fa-trash-o" aria-hidden="true"></i>
 							</button>
 						</div>
+						<p className="form-error">{formError}</p>
 					</form>
 				</div>
 			</React.Fragment>
@@ -87,14 +95,16 @@ const mapStateToProps = state => {
 	const currentEmployee = state.employees.employees.filter(employee => employee.id === id)[0];
 	return {
 		employee : currentEmployee,
-		id
+		id,
+		error : state.employees.error
 	};
 };
 
 EditEmployeeForm.propTypes = {
 	dispatch : PropTypes.func,
 	id : PropTypes.string,
-	employee : PropTypes.object
+	employee : PropTypes.object,
+	error : PropTypes.object
 };
 
 export default connect(mapStateToProps)(EditEmployeeForm);

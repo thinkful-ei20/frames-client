@@ -7,8 +7,6 @@
     }
 }
 
-
-
 .form-wrapper {
     margin: 0 auto;
     padding: 20px;
@@ -29,8 +27,7 @@
 	display: block;
 	text-align: left;
     text-transform: uppercase;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
     color: #8e909a;
     font-size: 11px;
 }
@@ -40,14 +37,19 @@
     display: block;
     width: 100%;
     margin-top: 5px;
-	line-height: 30px;
+	line-height: 24px;
+    /*font-size: calc(.5rem + .9vw);*/
+    font-size: 12px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background-color: #32364a;
     color: #FFFFFF;
     border: 1px solid #32364a;
-    /*border: 2px inset #3b3c41;*/
     padding-left: 2.5%;
+}
+
+.form-field select {
+    padding: 5px;
 }
 
 .form-submit-btn {
@@ -74,7 +76,10 @@
 
 .form-error {
     color: #ce3d3d;
-    font-size: 12px;
+    font-size: 11px;
+    position: absolute;
+    bottom: -1.5rem;
+    text-transform: uppercase;
 }
 
 .error-border {
