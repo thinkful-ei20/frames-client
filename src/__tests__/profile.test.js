@@ -4,6 +4,10 @@ import {Profile} from '../components/profile';
 
 describe('Profile', ()=>{
 	it('should render without crashing', ()=>{
-		shallow(<Profile dispatch={()=>{'test'}}/>);
+		shallow(<Profile 
+			adminId ={{
+				id : 'test'
+			}}
+			dispatch={()=>{'test'}}/>);
 	});
 });
