@@ -51,11 +51,28 @@ export class Dashboard extends React.Component {
 		// Filtered array of frames that meet filter start and end range values
 		let filteredFrames = frameList.filter(frame => {
 			if(this.props.filter !== null) {
-				let range = {
-					start: this.props.filter.split('|')[0],
-					end: this.props.filter.split('|')[1]
+				let range;
+				if (this.props.filter.split('|').length === 2) {
+					range = {
+						start: this.props.filter.split('|')[0],
+						end: this.props.filter.split('|')[1]
+					}
 				}
+				else if (this.props.filter.split('|').length === 3) {
+					range = {
+						start: this.props.filter.split('|')[0],
+						end: this.props.filter.split('|')[1],
+						day: this.props.filter.split('|')[2]
+					}
+				}				
+				else if (this.props.filter === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) {
+					range = {
+						day: this.props.filter
+					}
+				}
+				console.log(range);
 
+				/*
 				// if there is no employee assigned to a frame, it's open
 				if ((range.start === 'open') || (range.end === 'open')) {
 					return frame.employeeId === null;
@@ -66,11 +83,15 @@ export class Dashboard extends React.Component {
 				else if ((range.start) && (range.end === 'open')) {
 					return ((frame.employeeId === null) && (frame.startFrame >= range.start))
 				}
+				else if (this.props.day === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) {
+					// return frame.startFrame === 
+				}
 
 				// range.start - range.end, everything in between the range
 				if (range.start && range.end) {
 					return ((frame.startFrame >= range.start) && (frame.endFrame <= range.end));
 				}
+				*/
 			}
 		});
 

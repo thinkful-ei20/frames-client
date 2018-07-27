@@ -23,6 +23,7 @@ export const CardList = (props) => {
 							<Card
 								key={index}
 								employee={em}
+								day={dayWrapper}
 							/>
 						</React.Fragment>
 					);
@@ -31,6 +32,7 @@ export const CardList = (props) => {
 					<Card
 						key={index}
 						employee={em}
+						day={dayWrapper}
 					/>
 				);
 			})
