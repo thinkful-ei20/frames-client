@@ -22,13 +22,23 @@ export class Filter extends React.Component {
 		});
 	}
 
+	removeDuplicates = (arr) => {
+		let uniqueArray = [];
+		for (let i = 0; i < arr.length; i++) {
+			if (uniqueArray.indexOf(arr[i]) === -1 && arr[i] !== undefined) {
+				uniqueArray.push(arr[i]);
+			}
+		}
+		return uniqueArray;
+	}
+
 	render() {
 		return (
 			<div className="filter">
 				<select htmlFor="filterByTime" onChange={(e) => this.filterByTimeFrame(e)}>
 					<option value='null'>FILTER TIME FRAMES</option>
 					<option value='open'>OPEN</option>
-					{this.props.frames.map((frame, i) => {
+					{this.removeDuplicates(this.props.frames).map((frame, i) => {
 						return (
 							<option
 								key={i}
