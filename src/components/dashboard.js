@@ -50,9 +50,19 @@ export class Dashboard extends React.Component {
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
 
+		// if filter.employeeId is not equal to an empty string( if a filter exists )
 		if (this.props.filter.employeeId !== '') {
-			console.log('Hi');
+			// if employeeId = open, filter by frames that have an employeeId of null
+			listOfFramesToBeRendered = frameList.filter(frame => {
+				console.log(frame);
+				if (this.props.filter.employeeId === 'open') {
+					return frame.employeeId === null;
+				}
+				return (frame.employeeId && (frame.employeeId.id === this.props.filter.employeeId));
+			});
+			console.log('LOFTBR: ', listOfFramesToBeRendered);
 		}
+
 		// // Filtered array of frames that meet filter start and end range values
 		// let filteredFrames = frameList.filter(frame => {
 		// 		const range = this.getRange();
@@ -67,11 +77,11 @@ export class Dashboard extends React.Component {
 		// 		// if there is no employee assigned to a frame, it's open
 		// 		if ((range.start === 'open') || (range.end === 'open')) {
 		// 			return frame.employeeId === null;
-		// 		} 
+		// 		}
 		// 		// if range.start = 'open' and range.end != null, return all open frames, and all frames less than the end
 		// 		if ((range.start === 'open') && (range.end)) {
 		// 			return ((frame.employeeId === null) && (moment(frame.endFrame).format('LT') <= range.end))
-		// 		} 
+		// 		}
 		// 		// if range.start != null and range.end = 'open, return all open frames, and all frames greater than the the start
 		// 		if ((range.start) && (range.end === 'open')) {
 		// 			return ((frame.employeeId === null) && (moment(frame.startFrame).format('LT') >= range.start))
