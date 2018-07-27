@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { filterSuccess } from '../actions/filter';
 import { hideModal } from '../actions/modals';
 
+import './forms/styles/forms.css';
+
 export class SuperFilter extends React.Component{
 	removeDuplicates(arr) {
 		let uniqueArray = [];
@@ -39,48 +41,63 @@ export class SuperFilter extends React.Component{
 	render(){
 
 		return (
-			<form onSubmit={e => this.handleSubmit(e)}>
-				<select
-					id="employee-select"
-					name="employee-select"
-				>
-					<option value=''>FILTER BY EMPLOYEE</option>
-					{this.props.employees.map((employee, i) =>
-						<option key={i} value={employee.id}>
-							{`${employee.firstname} ${employee.lastname}`}
-						</option>
-					)}
-					<option value='open'>OPEN</option>
-				</select>
+			<React.Fragment>
+				<div className="modal-form-wrapper">
+					<div className="form-wrapper">
+            <h2 className='form-header'>FILTER</h2>
+						<form onSubmit={e => this.handleSubmit(e)}>
+							<div className="form-field">
+								<select
+									id="employee-select"
+									name="employee-select"
+								>
+									<option value=''>FILTER BY EMPLOYEE</option>
+									{this.props.employees.map((employee, i) =>
+										<option key={i} value={employee.id}>
+											{`${employee.firstname} ${employee.lastname}`}
+										</option>
+									)}
+									<option value='open'>OPEN</option>
+								</select>
+							</div>
 
-				<select
-					htmlFor="filterByTime"
-					name="filterByTime"
-					id="filterByTime"
-				>
-					<option value=''>FILTER TIME FRAMES</option>
-					{this.removeDuplicates(this.props.frames).map((frame, i) => {
-						return (
-							<option
-								key={i}
-								value={`${moment(frame.startFrame).format('YYYY-MM-DDTHH:mm')}|${moment(frame.endFrame).format('YYYY-MM-DDTHH:mm')}`}
-							>
-								{moment(frame.startFrame).format('LT')} - {moment(frame.endFrame).format('LT')}
-							</option>
-						);
-					})}
-				</select>
+							<div className="form-field">
+								<select
+									htmlFor="filterByTime"
+									name="filterByTime"
+									id="filterByTime"
+								>
+									<option value=''>FILTER TIME FRAMES</option>
+									{this.removeDuplicates(this.props.frames).map((frame, i) => {
+										return (
+											<option
+												key={i}
+												value={`${moment(frame.startFrame).format('YYYY-MM-DDTHH:mm')}|${moment(frame.endFrame).format('YYYY-MM-DDTHH:mm')}`}
+											>
+												{moment(frame.startFrame).format('LT')} - {moment(frame.endFrame).format('LT')}
+											</option>
+										);
+									})}
+								</select>
+							</div>
 
-				<label htmlFor='startdatetime'> Select Specific Start Date and Time
-					<input id='startdatetime' name='startdatetime' type='datetime-local' />
-				</label>
+							<div className="form-field">
+								<label htmlFor='startdatetime'> Select Specific Start Date and Time
+									<input id='startdatetime' name='startdatetime' type='datetime-local' />
+								</label>
+							</div>
 
-				<label htmlFor='enddatetime'> Select Specific End Date and Time
-					<input id='enddatetime' name='enddatetime'type='datetime-local' />
-				</label>
+							<div className="form-field">
+								<label htmlFor='enddatetime'> Select Specific End Date and Time
+									<input id='enddatetime' name='enddatetime'type='datetime-local' />
+								</label>
+							</div>
 
-				<button className="filter-btn" type="submit">Submit Filter</button>
-			</form>
+							<button className="filter-form-submit-btn" type="submit">Submit Filter</button>
+						</form>
+					</div>
+				</div>
+			</React.Fragment>
 		);
 	}
 }
