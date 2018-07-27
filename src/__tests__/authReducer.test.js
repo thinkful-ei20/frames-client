@@ -5,7 +5,6 @@ describe('Auth Reducer', () => {
 	it('Should set the initial state when nothing is passed in', () => {
 		const state = authReducer(undefined, {type: '@@notathing!'});
 		expect(state).toEqual({
-			authToken: null,
 			user: null,
 			loading: false,
 			error: null
@@ -18,23 +17,11 @@ describe('Auth Reducer', () => {
 		expect(state).toBe(currentState);
 	});
 
-	it ('Should return the correct state given setToken', () => {
-		let state;
-		let token = 'test token';
-		state = authReducer(state, setToken(token));
-		expect(state).toEqual({
-			authToken: token,
-			user: null,
-			loading: false,
-			error: null
-		});
-	});
 
 	it ('Should return the correct state given clearToken', () => {
 		let state;
 		state = authReducer(state, clearToken());
 		expect(state).toEqual({
-			authToken: null,
 			user: null,
 			loading: false,
 			error: null
@@ -45,7 +32,6 @@ describe('Auth Reducer', () => {
 		let state;
 		state = authReducer(state, requestLogin());
 		expect(state).toEqual({
-			authToken: null,
 			user: null,
 			loading: true,
 			error: null
@@ -57,7 +43,6 @@ describe('Auth Reducer', () => {
 		let error = 'test error';
 		state = authReducer(state, loginError(error));
 		expect(state).toEqual({
-			authToken: null,
 			user: null,
 			loading: false,
 			error
@@ -69,7 +54,6 @@ describe('Auth Reducer', () => {
 		let user = 'test user';
 		state = authReducer(state, loginSuccess(user));
 		expect(state).toEqual({
-			authToken: null,
 			user,
 			loading: false,
 			error: null

@@ -65,7 +65,7 @@ export const RegisterFormSecondPage = props => {
 };
 
 RegisterFormSecondPage.propTypes = {
-	handleSubmit: PropTypes.func.required,
+	handleSubmit: PropTypes.func,
 	pristine: PropTypes.bool,
 	previousPage: PropTypes.func,
 	submitting: PropTypes.bool,
