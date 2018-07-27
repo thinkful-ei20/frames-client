@@ -1,6 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { filterSuccess } from '../actions/filter';
+import { hideModal } from '../actions/modals';
 
 export class SuperFilter extends React.Component{
 	removeDuplicates(arr) {
@@ -21,7 +24,7 @@ export class SuperFilter extends React.Component{
 
 		if(data.get('filterByTime')){
 			start = data.get('filterByTime').split('|')[0];
-			end= data.get('filterByTime').split('|')[1];			
+			end= data.get('filterByTime').split('|')[1];
 		} else {
 			start = data.get('startdatetime');
 			end = data.get('enddatetime');
@@ -33,7 +36,8 @@ export class SuperFilter extends React.Component{
 			end
 		};
 
-		console.log(range);
+		this.props.dispatch(filterSuccess(range));
+		this.props.dispatch(hideModal());
 	}
 
 	render(){
@@ -50,8 +54,7 @@ export class SuperFilter extends React.Component{
 							{`${employee.firstname} ${employee.lastname}`}
 						</option>
 					)}
-					{/* Consider set to open if confusing */}
-					<option value='open'>OPEN</option> 
+					<option value='open'>OPEN</option>
 				</select>
 
 				<select
@@ -85,6 +88,12 @@ export class SuperFilter extends React.Component{
 		);
 	}
 }
+
+SuperFilter.propTypes = {
+	employees : PropTypes.array,
+	frames : PropTypes.array,
+	dispatch : PropTypes.func
+};
 
 const mapStateToProps = state => {
 	return {

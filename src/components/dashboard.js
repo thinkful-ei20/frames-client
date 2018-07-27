@@ -31,42 +31,12 @@ export class Dashboard extends React.Component {
 		this.props.dispatch(fetchEmployees());
 	}
 
-	toggleAdvancedFilter = () => {
-		this.setState({
-			advanFilter: !this.state.advanFilter
-		});
-	};
+	// toggleAdvancedFilter = () => {
+	// 	this.setState({
+	// 		advanFilter: !this.state.advanFilter
+	// 	});
+	// };
 
-	getRange() {
-		if(this.props.filter !== null) {
-			let range;
-
-			// filter
-			if (this.props.filter === 'open') {
-				range = 'open';
-			}
-
-			// filter (Any filter coming out of filter will be length(2))
-			if (this.props.filter.split('|').length === 2) {
-				range = {
-					start: this.props.filter.split('|')[0],
-					end: this.props.filter.split('|')[1]
-				}
-			}
-
-			// advanced-filter (Any filter coming out of advanced-filter will be length(3))
-			// if the split filter.length is 3, then there should be a day, as well as a start and end 
-			if (this.props.filter.split('|').length === 3) {
-				range = {
-					start: this.props.filter.split('|')[0],
-					end: this.props.filter.split('|')[1],
-					day: this.props.filter.split('|')[2]
-				}
-			}	
-			return range; //should be a map
-		}
-
-}
 
 	render() {
 		if (this.props.loading){
@@ -80,41 +50,41 @@ export class Dashboard extends React.Component {
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
 
-		// Filtered array of frames that meet filter start and end range values
-		let filteredFrames = frameList.filter(frame => {
-				const range = this.getRange();
-				// if start or end is undefined, return all frames
-				if (range === undefined) {
-					return frame;
-				}
-				// if the filter range = 'open', return all open shifts
-				if (range === 'open') {
-					return frame.employeeId === null;
-				}
-				// if there is no employee assigned to a frame, it's open
-				if ((range.start === 'open') || (range.end === 'open')) {
-					return frame.employeeId === null;
-				} 
-				// if range.start = 'open' and range.end != null, return all open frames, and all frames less than the end
-				if ((range.start === 'open') && (range.end)) {
-					return ((frame.employeeId === null) && (moment(frame.endFrame).format('LT') <= range.end))
-				} 
-				// if range.start != null and range.end = 'open, return all open frames, and all frames greater than the the start
-				if ((range.start) && (range.end === 'open')) {
-					return ((frame.employeeId === null) && (moment(frame.startFrame).format('LT') >= range.start))
-				}
-				// range.start - range.end, everything in between the range
-				if (range.start && range.end) {
-					return ((moment(frame.startFrame).format('LT') >= range.start) && (moment(frame.endFrame).format('LT') <= range.end));
-				}
+		// // Filtered array of frames that meet filter start and end range values
+		// let filteredFrames = frameList.filter(frame => {
+		// 		const range = this.getRange();
+		// 		// if start or end is undefined, return all frames
+		// 		if (range === undefined) {
+		// 			return frame;
+		// 		}
+		// 		// if the filter range = 'open', return all open shifts
+		// 		if (range === 'open') {
+		// 			return frame.employeeId === null;
+		// 		}
+		// 		// if there is no employee assigned to a frame, it's open
+		// 		if ((range.start === 'open') || (range.end === 'open')) {
+		// 			return frame.employeeId === null;
+		// 		} 
+		// 		// if range.start = 'open' and range.end != null, return all open frames, and all frames less than the end
+		// 		if ((range.start === 'open') && (range.end)) {
+		// 			return ((frame.employeeId === null) && (moment(frame.endFrame).format('LT') <= range.end))
+		// 		} 
+		// 		// if range.start != null and range.end = 'open, return all open frames, and all frames greater than the the start
+		// 		if ((range.start) && (range.end === 'open')) {
+		// 			return ((frame.employeeId === null) && (moment(frame.startFrame).format('LT') >= range.start))
+		// 		}
+		// 		// range.start - range.end, everything in between the range
+		// 		if (range.start && range.end) {
+		// 			return ((moment(frame.startFrame).format('LT') >= range.start) && (moment(frame.endFrame).format('LT') <= range.end));
+		// 		}
 			
-		});
+		// });
 
-		if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
-			listOfFramesToBeRendered = frameList;
-		} else if (this.props.filter !== null) {
-			listOfFramesToBeRendered = filteredFrames;
-		}
+		// if (this.props.filter === undefined || this.props.filter === 'null' || this.props.filter === null) {
+		// 	listOfFramesToBeRendered = frameList;
+		// } else if (this.props.filter !== null) {
+		// 	listOfFramesToBeRendered = filteredFrames;
+		// }
 
 		return(
 			<React.Fragment>

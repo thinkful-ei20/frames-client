@@ -4,6 +4,7 @@ import { filterSuccess } from '../actions/filter';
 import './styles/filter.css';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { hideModal } from '../actions/modals';
 
 export class Filter extends React.Component {
 
