@@ -66,7 +66,6 @@ export class Dashboard extends React.Component {
 			<React.Fragment>
 				<div className="dashboard">
 					<button
-						type="button"
 						onClick={() => this.props.dispatch(showModal('newShift', null))}
 					>
 						<i className="fa fa-plus" aria-hidden="true"></i>

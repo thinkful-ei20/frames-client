@@ -12,7 +12,6 @@ export class EditShiftForm extends React.Component {
 		super(props);
 		this.state = {
 			employee: props.currentFrame.employeeId ? props.currentFrame.employeeId.id : 'open',
-			error: null
 		}
 	}
 
@@ -134,7 +133,8 @@ const mapStateToProps = state => {
 	const id = state.modal.currentId;
 	return {
 		currentFrame : state.frames.frames.filter(frame => frame.id === id)[0],
-		employees: state.employees
+		employees: state.employees,
+		error: state.frames.error
 	};
 };
 

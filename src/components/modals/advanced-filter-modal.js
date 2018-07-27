@@ -6,7 +6,7 @@ import moment from 'moment';
 
 import './styles/advanced-filter-modal.css';
 
-class AdvancedFilter extends React.Component {
+export class AdvancedFilter extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {

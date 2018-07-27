@@ -15,7 +15,8 @@
     // our configuration extends the recommended base configuration
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended" //ESlint react plugin
+		"plugin:react/recommended",
+		"plugin:jest/recommended"
     ],
     // define the type of file `script` or `module` for ES6 Modules
     "parserOptions": {

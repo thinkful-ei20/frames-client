@@ -15,7 +15,6 @@ export const requestEditFrame = () => {
 // Set loading to false and set error
 export const EDIT_FRAME_ERROR = 'EDIT_FRAME_ERROR';
 export const editFrameError = error => {
-	console.log(error);
 	return {
 		type: EDIT_FRAME_ERROR,
 		error

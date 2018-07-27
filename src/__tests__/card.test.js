@@ -1,0 +1,41 @@
+import React from 'React';
+import {shallow} from 'enzyme';
+import {Card} from '../components/card';
+import {showModal} from '../actions/modals';
+
+describe('Card', () => {
+	describe('Unconnected', () => {
+
+		let wrapper;
+
+		const props = {
+			frame : {
+				employeeId: {
+					firstname: 'test',
+					lastname: 'test',
+					img:'test.jpg'
+				},
+				startFrame: '2018-07-27T12:00:00.000Z',
+				endFrame: '2018-07-27T15:00:00.000Z',
+				id : '000'
+			}
+		};
+
+		const dispatch = jest.fn();
+
+		beforeEach(() => {
+			wrapper = shallow(<Card dispatch={dispatch} {...props}/> );
+		});
+
+		it('should render without crashing', () => {
+			expect(wrapper).toHaveLength(1);
+		});
+
+		it('should dispatch showModal() on "edit" button click', () => {
+			const editButton = wrapper.find('.opt-btn');
+			editButton.simulate('click');
+			expect(dispatch).toHaveBeenCalledWith(showModal('edit', props.frame.id));
+		});
+
+	});
+});
