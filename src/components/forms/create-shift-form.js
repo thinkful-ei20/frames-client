@@ -7,7 +7,7 @@ import '../../App.css';
 import { getToday } from '../../actions/utils';
 import { hideModal } from '../../actions/modals';
 
-class CreateShiftForm extends React.Component {
+export class CreateShiftForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
