@@ -50,23 +50,43 @@ export class Dashboard extends React.Component {
 
 		// Filtered array of frames that meet filter start and end range values
 		let filteredFrames = frameList.filter(frame => {
+			// if there is a filter
 			if(this.props.filter !== null) {
+				// declare a range
 				let range;
+				// if the split filter.length is 2, then there should only be a start and end, and no day
 				if (this.props.filter.split('|').length === 2) {
 					range = {
 						start: this.props.filter.split('|')[0],
-						end: this.props.filter.split('|')[1]
+						end: this.props.filter.split('|')[1],
+						day: null
 					}
 				}
-				else if (this.props.filter.split('|').length === 3) {
+
+				// if the split filter.length is 3, then there should be a day, as well as a start and end 
+				if (this.props.filter.split('|').length === 3) {
 					range = {
 						start: this.props.filter.split('|')[0],
 						end: this.props.filter.split('|')[1],
 						day: this.props.filter.split('|')[2]
 					}
-				}				
-				else if (this.props.filter === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) {
+				}	
+
+				// if the state.filter.day is a day of the week, and start and end are null
+				if ((this.props.filter.start  === (null || 'null')) && (this.props.filter.end === (null || 'null')) (this.props.filter.day === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) ) {
 					range = {
+						start: null,
+						end: null,
+						day: this.props.filter
+					}
+				}
+
+				// if the state.filter.day is a day of the week, assign it the day of the week
+				// and if start or end = open, set them to open
+				if (((this.props.filter.start === ('open' || null || 'null')) || (this.props.filter.start === ('open' || null || 'null'))) && (this.props.filter.day === ('Monday' || 'Tuesday' || 'Wednesday' || 'Thursday' || 'Friday' || 'Saturday' || 'Sunday')) ) {
+					range = {
+						start: null,
+						end: null,
 						day: this.props.filter
 					}
 				}

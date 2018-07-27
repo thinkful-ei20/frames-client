@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { filterSuccess } from '../actions/filter';
 import './styles/filter.css';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 export class Filter extends React.Component {
 	filterByTimeFrame(e) {
@@ -17,7 +18,14 @@ export class Filter extends React.Component {
 					<option value='null'>FILTER TIME FRAMES</option>
 					<option value="open">OPEN</option>
 					{this.props.frames.map((frame, i) => {
-						return <option key={i} value={`${frame.startFrame}|${frame.endFrame}`}>{frame.startFrame} - {frame.endFrame}</option>;
+						return (
+							<option
+								key={i}
+								value={`${moment(frame.startFrame).format('LT')}|${moment(frame.endFrame).format('LT')}`}
+							>
+								{moment(frame.startFrame).format('LT')} - {moment(frame.endFrame).format('LT')}
+							</option>
+						);
 					})}
 				</select>
 			</div>
