@@ -18,17 +18,15 @@ export class LandingPage extends React.Component {
 		}
 
 		return (
-			<main role="main">
-				<header role="banner">
-					<h1>FRAMES</h1>
-				</header>
-				<section>
-					<LoginForm />
-					<p className="sign-up">
-						New to Frames?
-						<Link to="/register">Sign Up</Link>
-					</p>
+			<main className="landing-page" role="main">
+				<section className="hero-section hero-section-header">
+          <div className="hero-section-text-wrapper">
+            <h1>No more scheduling pains, just <span>FRAMES</span></h1>
+          </div>
+            <LoginForm />
+
 				</section>
+
 				<section>
 					<About/>
 				</section>

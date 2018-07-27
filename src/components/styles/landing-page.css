@@ -1,16 +1,84 @@
-main {
-	background-color: #232633;
+.landing-page {
+	/*background-color: #232633;*/
 	margin: 0 auto;
 	/*text-align: center;*/
 	color: #edeef0;
 }
 
-.sign-up > a {
-	margin: 0.5em;
-	text-decoration: none;
-	color: #b94343;
+.hero-section {
+	/*position: relative;*/
+	display: flex;
+	flex-wrap: wrap;
+	/*display: block;*/
+	position: relative;
+
 }
 
-.sign-up > a:hover {
-	text-decoration: underline;
+
+.hero-section-header {
+	/*width: 100%;*/
+	/*height: 250px;*/
+
 }
+
+
+.hero-section-header::after {
+	background-image: url('../../images/cubes-frames.jpg');
+	background-repeat: no-repeat, repeat;
+	background-size: contain;
+	/*height: 250px;*/
+	background-size: 100% 100%;
+	/*opacity: 0.5;*/
+
+
+
+
+	content: "";
+	opacity: 0.5;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+
+
+}
+
+.hero-section-text-wrapper {
+	height: 100%;
+	/*flex: 0 0 50%;*/
+	padding: 2.5%;
+
+}
+
+.hero-section-text-wrapper h1 {
+	font-size: calc(1.2rem + 2vw);
+
+	/*font-size: 40px!important;*/
+	/*letter-spacing: -.01em;*/
+	line-height: calc(1.2rem + 2.5vw);
+	/*position: absolute;*/
+	/*top: 50px;*/
+	/*left: 0;*/
+	/*right: 0;*/
+	/*margin: 0;*/
+	/*padding: 2.5%;*/
+}
+
+.hero-section h1 {
+
+}
+
+.landing-page-header h1 {
+	font-size: calc(1.2rem + 2vw);
+	margin: 0 auto;
+	width: 40%;
+
+}
+
+.landing-page-header span {
+	color: #35df5c;
+	font-size: calc(1.2rem + .9vw);
+}
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
 
 import renderField from './field';
@@ -15,7 +16,7 @@ export class LoginForm extends React.Component {
 		let error;
 		if (this.props.error) {
 			error = (
-				<div className="form-error" aria-live="polite">
+				<div className="form-field-error" aria-live="polite">
 					{this.props.error}
 				</div>
 			);
@@ -23,8 +24,9 @@ export class LoginForm extends React.Component {
 
 		return (
 			<div className="login-form-wrapper">
-				<h2 className="form-header">Log in</h2>
-				{error}
+				{/*<h2 className="form-header">Log in</h2>*/}
+        {error}
+
 				<form
 					className="login-form"
 					onSubmit={this.props.handleSubmit(this.onSubmit)}>
@@ -44,13 +46,19 @@ export class LoginForm extends React.Component {
 						validate={[required, nonEmpty]}
 						autocomplete="off"
 					/>
-					<button
-						className="form-submit-btn"
-						disabled={this.props.pristine || this.props.submitting}
-					>
-            Log in
-					</button>
+					<div className="form-field form-btns">
+            <button
+              className="form-submit-btn"
+              disabled={this.props.pristine || this.props.submitting}
+            >
+              Log in
+            </button>
+					</div>
 				</form>
+        <p className="sign-up-link">
+          New to Frames?
+          <Link to="/register">Sign Up</Link>
+        </p>
 			</div>
 		);
 	}
