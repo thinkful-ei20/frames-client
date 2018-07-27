@@ -52,15 +52,24 @@ export class Dashboard extends React.Component {
 
 		// if filter.employeeId is not equal to an empty string( if a filter exists )
 		if (this.props.filter.employeeId !== '') {
-			// if employeeId = open, filter by frames that have an employeeId of null
 			listOfFramesToBeRendered = frameList.filter(frame => {
-				console.log(frame);
+				// if employeeId = open, filter by frames that have an employeeId of null
 				if (this.props.filter.employeeId === 'open') {
 					return frame.employeeId === null;
 				}
 				return (frame.employeeId && (frame.employeeId.id === this.props.filter.employeeId));
 			});
 			console.log('LOFTBR: ', listOfFramesToBeRendered);
+		}
+
+		// if filter.start is not an empty string
+		if (this.props.filter.start !== '') {
+			listOfFramesToBeRendered = frameList.filter(frame => {
+				console.log(`StartFrame: ${frame.startFrame}`);
+				console.log(`filter.start UTC: ${moment(this.props.filter.start).local()}`);
+				// return moment(frame.startFrame) === moment(this.props.filter.start);
+				return frame.startFrame === moment(this.props.filter.start).local();
+			});
 		}
 
 		// // Filtered array of frames that meet filter start and end range values
