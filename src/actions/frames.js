@@ -27,6 +27,13 @@ export const framesError = error => {
 	};
 };
 
+// Change view
+export const SET_FRAMES_VIEW = 'SET_FRAMES_VIEW';
+export const setFramesView = view => {
+	return {type : SET_FRAMES_VIEW,
+		view};
+};
+
 // Fech all frames for a certain time span- must match current logged in user's adminID
 export const fetchFrames = (start, end) => dispatch => {
 	const token = localStorage.getItem('authToken');

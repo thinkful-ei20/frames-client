@@ -4,17 +4,24 @@ import moment from 'moment';
 import CardList from './card-list';
 import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
-import { getThisWeek } from '../actions/utils';
+import { getThisWeek, getThisMonth, getToday } from '../actions/utils';
 import { fetchEmployees } from '../actions/employee';
 import PropTypes from 'prop-types';
 
 import './styles/dashboard.css';
 import { showModal } from '../actions/modals';
+import ScheduleView from './schedule-view';
 
 export class Dashboard extends React.Component {
 
 	componentDidMount() {
-		const dates = getThisWeek();
+		let dates = getThisWeek();
+		if (this.props.view === 'daily'){
+			dates = getToday();
+		}
+		if (this.props.view === 'monthly'){
+			dates = getThisMonth();
+		}
 		this.props.dispatch(fetchFrames(dates.start, dates.end));
 		this.props.dispatch(fetchEmployees());
 	}
@@ -26,10 +33,7 @@ export class Dashboard extends React.Component {
 
 		let error = this.props.error ? this.props.error : undefined;
 
-		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
-		console.log(startSchedule);
-		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
-		console.log(getThisWeek());
+		
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
@@ -69,7 +73,7 @@ export class Dashboard extends React.Component {
 						<i className="fa fa-plus" aria-hidden="true"></i>
 					</button>
 					<div className="dashboard-section-header">
-						<div>{startSchedule} - {endSchedule}</div>
+						<ScheduleView />
 						<button className="super-filter-btn" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
 					</div>
 					<section className="dashboard-section">
@@ -88,7 +92,8 @@ Dashboard.propTypes = {
 	error : PropTypes.string,
 	loading: PropTypes.bool,
 	dispatch: PropTypes.func,
-	filter: PropTypes.object
+	filter: PropTypes.object,
+	view : PropTypes.string
 };
 
 const mapStateToProps = state => ({
@@ -96,7 +101,8 @@ const mapStateToProps = state => ({
 	frames: state.frames.frames,
 	loading : state.frames.loading,
 	error : state.frames.error,
-	filter: state.filter
+	filter: state.filter,
+	view : state.frames.view
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
