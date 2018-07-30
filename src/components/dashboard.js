@@ -27,13 +27,11 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		if (true){
+		if (this.props.loading){
 			return (<div className="loader">Loading...</div>);
 		}
 
 		let error = this.props.error ? this.props.error : undefined;
-
-		
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
