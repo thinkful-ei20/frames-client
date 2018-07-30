@@ -41,10 +41,10 @@ export const Card = (props) => {
 					<div className="card-time">
 						<div className="card-time-diff">{`${timeDiff} ${timeDiff === 1 ? 'hr' : 'hrs'}`}</div>
 					</div>
-					<button className='opt-btn' onClick={() => { props.dispatch(showModal('edit', id));}}>
-						<i className="fa fa-ellipsis-h"></i>
-					</button>
 				</div>
+				<button className='opt-btn' onClick={() => { props.dispatch(showModal('edit', id));}}>
+					<i className="fa fa-ellipsis-v"></i>
+				</button>
 			</div>
 		</article>
 	);

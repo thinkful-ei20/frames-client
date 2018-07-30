@@ -18,7 +18,7 @@ export const CardList = (props) => {
 					dayWrapper = currDayValue;
 					return (
 						<React.Fragment key={index}>
-							<p className="card-date">{currDay}</p>
+							<div className="card-date-wrapper"><p className="card-date">{currDay}</p></div>
 							<Card
 								frame={frame}
 							/>
