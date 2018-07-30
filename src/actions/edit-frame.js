@@ -41,7 +41,9 @@ export const editFrame = (frameId, updatedFrame) => dispatch => {
 			dispatch(fetchFrames(week.start, week.end));
 			dispatch(hideModal());
 		})
-		.catch(error => dispatch(editFrameError(error)));
+		.catch(error => {
+			dispatch(editFrameError(error.message))
+    });
 };
 
 export const addFrame = frame => dispatch => {

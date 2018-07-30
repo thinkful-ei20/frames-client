@@ -59,11 +59,20 @@ export class EditShiftForm extends React.Component {
 		const defaultStart = moment(this.props.currentFrame.startFrame).format().slice(0,-6);
 		const defaultEnd = moment(this.props.currentFrame.endFrame).format().slice(0,-6);
 
+    // Alert user if unable to submit form
+    let error = null;
+    if (this.props.error) {
+      error = (
+        <div className="form-modal-error" aria-live="polite">
+          {this.props.error}
+        </div>
+      );
+    }
+
 		return(
 			<div>
 				<h2 className="form-header">Edit Shift</h2>
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
-				<p className='form-modal-error'>{this.state.error}</p>
 				<div className="form-wrapper">
 				<form onSubmit={this.handleSubmit}>
 					<div className="form-field">
@@ -102,22 +111,24 @@ export class EditShiftForm extends React.Component {
 							onChange={this.validateFrame}
 						/>
 					</div>
-					<input className="form-reset-btn" type="reset" onClick={() => this.setState({error: null})}/>
-					<div className="form-btns">
-						<button 
-						className="form-submit-btn"
-						type='submit'
-						disabled={this.state.error ? true : false}>
-							Change Shift
-						</button>
-						<button 
-							className="form-delete-btn"
-							onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
-							<i className="fa fa-trash-o" aria-hidden="true"></i>
-						</button>
-						
+					<div className="form-field form-btns">
+            <button
+              className="form-delete-btn"
+              onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
+              <i className="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+						<button className="form-reset-btn" type="button" onClick={() => this.setState({error: null})}>Reset</button>
+            <div className="form-btns">
+              <button
+                className="form-submit-btn"
+                type='submit'
+                disabled={this.state.error ? true : false}>
+                Save
+              </button>
+            </div>
 					</div>
-				</form>        
+					{error}
+				</form>
 			</div>
 			</div>);
 	}
@@ -134,7 +145,7 @@ const mapStateToProps = state => {
 	return {
 		currentFrame : state.frames.frames.filter(frame => frame.id === id)[0],
 		employees: state.employees,
-		error: state.frames.error
+		error: state.frames.error,
 	};
 };
 

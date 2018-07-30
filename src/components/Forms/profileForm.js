@@ -2,9 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Field, reduxForm, } from 'redux-form';
 import renderField from './field';
-import {isTrimmed, nonEmpty, required, validEmail, validPhone} from './formValidators';
+import {isTrimmed, length, matches, nonEmpty, required, validEmail, validPhone} from './formValidators';
 import { editProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
+
+const passwordLength = length({ min: 8, max: 72 });
 
 export class ProfileForm extends React.Component {
 
@@ -23,6 +25,7 @@ export class ProfileForm extends React.Component {
 				updatedProfile[key] = values[key];
 			}
 		});
+		console.log('UPDATED PROFILE', updatedProfile);
 		this.props.dispatch(editProfile(this.props.initialValues.adminId, updatedProfile))
 		/* work around for messy state logic with redux-forms, definitely should make it more succinct */
 			.then( res => {
@@ -71,6 +74,14 @@ export class ProfileForm extends React.Component {
 						component={renderField}
 						validate={[required, validEmail]}
 					/>
+          <Field
+            name="password"
+            label="Password"
+            type="password"
+            component={renderField}
+            validate={[required, isTrimmed, passwordLength]}
+            autocomplete="off"
+          />
 					<Field
 						name="phoneNumber"
 						label="Phone Number"
