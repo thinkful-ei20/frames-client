@@ -52,6 +52,23 @@ nav a,
     font-size: 18px;
 }
 
+nav a:hover,
+nav a:focus,
+.navbar-signout-btn:hover,
+.navbar-signout-btn:focus {
+    color: #03A9F4;
+    text-shadow: 0 0 1px #03A9F4,
+                 0 0 10px rgb(3, 169, 244, 0.8)
+}
+
+nav a.active {
+    background-color: #0b0e19;
+    color: #03A9F4;
+    border-bottom: 1px solid #03A9F4;
+    text-shadow: 0 0 1px #03A9F4,
+                 0 0 10px rgb(3, 169, 244, 0.8)
+}
+
 .navbar-links {
     width: 100%;
     display: flex;

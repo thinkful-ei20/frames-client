@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import { logout } from '../actions/auth';
 import PropTypes from 'prop-types';
 
+import { withRouter } from 'react-router';
+
 import './styles/navBar.css';
 
 export class NavBar extends React.Component {
@@ -15,15 +17,31 @@ export class NavBar extends React.Component {
 	}
 
 	render() {
+		const { match, location, history } = this.props;
 		let menu;
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (
 				<nav className="main-header-navbar" >
 
 					<ul className="navbar-links">
-						<li><Link to="/dashboard" title="Go to Dashboard"><i className="fa fa-calendar-o" aria-hidden="true" title="Go to Dashboard"></i></Link></li>
-						<li><Link to="/profile" title="Go to User Profile"><i className="fa fa-user" aria-hidden="true" title="Go to User Profile"></i></Link></li>
-						<li><Link to="/employees" title="Go to Employee Page"><i className="fa fa-users" aria-hidden="true" title="Go to Employee Page"></i></Link></li>
+						<li>
+							<Link to="/dashboard" title="Go to Dashboard" className={(this.props.location.pathname === '/dashboard') ? 'active' : ''}>
+								<i aria-hidden="true" title="Go to Dashboard" className="fa fa-calendar-o"></i>
+							</Link>
+						</li>
+
+						<li>
+							<Link to="/profile" title="Go to User Profile" className={(this.props.location.pathname === '/profile') ? 'active' : ''}>
+								<i aria-hidden="true" title="Go to User Profile" className="fa fa-user"></i>
+							</Link>
+						</li>
+
+						<li>
+							<Link to="/employees" title="Go to Employee Page" className={(this.props.location.pathname === '/employees') ? 'active' : ''}>
+								<i aria-hidden="true" title="Go to Employee Page" className="fa fa-users"></i>
+							</Link>
+						</li>
+
 						<li>
 							<button
 								className="navbar-signout-btn"
@@ -61,4 +79,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(NavBar);
+export default withRouter(connect(mapStateToProps)(NavBar));
