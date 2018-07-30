@@ -8,7 +8,7 @@ import requiresLogin from './requires-login';
 
 import './styles/employees.css';
 
-class Employees extends React.Component {
+export class Employees extends React.Component {
 
 	componentDidMount(){
 		this.props.dispatch(fetchEmployees());

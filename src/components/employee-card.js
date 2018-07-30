@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { showModal } from '../actions/modals';
 import PropTypes from 'prop-types';
 
-function EmployeeCard (props){
+export function EmployeeCard (props){
 
 	let phoneNumber;
 	if (props.phoneNumber){
