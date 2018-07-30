@@ -16,6 +16,9 @@ body {
   font-family: sans-serif;
 }
 
+#root {
+  height: 100%;
+}
 
 .loader,
 .loader:before,

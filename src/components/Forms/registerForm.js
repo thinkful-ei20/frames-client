@@ -7,6 +7,7 @@ import RegisterFormSecondPage from './registerFormSecondPage';
 
 import './styles/forms.css';
 
+
 export class RegisterForm extends React.Component {
   constructor() {
     super();
@@ -48,7 +49,7 @@ export class RegisterForm extends React.Component {
     const { page } = this.state;
 
     return (
-      <div className="form-wrapper">
+      <div className="login-form-wrapper register-form-wrapper">
         <h2 className="form-header">Register Company</h2>
         {page === 1 &&
         <RegisterFormFirstPage
@@ -60,9 +61,9 @@ export class RegisterForm extends React.Component {
         />
         }
         <p
-          className="">
+          className="ask-login">
           Already have an account?
-          <Link to="/login">Log In</Link>
+          <Link to="/login"> Log In</Link>
         </p>
       </div>
     );

@@ -55,6 +55,7 @@ export const RegisterFormSecondPage = props => {
         Previous
 			</button>
 			<button
+				className="form-submit-btn next"
 				type="submit"
 				disabled={pristine || submitting}
 			>
