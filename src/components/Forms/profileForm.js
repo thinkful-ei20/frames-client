@@ -74,20 +74,20 @@ export class ProfileForm extends React.Component {
 						component={renderField}
 						validate={[required, validEmail]}
 					/>
-          <Field
-            name="password"
-            label="Password"
-            type="password"
-            component={renderField}
-            validate={[required, isTrimmed, passwordLength]}
-            autocomplete="off"
-          />
 					<Field
 						name="phoneNumber"
 						label="Phone Number"
 						type="tel"
 						component={renderField}
 						validate={[required, nonEmpty, isTrimmed, validPhone]}
+					/>
+					<Field
+						name="password"
+						label="Password"
+						type="password"
+						component={renderField}
+						validate={[required, isTrimmed, passwordLength]}
+						autocomplete="off"
 					/>
 					<div className="form-field profile-form-field form-btns">
             <button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
