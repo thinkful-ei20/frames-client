@@ -38,15 +38,29 @@ export class SuperFilter extends React.Component{
 		this.props.dispatch(hideModal());
 	}
 
+	handleCancel() {
+		this.props.dispatch(hideModal());
+	}
+
+	validateTime = () => {
+
+	};
+
 	render(){
+    // Define default values for the form, remove the trailing GMT times
+    const defaultStart = moment().format().slice(0,-9);
+    const defaultEnd = moment().format().slice(0,-9);
+    console.log('Default start', defaultStart);
 
 		return (
 			<React.Fragment>
+        <button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
-            <h2 className='form-header'>FILTER</h2>
+            <h2 className='form-header'>Advanced Filter</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
 							<div className="form-field">
+                <label className="employee-select">Filter by employee</label>
 								<select
 									id="employee-select"
 									name="employee-select"
@@ -62,6 +76,7 @@ export class SuperFilter extends React.Component{
 							</div>
 
 							<div className="form-field">
+								<label className="filterByTime">Filter by frames</label>
 								<select
 									htmlFor="filterByTime"
 									name="filterByTime"
@@ -82,18 +97,29 @@ export class SuperFilter extends React.Component{
 							</div>
 
 							<div className="form-field">
-								<label htmlFor='startdatetime'> Select Specific Start Date and Time
-									<input id='startdatetime' name='startdatetime' type='datetime-local' />
-								</label>
+								<label htmlFor='startdatetime'>Select Start Date and Time</label>
+									<input
+										id='startdatetime'
+										name='startdatetime'
+										type='datetime-local'
+										onChange={this.validateTime}
+										defaultValue={defaultStart}
+									/>
 							</div>
 
 							<div className="form-field">
-								<label htmlFor='enddatetime'> Select Specific End Date and Time
-									<input id='enddatetime' name='enddatetime'type='datetime-local' />
-								</label>
+								<label htmlFor='enddatetime'>Select End Date and Time</label>
+									<input
+										id='enddatetime'
+										name='enddatetime'
+										type='datetime-local'
+										defaultValue={defaultEnd}
+									/>
 							</div>
-
-							<button className="filter-form-submit-btn" type="submit">Submit Filter</button>
+							<div className="form-field form-btns">
+								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+								<button className="form-submit-btn" type="submit">Submit</button>
+							</div>
 						</form>
 					</div>
 				</div>
