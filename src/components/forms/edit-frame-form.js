@@ -7,7 +7,7 @@ import { hideModal } from '../../actions/modals';
 import { editFrame, deleteFrame } from '../../actions/edit-frame';
 import PropTypes from 'prop-types';
 
-export class EditShiftForm extends React.Component {
+export class EditFrameForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -71,7 +71,7 @@ export class EditShiftForm extends React.Component {
 
 		return(
 			<div>
-				<h2 className="form-header">Edit Shift</h2>
+				<h2 className="form-header">Edit Frame</h2>
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="form-wrapper">
 				<form onSubmit={this.handleSubmit}>
@@ -134,7 +134,7 @@ export class EditShiftForm extends React.Component {
 	}
 }
 
-EditShiftForm.propTypes = {
+EditFrameForm.propTypes = {
 	dispatch : PropTypes.func,
 	currentFrame : PropTypes.object,
 	employees : PropTypes.object
@@ -149,4 +149,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(EditShiftForm);
+export default connect(mapStateToProps)(EditFrameForm);

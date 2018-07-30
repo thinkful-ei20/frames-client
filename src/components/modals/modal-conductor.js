@@ -3,32 +3,31 @@ import ReactModal from 'react-modal';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import EditShiftForm from '../forms/edit-shift-form';
-
-import {hideModal} from '../../actions/modals';
 import EditEmployeeForm from '../forms/edit-employee-form';
 import AddEmployeeForm from '../forms/create-employee-form';
+import CreateFrameForm from '../forms/create-frame-form';
+import EditFrameForm from '../forms/edit-frame-form';
+import SuperFilter from '../super-filter';
+import {hideModal} from '../../actions/modals';
 
 import './styles/modal.css';
-import CreateShiftForm from '../forms/create-shift-form';
-import SuperFilter from '../super-filter';
 
 export function ModalConductor(props) {
 	let contentLabel;
 	let content;
 
 	if (props.modalType === 'edit') {
-		contentLabel = 'Edit a Shift';
-		content = <EditShiftForm/>;
+		contentLabel = 'Edit a Frame';
+		content = <EditFrameForm/>;
 	} else if (props.modalType === 'employee') {
 		contentLabel = 'Edit an Employee';
 		content = <EditEmployeeForm/>;
 	} else if (props.modalType === 'newEmployee') {
 		contentLabel= 'Create an Employee';
 		content = <AddEmployeeForm />;
-	} else if (props.modalType === 'newShift') {
-		contentLabel = 'Create a Shift';
-		content = <CreateShiftForm />;
+	} else if (props.modalType === 'newFrame') {
+		contentLabel = 'Create a Frame';
+		content = <CreateFrameForm />;
 	} else if (props.modalType === 'superFilter') {
 		contentLabel='Filter';
 		content = <SuperFilter />;

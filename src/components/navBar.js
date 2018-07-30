@@ -18,35 +18,35 @@ export class NavBar extends React.Component {
 		let menu;
 		// if (this.state.isOpen & !this.props.loggedIn) {
 		// 	menu = (
-     //    <nav className="main-header-navbar" role="navigation">
-    //
+		//    <nav className="main-header-navbar" role="navigation">
+		//
 		// 		<ul className="navbar-links">
 		// 			<li><Link to="/register"><i className="fa fa-user-circle-o" aria-hidden="true"></i></Link></li>
 		// 			{/*<li><Link to="/"><i className="fa fa-sign-in" aria-hidden="true"></i></Link></li>*/}
 		// 		</ul>
-     //    </nav>
-    //
-     //  );
+		//    </nav>
+		//
+		//  );
 		// }
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (
-        <nav className="main-header-navbar" role="navigation">
+				<nav className="main-header-navbar" >
 
-				<ul className="navbar-links">
-					<li><Link to="/dashboard"><i className="fa fa-calendar-o" aria-hidden="true"></i></Link></li>
-					<li><Link to="/profile"><i className="fa fa-user" aria-hidden="true"></i></Link></li>
-					<li><Link to="/employees"><i className="fa fa-users" aria-hidden="true"></i></Link></li>
-					<li>
-						<button
-							className="navbar-signout-btn"
-							onClick={() => this.props.dispatch(logout())}>
-							<i className="fa fa-sign-out" aria-hidden="true"></i>
-						</button>
-					</li>
-				</ul>
-        </nav>
+					<ul className="navbar-links">
+						<li><Link to="/dashboard"><i className="fa fa-calendar-o" aria-hidden="true"></i></Link></li>
+						<li><Link to="/profile"><i className="fa fa-user" aria-hidden="true"></i></Link></li>
+						<li><Link to="/employees"><i className="fa fa-users" aria-hidden="true"></i></Link></li>
+						<li>
+							<button
+								className="navbar-signout-btn"
+								onClick={() => this.props.dispatch(logout())}>
+								<i className="fa fa-sign-out" aria-hidden="true"></i>
+							</button>
+						</li>
+					</ul>
+				</nav>
 
-      );
+			);
 		}
 
 		return (
@@ -55,7 +55,7 @@ export class NavBar extends React.Component {
 					<Link to="/"><i className="fa fa-window-restore" aria-hidden="true"></i></Link>
 					{!this.props.loggedIn && <h1>Frames</h1>}
 				</div>
-        {menu}
+				{menu}
 			</header>
 		);
 	}

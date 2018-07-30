@@ -7,7 +7,7 @@ import '../../App.css';
 import { getToday } from '../../actions/utils';
 import { hideModal } from '../../actions/modals';
 
-export class CreateShiftForm extends React.Component {
+export class CreateFrameForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -61,10 +61,10 @@ export class CreateShiftForm extends React.Component {
 
 		return (
 			<React.Fragment>
-        <button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
-            <h2 className='form-header'>Add Shift</h2>
+						<h2 className='form-header'>Add Frame</h2>
 						<p className="form-modal-error" >{this.state.frameError}</p>
 						<form
 							onSubmit={e => this.handleSubmit(e)}
@@ -119,7 +119,7 @@ export class CreateShiftForm extends React.Component {
 	}
 }
 
-CreateShiftForm.propTypes = {
+CreateFrameForm.propTypes = {
 	show: PropTypes.bool,
 	dispatch: PropTypes.func,
 	error : PropTypes.any,
@@ -133,4 +133,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(CreateShiftForm);
+export default connect(mapStateToProps)(CreateFrameForm);

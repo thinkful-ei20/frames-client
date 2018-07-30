@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import LoginForm from './forms/loginForm';
@@ -20,11 +20,11 @@ export class LandingPage extends React.Component {
 		return (
 			<main className="landing-page" role="main">
 				<section className="hero-section">
-          <div className="hero-section-text-wrapper">
-            <h1>Employee shift management made easy</h1>
-          </div>
+					<div className="hero-section-text-wrapper">
+						<h1>Employee shift management made easy</h1>
+					</div>
 					<div className="hero-section-form-wrapper">
-            <LoginForm />
+						<LoginForm />
 
 					</div>
 				</section>
@@ -34,7 +34,7 @@ export class LandingPage extends React.Component {
 				</section>
 				<section>
 				</section>
-				 <Footer />
+				<Footer />
 			</main>
 		);
 	}

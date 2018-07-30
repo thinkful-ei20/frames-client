@@ -64,7 +64,7 @@ export class Dashboard extends React.Component {
 				<div className="dashboard">
 					{error}
 					<button className="super-filter-btn"
-						onClick={() => this.props.dispatch(showModal('newShift', null))}
+						onClick={() => this.props.dispatch(showModal('newFrame', null))}
 					>
 						<i className="fa fa-plus" aria-hidden="true"></i>
 					</button>
