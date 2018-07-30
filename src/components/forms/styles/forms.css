@@ -29,7 +29,8 @@
     text-transform: uppercase;
     padding-top: 1.5rem;
     color: #8e909a;
-    font-size: 11px;
+    font-size: calc(0.5rem + 0.3vw)
+    /*font-size: 11px;*/
 }
 
 .form-field input,
@@ -37,6 +38,7 @@
     display: block;
     width: 100%;
     margin-top: 5px;
+    margin-bottom: 5px;
 	line-height: 24px;
     /*font-size: calc(.5rem + .9vw);*/
     font-size: 12px;
@@ -53,11 +55,11 @@
 }
 
 .form-submit-btn {
-	border-radius: 50px;
-    background: transparent;
-    padding: 10px 50px;
-    border: 2px solid #35df5c;
-    color: #35df5c;
+	border-radius: 2px;
+    background: #03A9F4;
+    padding: 10px 40px;
+    border: 2px solid #03A9F4;
+    color: #FFFFFF;
     text-transform: uppercase;
 	font-size: 12px;
 	transition-property: background,color;
@@ -67,30 +69,31 @@
 
 .form-submit-btn:hover,
 .form-submit-btn:focus {
-    color: black;
-    background: #35df5c;
+    color: #03A9F4;
+    background: transparent;
     cursor: pointer;
     transition-property: background,color;
     transition-duration: .2s;
 }
 
-.form-error {
+.form-field-error {
     color: #ce3d3d;
-    font-size: 11px;
+    font-size: calc(0.5rem + 0.3vw);
+    /*font-size: 11px;*/
     position: absolute;
-    bottom: -1.5rem;
+    bottom: -20px;
     text-transform: uppercase;
 }
 
 .error-border {
-    border: 1px solid #ce3d3d !important;
+    border: 0.5px solid #ce3d3d !important;
 }
 
 .form-delete-btn {
     border-radius: 50px;
     background: transparent;
     padding: 5px 10px;
-    border: 2px solid #ce3d3d;
+    border: 1px solid #ce3d3d;
     color: #ce3d3d;
 	font-size: 28px;
 	transition-property: background,color;
@@ -155,15 +158,75 @@
 
 /* LOGIN FORM */
 
-.login-form-wrapper {
-    border-left: 2px solid #35df5c;
-    margin: 0 auto;
-    padding: 20px;
-    max-width: 360px;
+.login-form {
+    margin-top: 5%;
 }
 
-.form-header {
-    color: white;
+.login-form-wrapper {
+    background: rgba(11, 14, 25, 0.8);
+    padding: 5%;
+    border-top: 1px solid;
+    max-width: 360px;
+    border-image: linear-gradient(to right,rgba(11, 14, 25, 0.8) 25%, rgba(11, 14, 25, 1) 25%, #03A9F4 50%, #03A9F4 50%, rgba(11, 14, 25, 1) 75%, rgba(11, 14, 25, 0.8) 75%) 5;
+}
+
+
+.login-form-wrapper h2 {
+    font-size: calc(1rem + 0.8vw);
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+
+/*.login-form-wrapper::after {*/
+
+    /*background-image: linear-gradient(rgba(11, 14, 25, 1),	transparent), url('../../../images/cubes-frames-2.jpg');*/
+    /*background-color: #11131c;*/
+
+    /*background-size: 100% 100%;*/
+
+    /*background-color: #11131c;*/
+    /*opacity: 0.7;*/
+
+
+    /*content: "";*/
+    /*opacity: 0.8;*/
+    /*top: 0; */
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    /*position: absolute;*/
+    /*z-index: -1;*/
+/**/
+/*}*/
+
+.login-form-wrapper input {
+    min-width: 200px;
+    background-color: #0b0e19;
+    border: 0.5px solid #036794;
+    border-left: 2px solid #03A9F4
+}
+
+.login-form-wrapper label {
+    color: #FFFFFF !important;
+    padding: 0 !important;
+
+}
+
+.sign-up-link {
+    margin: 5% 0 0;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.sign-up-link > a {
+    margin: 0.5em;
+    text-decoration: none;
+    color: #03A9F4;
+}
+
+.sign-up-link > a:hover {
+    text-decoration: underline;
 }
 
 /* SUPER FILTER */

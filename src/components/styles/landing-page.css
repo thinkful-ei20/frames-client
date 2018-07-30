@@ -1,16 +1,195 @@
-main {
-	background-color: #232633;
+.landing-page {
+	/*background-color: #232633;*/
 	margin: 0 auto;
 	/*text-align: center;*/
-	color: #edeef0;
+	/*color: #edeef0;*/
 }
 
-.sign-up > a {
-	margin: 0.5em;
-	text-decoration: none;
-	color: #b94343;
+.hero-section {
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 80px;
+	position: relative;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
+	background: rgba(11, 14, 25, 1);
+	color: #FFFFFF;
 }
 
-.sign-up > a:hover {
-	text-decoration: underline;
+.hero-section::after {
+	background-image: linear-gradient(rgba(11, 14, 25, 1),	rgba(39, 52, 102, 0.3)), url('../../images/cubes-frames.jpg');
+	/*background-image: url('../../images/cubes-frames-2.jpg');*/
+	background-repeat: no-repeat, repeat;
+	/*background-size: contain;*/
+	/*height: 250px;*/
+	background-size: 100% 100%;
+	/*opacity: 0.5;*/
+	/*background: linear-gradient(#232633, #185e71);*/
+	content: "";
+	/*opacity: 0.8;*/
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.hero-section-text-wrapper {
+	/*height: 100%;*/
+	/*flex: 0 0 50%;*/
+	padding: 5%;
+	align-content: center;
+	align-items: center;
+	min-height: 30vh;
+}
+
+.hero-section-text-wrapper h1 {
+	font-size: calc(1.2rem + 2vw);
+	width: 70%;
+	line-height: calc(1.2rem + 3vw);
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.hero-section-text-wrapper span {
+	color: green;
+	font-style: italic;
+}
+
+.hero-section-form-wrapper {
+	/*position: relative;*/
+	/*border-left: 2px solid #35df5c;*/
+	margin: 0 auto;
+	/*padding: 20px;*/
+	/*max-width: 360px;*/
+	padding: 5%;
+	/*height: 40vh;*/
+
+
+}
+
+.landing-page-header h1 {
+	font-size: calc(1.2rem + 2vw);
+	margin: 0 auto;
+	width: 40%;
+
+}
+
+.landing-page-header span {
+	color: #35df5c;
+	font-size: calc(1.2rem + .9vw);
+}
+
+
+
+.clip-path {
+	width: 100%;
+	position: relative;
+	float: left;
+	margin: 0;
+	height: auto;
+	/*width: 100px;*/
+	/*background: tomato;*/
+	padding: 4px;
+	transition: all 1s;
+}
+.clip-path.bottom {
+	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 60%);
+}
+.clip-path.top {
+	-webkit-clip-path: polygon(0% 40%, 100% 0%, 100% 100%, 0% 100%);
+}
+.clip-path.left {
+	-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 40% 100%);
+}
+.clip-path.right {
+	-webkit-clip-path: polygon(0% 0%, 60% 0%, 100% 100%, 0% 100%);
+}
+.clip-path .content {
+	position: absolute;
+	content: '';
+	height: calc(100% - 10px);
+	width: calc(100% - 8px);
+	background: bisque;
+}
+.clip-path.bottom .content {
+	-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 60%);
+}
+
+
+.clip-path::after {
+	background-image: url('../../images/cubes-frames-2.jpg');
+	background-repeat: no-repeat, repeat;
+	background-size: contain;
+	/*height: 250px;*/
+	background-size: 100% 100%;
+	/*opacity: 0.5;*/
+
+
+
+
+	content: "";
+	opacity: 0.5;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+
+
+}
+
+
+.about {
+	display: flex;
+	flex-direction: column;
+	/*flex-wrap: wrap;*/
+	justify-content: center;
+	padding: 5%;
+	/*padding-left: 5%;*/
+	/*padding-right: 5%;*/
+}
+
+.about-section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	padding-bottom: 2.5%;
+}
+
+.about-section:last-child {
+	padding: 0;
+}
+
+
+
+.about-section-text-wrapper:first-child,
+.about-section-img-wrapper:first-child,
+.about-section-img-wrapper:last-child {
+	padding-right: 5%;
+}
+
+@media only screen and (min-width: 640px) {
+	.hero-section {
+		padding-bottom: 2.5%;
+	}
+
+	.hero-section-text-wrapper,
+	.hero-section-form-wrapper {
+		flex: 0 0 50%;
+		height: auto;
+	}
+
+	.about-section-img-wrapper {
+		flex: 0 0 50%
+	}
+
+	.about-section-text-wrapper {
+		flex: 0 0 50%
+
+	}
 }

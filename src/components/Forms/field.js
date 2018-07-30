@@ -24,7 +24,7 @@ export const Field = props => {
       */}
 			{props.meta.error &&
       props.meta.touched &&
-      <div className="form-error" aria-live="polite" role="alert">{props.meta.error}</div>}
+      <div className="form-field-error" aria-live="polite" role="alert">{props.meta.error}</div>}
 		</div>
 	);
 };

@@ -1,39 +1,46 @@
-@media only screen and (max-width: 398px) {
+/*@media only screen and (max-width: 398px) {*/
   .footer-style {
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     right: 0px;
     left: 0px;
     bottom: 0px;
-    height: 50px;
-    width: 90%;
-    padding: 0px 0px 0px 0px;
+    /*height: 50px;*/
+    padding: 2.5% 5% 2.5%;
+    /*padding-right: 5%;*/
+    /*width: 90%;*/
+    /*padding: 0px 0px 0px 0px;*/
     margin: 0 auto;
     color: #edeef0;
-    background-color: #232633;
-    border-top: 1px solid #35df5c;
+    background-color: #0b0e19;
+    /*border-top: 1px solid #35df5c;*/
+    clip-path: polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%);
   }
 
   .footer-style p {
-    display: flex;
-    width: 165px;
-    padding: 10px 0px 0px 10px;
-    margin: 0px 0px 0px 0px;
+    /*display: flex;*/
+    /*width: 165px;*/
+    /*padding: 10px 0px 0px 10px;*/
+    /*margin: 0px 0px 0px 0px;*/
     font-size: 10px;
   }
 
   .footer-style ul {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*width: 100px;*/
+    /*flex: 0 0 20%;*/
+    text-align: right;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
+    list-style: none;
   }
 
   .footer-style li {
-    display: flex;
-    justify-content: flex-end;
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
   }
 
   .footer-style li img {
@@ -49,30 +56,31 @@
     text-decoration: none;
     color: #edeef0;
   }
-}
+/*}*/
 
 @media only screen and (min-width: 398px) {
   .footer-style {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    /*position: relative;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
     right: 0px;
     left: 0px;
     bottom: 0px;
-    height: 75px;
-    width: 90%;
-    padding: 0px;
+    /*height: 75px;*/
+    padding: 2.5% 5% 2.5%;
+    /*padding-right: 5%;*/
+    /*width: 90%;*/
+    /*padding: 0px;*/
     margin: 0 auto;
     color: #edeef0;
-    background-color: #232633;
-    border-top: 1px solid #35df5c;
+    /*border-top: 1px solid #03A9F4;*/
   }
 
   .footer-style p {
-    display: flex;
-    padding: 10px 0px 0px 10px;
-    margin: 0px 0px 0px 0px;
+    /*display: flex;*/
+    /*padding: 10px 0px 0px 10px;*/
+    /*margin: 0px 0px 0px 0px;*/
     /* border: 1px solid red; */
   }
 
@@ -84,8 +92,8 @@
   }
 
   .footer-style li {
-    display: flex;
-    justify-content: flex-end;
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
   }
 
   .footer-style li img {

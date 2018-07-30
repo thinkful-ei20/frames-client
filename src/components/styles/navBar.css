@@ -1,25 +1,49 @@
-.navbar-header {
-    background-color: #232633;
-    color: #edeef0;
+.main-header {
     display: flex;
+    justify-content: center;
+    /*background-color: #000509;*/
+    background-color: #0b0e19;
+    color: #edeef0;
     height: auto;
-    padding: 2.5% 2.5% 0;
+    width: 100%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+
 }
 
-.navbar-header nav,
-.navbar-header div {
-    text-align: left;
-    width: 50%;
+.main-header-logo-wrapper {
+    display: flex;
+    /*flex: 0 0 20%;*/
+    align-items: center;
+    padding-left: 20px;
+}
+.main-header-logo-wrapper h1 {
+    /*display: inline-block;*/
+    margin: 0;
+    padding-left: 20px;
+    font-size: calc(1.2rem + .9vw);
+    font-style: italic;
+
+}
+
+.main-header-navbar {
+    flex: 0 0 80%;
+}
+
+.main-header nav,
+.main-header div {
+    /*text-align: left;*/
+    /*width: 50%;*/
     /*padding-left: 1.5%;*/
     /*padding-right: 1.5%;*/
 }
 
-.navbar-header div a {
+.main-header div a {
     font-size: 35px;
 }
 
 .fa-window-restore {
-    color: #35df5c;
+    color: #03A9F4;
 }
 
 nav a,
@@ -34,7 +58,7 @@ nav a,
     list-style-type: none;
     margin: 0;
     padding: 0;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     height: 100%;
 }
 

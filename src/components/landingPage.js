@@ -18,18 +18,18 @@ export class LandingPage extends React.Component {
 		}
 
 		return (
-			<main role="main">
-				<header role="banner">
-					<h1>FRAMES</h1>
-				</header>
-				<section>
-					<LoginForm />
-					<p className="sign-up">
-						New to Frames?
-						<Link to="/register">Sign Up</Link>
-					</p>
+			<main className="landing-page" role="main">
+				<section className="hero-section">
+          <div className="hero-section-text-wrapper">
+            <h1>Employee shift management made easy</h1>
+          </div>
+					<div className="hero-section-form-wrapper">
+            <LoginForm />
+
+					</div>
 				</section>
-				<section>
+
+				<section className="about">
 					<About/>
 				</section>
 				<section>
