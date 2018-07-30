@@ -67,14 +67,14 @@ export class Dashboard extends React.Component {
 			<React.Fragment>
 				<div className="dashboard">
 					{error}
-					<button className="super-filter-btn"
+					<button className="super-filter-btn" title="Add Frame"
 						onClick={() => this.props.dispatch(showModal('newFrame', null))}
 					>
 						<i className="fa fa-plus" aria-hidden="true"></i>
 					</button>
 					<div className="dashboard-section-header">
 						<ScheduleView />
-						<button className="super-filter-btn" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
+						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
 					</div>
 					<section className="dashboard-section">
 						{listOfFramesToBeRendered.length

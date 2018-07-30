@@ -12,7 +12,7 @@ function EmployeeCard (props){
 				<p>{props.phoneNumber}</p>
 			</div>
 			<div>
-				<button className="opt-btn" onClick={() => props.dispatch(showModal('employee', props.id))}>
+				<button className="opt-btn" title="Edit Employee Info" onClick={() => props.dispatch(showModal('employee', props.id))}>
 					<i className="fa fa-address-card" aria-hidden="true"></i>
 				</button>
 			</div>
