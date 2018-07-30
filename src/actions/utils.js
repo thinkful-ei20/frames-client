@@ -27,8 +27,8 @@ export const normalizeResponseErrors = res => {
 
 // Return an object with start and end 24 hours apart
 export const getToday = () => {
-	const start = moment().startOf('day').format().slice(0, -9);
-	const end = moment().endOf('day').format().slice(0, -9);
+	const start = moment().startOf('day').format();
+	const end = moment().endOf('day').format();
 	return {
 		start,
 		end

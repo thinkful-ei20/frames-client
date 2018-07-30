@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import CardList from './card-list';
-import { fetchFrames, setFramesView } from '../actions/frames';
+import { fetchFrames } from '../actions/frames';
 import requiresLogin from './requires-login';
 import { getThisWeek, getThisMonth, getToday } from '../actions/utils';
 import { fetchEmployees } from '../actions/employee';
@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 
 import './styles/dashboard.css';
 import { showModal } from '../actions/modals';
+import ScheduleView from './schedule-view';
 
 export class Dashboard extends React.Component {
 
@@ -25,21 +26,6 @@ export class Dashboard extends React.Component {
 		this.props.dispatch(fetchEmployees());
 	}
 
-	handleViewChange(e){
-		this.props.dispatch(setFramesView(e.target.value));
-		let dates;
-		if (this.props.view === 'daily'){
-			dates = getToday();
-		} 
-		if (this.props.view === 'weekly'){
-			dates = getThisWeek();
-		}
-		if (this.props.view === 'daily'){
-			dates = getThisMonth();
-		}
-		this.props.dispatch(fetchFrames(dates.start, dates.end));
-	}
-
 	render() {
 		if (this.props.loading){
 			return (<div>Loading...</div>);
@@ -47,16 +33,7 @@ export class Dashboard extends React.Component {
 
 		let error = this.props.error ? this.props.error : undefined;
 
-		let startSchedule = moment(getThisWeek().start).format('MMMM, DD');
-		let endSchedule = moment(getThisWeek().end).format('MMMM, DD');
-		if (this.props.view === 'daily'){
-			startSchedule = moment(getToday().start).format('MMMM, DD');
-			endSchedule = moment(getToday().end).format('MMMM, DD');
-		}
-		if (this.props.view === 'monthly'){
-			startSchedule = moment(getThisMonth().start).format('MMMM, DD');
-			endSchedule = moment(getThisMonth().end).format('MMMM, DD');
-		}		
+		
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
@@ -95,16 +72,8 @@ export class Dashboard extends React.Component {
 					>
 						<i className="fa fa-plus" aria-hidden="true"></i>
 					</button>
-					<form>
-						<label>Change View</label>
-						<select onChange={(e) => this.handleViewChange(e)}>
-							<option value="weekly">Weekly</option>
-							<option value="daily">Daily</option>
-							<option value="monthly">Monthly</option>
-						</select>
-					</form>
 					<div className="dashboard-section-header">
-						<div>{startSchedule} - {endSchedule}</div>
+						<ScheduleView />
 						<button className="super-filter-btn" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
 					</div>
 					<section className="dashboard-section">
