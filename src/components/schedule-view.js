@@ -41,18 +41,18 @@ export class ScheduleView extends React.Component {
 		return (
 			<div className="view-filter">
 				<h2>{startSchedule} - {endSchedule}</h2>
-				<div className="view-filter-btns">
-					<button className={this.props.view === 'daily' ? 'active view-btn' : 'view-btn'}
+				<div className="red-border"> 
+					<button className={this.props.view === 'daily' ? 'active view-btn' : 'view-btn'} title="Daily Schedule"
 						onClick={() => this.handleDaily()}
 					>
             Daily
 					</button>
-					<button className={this.props.view === 'weekly' ? 'active view-btn' : 'view-btn'}
+					<button className={this.props.view === 'weekly' ? 'active view-btn' : 'view-btn'} title="Weekly Schedule"
 						onClick={() => this.handleWeekly()}
 					>
             Weekly
 					</button>
-					<button className={this.props.view === 'monthly' ? 'active view-btn' : 'view-btn'}
+					<button className={this.props.view === 'monthly' ? 'active view-btn' : 'view-btn'} title="Monthly Schedule"
 						onClick={() => this.handleMonthly()}
 					>
             Monthly
