@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import './styles/forms.css';
 import { hideModal } from '../../actions/modals';
-import { editFrame, deleteFrame } from '../../actions/edit-frame';
+import { editFrame, deleteFrame, clearFrameError } from '../../actions/edit-frame';
 import PropTypes from 'prop-types';
 
 export class EditFrameForm extends React.Component {
@@ -12,6 +12,7 @@ export class EditFrameForm extends React.Component {
 		super(props);
 		this.state = {
 			employee: props.currentFrame.employeeId ? props.currentFrame.employeeId.id : 'open',
+			error: null
 		}
 	}
 
@@ -39,22 +40,31 @@ export class EditFrameForm extends React.Component {
 	};
 
 	validateFrame = () => {
+		console.log('Validate frame ran');
 		// Validate that the endFrame is later than the start frame
 		const start = new Date(document.getElementById('startDate').value);
 		const end = new Date(document.getElementById('endDate').value);
-		
-		if(start > end){
-			this.setState({error : 'The end of the shift must be later than the start'});
+    console.log('Validate frame ran', start);
+    console.log('Validate frame ran', end);
+
+    if(start >= end){
+    	console.log('start > end');
+			this.setState({error : 'The end time must be later than the start time'});
+			console.log('STATE', this.state.error);
 		} else {
 			this.setState({error : null});
-		}
+      console.log('STATE', this.state.error);
+
+    }
 	};
 
 	handleCancel() {
 		this.props.dispatch(hideModal());
+		this.props.dispatch(clearFrameError());
 	}
 
 	render() {
+		console.log('THIS STATE', this.state);
 		// Define default values for the form, remove the trailing GMT times
 		const defaultStart = moment(this.props.currentFrame.startFrame).format().slice(0,-6);
 		const defaultEnd = moment(this.props.currentFrame.endFrame).format().slice(0,-6);
@@ -69,12 +79,21 @@ export class EditFrameForm extends React.Component {
       );
     }
 
+    if (this.state.error) {
+    	error = (
+    		<div className="form-modal-error" aria-live="polite">
+					{this.state.error}
+				</div>
+			);
+		}
+
+
 		return(
-			<div>
-				<h2 className="form-header">Edit Frame</h2>
+			<div className="modal-form-wrapper">
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="form-wrapper">
-				<form onSubmit={this.handleSubmit}>
+          <h2 className="form-header">Edit Frame</h2>
+					<form onSubmit={this.handleSubmit}>
 					<div className="form-field">
 						<label htmlFor="employee-select">Employee</label>
 						<select
@@ -122,7 +141,8 @@ export class EditFrameForm extends React.Component {
               <button
                 className="form-submit-btn"
                 type='submit'
-                disabled={this.state.error ? true : false}>
+                disabled={this.state.error}
+							>
                 Save
               </button>
             </div>

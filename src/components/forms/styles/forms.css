@@ -16,6 +16,8 @@
 
 .form-wrapper h2 {
     text-align: center;
+    color: #ffffff;
+    font-size: calc(1rem + 0.8vw);
 }
 
 .form-field {
@@ -95,7 +97,8 @@
     padding: 5px 10px;
     border: 1px solid #ce3d3d;
     color: #ce3d3d;
-	font-size: 28px;
+    font-size: calc(1rem + 0.8vw);
+	/*font-size: 28px;*/
 	transition-property: background,color;
     transition-duration: .2s;
     letter-spacing: 1px;
