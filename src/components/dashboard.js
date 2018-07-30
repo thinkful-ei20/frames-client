@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import CardList from './card-list';
-import { fetchFrames } from '../actions/frames';
+import { fetchFrames, setFramesView } from '../actions/frames';
 import requiresLogin from './requires-login';
-import { getThisWeek } from '../actions/utils';
+import { getThisWeek, getThisMonth, getToday } from '../actions/utils';
 import { fetchEmployees } from '../actions/employee';
 import PropTypes from 'prop-types';
 
@@ -14,9 +14,30 @@ import { showModal } from '../actions/modals';
 export class Dashboard extends React.Component {
 
 	componentDidMount() {
-		const dates = getThisWeek();
+		let dates = getThisWeek();
+		if (this.props.view === 'daily'){
+			dates = getToday();
+		}
+		if (this.props.view === 'monthly'){
+			dates = getThisMonth();
+		}
 		this.props.dispatch(fetchFrames(dates.start, dates.end));
 		this.props.dispatch(fetchEmployees());
+	}
+
+	handleViewChange(e){
+		this.props.dispatch(setFramesView(e.target.value));
+		let dates;
+		if (this.props.view === 'daily'){
+			dates = getToday();
+		} 
+		if (this.props.view === 'weekly'){
+			dates = getThisWeek();
+		}
+		if (this.props.view === 'daily'){
+			dates = getThisMonth();
+		}
+		this.props.dispatch(fetchFrames(dates.start, dates.end));
 	}
 
 	render() {
@@ -26,10 +47,16 @@ export class Dashboard extends React.Component {
 
 		let error = this.props.error ? this.props.error : undefined;
 
-		const startSchedule = moment(getThisWeek().start).format('MMMM, DD');
-		console.log(startSchedule);
-		const endSchedule = moment(getThisWeek().end).format('MMMM, DD');
-		console.log(getThisWeek());
+		let startSchedule = moment(getThisWeek().start).format('MMMM, DD');
+		let endSchedule = moment(getThisWeek().end).format('MMMM, DD');
+		if (this.props.view === 'daily'){
+			startSchedule = moment(getToday().start).format('MMMM, DD');
+			endSchedule = moment(getToday().end).format('MMMM, DD');
+		}
+		if (this.props.view === 'monthly'){
+			startSchedule = moment(getThisMonth().start).format('MMMM, DD');
+			endSchedule = moment(getThisMonth().end).format('MMMM, DD');
+		}		
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
@@ -68,6 +95,14 @@ export class Dashboard extends React.Component {
 					>
 						<i className="fa fa-plus" aria-hidden="true"></i>
 					</button>
+					<form>
+						<label>Change View</label>
+						<select onChange={(e) => this.handleViewChange(e)}>
+							<option value="weekly">Weekly</option>
+							<option value="daily">Daily</option>
+							<option value="monthly">Monthly</option>
+						</select>
+					</form>
 					<div className="dashboard-section-header">
 						<div>{startSchedule} - {endSchedule}</div>
 						<button className="super-filter-btn" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
@@ -88,7 +123,8 @@ Dashboard.propTypes = {
 	error : PropTypes.string,
 	loading: PropTypes.bool,
 	dispatch: PropTypes.func,
-	filter: PropTypes.object
+	filter: PropTypes.object,
+	view : PropTypes.string
 };
 
 const mapStateToProps = state => ({
@@ -96,7 +132,8 @@ const mapStateToProps = state => ({
 	frames: state.frames.frames,
 	loading : state.frames.loading,
 	error : state.frames.error,
-	filter: state.filter
+	filter: state.filter,
+	view : state.frames.view
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));

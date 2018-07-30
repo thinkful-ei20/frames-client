@@ -1,10 +1,11 @@
-import { REQUEST_FRAMES, FRAMES_SUCCESS, FRAMES_ERROR } from '../actions/frames';
+import { REQUEST_FRAMES, FRAMES_SUCCESS, FRAMES_ERROR, SET_FRAMES_VIEW } from '../actions/frames';
 import { REQUEST_EDIT_FRAME, EDIT_FRAME_ERROR } from '../actions/edit-frame';
 
 const initialState = {
 	frames: [],
 	loading: false,
-	error: null
+	error: null,
+	view: 'weekly'
 };
 
 
@@ -34,11 +35,17 @@ export default function framesReducer(state = initialState, action) {
 	}
 
 	if (action.type === EDIT_FRAME_ERROR){
-		console.log('In The Reducer',action.error);
 		return {
 			...state,
 			loading: false,
 			error: action.error
+		};
+	}
+
+	if (action.type === SET_FRAMES_VIEW){
+		return {
+			...state,
+			view : action.view
 		};
 	}
 
