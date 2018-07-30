@@ -1,0 +1,44 @@
+.view-btn {
+  display: inline-block;
+  width: 100px;
+  margin: 0 auto;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 5px;
+  background: transparent;
+  padding: 5px 0px;
+  border: 2px solid #03A9F4;
+  color: #03A9F4;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition-property: background,color;
+  transition-duration: .2s;
+  letter-spacing: 1px;
+}
+
+.view-btn:hover,
+.view-btn:focus {
+  color: black;
+  background: #03A9F4;
+  cursor: pointer;
+  transition-property: background,color;
+  transition-duration: .2s;
+}
+
+.active {
+  color: black;
+  background: #03A9F4;
+}
+
+.yellow-border {
+  /* border: 1px solid yellow */
+}
+
+.yellow-border h2 {
+  font-family: Helvetica;
+  font-weight: 100;
+}
+
+.red-border {
+  /* border: 1px solid red; */
+}

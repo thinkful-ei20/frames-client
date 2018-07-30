@@ -4,6 +4,8 @@ import moment from 'moment';
 import {getThisMonth, getThisWeek, getToday} from '../actions/utils';
 import { setFramesView, fetchFrames } from '../actions/frames';
 
+import './styles/schedule-view.css';
+
 export class ScheduleView extends React.Component {
 
 	handleDaily(){
@@ -37,20 +39,20 @@ export class ScheduleView extends React.Component {
 		}
 
 		return (
-			<div>
-				{startSchedule} - {endSchedule}
-				<div>
-					<button
+			<div className="yellow-border">
+				<h2>{startSchedule} - {endSchedule}</h2>
+				<div className="red-border"> 
+					<button className={this.props.view === 'daily' ? 'active view-btn' : 'view-btn'}
 						onClick={() => this.handleDaily()}
 					>
             Daily
 					</button>
-					<button
+					<button className={this.props.view === 'weekly' ? 'active view-btn' : 'view-btn'}
 						onClick={() => this.handleWeekly()}
 					>
             Weekly
 					</button>
-					<button
+					<button className={this.props.view === 'monthly' ? 'active view-btn' : 'view-btn'}
 						onClick={() => this.handleMonthly()}
 					>
             Monthly
