@@ -1,9 +1,8 @@
 .view-btn {
   display: inline-block;
-  width: 100px;
+  width: 80%;
   margin: 0 auto;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin: 0.5em;
   border-radius: 5px;
   background: transparent;
   padding: 5px 0px;
@@ -30,15 +29,27 @@
   background: #03A9F4;
 }
 
-.yellow-border {
+.view-filter {
   /* border: 1px solid yellow */
 }
 
-.yellow-border h2 {
+.view-filter h2 {
   font-family: Helvetica;
   font-weight: 100;
 }
 
-.red-border {
-  /* border: 1px solid red; */
+.view-filter-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media screen and (min-width: 380px) {
+	.view-btn {
+		width: 9em;
+	}
+	.view-filter-btns{
+		flex-direction: row;
+	}
 }
