@@ -27,8 +27,8 @@ export class Dashboard extends React.Component {
 	}
 
 	render() {
-		if (this.props.loading){
-			return (<div>Loading...</div>);
+		if (true){
+			return (<div className="loader">Loading...</div>);
 		}
 
 		let error = this.props.error ? this.props.error : undefined;

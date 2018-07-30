@@ -16,7 +16,6 @@ class Employees extends React.Component {
 
 	render(){
 
-
 		return (
 			<main className="employees-wrapper">
 				<header className="employee-header">
