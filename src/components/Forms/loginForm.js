@@ -24,8 +24,7 @@ export class LoginForm extends React.Component {
 
 		return (
 			<div className="login-form-wrapper">
-				{/*<h2 className="form-header">Log in</h2>*/}
-        {error}
+				<h2 className="form-header">Log in</h2>
 
 				<form
 					className="login-form"
@@ -37,6 +36,7 @@ export class LoginForm extends React.Component {
 						component={renderField}
 						validate={[required, nonEmpty, isTrimmed]}
 						autocomplete="off"
+						placeholder="username"
 					/>
 					<Field
 						name="password"
@@ -45,6 +45,7 @@ export class LoginForm extends React.Component {
 						component={renderField}
 						validate={[required, nonEmpty]}
 						autocomplete="off"
+						placeholder="password"
 					/>
 					<div className="form-field form-btns">
             <button
@@ -53,7 +54,10 @@ export class LoginForm extends React.Component {
             >
               Log in
             </button>
+            {error}
+
 					</div>
+
 				</form>
         <p className="sign-up-link">
           New to Frames?

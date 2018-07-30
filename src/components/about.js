@@ -2,37 +2,40 @@ import React from 'react';
 
 export const About = () => {
 	return(
-		<div>
-			<div>
-				<h2>Catch Phrase here</h2>
-			</div>
-			<div>
-				<h3>One reason it is cool</h3>
-				<p> And it is a very good one </p>
-				<img
-					src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"
-					alt="hard coded "
-				/>
-			</div>
+		<React.Fragment>
+			<section className="about-section">
+        <div className="about-section-img-wrapper">
+          <img src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"/>
+        </div>
+				<div className="about-section-text-wrapper">
+					{/*<h2>Catch Phrase here</h2>*/}
+					<h3>Mobile Optimized</h3>
+					<p>Interface is optimized to display a large amount of densely organized information on mobile devices.</p>
+				</div>
+      </section>
 
-			<div>
-				<h3>Second reason it is cool</h3>
-				<p> And it is also a very good one </p>
-				<img
-					src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"
-					alt="hard coded "
-				/>
-			</div>
+      <section className="about-section">
+        <div className="about-section-text-wrapper">
+          <h3>Customizable view</h3>
+					<p>Advanced Filter options allow to customize the schedule overview by selecting shift times,
+            or employee name.</p>
+				</div>
+        <div className="about-section-img-wrapper">
+          <img src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"/>
+        </div>
+      </section>
 
-			<div>
-				<h3>A third reason it is cool</h3>
-				<p> And it is a super good one </p>
-				<img
-					src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"
-					alt="hard coded "
-				/>
-			</div>
-		</div>
+      <section className="about-section">
+        <div className="about-section-img-wrapper">
+          <img src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"/>
+        </div>
+        <div className="about-section-text-wrapper">
+          <h3>Second reason it is cool</h3>
+          <p>And it is also a very good one</p>
+        </div>
+      </section>
+
+		</React.Fragment>
 	);
 };
 

@@ -1,7 +1,8 @@
 .main-header {
     display: flex;
     justify-content: center;
-    background-color: #11131c;
+    /*background-color: #000509;*/
+    background-color: #0b0e19;
     color: #edeef0;
     height: auto;
     width: 100%;
@@ -21,6 +22,7 @@
     margin: 0;
     padding-left: 20px;
     font-size: calc(1.2rem + .9vw);
+    font-style: italic;
 
 }
 
@@ -41,7 +43,7 @@
 }
 
 .fa-window-restore {
-    color: #35df5c;
+    color: #03A9F4;
 }
 
 nav a,
