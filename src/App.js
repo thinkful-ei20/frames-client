@@ -7,7 +7,6 @@ import RegistrationPage from './components/registrationPage';
 import Dashboard from './components/dashboard';
 import ModalConductor from './components/modals/modal-conductor';
 import Profile from './components/profile';
-// import Footer from './components/footer';
 import Employees from './components/employees';
 
 export default class App extends Component {

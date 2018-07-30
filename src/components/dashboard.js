@@ -28,12 +28,10 @@ export class Dashboard extends React.Component {
 
 	render() {
 		if (this.props.loading){
-			return (<div>Loading...</div>);
+			return (<div className="loader">Loading...</div>);
 		}
 
 		let error = this.props.error ? this.props.error : undefined;
-
-		
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
@@ -66,7 +64,9 @@ export class Dashboard extends React.Component {
 		return(
 			<React.Fragment>
 				<div className="dashboard">
+					<h2>Dashboard</h2>
 					{error}
+
 					<button className="super-filter-btn" title="Add Frame"
 						onClick={() => this.props.dispatch(showModal('newFrame', null))}
 					>
@@ -75,6 +75,17 @@ export class Dashboard extends React.Component {
 					<div className="dashboard-section-header">
 						<ScheduleView />
 						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
+					</div>
+					<div className="section-header">
+						<h3>Frames</h3>
+						{/* <button className="super-filter-btn"
+							onClick={() => this.props.dispatch(showModal('newFrame', null))}
+						>
+							<i className="fa fa-plus" aria-hidden="true"></i>
+						</button> */}
+						<button className="frame-add-btn" onClick={() => this.props.dispatch(showModal('newFrame', null))}>
+							<i className="fa fa-plus-circle" aria-hidden="true"></i>
+						</button>
 					</div>
 					<section className="dashboard-section">
 						{listOfFramesToBeRendered.length

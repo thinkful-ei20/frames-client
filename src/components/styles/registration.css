@@ -1,0 +1,7 @@
+.registration {
+  height: 87vh;
+  background:url("../../images/green-vector.jpg") no-repeat fixed center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

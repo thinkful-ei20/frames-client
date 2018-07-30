@@ -1,26 +1,23 @@
 .card {
 	display: block;
-	/*border: 2px solid #1Eb980;*/
-	/*background-color: #045D64;*/
 	border-radius: 3px;
-	/*padding: 2.5%;*/
-	/*margin: 0.5em 0;*/
 	padding: 1.5% 0 1.5% 0;
-
+	margin: 0.5em 1.5em;
 }
 
 .card-container {
-	max-width: 40em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0 0.5em;
 	transition: 0.5s ease all;
 }
 
 .card-info {
+	width: 90%;
 	display: flex;
 	flex-direction: row;
-	align-items: stretch;
 	justify-content: space-between;
-	flex-wrap: wrap;
-
 }
 
 .card-name, .card-img {
@@ -100,12 +97,19 @@
 	height: 3em;
 }
 
+.card-date-wrapper {
+	display: block;
+	white-space: nowrap;
+	margin: 0 0.5em;
+	padding: 1em;
+	border-bottom: 2px solid #b94343;
+}
 .card-date {
 	background-color: #2b2d3d;
-	margin: 1.5% 0 1.5% 0;
-	text-align: left;
+	margin: 0;
+	text-align: right;
 	color: #9fa0a4;
-	font-size: 12px;
+	font-size: 25px;
 }
 
 .card-time-diff {

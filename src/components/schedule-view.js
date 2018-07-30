@@ -39,7 +39,7 @@ export class ScheduleView extends React.Component {
 		}
 
 		return (
-			<div className="yellow-border">
+			<div className="view-filter">
 				<h2>{startSchedule} - {endSchedule}</h2>
 				<div className="red-border"> 
 					<button className={this.props.view === 'daily' ? 'active view-btn' : 'view-btn'} title="Daily Schedule"

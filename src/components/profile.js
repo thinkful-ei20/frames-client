@@ -33,6 +33,12 @@ export class Profile extends React.Component {
 				</div>
 			)
 		}
+
+		let phoneNumber;
+		if (this.props.phone){
+			phoneNumber = `(${this.props.phone.slice(0,3)}) ${this.props.phone.slice(3,6)}-${this.props.phone.slice(6,9)}`;
+		}
+
 		return (
 			<main className="profile-wrapper">
 				<header className="profile-header">
@@ -74,7 +80,7 @@ export class Profile extends React.Component {
 							</div>
               <div className="profile-section-details">
                 <h3>Phone</h3>
-                <p>{this.props.phone}</p>
+                <p>{phoneNumber}</p>
 							</div>
             </section>
 					}

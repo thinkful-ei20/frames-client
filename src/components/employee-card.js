@@ -3,13 +3,19 @@ import {connect} from 'react-redux';
 import { showModal } from '../actions/modals';
 import PropTypes from 'prop-types';
 
-function EmployeeCard (props){
+export function EmployeeCard (props){
+
+	let phoneNumber;
+	if (props.phoneNumber){
+		phoneNumber = `(${props.phoneNumber.slice(0,3)}) ${props.phoneNumber.slice(3,6)}-${props.phoneNumber.slice(6,9)}`;
+	}
+
 	return (
 		<div className="employee-section-details">
 			<div>
 				<h3>{props.name}</h3>
 				<p>{props.email}</p>
-				<p>{props.phoneNumber}</p>
+				<p>{phoneNumber}</p>
 			</div>
 			<div>
 				<button className="opt-btn" title="Edit Employee Info" onClick={() => props.dispatch(showModal('employee', props.id))}>

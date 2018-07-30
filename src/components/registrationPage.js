@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import RegisterForm from './forms/registerForm';
 import PropTypes from 'prop-types';
 
+import './styles/registration.css';
+
 function RegistrationPage(props) {
 	if(props.loggedIn) {
 		return <Redirect to='/dashboard' />;
@@ -11,7 +13,7 @@ function RegistrationPage(props) {
 
 	return (
 		<React.Fragment>
-			<main>
+			<main className="registration">
 				<section>
 					<RegisterForm />
 				</section>

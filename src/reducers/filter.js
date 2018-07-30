@@ -6,7 +6,7 @@ export const initialState = {
 	end: ''
 };
 
-export default (state = initialState, action) => {
+export default function filterReducer(state = initialState, action) {
 	if (action.type === FILTER_SUCCESS) {
 		return {
 			employeeId: action.employeeId,
@@ -15,5 +15,5 @@ export default (state = initialState, action) => {
 		};
 	}
 	return state;
-};
+}
 

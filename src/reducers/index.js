@@ -20,10 +20,10 @@ const appReducer = combineReducers({
 });
 
 const rootReducer = (state, action) => {
-  if (action.type === CLEAR_TOKEN){
-    state = undefined
-  }
-  return appReducer(state, action);
+	if (action.type === CLEAR_TOKEN){
+		state = undefined;
+	}
+	return appReducer(state, action);
 };
 
 export default rootReducer;

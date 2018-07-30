@@ -44,7 +44,6 @@ export const Card = (props) => {
 					<button className='opt-btn' title="Edit Frame" onClick={() => { props.dispatch(showModal('edit', id));}}>
 						<i className="fa fa-ellipsis-h"></i>
 					</button>
-				</div>
 			</div>
 		</article>
 	);

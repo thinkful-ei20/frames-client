@@ -4,17 +4,17 @@ import { fetchEmployees } from '../actions/employee';
 import EmployeeCard from './employee-card';
 import PropTypes from 'prop-types';
 import { showModal } from '../actions/modals';
+import requiresLogin from './requires-login';
 
 import './styles/employees.css';
 
-class Employees extends React.Component {
+export class Employees extends React.Component {
 
 	componentDidMount(){
 		this.props.dispatch(fetchEmployees());
 	}
 
 	render(){
-
 
 		return (
 			<main className="employees-wrapper">
@@ -25,7 +25,6 @@ class Employees extends React.Component {
 							<i className="fa fa-plus-circle" aria-hidden="true"></i>
 						</button>
 					</div>
-
 				</header>
 				<section className="employee-section">
 					{(this.props.employees.length)
@@ -58,4 +57,4 @@ Employees.propTypes = {
 	employees : PropTypes.array
 };
 
-export default connect(mapStateToProps)(Employees);
+export default requiresLogin()(connect(mapStateToProps)(Employees));
