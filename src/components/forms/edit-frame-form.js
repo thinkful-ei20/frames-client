@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 
+import {hideModal} from '../../actions/modals';
+import {editFrame,deleteFrame,clearFrameError} from '../../actions/edit-frame';
+
 import './styles/forms.css';
-import { hideModal } from '../../actions/modals';
-import { editFrame, deleteFrame, clearFrameError } from '../../actions/edit-frame';
-import PropTypes from 'prop-types';
 
 export class EditFrameForm extends React.Component {
 	constructor(props) {
@@ -81,14 +82,13 @@ export class EditFrameForm extends React.Component {
 			);
 		}
 
-
 		return(
 			<div className="modal-form-wrapper">
 				<button className="modal-close-btn" title="Close Edit Frame Form" onClick={() => this.handleCancel()}></button>
 				<div className="form-wrapper">
-          <h2 className="form-header">Edit Frame</h2>
+          			<h2 className="form-header">Edit Frame</h2>
 					<form onSubmit={this.handleSubmit}>
-					<div className="form-field">
+					<fieldset className="form-field">
 						<label htmlFor="employee-select">Employee</label>
 						<select
 							id="employee-select"
@@ -103,8 +103,8 @@ export class EditFrameForm extends React.Component {
 								)}
 							<option value='open'>OPEN</option>
 						</select>
-					</div>
-					<div className="form-field">
+					</fieldset>
+					<fieldset className="form-field">
 						<label htmlFor="startDate">Start Time
 							<input
 								type="datetime-local"
@@ -114,8 +114,8 @@ export class EditFrameForm extends React.Component {
 								onChange={this.validateFrame}
 							/>
 						</label>
-					</div>
-					<div className="form-field">
+					</fieldset>
+					<fieldset className="form-field">
 						<label htmlFor="endDate">End Time
 							<input
 								type="datetime-local"
@@ -125,7 +125,7 @@ export class EditFrameForm extends React.Component {
 								onChange={this.validateFrame}
 							/>
 						</label>
-					</div>
+					</fieldset>
 					<div className="form-field form-btns">
             <button
 							className="form-delete-btn"

@@ -7,6 +7,9 @@ html {
   height: 100%;
 }
 
+#root {
+	height: 100%;
+}
 
 body {
   background-color: #2b2d3d;
@@ -14,10 +17,6 @@ body {
   padding: 0;
   min-height: 100%;
   font-family: sans-serif;
-}
-
-#root {
-  height: 100%;
 }
 
 .loader,

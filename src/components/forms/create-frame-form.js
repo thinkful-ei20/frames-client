@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { addFrame, clearFrameError } from '../../actions/edit-frame';
+import moment from 'moment';
 
-import '../../App.css';
-import { getToday } from '../../actions/utils';
-import { hideModal } from '../../actions/modals';
-import moment from "moment/moment";
+import {addFrame,clearFrameError} from '../../actions/edit-frame';
+import {hideModal} from '../../actions/modals';
+
+import '../styles/app.css';
 
 export class CreateFrameForm extends React.Component {
 	constructor(props) {
@@ -62,8 +62,8 @@ export class CreateFrameForm extends React.Component {
 		}
 
 
-    const defaultStart = moment().format().slice(0,-9);
-    const defaultEnd = moment().format().slice(0,-9);
+		const defaultStart = moment().format().slice(0,-9);
+		const defaultEnd = moment().format().slice(0,-9);
 
 		if (this.state.frameError) {
 			error = (

@@ -16,7 +16,7 @@ export default () => WrappedComponent => {
 		/**
 		 * Enzyme/Jest BUG?:
 		 *
-		 * 		On npm run test, line 25 below throws this warning/error:
+		 * 		On npm run test, line 26 below throws this warning/error:
 		 *
 		 * 		React.createElement: type is invalid -- expected a string (for built-in components) or a class/function
 		 * 		(for composite components) but got: object.

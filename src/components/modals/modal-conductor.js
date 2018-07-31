@@ -30,7 +30,7 @@ export function ModalConductor(props) {
 		content = <CreateFrameForm />;
 	} else if (props.modalType === 'superFilter') {
 		contentLabel='Filter';
-		content = <SuperFilter />;
+		content = <SuperFilter/>;
 	}
 
 

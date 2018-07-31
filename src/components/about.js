@@ -25,20 +25,19 @@ export const About = () => {
             or employee name.</p>
 				</div>
 				<div className="about-section-img-wrapper">
-          <img src={dashboardScreenshot} alt="Dashboard screenshot"/>
+					<img src={dashboardScreenshot} alt="Dashboard screenshot"/>
 				</div>
 			</section>
 
 			<section className="about-section">
 				<div className="about-section-img-wrapper">
-          <img src={employeeScreenshot} alt="Employee screenshot"/>
+					<img src={employeeScreenshot} alt="Employee screenshot"/>
 				</div>
 				<div className="about-section-text-wrapper">
 					<h3>Employee management</h3>
 					<p>And it is also a very good one</p>
 				</div>
 			</section>
-
 		</React.Fragment>
 	);
 };

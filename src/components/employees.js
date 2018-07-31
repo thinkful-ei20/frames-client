@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchEmployees } from '../actions/employee';
-import EmployeeCard from './employee-card';
 import PropTypes from 'prop-types';
-import { showModal } from '../actions/modals';
+
+import EmployeeCard from './employee-card';
 import requiresLogin from './requires-login';
+
+import { showModal } from '../actions/modals';
+import { fetchEmployees } from '../actions/employee';
 
 import './styles/employees.css';
 
