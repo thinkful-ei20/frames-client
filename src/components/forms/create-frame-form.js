@@ -6,6 +6,7 @@ import { addFrame } from '../../actions/edit-frame';
 import '../../App.css';
 import { getToday } from '../../actions/utils';
 import { hideModal } from '../../actions/modals';
+import moment from "moment/moment";
 
 export class CreateFrameForm extends React.Component {
 	constructor(props) {
@@ -59,6 +60,9 @@ export class CreateFrameForm extends React.Component {
 			);
 		}
 
+    const defaultStart = moment().format().slice(0,-9);
+    const defaultEnd = moment().format().slice(0,-9);
+
 		return (
 			<React.Fragment>
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
@@ -92,7 +96,7 @@ export class CreateFrameForm extends React.Component {
 									name="startDate"
 									id="startDate"
 									type="datetime-local"
-									defaultValue={getToday().start}
+									defaultValue={defaultStart}
 									onChange={() => this.validateFrame()}
 								/>
 							</div>
@@ -102,7 +106,7 @@ export class CreateFrameForm extends React.Component {
 									name="endDate"
 									id="endDate"
 									type="datetime-local"
-									defaultValue={getToday().start}
+									defaultValue={defaultEnd}
 									onChange={() => this.validateFrame()}
 								/>
 							</div>
