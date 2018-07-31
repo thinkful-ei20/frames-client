@@ -7,9 +7,8 @@
     }
 }
 
-
-
-
+/* ========================================================================================================= */
+/* GENERAL FORM STYLES */
 .form-wrapper {
     margin: 0 auto;
     padding: 20px;
@@ -98,7 +97,6 @@
     border: 1px solid #ce3d3d;
     color: #ce3d3d;
     font-size: calc(1rem + 0.8vw);
-	/*font-size: 28px;*/
 	transition-property: background,color;
     transition-duration: .2s;
     letter-spacing: 1px;
@@ -117,7 +115,6 @@
 .form-reset-btn {
     background: transparent;
     padding: 0;
-    /*margin-bottom: 10px;*/
     border: none;
     border-bottom: 2px solid #35cbdf;
     color: #35cbdf;
@@ -143,8 +140,8 @@
     justify-content: space-evenly;
 }
 
+/* ========================================================================================================= */
 /* PROFILE FORM */
-
 .profile-form-field {
     text-align: center;
     padding-top: 25px;
@@ -159,8 +156,8 @@
     transition-duration: .2s;
 }
 
+/* ========================================================================================================= */
 /* LOGIN FORM */
-
 .login-form {
     margin-top: 5%;
 }
@@ -173,35 +170,11 @@
     border-image: linear-gradient(to right,rgba(11, 14, 25, 0.8) 25%, rgba(11, 14, 25, 1) 25%, #03A9F4 50%, #03A9F4 50%, rgba(11, 14, 25, 1) 75%, rgba(11, 14, 25, 0.8) 75%) 5;
 }
 
-
 .login-form-wrapper h2 {
     font-size: calc(1rem + 0.8vw);
     margin: 0 auto;
     text-transform: uppercase;
 }
-
-
-/*.login-form-wrapper::after {*/
-
-    /*background-image: linear-gradient(rgba(11, 14, 25, 1),	transparent), url('../../../images/cubes-frames-2.jpg');*/
-    /*background-color: #11131c;*/
-
-    /*background-size: 100% 100%;*/
-
-    /*background-color: #11131c;*/
-    /*opacity: 0.7;*/
-
-
-    /*content: "";*/
-    /*opacity: 0.8;*/
-    /*top: 0; */
-    /*left: 0;*/
-    /*bottom: 0;*/
-    /*right: 0;*/
-    /*position: absolute;*/
-    /*z-index: -1;*/
-/**/
-/*}*/
 
 .login-form-wrapper input {
     min-width: 200px;
@@ -216,6 +189,8 @@
 
 }
 
+/* ========================================================================================================= */
+/* SIGN UP */
 .sign-up-link {
     margin: 5% 0 0;
     font-size: 11px;
@@ -233,8 +208,8 @@
     text-decoration: underline;
 }
 
+/* ========================================================================================================= */
 /* SUPER FILTER */
-
 .filter-form-submit-btn {
     display: block;
     width: 210px;
@@ -260,8 +235,8 @@
     transition-duration: .2s;
 }
 
+/* ========================================================================================================= */
 /* REGISTRATION FORM */
-
 .register-form-wrapper {
     margin: 0 auto;
     background: rgba(11, 14, 25, .9);

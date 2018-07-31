@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addFrame, clearFrameError } from '../../actions/edit-frame';
 
-import '../../App.css';
+// import '../../App.css';
 import { hideModal } from '../../actions/modals';
 import moment from "moment/moment";
 

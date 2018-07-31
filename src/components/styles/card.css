@@ -29,9 +29,6 @@
 .card-img {
 	max-width: 54px;
 	max-height: 54px;
-	/*border: 1px solid whitesmoke;*/
-	/*border-radius: 32px;*/
-	/*background-color:whitesmoke;*/
 }
 
 .card-img img {
@@ -52,7 +49,9 @@
 	object-fit: contain;
 }
 
-.card-name, .card-frame, .card-time-diff {
+.card-name, 
+.card-frame, 
+.card-time-diff {
 	font-size: 12px;
 	color: #edeef0;
 }
@@ -116,7 +115,6 @@
 .card-time-diff {
 	color: #edeef0;
 	border-radius: 50%;
-
 	border-style: solid;
 	border-width: 1px;
 	border-top-color: #35df5c;
@@ -125,7 +123,6 @@
 	border-left-color: #6bc580;
 	padding: 18px 5px 18px 5px;
 	width: 54px;
-
 }
 
 .card-time {

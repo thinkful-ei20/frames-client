@@ -1,7 +1,6 @@
 .employees-wrapper {
     position: relative;
     top: 50px;
-    /*height: 130vh;*/
     color: #edeef0;
     background-color: #2b2d3d;
     padding: 5%;
@@ -62,7 +61,6 @@
     margin: 0;
     padding: 2.5% 0 2.5% 0;
     font-size: 15px;
-    /*text-transform: uppercase;*/
     color: #edeef0;
 }
 
@@ -84,6 +82,4 @@
 .employee-add-btn:focus {
     text-shadow: 0 0 1px #8aff37,
     0 0 10px rgba(64, 199, 57, 0.8);
-    /*-webkit-transform: scale(1.2);*/
-    /*transform: scale(1.2);*/
 }

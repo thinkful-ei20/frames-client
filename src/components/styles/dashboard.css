@@ -88,8 +88,6 @@
 .frame-add-btn:focus {
     text-shadow: 0 0 1px #8aff37,
     0 0 10px rgba(64, 199, 57, 0.8);
-    /*-webkit-transform: scale(1.2);*/
-    /*transform: scale(1.2);*/
 }
 
 @media screen and (min-width: 380px) {

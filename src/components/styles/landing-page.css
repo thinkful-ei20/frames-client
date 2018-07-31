@@ -3,10 +3,6 @@
 	margin: 0 auto;
 	position: relative;
 	top: 50px;
-
-	/*background-color: #FFFFFF;*/
-	/*text-align: center;*/
-	/*color: #edeef0;*/
 }
 
 .hero-section {
@@ -21,15 +17,9 @@
 
 .hero-section::after {
 	background-image: linear-gradient(rgba(11, 14, 25, 1),	rgba(39, 52, 102, 0.3)), url('../../images/cubes-frames.jpg');
-	/*background-image: url('../../images/cubes-frames-2.jpg');*/
 	background-repeat: no-repeat, repeat;
-	/*background-size: contain;*/
-	/*height: 250px;*/
 	background-size: 100% 100%;
-	/*opacity: 0.5;*/
-	/*background: linear-gradient(#232633, #185e71);*/
 	content: "";
-	/*opacity: 0.8;*/
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -39,8 +29,6 @@
 }
 
 .hero-section-text-wrapper {
-	/*height: 100%;*/
-	/*flex: 0 0 50%;*/
 	padding: 5%;
 	align-content: center;
 	align-items: center;
@@ -63,22 +51,14 @@
 }
 
 .hero-section-form-wrapper {
-	/*position: relative;*/
-	/*border-left: 2px solid #35df5c;*/
 	margin: 0 auto;
-	/*padding: 20px;*/
-	/*max-width: 360px;*/
 	padding: 5%;
-	/*height: 40vh;*/
-
-
 }
 
 .landing-page-header h1 {
 	font-size: calc(1.2rem + 2vw);
 	margin: 0 auto;
 	width: 40%;
-
 }
 
 .landing-page-header span {
@@ -94,8 +74,6 @@
 	float: left;
 	margin: 0;
 	height: auto;
-	/*width: 100px;*/
-	/*background: tomato;*/
 	padding: 4px;
 	transition: all 1s;
 }
@@ -127,13 +105,7 @@
 	background-image: url('../../images/cubes-frames-2.jpg');
 	background-repeat: no-repeat, repeat;
 	background-size: contain;
-	/*height: 250px;*/
 	background-size: 100% 100%;
-	/*opacity: 0.5;*/
-
-
-
-
 	content: "";
 	opacity: 0.5;
 	top: 0;
@@ -142,8 +114,6 @@
 	right: 0;
 	position: absolute;
 	z-index: -1;
-
-
 }
 
 @media only screen and (min-width: 640px) {
