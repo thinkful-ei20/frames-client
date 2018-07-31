@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Field, reduxForm, } from 'redux-form';
 import renderField from './field';
-import {isTrimmed, length, matches, nonEmpty, required, validEmail, validPhone} from './formValidators';
+import {isTrimmed, length, nonEmpty, required, validEmail, validPhone} from './formValidators';
 import { editProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 
