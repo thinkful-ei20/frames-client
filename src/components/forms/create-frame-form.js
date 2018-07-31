@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { addFrame, clearFrameError } from '../../actions/edit-frame';
 
 import '../../App.css';
-import { getToday } from '../../actions/utils';
 import { hideModal } from '../../actions/modals';
 import moment from "moment/moment";
 

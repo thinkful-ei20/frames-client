@@ -58,7 +58,6 @@ export class EditFrameForm extends React.Component {
 	}
 
 	render() {
-		console.log('THIS STATE', this.state);
 		// Define default values for the form, remove the trailing GMT times
 		const defaultStart = moment(this.props.currentFrame.startFrame).format().slice(0,-6);
 		const defaultEnd = moment(this.props.currentFrame.endFrame).format().slice(0,-6);
