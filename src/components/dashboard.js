@@ -31,10 +31,7 @@ export class Dashboard extends React.Component {
 			return (<div className="loader">Loading...</div>);
 		}
 
-		if (this.props.error) {
-
-		}
-
+		//Display error if any from the server
 		let error = this.props.error ? this.props.error : undefined;
 
 		let frameList = this.props.frames;
@@ -68,7 +65,7 @@ export class Dashboard extends React.Component {
 		return(
 			<React.Fragment>
 				<div className="dashboard">
-          {error}
+					{error}
 					<h2>Dashboard</h2>
 
 					<button className="super-filter-btn" title="Add Frame"
@@ -82,11 +79,6 @@ export class Dashboard extends React.Component {
 					</div>
 					<div className="section-header">
 						<h3>Frames</h3>
-						{/* <button className="super-filter-btn"
-							onClick={() => this.props.dispatch(showModal('newFrame', null))}
-						>
-							<i className="fa fa-plus" aria-hidden="true"></i>
-						</button> */}
 						<button className="frame-add-btn" onClick={() => this.props.dispatch(showModal('newFrame', null))}>
 							<i className="fa fa-plus-circle" aria-hidden="true"></i>
 						</button>

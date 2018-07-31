@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addFrame } from '../../actions/edit-frame';
+import { addFrame, clearFrameError } from '../../actions/edit-frame';
 
 import '../../App.css';
 import { getToday } from '../../actions/utils';
@@ -45,6 +45,7 @@ export class CreateFrameForm extends React.Component {
 	}
 
 	handleCancel() {
+		this.props.dispatch(clearFrameError());
 		this.props.dispatch(hideModal());
 	}
 
@@ -59,13 +60,20 @@ export class CreateFrameForm extends React.Component {
 			);
 		}
 
+		if (this.state.frameError) {
+			error = (
+				<div className="form-modal-error" aria-live="polite">
+					{this.state.frameError}
+				</div>
+			);
+		}
+
 		return (
 			<React.Fragment>
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className='form-header'>Add Frame</h2>
-						<p className="form-modal-error" >{this.state.frameError}</p>
 						<form
 							onSubmit={e => this.handleSubmit(e)}
 						>
