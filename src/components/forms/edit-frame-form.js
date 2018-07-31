@@ -90,7 +90,7 @@ export class EditFrameForm extends React.Component {
 
 		return(
 			<div className="modal-form-wrapper">
-				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<button className="modal-close-btn" title="Close Edit Frame Form" onClick={() => this.handleCancel()}></button>
 				<div className="form-wrapper">
           <h2 className="form-header">Edit Frame</h2>
 					<form onSubmit={this.handleSubmit}>
@@ -111,35 +111,44 @@ export class EditFrameForm extends React.Component {
 						</select>
 					</div>
 					<div className="form-field">
-						<label htmlFor="startDate">Start Time</label>
-						<input
-							type="datetime-local"
-							id="startDate"
-							name="startDate"
-							defaultValue={defaultStart}
-							onChange={this.validateFrame}
-						/>
+						<label htmlFor="startDate">Start Time
+							<input
+								type="datetime-local"
+								id="startDate"
+								name="startDate"
+								defaultValue={defaultStart}
+								onChange={this.validateFrame}
+							/>
+						</label>
 					</div>
 					<div className="form-field">
-						<label htmlFor="endDate">End Time</label>
-						<input
-							type="datetime-local"
-							id="endDate"
-							name="endDate"
-							defaultValue={defaultEnd}
-							onChange={this.validateFrame}
-						/>
+						<label htmlFor="endDate">End Time
+							<input
+								type="datetime-local"
+								id="endDate"
+								name="endDate"
+								defaultValue={defaultEnd}
+								onChange={this.validateFrame}
+							/>
+						</label>
 					</div>
 					<div className="form-field form-btns">
             <button
-              className="form-delete-btn"
+							className="form-delete-btn"
+							title="Delete frame"
               onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
               <i className="fa fa-trash-o" aria-hidden="true"></i>
             </button>
-						<button className="form-reset-btn" type="button" onClick={() => this.setState({error: null})}>Reset</button>
+						<button 
+							className="form-reset-btn" 
+							type="button" 
+							title="Reset frame form"
+							onClick={() => this.setState({error: null})}>Reset
+						</button>
             <div className="form-btns">
               <button
-                className="form-submit-btn"
+								className="form-submit-btn"
+								title="Submit Edited Frame"
                 type='submit'
                 disabled={this.state.error}
 							>
