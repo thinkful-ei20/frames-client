@@ -1,4 +1,6 @@
 .dashboard {
+	position: relative;
+	top: 50px;
 	text-align: center;
 	margin: 0 auto;
 	background-color: #232633;

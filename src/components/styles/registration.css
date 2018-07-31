@@ -1,7 +1,12 @@
 .registration {
-  height: 87vh;
-  background:url("../../images/green-vector.jpg") no-repeat fixed center; 
+  height: calc(100vh - 50px);
+  /*background:url("../../images/green-vector.jpg") no-repeat fixed center;*/
+  background-image: linear-gradient(rgba(11, 14, 25, 1),	rgba(39, 52, 102, 0.3)), url("../../images/green-vector.jpg");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 50px;
 }

@@ -61,7 +61,7 @@ export class RegisterForm extends React.Component {
         />
         }
         <p
-          className="ask-login">
+          className="ask-login sign-up-link">
           Already have an account?
           <Link to="/login"> Log In</Link>
         </p>

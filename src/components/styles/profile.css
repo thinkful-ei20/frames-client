@@ -8,7 +8,9 @@
 }
 
 .profile-wrapper {
-    height: 130vh;
+    position: relative;
+    top: 50px;
+    /*height: 130vh;*/
     color: #edeef0;
     background-color: #2b2d3d;
     padding: 5%;

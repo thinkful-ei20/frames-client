@@ -36,7 +36,7 @@ export const RegisterFormFirstPage = props => {
 				validate={[required, nonEmpty, isTrimmed, validPhone]}
 				autocomplete="off"
 			/>
-			<div>
+			<div className="form-field form-btns">
 				<button
 					type="submit"
 					className="next form-submit-btn"

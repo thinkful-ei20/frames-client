@@ -41,9 +41,9 @@ export class Profile extends React.Component {
 
 		return (
 			<main className="profile-wrapper">
+        {error}
 				<header className="profile-header">
           <h2>My profile</h2>
-					{error}
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}

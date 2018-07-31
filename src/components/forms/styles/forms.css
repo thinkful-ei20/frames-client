@@ -223,6 +223,7 @@
     margin: 5% 0 0;
     font-size: 11px;
     text-transform: uppercase;
+    color: #ffffff;
 }
 
 .sign-up-link > a {
@@ -266,13 +267,12 @@
 
 .register-form-wrapper {
     margin: 0 auto;
-    max-width: 100%;
     background: rgba(11, 14, 25, .9);
 }
 
 .register-form-wrapper input { 
-    border: 0.5px solid #35df5c;
-    border-left: 2px solid #35df5c;
+    border: 0.5px solid #35df5c !important;
+    border-left: 2px solid #35df5c !important;
 }
 
 .register-form-wrapper h2 {
@@ -289,10 +289,6 @@
 
 .next:hover{
     color: #35df5c;
-}
-
-.ask-login {
-    color: white;
 }
 
 .ask-login a {

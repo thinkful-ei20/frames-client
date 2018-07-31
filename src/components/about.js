@@ -1,11 +1,16 @@
 import React from 'react';
 
+import './styles/about.css';
+
+import employeeScreenshot from '../images/employee_screenshot.png';
+import dashboardScreenshot from '../images/dashboard_screenshot.png';
+
 export const About = () => {
 	return(
 		<React.Fragment>
 			<section className="about-section">
 				<div className="about-section-img-wrapper">
-					<img src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"/>
+					<img src={dashboardScreenshot}/>
 				</div>
 				<div className="about-section-text-wrapper">
 					{/*<h2>Catch Phrase here</h2>*/}
@@ -21,16 +26,16 @@ export const About = () => {
             or employee name.</p>
 				</div>
 				<div className="about-section-img-wrapper">
-					<img src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"/>
+          <img src={dashboardScreenshot}/>
 				</div>
 			</section>
 
 			<section className="about-section">
 				<div className="about-section-img-wrapper">
-					<img src="http://trupanion.com/blog/wp-content/uploads/2011/07/1155124917_cats-110112-3413-sm.jpg"/>
+          <img src={employeeScreenshot}/>
 				</div>
 				<div className="about-section-text-wrapper">
-					<h3>Second reason it is cool</h3>
+					<h3>Employee management</h3>
 					<p>And it is also a very good one</p>
 				</div>
 			</section>

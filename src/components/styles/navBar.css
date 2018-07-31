@@ -3,15 +3,26 @@
     justify-content: center;
     background-color: #0b0e19;
     color: #edeef0;
-    height: auto;
+    height: 50px;
     width: 100%;
-    border-bottom: 1px solid #03A9F4;
+    /*border-bottom: 1px solid #03A9F4;*/
+
+
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 3;
 }
 
 .main-header-logo-wrapper {
     display: flex;
     align-items: center;
     padding-left: 20px;
+}
+
+.main-header-logo-wrapper a {
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .main-header-logo-wrapper:hover,
