@@ -1,16 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import moment from 'moment';
-import CardList from './card-list';
-import { fetchFrames } from '../actions/frames';
-import requiresLogin from './requires-login';
-import { getThisWeek, getThisMonth, getToday } from '../actions/utils';
-import { fetchEmployees } from '../actions/employee';
 import PropTypes from 'prop-types';
 
-import './styles/dashboard.css';
-import { showModal } from '../actions/modals';
+import CardList from './card-list';
 import ScheduleView from './schedule-view';
+import requiresLogin from './requires-login';
+import {fetchFrames} from '../actions/frames';
+import {getThisWeek,getThisMonth,getToday} from '../actions/utils';
+import {fetchEmployees} from '../actions/employee';
+import {showModal} from '../actions/modals';
+
+import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
 
@@ -64,13 +65,15 @@ export class Dashboard extends React.Component {
 
 		return(
 			<React.Fragment>
-				<div className="dashboard">
+				<section className="dashboard">
 					{error}
-					<h2>Dashboard</h2>
-					<div className="dashboard-section-header">
-						<ScheduleView />
-						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
-					</div>
+					<header>
+						<h2>Dashboard</h2>
+						<div className="dashboard-section-header">
+							<ScheduleView />
+							<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
+						</div>
+					</header>
 					<div className="section-header">
 						<h3>Frames</h3>
 						<button className="frame-add-btn" title="Add a frame" onClick={() => this.props.dispatch(showModal('newFrame', null))}>
@@ -82,7 +85,7 @@ export class Dashboard extends React.Component {
 							? <CardList list={listOfFramesToBeRendered} />
 							: <div className="no-schedule">No frames on the schedule!</div>}
 					</section>
-				</div>
+				</section>
 			</React.Fragment>
 		);
 	}

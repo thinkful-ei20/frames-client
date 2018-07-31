@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Field, reduxForm, } from 'redux-form';
-import renderField from './field';
-import {isTrimmed, length, nonEmpty, required, validEmail, validPhone} from './formValidators';
-import { editProfile } from '../../actions/profile';
+import {Field,reduxForm} from 'redux-form';
 import PropTypes from 'prop-types';
+
+import renderField from './field';
+import {editProfile} from '../../actions/profile';
+import {isTrimmed, length, nonEmpty, required, validEmail, validPhone} from './formValidators';
 
 const passwordLength = length({ min: 8, max: 72 });
 

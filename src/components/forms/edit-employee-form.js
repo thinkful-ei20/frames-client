@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { updateEmployee, deleteEmployee } from '../../actions/employee';
 import PropTypes from 'prop-types';
-import { hideModal } from '../../actions/modals';
+
+import {updateEmployee,deleteEmployee} from '../../actions/employee';
+import {hideModal} from '../../actions/modals';
 
 export class EditEmployeeForm extends React.Component {
 	handleSubmit(e){
@@ -38,7 +39,7 @@ export class EditEmployeeForm extends React.Component {
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="form-wrapper">
 					<form onSubmit={e => this.handleSubmit(e)}>
-						<div className="form-field">
+						<fieldset className="form-field">
 							<label htmlFor="firstname">First Name
 								<input
 									type='text'
@@ -47,8 +48,8 @@ export class EditEmployeeForm extends React.Component {
 									defaultValue={this.props.employee.firstname}
 								/>
 							</label>
-						</div>
-						<div className="form-field">
+						</fieldset>
+						<fieldset className="form-field">
 							<label htmlFor="lastname">Last Name
 								<input
 									type='text'
@@ -57,8 +58,8 @@ export class EditEmployeeForm extends React.Component {
 									defaultValue={this.props.employee.lastname}
 								/>
 							</label>
-						</div>
-						<div className="form-field">
+						</fieldset>
+						<fieldset className="form-field">
 							<label htmlFor="email">Email Address
 								<input
 									type='email'
@@ -68,8 +69,8 @@ export class EditEmployeeForm extends React.Component {
 									defaultValue={this.props.employee.email}
 								/>
 							</label>
-						</div>
-						<div className="form-field">
+						</fieldset>
+						<fieldset className="form-field">
 							<label htmlFor="phoneNumber">Phone Number
 								<input
 									type='tel'
@@ -80,7 +81,7 @@ export class EditEmployeeForm extends React.Component {
 									pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
 								/>
 							</label>
-						</div>
+						</fieldset>
 						<input className="form-reset-btn" type="reset"/>
 						<div className="form-btns">
 							<button className="form-submit-btn" title="Edit employee form submit button" type='submit'>Save</button>

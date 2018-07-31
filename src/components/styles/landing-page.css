@@ -100,7 +100,7 @@
 
 
 .clip-path::after {
-	background-image: url('../../images/cubes-frames-2.jpg');
+	background-image: url('../../images/cubes-frames.jpg');
 	background-repeat: no-repeat, repeat;
 	background-size: contain;
 	background-size: 100% 100%;

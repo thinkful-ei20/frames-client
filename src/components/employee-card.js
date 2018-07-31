@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { showModal } from '../actions/modals';
+import {showModal} from '../actions/modals';
 import PropTypes from 'prop-types';
 
 export function EmployeeCard (props){

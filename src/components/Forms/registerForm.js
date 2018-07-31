@@ -35,8 +35,6 @@ export class RegisterForm extends React.Component {
       phoneNumber
     };
 
-    console.log('USER', user);
-
     this.props.dispatch(createUser(user));
   };
 

@@ -1,9 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchProfile } from '../actions/profile';
-import ProfileForm from './forms/profileForm';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+
+import ProfileForm from './forms/profileForm';
 import requiresLogin from './requires-login';
+import {fetchProfile} from '../actions/profile';
 
 import './styles/profile.css';
 
@@ -41,16 +42,16 @@ export class Profile extends React.Component {
 
 		return (
 			<main className="profile-wrapper">
-        {error}
+        		{error}
 				<header className="profile-header">
-          <h2>My profile</h2>
+          			<h2>My profile</h2>
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
 							onClick={this.handleEdit}
 							title={this.state.editing ? 'Profile cancel button' : 'Profile edit button'}
-          >
-          </button>
+          				>
+          				</button>
 					</div>
 				</header>
 					{this.state.editing

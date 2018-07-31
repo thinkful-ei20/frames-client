@@ -37,7 +37,6 @@ export const About = () => {
 					<p>Keep track of all your team members, their contact infromation and their schedule for easy communication and smoother operations.</p>
 				</div>
 			</section>
-
 		</React.Fragment>
 	);
 };

@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { createEmployee } from '../../actions/employee';
 import PropTypes from 'prop-types';
-import { hideModal } from '../../actions/modals';
+
+import {createEmployee} from '../../actions/employee';
+import {hideModal} from '../../actions/modals';
 
 export class AddEmployeeForm extends React.Component {
 	handleSubmit(e){
@@ -41,7 +42,7 @@ export class AddEmployeeForm extends React.Component {
 					<div className="form-wrapper">
 						<h2 className='form-header'>New Employee</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
-							<div className="form-field">
+							<fieldset className="form-field">
 								<label htmlFor="firstname">First Name
 									<input
 										type='text'
@@ -49,7 +50,7 @@ export class AddEmployeeForm extends React.Component {
 										name='firstname'
 									/>
 								</label>
-							</div>
+							</fieldset>
 							<div className="form-field">
 								<label htmlFor="lastname">Last Name
 									<input
@@ -59,7 +60,7 @@ export class AddEmployeeForm extends React.Component {
 									/>
 								</label>
 							</div>
-							<div className="form-field">
+							<fieldset className="form-field">
 								<label htmlFor="image">Link to Image of Employee
 									<input
 										type='text'
@@ -67,8 +68,8 @@ export class AddEmployeeForm extends React.Component {
 										name='image'
 									/>
 								</label>
-							</div>
-							<div className="form-field">
+							</fieldset>
+							<fieldset className="form-field">
 								<label htmlFor="email">Email Address
 									<input
 										type='email'
@@ -76,8 +77,8 @@ export class AddEmployeeForm extends React.Component {
 										name='email'
 									/>
 								</label>
-							</div>
-							<div className="form-field">
+							</fieldset>
+							<fieldset className="form-field">
 								<label htmlFor="phoneNumber">Phone Number
 									<input
 										type='tel'
@@ -85,8 +86,8 @@ export class AddEmployeeForm extends React.Component {
 										name='phoneNumber'
 									/>
 								</label>
-							</div>
-							<div className="form-field">
+							</fieldset>
+							<fieldset className="form-field">
 								<label htmlFor="password">Password
 									<input
 										type='password'
@@ -94,7 +95,7 @@ export class AddEmployeeForm extends React.Component {
 										name='password'
 									/>
 								</label>
-							</div>
+							</fieldset>
 							<div className="form-field form-btns">
 								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
 								<button className="form-submit-btn" type='submit'>Save</button>
