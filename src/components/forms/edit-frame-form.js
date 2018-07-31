@@ -40,21 +40,15 @@ export class EditFrameForm extends React.Component {
 	};
 
 	validateFrame = () => {
-		console.log('Validate frame ran');
 		// Validate that the endFrame is later than the start frame
 		const start = new Date(document.getElementById('startDate').value);
 		const end = new Date(document.getElementById('endDate').value);
-    console.log('Validate frame ran', start);
-    console.log('Validate frame ran', end);
 
     if(start >= end){
-    	console.log('start > end');
 			this.setState({error : 'The end time must be later than the start time'});
-			console.log('STATE', this.state.error);
 		} else {
 			this.setState({error : null});
-      console.log('STATE', this.state.error);
-
+			this.props.dispatch(clearFrameError());
     }
 	};
 

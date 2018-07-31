@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addFrame } from '../../actions/edit-frame';
+import { addFrame, clearFrameError } from '../../actions/edit-frame';
 
 import '../../App.css';
 import { getToday } from '../../actions/utils';
 import { hideModal } from '../../actions/modals';
+import moment from "moment/moment";
 
 export class CreateFrameForm extends React.Component {
 	constructor(props) {
@@ -45,6 +46,7 @@ export class CreateFrameForm extends React.Component {
 	}
 
 	handleCancel() {
+		this.props.dispatch(clearFrameError());
 		this.props.dispatch(hideModal());
 	}
 
@@ -59,13 +61,24 @@ export class CreateFrameForm extends React.Component {
 			);
 		}
 
+
+    const defaultStart = moment().format().slice(0,-9);
+    const defaultEnd = moment().format().slice(0,-9);
+
+		if (this.state.frameError) {
+			error = (
+				<div className="form-modal-error" aria-live="polite">
+					{this.state.frameError}
+				</div>
+			);
+		}
+
 		return (
 			<React.Fragment>
 				<button className="modal-close-btn" title="Close Create Frame Form" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className='form-header'>Add Frame</h2>
-						<p className="form-modal-error" >{this.state.frameError}</p>
 						<form
 							onSubmit={e => this.handleSubmit(e)}
 						>
@@ -92,7 +105,7 @@ export class CreateFrameForm extends React.Component {
 									name="startDate"
 									id="startDate"
 									type="datetime-local"
-									defaultValue={getToday().start}
+									defaultValue={defaultStart}
 									onChange={() => this.validateFrame()}
 								/>
 							</div>
@@ -102,7 +115,7 @@ export class CreateFrameForm extends React.Component {
 									name="endDate"
 									id="endDate"
 									type="datetime-local"
-									defaultValue={getToday().start}
+									defaultValue={defaultEnd}
 									onChange={() => this.validateFrame()}
 								/>
 							</div>
