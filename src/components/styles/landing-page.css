@@ -66,54 +66,6 @@
 	font-size: calc(1.2rem + .9vw);
 }
 
-.clip-path {
-	width: 100%;
-	position: relative;
-	float: left;
-	margin: 0;
-	height: auto;
-	padding: 4px;
-	transition: all 1s;
-}
-.clip-path.bottom {
-	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 60%);
-}
-.clip-path.top {
-	-webkit-clip-path: polygon(0% 40%, 100% 0%, 100% 100%, 0% 100%);
-}
-.clip-path.left {
-	-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 40% 100%);
-}
-.clip-path.right {
-	-webkit-clip-path: polygon(0% 0%, 60% 0%, 100% 100%, 0% 100%);
-}
-.clip-path .content {
-	position: absolute;
-	content: '';
-	height: calc(100% - 10px);
-	width: calc(100% - 8px);
-	background: bisque;
-}
-.clip-path.bottom .content {
-	-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 60%);
-}
-
-
-.clip-path::after {
-	background-image: url('../../images/cubes-frames.jpg');
-	background-repeat: no-repeat, repeat;
-	background-size: contain;
-	background-size: 100% 100%;
-	content: "";
-	opacity: 0.5;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position: absolute;
-	z-index: -1;
-}
-
 @media only screen and (min-width: 640px) {
 	.hero-section {
 		padding-bottom: 2.5%;
