@@ -9,37 +9,41 @@ export const RegisterFormFirstPage = props => {
 	const { handleSubmit } = props;
 	return (
 		<form onSubmit={handleSubmit}>
-			<Field
-				name="username"
-				label="Username"
-				type="text"
-				component={renderField}
-				validate={[required, nonEmpty, isTrimmed]}
-				autocomplete="off"
-				placeholder='myusername'
-			/>
-			<Field
-				name="companyName"
-				label="Company Name"
-				type="text"
-				component={renderField}
-				validate={[required, nonEmpty, isTrimmed]}
-				autocomplete="off"
-				placeholder='My Company Name'
-			/>
-			<Field
-				name="phoneNumber"
-				label="Phone Number"
-				type="tel"
-				placeholder="1234567890"
-				component={renderField}
-				validate={[required, nonEmpty, isTrimmed, validPhone]}
-				autocomplete="off"
-			/>
+			<label>Username
+				<Field
+					name="username"
+					type="text"
+					component={renderField}
+					validate={[required, nonEmpty, isTrimmed]}
+					autocomplete="off"
+					placeholder='myusername'
+				/>
+			</label>
+			<label>Company Name
+				<Field
+					name="companyName"
+					type="text"
+					component={renderField}
+					validate={[required, nonEmpty, isTrimmed]}
+					autocomplete="off"
+					placeholder='My Company Name'
+				/>
+			</label>
+			<label>Phone Number
+				<Field
+					name="phoneNumber"
+					type="tel"
+					placeholder="1234567890"
+					component={renderField}
+					validate={[required, nonEmpty, isTrimmed, validPhone]}
+					autocomplete="off"
+				/>
+			</label>
 			<div className="form-field form-btns">
 				<button
 					type="submit"
 					className="next form-submit-btn"
+					title="Next"
 				>
 					Next
 				</button>

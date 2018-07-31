@@ -61,7 +61,7 @@ export class CreateFrameForm extends React.Component {
 
 		return (
 			<React.Fragment>
-				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<button className="modal-close-btn" title="Close Create Frame Form" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className='form-header'>Add Frame</h2>

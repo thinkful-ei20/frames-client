@@ -23,33 +23,37 @@ export const RegisterFormSecondPage = props => {
 
 		<form onSubmit={handleSubmit}>
 			{error}
-			<Field
-				name="email"
-				label="Email"
-				type="email"
-				component={renderField}
-				validate={[required, validEmail]}
-				autocomplete="off"
-			/>
-			<Field
-				name="password"
-				label="Password"
-				type="password"
-				component={renderField}
-				validate={[required, isTrimmed, passwordLength]}
-				autocomplete="off"
-			/>
-			<Field
-				name="passwordConfirm"
-				label="Confirm password"
-				type="password"
-				component={renderField}
-				validate={[required, nonEmpty, matchesPassword]}
-				autocomplete="off"
-			/>
+			<label>Email
+				<Field
+					name="email"
+					type="email"
+					component={renderField}
+					validate={[required, validEmail]}
+					autocomplete="off"
+				/>
+			</label>
+			<label>Password
+				<Field
+					name="password"
+					type="password"
+					component={renderField}
+					validate={[required, isTrimmed, passwordLength]}
+					autocomplete="off"
+				/>
+			</label>
+			<label>Confirm password
+				<Field
+					name="passwordConfirm"
+					type="password"
+					component={renderField}
+					validate={[required, nonEmpty, matchesPassword]}
+					autocomplete="off"
+				/>
+			</label>
 			<button
 				type="button"
 				className="previous"
+				title="previous"
 				onClick={previousPage}
 			>
         Previous
@@ -57,6 +61,7 @@ export const RegisterFormSecondPage = props => {
 			<button
 				className="form-submit-btn next"
 				type="submit"
+				title="Submit registration"
 				disabled={pristine || submitting}
 			>
         Submit

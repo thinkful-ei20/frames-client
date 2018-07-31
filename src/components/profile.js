@@ -47,7 +47,8 @@ export class Profile extends React.Component {
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
-            	onClick={this.handleEdit}
+							onClick={this.handleEdit}
+							title={this.state.editing ? 'Profile cancel button' : 'Profile edit button'}
           >
           </button>
 					</div>

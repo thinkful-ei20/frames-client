@@ -39,48 +39,52 @@ export class EditEmployeeForm extends React.Component {
 				<div className="form-wrapper">
 					<form onSubmit={e => this.handleSubmit(e)}>
 						<div className="form-field">
-							<label htmlFor="firstname">First Name</label>
-							<input
-								type='text'
-								id='firstname'
-								name='firstname'
-								defaultValue={this.props.employee.firstname}
-							/>
+							<label htmlFor="firstname">First Name
+								<input
+									type='text'
+									id='firstname'
+									name='firstname'
+									defaultValue={this.props.employee.firstname}
+								/>
+							</label>
 						</div>
 						<div className="form-field">
-							<label htmlFor="lastname">Last Name</label>
-							<input
-								type='text'
-								id='lasttname'
-								name='lastname'
-								defaultValue={this.props.employee.lastname}
-							/>
+							<label htmlFor="lastname">Last Name
+								<input
+									type='text'
+									id='lasttname'
+									name='lastname'
+									defaultValue={this.props.employee.lastname}
+								/>
+							</label>
 						</div>
 						<div className="form-field">
-							<label htmlFor="email">Email Address</label>
-							<input
-								type='email'
-								id='email'
-								name='email'
-								required
-								defaultValue={this.props.employee.email}
-							/>
+							<label htmlFor="email">Email Address
+								<input
+									type='email'
+									id='email'
+									name='email'
+									required
+									defaultValue={this.props.employee.email}
+								/>
+							</label>
 						</div>
 						<div className="form-field">
-							<label htmlFor="phoneNumber">Phone Number</label>
-							<input
-								type='tel'
-								id='phoneNumber'
-								name='phoneNumber'
-								required
-								defaultValue={this.props.employee.phoneNumber}
-								pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
-							/>
+							<label htmlFor="phoneNumber">Phone Number
+								<input
+									type='tel'
+									id='phoneNumber'
+									name='phoneNumber'
+									required
+									defaultValue={this.props.employee.phoneNumber}
+									pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
+								/>
+							</label>
 						</div>
 						<input className="form-reset-btn" type="reset"/>
 						<div className="form-btns">
-							<button className="form-submit-btn" type='submit'>Save</button>
-							<button className="form-delete-btn" onClick={() => this.handleDelete()}>
+							<button className="form-submit-btn" title="Edit employee form submit button" type='submit'>Save</button>
+							<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
 								<i className="fa fa-trash-o" aria-hidden="true"></i>
 							</button>
 						</div>

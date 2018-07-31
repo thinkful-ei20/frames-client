@@ -10,10 +10,9 @@ export const About = () => {
 		<React.Fragment>
 			<section className="about-section">
 				<div className="about-section-img-wrapper">
-					<img src={dashboardScreenshot}/>
+					<img src={dashboardScreenshot} alt="Dashboard screenshot"/>
 				</div>
 				<div className="about-section-text-wrapper">
-					{/*<h2>Catch Phrase here</h2>*/}
 					<h3>Mobile Optimized</h3>
 					<p>Interface is optimized to display a large amount of densely organized information on mobile devices.</p>
 				</div>
@@ -26,13 +25,13 @@ export const About = () => {
             or employee name.</p>
 				</div>
 				<div className="about-section-img-wrapper">
-          <img src={dashboardScreenshot}/>
+          <img src={dashboardScreenshot} alt="Dashboard screenshot"/>
 				</div>
 			</section>
 
 			<section className="about-section">
 				<div className="about-section-img-wrapper">
-          <img src={employeeScreenshot}/>
+          <img src={employeeScreenshot} alt="Employee screenshot"/>
 				</div>
 				<div className="about-section-text-wrapper">
 					<h3>Employee management</h3>

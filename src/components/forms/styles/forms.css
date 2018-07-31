@@ -35,7 +35,6 @@
     padding-top: 1.5rem;
     color: #8e909a;
     font-size: calc(0.5rem + 0.3vw)
-    /*font-size: 11px;*/
 }
 
 .form-field input,
@@ -45,7 +44,6 @@
     margin-top: 5px;
     margin-bottom: 5px;
 	line-height: 24px;
-    /*font-size: calc(.5rem + .9vw);*/
     font-size: 12px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -64,7 +62,7 @@
     background: #03A9F4;
     padding: 10px 40px;
     border: 2px solid #03A9F4;
-    color: #FFFFFF;
+    color: black;
     text-transform: uppercase;
 	font-size: 12px;
 	transition-property: background,color;
@@ -84,7 +82,6 @@
 .form-field-error {
     color: #ce3d3d;
     font-size: calc(0.5rem + 0.3vw);
-    /*font-size: 11px;*/
     position: absolute;
     bottom: -20px;
     text-transform: uppercase;
@@ -283,7 +280,7 @@
 
 .next {
     border: 2px solid #35df5c;
-    color: white;
+    color: black;
     background: #35df5c;
 }
 
