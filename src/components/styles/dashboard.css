@@ -3,7 +3,7 @@
 	top: 50px;
 	text-align: center;
 	margin: 0 auto;
-	background-color: #232633;
+	background-color: #111525;
 	padding: 1% 5% 5% 5%;
 }
 
@@ -46,7 +46,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-bottom: 2px solid #b94343;
 	margin-bottom: 0.25%;
 	padding: 1.5% 2.5% 1.5% 2.5%;
 }
