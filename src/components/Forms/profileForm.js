@@ -49,11 +49,11 @@ export class ProfileForm extends React.Component {
 			);
 		}
 		return (
-      <div className="form-wrapper">
-				<form
-					onSubmit={this.props.handleSubmit(this.onSubmit)}
-				>	
-					{error}
+      	<div className="form-wrapper">
+			<form onSubmit={this.props.handleSubmit(this.onSubmit)}>	
+				{error}
+				<fieldset>
+					<legend>Edit Profile</legend>
 					<label>Company name
 						<Field
 							name="companyName"
@@ -62,7 +62,6 @@ export class ProfileForm extends React.Component {
 							validate={[required, nonEmpty, isTrimmed]}
 						/>
 					</label>
-
 					<label>Username
 						<Field
 							name="username"
@@ -71,7 +70,6 @@ export class ProfileForm extends React.Component {
 							validate={[required, nonEmpty, isTrimmed]}
 						/>
 					</label>
-
 					<label>Email Address
 						<Field
 							name="email"
@@ -80,7 +78,6 @@ export class ProfileForm extends React.Component {
 							validate={[required, validEmail]}
 						/>
 					</label>
-
 					<label>Phone Number
 						<Field
 							name="phoneNumber"
@@ -89,7 +86,6 @@ export class ProfileForm extends React.Component {
 							validate={[required, nonEmpty, isTrimmed, validPhone]}
 						/>
 					</label>
-
 					<label>Password
 						<Field
 							name="password"
@@ -99,12 +95,13 @@ export class ProfileForm extends React.Component {
 							autocomplete="off"
 						/>
 					</label>
-					<div className="form-field profile-form-field form-btns">
-            <button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
-						<button className="form-submit-btn" type="submit">Save</button>
-					</div>
-				</form>
-      </div>
+				</fieldset>
+				<div className="form-field profile-form-field form-btns">
+					<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+					<button className="form-submit-btn" type="submit">Save</button>
+				</div>
+			</form>
+      	</div>
 		);
 	}
 }

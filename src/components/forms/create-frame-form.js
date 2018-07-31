@@ -79,46 +79,47 @@ export class CreateFrameForm extends React.Component {
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className='form-header'>Add Frame</h2>
-						<form
-							onSubmit={e => this.handleSubmit(e)}
-						>
-							<div className="form-field">
-								<label htmlFor='employee-select'>Employee
+						<form onSubmit={e => this.handleSubmit(e)}>
+							<fieldset>
+								<legend>Add Frame</legend>
+								<div className="form-field">
+									<label htmlFor='employee-select'>Employee
 
-								</label>
-								<select
-									id="employee-select"
-									name="employee-select"
-								>
-									{this.props.employees.map((employee, i) =>
-										<option key={i} value={employee.id}>
-											{`${employee.firstname} ${employee.lastname}`}
-										</option>
-									)}
-									<option value='open'>OPEN</option>
-								</select>
-							</div>
+									</label>
+									<select
+										id="employee-select"
+										name="employee-select"
+									>
+										{this.props.employees.map((employee, i) =>
+											<option key={i} value={employee.id}>
+												{`${employee.firstname} ${employee.lastname}`}
+											</option>
+										)}
+										<option value='open'>OPEN</option>
+									</select>
+								</div>
 
-							<div className="form-field">
-								<label htmlFor="startDate">From</label>
-								<input
-									name="startDate"
-									id="startDate"
-									type="datetime-local"
-									defaultValue={defaultStart}
-									onChange={() => this.validateFrame()}
-								/>
-							</div>
-							<div className="form-field">
-								<label htmlFor="endDate">To</label>
-								<input
-									name="endDate"
-									id="endDate"
-									type="datetime-local"
-									defaultValue={defaultEnd}
-									onChange={() => this.validateFrame()}
-								/>
-							</div>
+								<div className="form-field">
+									<label htmlFor="startDate">From</label>
+									<input
+										name="startDate"
+										id="startDate"
+										type="datetime-local"
+										defaultValue={defaultStart}
+										onChange={() => this.validateFrame()}
+									/>
+								</div>
+								<div className="form-field">
+									<label htmlFor="endDate">To</label>
+									<input
+										name="endDate"
+										id="endDate"
+										type="datetime-local"
+										defaultValue={defaultEnd}
+										onChange={() => this.validateFrame()}
+									/>
+								</div>
+							</fieldset>
 							<div className="form-field form-btns">
 								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
 								<button className="form-submit-btn">Save</button>

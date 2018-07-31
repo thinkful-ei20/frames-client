@@ -42,59 +42,62 @@ export class AddEmployeeForm extends React.Component {
 					<div className="form-wrapper">
 						<h2 className='form-header'>New Employee</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
-							<fieldset className="form-field">
-								<label htmlFor="firstname">First Name
-									<input
-										type='text'
-										id='firstname'
-										name='firstname'
-									/>
-								</label>
-							</fieldset>
-							<div className="form-field">
-								<label htmlFor="lastname">Last Name
-									<input
-										type='text'
-										id='lasttname'
-										name='lastname'
-									/>
-								</label>
-							</div>
-							<fieldset className="form-field">
-								<label htmlFor="image">Link to Image of Employee
-									<input
-										type='text'
-										id='image'
-										name='image'
-									/>
-								</label>
-							</fieldset>
-							<fieldset className="form-field">
-								<label htmlFor="email">Email Address
-									<input
-										type='email'
-										id='email'
-										name='email'
-									/>
-								</label>
-							</fieldset>
-							<fieldset className="form-field">
-								<label htmlFor="phoneNumber">Phone Number
-									<input
-										type='tel'
-										id='phoneNumber'
-										name='phoneNumber'
-									/>
-								</label>
-							</fieldset>
-							<fieldset className="form-field">
-								<label htmlFor="password">Password
-									<input
-										type='password'
-										id='password'
-										name='password'
-									/>
-								</label>
+							<fieldset>
+								<legend>Add Employee</legend>
+								<div className="form-field">
+									<label htmlFor="firstname">First Name
+										<input
+											type='text'
+											id='firstname'
+											name='firstname'
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="lastname">Last Name
+										<input
+											type='text'
+											id='lasttname'
+											name='lastname'
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="image">Link to Image of Employee
+										<input
+											type='text'
+											id='image'
+											name='image'
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="email">Email Address
+										<input
+											type='email'
+											id='email'
+											name='email'
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="phoneNumber">Phone Number
+										<input
+											type='tel'
+											id='phoneNumber'
+											name='phoneNumber'
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="password">Password
+										<input
+											type='password'
+											id='password'
+											name='password'
+										/>
+									</label>
+								</div>
 							</fieldset>
 							<div className="form-field form-btns">
 								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>

@@ -55,65 +55,65 @@ export class SuperFilter extends React.Component{
 					<div className="form-wrapper">
 						<h2 className='form-header'>Advanced Filter</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
-							<div className="form-field">
-								<label className="employee-select">Filter by employee:
-									<select
-										id="employee-select"
-										name="employee-select"
-									>
-										<option value=''>FILTER BY EMPLOYEE</option>
-										{this.props.employees.map((employee, i) =>
-											<option key={i} value={employee.id}>
-												{`${employee.firstname} ${employee.lastname}`}
-											</option>
-										)}
-										<option value='open'>OPEN</option>
-									</select>
-								</label>
-							</div>
-
-							<div className="form-field">
-								<label className="filterByTime">Filter by frames:
-									<select
-										htmlFor="filterByTime"
-										name="filterByTime"
-										id="filterByTime"
-									>
-										<option value=''>FILTER TIME FRAMES</option>
-										{this.removeDuplicates(this.props.frames).map((frame, i) => {
-											return (
-												<option
-													key={i}
-													value={`${moment(frame.startFrame).format('YYYY-MM-DDTHH:mm')}|${moment(frame.endFrame).format('YYYY-MM-DDTHH:mm')}`}
-												>
-													{moment(frame.startFrame).format('LT')} - {moment(frame.endFrame).format('LT')}
+							<fieldset>
+								<legend>Filter</legend>
+								<div className="form-field">
+									<label className="employee-select">Filter by employee:
+										<select
+											id="employee-select"
+											name="employee-select"
+										>
+											<option value=''>FILTER BY EMPLOYEE</option>
+											{this.props.employees.map((employee, i) =>
+												<option key={i} value={employee.id}>
+													{`${employee.firstname} ${employee.lastname}`}
 												</option>
-											);
-										})}
-									</select>
-								</label>
-							</div>
-
-							<div className="form-field">
-								<label htmlFor='startdatetime'>Select Start Date and Time</label>
-								<input
-									id='startdatetime'
-									name='startdatetime'
-									type='datetime-local'
-									onChange={this.validateTime}
-									defaultValue={defaultStart}
-								/>
-							</div>
-
-							<div className="form-field">
-								<label htmlFor='enddatetime'>Select End Date and Time</label>
-								<input
-									id='enddatetime'
-									name='enddatetime'
-									type='datetime-local'
-									defaultValue={defaultEnd}
-								/>
-							</div>
+											)}
+											<option value='open'>OPEN</option>
+										</select>
+									</label>
+								</div>
+								<div className="form-field">
+									<label className="filterByTime">Filter by frames:
+										<select
+											htmlFor="filterByTime"
+											name="filterByTime"
+											id="filterByTime"
+										>
+											<option value=''>FILTER TIME FRAMES</option>
+											{this.removeDuplicates(this.props.frames).map((frame, i) => {
+												return (
+													<option
+														key={i}
+														value={`${moment(frame.startFrame).format('YYYY-MM-DDTHH:mm')}|${moment(frame.endFrame).format('YYYY-MM-DDTHH:mm')}`}
+													>
+														{moment(frame.startFrame).format('LT')} - {moment(frame.endFrame).format('LT')}
+													</option>
+												);
+											})}
+										</select>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor='startdatetime'>Select Start Date and Time</label>
+									<input
+										id='startdatetime'
+										name='startdatetime'
+										type='datetime-local'
+										onChange={this.validateTime}
+										defaultValue={defaultStart}
+									/>
+								</div>
+								<div className="form-field">
+									<label htmlFor='enddatetime'>Select End Date and Time</label>
+									<input
+										id='enddatetime'
+										name='enddatetime'
+										type='datetime-local'
+										defaultValue={defaultEnd}
+									/>
+								</div>
+							</fieldset>
 							<div className="form-field form-btns">
 								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
 								<button className="form-submit-btn" type="submit">Submit</button>

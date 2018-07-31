@@ -24,31 +24,33 @@ export class LoginForm extends React.Component {
 
 		return (
 			<div className="login-form-wrapper">
-				<h2 className="form-header">Log in</h2>
-
+				<h2 className="form-header">Login</h2>
 				<form
 					className="login-form"
 					onSubmit={this.props.handleSubmit(this.onSubmit)}>
-					<label>Username
-						<Field
-							name="username"
-							type="text"
-							component={renderField}
-							validate={[required, nonEmpty, isTrimmed]}
-							autocomplete="off"
-							placeholder="username"
-						/>
-					</label>
-					<label>Password
-						<Field
-							name="password"
-							type="password"
-							component={renderField}
-							validate={[required, nonEmpty]}
-							autocomplete="off"
-							placeholder="password"
-						/>
-					</label>
+					<fieldset>
+						<legend>Login</legend>
+						<label>Username
+							<Field
+								name="username"
+								type="text"
+								component={renderField}
+								validate={[required, nonEmpty, isTrimmed]}
+								autocomplete="off"
+								placeholder="username"
+							/>
+						</label>
+						<label>Password
+							<Field
+								name="password"
+								type="password"
+								component={renderField}
+								validate={[required, nonEmpty]}
+								autocomplete="off"
+								placeholder="password"
+							/>
+						</label>
+					</fieldset>
 					<div className="form-field form-btns">
             <button
 							className="form-submit-btn"

@@ -6,7 +6,7 @@ import './styles/forms.css';
 export const Field = props => {
 	const Element = props.element || 'input';
 	return (
-		<fieldset className="form-field" id={props.id}>
+		<div className="form-field" id={props.id}>
 			<label htmlFor={props.input.name}>{props.label}</label>
 			<Element
 				className={(props.meta.error && props.meta.touched) ? 'error-border' : 'placeholder-class'}
@@ -19,7 +19,7 @@ export const Field = props => {
 				{props.children}
 			</Element>
 			{props.meta.error && props.meta.touched && <div className="form-field-error" aria-live="polite" role="alert">{props.meta.error}</div>}
-		</fieldset>
+		</div>
 	);
 };
 

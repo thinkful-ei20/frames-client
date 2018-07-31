@@ -87,43 +87,46 @@ export class EditFrameForm extends React.Component {
 				<div className="form-wrapper">
           			<h2 className="form-header">Edit Frame</h2>
 					<form onSubmit={this.handleSubmit}>
-					<fieldset className="form-field">
-						<label htmlFor="employee-select">Employee</label>
-						<select
-							id="employee-select"
-							name="employee-select"
-							defaultValue={this.state.employee}
-							onChange={this.handleEmployeeSelect}
-						>
-							{this.props.employees.employees.map((employee, i) =>
-									<option key={i} value={employee.id}>
-										{`${employee.firstname} ${employee.lastname}`}
-									</option>
-								)}
-							<option value='open'>OPEN</option>
-						</select>
-					</fieldset>
-					<fieldset className="form-field">
-						<label htmlFor="startDate">Start Time
-							<input
-								type="datetime-local"
-								id="startDate"
-								name="startDate"
-								defaultValue={defaultStart}
-								onChange={this.validateFrame}
-							/>
-						</label>
-					</fieldset>
-					<fieldset className="form-field">
-						<label htmlFor="endDate">End Time
-							<input
-								type="datetime-local"
-								id="endDate"
-								name="endDate"
-								defaultValue={defaultEnd}
-								onChange={this.validateFrame}
-							/>
-						</label>
+					<fieldset>
+						<legend>Edit Frame</legend>
+						<div className="form-field">
+							<label htmlFor="employee-select">Employee</label>
+							<select
+								id="employee-select"
+								name="employee-select"
+								defaultValue={this.state.employee}
+								onChange={this.handleEmployeeSelect}
+							>
+								{this.props.employees.employees.map((employee, i) =>
+										<option key={i} value={employee.id}>
+											{`${employee.firstname} ${employee.lastname}`}
+										</option>
+									)}
+								<option value='open'>OPEN</option>
+							</select>
+						</div>
+						<div className="form-field">
+							<label htmlFor="startDate">Start Time
+								<input
+									type="datetime-local"
+									id="startDate"
+									name="startDate"
+									defaultValue={defaultStart}
+									onChange={this.validateFrame}
+								/>
+							</label>
+						</div>
+						<div className="form-field">
+							<label htmlFor="endDate">End Time
+								<input
+									type="datetime-local"
+									id="endDate"
+									name="endDate"
+									defaultValue={defaultEnd}
+									onChange={this.validateFrame}
+								/>
+							</label>
+						</div>
 					</fieldset>
 					<div className="form-field form-btns">
             <button

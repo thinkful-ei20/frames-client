@@ -39,48 +39,51 @@ export class EditEmployeeForm extends React.Component {
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
 				<div className="form-wrapper">
 					<form onSubmit={e => this.handleSubmit(e)}>
-						<fieldset className="form-field">
-							<label htmlFor="firstname">First Name
-								<input
-									type='text'
-									id='firstname'
-									name='firstname'
-									defaultValue={this.props.employee.firstname}
-								/>
-							</label>
-						</fieldset>
-						<fieldset className="form-field">
-							<label htmlFor="lastname">Last Name
-								<input
-									type='text'
-									id='lasttname'
-									name='lastname'
-									defaultValue={this.props.employee.lastname}
-								/>
-							</label>
-						</fieldset>
-						<fieldset className="form-field">
-							<label htmlFor="email">Email Address
-								<input
-									type='email'
-									id='email'
-									name='email'
-									required
-									defaultValue={this.props.employee.email}
-								/>
-							</label>
-						</fieldset>
-						<fieldset className="form-field">
-							<label htmlFor="phoneNumber">Phone Number
-								<input
-									type='tel'
-									id='phoneNumber'
-									name='phoneNumber'
-									required
-									defaultValue={this.props.employee.phoneNumber}
-									pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
-								/>
-							</label>
+						<fieldset>
+							<legend>Edit Employee</legend>
+							<div className="form-field">
+								<label htmlFor="firstname">First Name
+									<input
+										type='text'
+										id='firstname'
+										name='firstname'
+										defaultValue={this.props.employee.firstname}
+									/>
+								</label>
+							</div>
+							<div className="form-field">
+								<label htmlFor="lastname">Last Name
+									<input
+										type='text'
+										id='lasttname'
+										name='lastname'
+										defaultValue={this.props.employee.lastname}
+									/>
+								</label>
+							</div>
+							<div className="form-field">
+								<label htmlFor="email">Email Address
+									<input
+										type='email'
+										id='email'
+										name='email'
+										required
+										defaultValue={this.props.employee.email}
+									/>
+								</label>
+							</div>
+							<div className="form-field">
+								<label htmlFor="phoneNumber">Phone Number
+									<input
+										type='tel'
+										id='phoneNumber'
+										name='phoneNumber'
+										required
+										defaultValue={this.props.employee.phoneNumber}
+										pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
+									/>
+								</label>
+							</div>
 						</fieldset>
 						<input className="form-reset-btn" type="reset"/>
 						<div className="form-btns">

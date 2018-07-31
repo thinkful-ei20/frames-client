@@ -23,33 +23,36 @@ export const RegisterFormSecondPage = props => {
 
 		<form onSubmit={handleSubmit}>
 			{error}
-			<label>Email
-				<Field
-					name="email"
-					type="email"
-					component={renderField}
-					validate={[required, validEmail]}
-					autocomplete="off"
-				/>
-			</label>
-			<label>Password
-				<Field
-					name="password"
-					type="password"
-					component={renderField}
-					validate={[required, isTrimmed, passwordLength]}
-					autocomplete="off"
-				/>
-			</label>
-			<label>Confirm password
-				<Field
-					name="passwordConfirm"
-					type="password"
-					component={renderField}
-					validate={[required, nonEmpty, matchesPassword]}
-					autocomplete="off"
-				/>
-			</label>
+			<fieldset>
+				<legend>Registration</legend>
+				<label>Email
+					<Field
+						name="email"
+						type="email"
+						component={renderField}
+						validate={[required, validEmail]}
+						autocomplete="off"
+					/>
+				</label>
+				<label>Password
+					<Field
+						name="password"
+						type="password"
+						component={renderField}
+						validate={[required, isTrimmed, passwordLength]}
+						autocomplete="off"
+					/>
+				</label>
+				<label>Confirm password
+					<Field
+						name="passwordConfirm"
+						type="password"
+						component={renderField}
+						validate={[required, nonEmpty, matchesPassword]}
+						autocomplete="off"
+					/>
+				</label>
+			</fieldset>
 			<button
 				type="button"
 				className="previous"
