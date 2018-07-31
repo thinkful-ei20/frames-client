@@ -39,7 +39,7 @@ export class Employees extends React.Component {
 								/>
 							);
 						})
-						: <div>No data</div>}
+						: <div className="no-employees">No employees to schedule</div>}
 				</section>
 			</main>
 		);

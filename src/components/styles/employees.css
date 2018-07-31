@@ -83,3 +83,9 @@
     text-shadow: 0 0 1px #8aff37,
     0 0 10px rgba(64, 199, 57, 0.8);
 }
+
+.no-employees {
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
