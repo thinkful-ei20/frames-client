@@ -32,7 +32,7 @@ export class Dashboard extends React.Component {
 		}
 
 		if (this.props.error) {
-
+			// WHAT ABOUT IT? THIS WAS EMPTY, lol.
 		}
 
 		let error = this.props.error ? this.props.error : undefined;
@@ -70,12 +70,6 @@ export class Dashboard extends React.Component {
 				<div className="dashboard">
           {error}
 					<h2>Dashboard</h2>
-
-					<button className="super-filter-btn" title="Add Frame"
-						onClick={() => this.props.dispatch(showModal('newFrame', null))}
-					>
-						<i className="fa fa-plus" aria-hidden="true"></i>
-					</button>
 					<div className="dashboard-section-header">
 						<ScheduleView />
 						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>Filter</button>
