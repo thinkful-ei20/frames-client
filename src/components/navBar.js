@@ -17,7 +17,6 @@ export class NavBar extends React.Component {
 	}
 
 	render() {
-		const { match, location, history } = this.props;
 		let menu;
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (

@@ -73,14 +73,14 @@ export class Dashboard extends React.Component {
 					</div>
 					<div className="section-header">
 						<h3>Frames</h3>
-						<button className="frame-add-btn" onClick={() => this.props.dispatch(showModal('newFrame', null))}>
+						<button className="frame-add-btn" title="Add a frame" onClick={() => this.props.dispatch(showModal('newFrame', null))}>
 							<i className="fa fa-plus-circle" aria-hidden="true"></i>
 						</button>
 					</div>
 					<section className="dashboard-section">
 						{listOfFramesToBeRendered.length
 							? <CardList list={listOfFramesToBeRendered} />
-							: <div>No data</div>}
+							: <div className="no-schedule">No frames on the schedule!</div>}
 					</section>
 				</div>
 			</React.Fragment>

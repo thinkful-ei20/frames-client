@@ -36,58 +36,64 @@ export class AddEmployeeForm extends React.Component {
 
 		return (
 			<React.Fragment>
-				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<button className="modal-close-btn" title="Close create employee form" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className='form-header'>New Employee</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
 							<div className="form-field">
-								<label htmlFor="firstname">First Name</label>
-								<input
-									type='text'
-									id='firstname'
-									name='firstname'
-								/>
+								<label htmlFor="firstname">First Name
+									<input
+										type='text'
+										id='firstname'
+										name='firstname'
+									/>
+								</label>
 							</div>
 							<div className="form-field">
-								<label htmlFor="lastname">Last Name</label>
-								<input
-									type='text'
-									id='lasttname'
-									name='lastname'
-								/>
+								<label htmlFor="lastname">Last Name
+									<input
+										type='text'
+										id='lasttname'
+										name='lastname'
+									/>
+								</label>
 							</div>
 							<div className="form-field">
-								<label htmlFor="image">Link to Image of Employee</label>
-								<input
-									type='text'
-									id='image'
-									name='image'
-								/>
+								<label htmlFor="image">Link to Image of Employee
+									<input
+										type='text'
+										id='image'
+										name='image'
+									/>
+								</label>
 							</div>
 							<div className="form-field">
-								<label htmlFor="email">Email Address</label>
-								<input
-									type='email'
-									id='email'
-									name='email'
-								/>
+								<label htmlFor="email">Email Address
+									<input
+										type='email'
+										id='email'
+										name='email'
+									/>
+								</label>
 							</div>
 							<div className="form-field">
-								<label htmlFor="phoneNumber">Phone Number</label>
-								<input
-									type='tel'
-									id='phoneNumber'
-									name='phoneNumber'
-								/>
+								<label htmlFor="phoneNumber">Phone Number
+									<input
+										type='tel'
+										id='phoneNumber'
+										name='phoneNumber'
+									/>
+								</label>
 							</div>
 							<div className="form-field">
-								<label htmlFor="password">Password</label>
-								<input
-									type='password'
-									id='password'
-									name='password'
-								/>
+								<label htmlFor="password">Password
+									<input
+										type='password'
+										id='password'
+										name='password'
+									/>
+								</label>
 							</div>
 							<div className="form-field form-btns">
 								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>

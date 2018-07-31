@@ -42,25 +42,20 @@ export class SuperFilter extends React.Component{
 		this.props.dispatch(hideModal());
 	}
 
-	validateTime = () => {
-
-	};
-
 	render(){
     // Define default values for the form, remove the trailing GMT times
     const defaultStart = moment().format().slice(0,-9);
     const defaultEnd = moment().format().slice(0,-9);
-    console.log('Default start', defaultStart);
 
 		return (
 			<React.Fragment>
-        <button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+        <button className="modal-close-btn" title="Close Filter" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
             <h2 className='form-header'>Advanced Filter</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
 							<div className="form-field">
-                <label className="employee-select">Filter by employee</label>
+                <label className="employee-select">Filter by employee:
 								<select
 									id="employee-select"
 									name="employee-select"
@@ -73,10 +68,11 @@ export class SuperFilter extends React.Component{
 									)}
 									<option value='open'>OPEN</option>
 								</select>
+								</label>
 							</div>
 
 							<div className="form-field">
-								<label className="filterByTime">Filter by frames</label>
+								<label className="filterByTime">Filter by frames:
 								<select
 									htmlFor="filterByTime"
 									name="filterByTime"
@@ -94,6 +90,7 @@ export class SuperFilter extends React.Component{
 										);
 									})}
 								</select>
+								</label>
 							</div>
 
 							<div className="form-field">

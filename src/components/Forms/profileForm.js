@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Field, reduxForm, } from 'redux-form';
 import renderField from './field';
-import {isTrimmed, length, matches, nonEmpty, required, validEmail, validPhone} from './formValidators';
+import {isTrimmed, length, nonEmpty, required, validEmail, validPhone} from './formValidators';
 import { editProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 
@@ -53,42 +53,51 @@ export class ProfileForm extends React.Component {
 					onSubmit={this.props.handleSubmit(this.onSubmit)}
 				>	
 					{error}
-					<Field
-						name="companyName"
-						label="Company Name"
-						type="text"
-						component={renderField}
-						validate={[required, nonEmpty, isTrimmed]}
-					/>
-					<Field
-						name="username"
-						label="Username"
-						type="text"
-						component={renderField}
-						validate={[required, nonEmpty, isTrimmed]}
-					/>
-					<Field
-						name="email"
-						label="Email Address"
-						type="text"
-						component={renderField}
-						validate={[required, validEmail]}
-					/>
-					<Field
-						name="phoneNumber"
-						label="Phone Number"
-						type="tel"
-						component={renderField}
-						validate={[required, nonEmpty, isTrimmed, validPhone]}
-					/>
-					<Field
-						name="password"
-						label="Password"
-						type="password"
-						component={renderField}
-						validate={[required, isTrimmed, passwordLength]}
-						autocomplete="off"
-					/>
+					<label>Company name
+						<Field
+							name="companyName"
+							type="text"
+							component={renderField}
+							validate={[required, nonEmpty, isTrimmed]}
+						/>
+					</label>
+
+					<label>Username
+						<Field
+							name="username"
+							type="text"
+							component={renderField}
+							validate={[required, nonEmpty, isTrimmed]}
+						/>
+					</label>
+
+					<label>Email Address
+						<Field
+							name="email"
+							type="text"
+							component={renderField}
+							validate={[required, validEmail]}
+						/>
+					</label>
+
+					<label>Phone Number
+						<Field
+							name="phoneNumber"
+							type="tel"
+							component={renderField}
+							validate={[required, nonEmpty, isTrimmed, validPhone]}
+						/>
+					</label>
+
+					<label>Password
+						<Field
+							name="password"
+							type="password"
+							component={renderField}
+							validate={[required, isTrimmed, passwordLength]}
+							autocomplete="off"
+						/>
+					</label>
 					<div className="form-field profile-form-field form-btns">
             <button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
 						<button className="form-submit-btn" type="submit">Save</button>

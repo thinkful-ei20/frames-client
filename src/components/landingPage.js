@@ -10,9 +10,7 @@ import Footer from './footer';
 import './styles/landing-page.css';
 
 export class LandingPage extends React.Component {
-
 	render() {
-
 		if(this.props.loggedIn) {
 			return <Redirect to="/dashboard" />;
 		}
@@ -25,14 +23,10 @@ export class LandingPage extends React.Component {
 					</div>
 					<div className="hero-section-form-wrapper">
 						<LoginForm />
-
 					</div>
 				</section>
-
 				<section className="about">
 					<About/>
-				</section>
-				<section>
 				</section>
 				<Footer />
 			</main>
