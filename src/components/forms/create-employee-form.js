@@ -22,6 +22,7 @@ export class CreateEmployeeForm extends React.Component {
 				});
 			}
 		});
+		
 		const newEmployee = {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
