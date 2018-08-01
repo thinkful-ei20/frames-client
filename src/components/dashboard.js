@@ -67,7 +67,7 @@ export class Dashboard extends React.Component {
 			<div className="dashboard-page">
 				{error}
 				<header className="dashboard-header">
-					<h2>scheduler</h2>
+					<h2>schedule</h2>
 					<div className="dashboard-section-header">
 						{/*<ScheduleView />*/}
 						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>
