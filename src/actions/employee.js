@@ -1,5 +1,5 @@
-import { API_BASE_URL } from '../config';
-import { hideModal } from './modals';
+import {API_BASE_URL} from '../config';
+import {hideModal} from './modals';
 import {normalizeResponseErrors} from './utils';
 
 // Set loading to true
@@ -25,6 +25,13 @@ export const employeesError = error => {
 	return {
 		type: EMPLOYEES_ERROR,
 		error
+	};
+};
+
+export const CLEAR_EMPLOYEE_ERROR = 'CLEAR_EMPLOYEE_ERROR';
+export const clearEmployeeError = () => {
+	return {
+		type: CLEAR_EMPLOYEE_ERROR
 	};
 };
 
@@ -62,7 +69,7 @@ export const updateEmployee = (employeeId, updatedEmployee) => dispatch => {
 			dispatch(hideModal());
 		})
 		.catch(error => {
-			dispatch(employeesError(error))});
+			dispatch(employeesError(error));});
 };
 
 //Asynch action to create an employee
