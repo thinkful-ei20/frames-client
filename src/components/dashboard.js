@@ -33,7 +33,16 @@ export class Dashboard extends React.Component {
 		}
 
 		//Display error if any from the server
-		let error = this.props.error ? this.props.error : undefined;
+		// let error = this.props.error ? this.props.error : undefined;
+
+		let error;
+		if(this.props.error) {
+			error = (
+        <div className="form-modal-error" aria-live="polite">
+          {this.props.error}
+        </div>
+			)
+		}
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
@@ -82,7 +91,7 @@ export class Dashboard extends React.Component {
 				<section className="dashboard-section">
 					{listOfFramesToBeRendered.length
 						? <CardList list={listOfFramesToBeRendered} />
-						: <div className="no-schedule">No frames on the schedule!</div>}
+						: <div className="no-schedule">No frames on the schedule</div>}
 				</section>
 			</div>
 		);
