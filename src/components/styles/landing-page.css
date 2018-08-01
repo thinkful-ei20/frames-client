@@ -1,8 +1,8 @@
 .landing-page {
 	background-color: #e1e3e4;
 	margin: 0 auto;
-	position: relative;
-	top: 50px;
+	/*position: relative;*/
+	/*top: 50px;*/
 }
 
 .hero-section {
@@ -30,9 +30,8 @@
 
 .hero-section-text-wrapper {
 	padding: 5%;
-	align-content: center;
-	align-items: center;
 	min-height: 30vh;
+	text-align: center;
 }
 
 .hero-section-text-wrapper h1 {

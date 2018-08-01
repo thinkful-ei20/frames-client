@@ -1,15 +1,16 @@
 .card {
 	display: block;
 	border-radius: 3px;
-	padding: 1.5% 0 1.5% 0;
-	margin: 0.5em 1.5em;
+	padding: 1.5%;
+	/*margin: 0.5em 1.5em;*/
 }
 
 .card-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding: 0 0.5em;
+	align-items: center;
+	/*padding: 0 1.5%;*/
 	transition: 0.5s ease all;
 }
 
@@ -23,12 +24,12 @@
 .card-name, .card-img {
 	display: inline-block;
 	vertical-align: middle;
-
 }
 
 .card-img {
 	max-width: 54px;
 	max-height: 54px;
+	/*padding: 1%;*/
 }
 
 .card-img img {
@@ -99,17 +100,20 @@
 .card-date-wrapper {
 	display: block;
 	white-space: nowrap;
-	margin: 0 0.5em;
-	padding: 1em;
-	border-bottom: 1px solid #03A9F4;
+	/*margin: 0 0.5em;*/
+	padding: 5px;
+	border-left: 1px solid #0b0e19;
+	border-right: 1px solid #0b0e19;
 	margin-bottom: 20px;
+	background: linear-gradient(#151b30, #0b0e19, #151b30);
 }
+
 .card-date {
-	background-color: #2b2d3d;
+	/*background-color: #2b2d3d;*/
 	margin: 0;
 	text-align: right;
-	color: #9fa0a4;
-	font-size: 25px;
+	color: #98a0c9;
+	font-size: calc(0.8rem + 0.5vw);
 }
 
 .card-time-diff {

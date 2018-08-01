@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 
-import NavBar from './navBar';
-import LandingPage from './landingPage';
-import RegistrationPage from './registrationPage';
+import NavBar from './nav-bar';
+import LandingPage from './landing-page';
+import RegistrationPage from './registration-page';
 import Dashboard from './dashboard';
 import ModalConductor from './modals/modal-conductor';
 import Profile from './profile';
 import Employees from './employees';
+
+import './styles/about.css';
 
 export default class App extends Component {
 	render() {
@@ -15,7 +17,7 @@ export default class App extends Component {
 			<div className="App">
 				<NavBar />
 				<ModalConductor/>
-				<main>
+				<main className="main-section" role="main">
 					<Route exact path="/" component={LandingPage} />
 					<Route exact path="/register" component={RegistrationPage} />
 					<Route exact path="/login" component={LandingPage} />

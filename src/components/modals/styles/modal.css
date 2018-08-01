@@ -28,6 +28,56 @@
     max-width: 360px;
 }
 
+.modal-close-btn {
+    position: absolute;
+    margin: 10px;
+    padding: 20px;
+    width: 20px;
+    height: 20px;
+    transition: transform .25s ease-in-out;
+    top: 0;
+    right: 0;
+    color: #edeef0;
+    border: none;
+    background: none;
+}
+
+.modal-close-btn:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    height: 0;
+    border-top: 2px solid #edeef0;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+.modal-close-btn:after {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    height: 0;
+    border-top: 2px solid #edeef0;
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+
+.modal-close-btn:hover {
+    transform: rotate(180deg);
+}
+
 .form-modal-error {
     color: #ce3d3d;
     font-size: 14px;

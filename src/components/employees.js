@@ -19,11 +19,15 @@ export class Employees extends React.Component {
 	render(){
 
 		return (
-			<main className="employees-wrapper">
+			<div className="employee-page">
 				<header className="employee-header">
 					<h2>Employees</h2>
 					<div>
-						<button className="employee-add-btn" title="Add an Employee" onClick={() => this.props.dispatch(showModal('newEmployee', null))}>
+						<button
+							className="employee-add-btn"
+							title="Add an Employee"
+							type="button"
+							onClick={() => this.props.dispatch(showModal('newEmployee', null))}>
 							<i className="fa fa-plus-circle" aria-hidden="true"></i>
 						</button>
 					</div>
@@ -43,7 +47,7 @@ export class Employees extends React.Component {
 						})
 						: <div className="no-employees">No employees to schedule</div>}
 				</section>
-			</main>
+			</div>
 		);
 	}
 }

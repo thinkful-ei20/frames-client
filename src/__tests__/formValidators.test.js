@@ -1,4 +1,4 @@
-import { required, isTrimmed, validEmail, validPhone, length } from '../components/Forms/formValidators';
+import { required, isTrimmed, validEmail, validPhone, length } from '../components/forms/form-validators';
 
 describe.only('Validators', () => {
 	it('should return undefined if required and value defined', () => {

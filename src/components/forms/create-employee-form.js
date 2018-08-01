@@ -37,7 +37,12 @@ export class AddEmployeeForm extends React.Component {
 
 		return (
 			<React.Fragment>
-				<button className="modal-close-btn" title="Close create employee form" onClick={() => this.handleCancel()}></button>
+				<button
+					className="modal-close-btn"
+					title="Close create employee form"
+					type="button"
+					onClick={() => this.handleCancel()}>
+				</button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className='form-header'>New Employee</h2>
@@ -63,7 +68,7 @@ export class AddEmployeeForm extends React.Component {
 									</label>
 								</div>
 								<div className="form-field">
-									<label htmlFor="image">Link to Image of Employee
+									<label htmlFor="image">Image URL
 										<input
 											type='text'
 											id='image'
@@ -98,12 +103,12 @@ export class AddEmployeeForm extends React.Component {
 										/>
 									</label>
 								</div>
+								<div className="form-field form-btns">
+									<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
+									<button className="form-submit-btn" type='submit'>Save</button>
+								</div>
+                {error}
 							</fieldset>
-							<div className="form-field form-btns">
-								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
-								<button className="form-submit-btn" type='submit'>Save</button>
-							</div>
-							{error}
 						</form>
 					</div>
 				</div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { required, isTrimmed, nonEmpty, length, matches, validEmail } from './formValidators';
+import { required, isTrimmed, nonEmpty, length, matches, validEmail } from './form-validators';
 import renderField from './field';
 
 const passwordLength = length({ min: 8, max: 72 });
@@ -28,6 +28,7 @@ export const RegisterFormSecondPage = props => {
 				<label>Email
 					<Field
 						name="email"
+						label="Email"
 						type="email"
 						component={renderField}
 						validate={[required, validEmail]}
@@ -37,6 +38,7 @@ export const RegisterFormSecondPage = props => {
 				<label>Password
 					<Field
 						name="password"
+            label="Password"
 						type="password"
 						component={renderField}
 						validate={[required, isTrimmed, passwordLength]}
@@ -46,6 +48,7 @@ export const RegisterFormSecondPage = props => {
 				<label>Confirm password
 					<Field
 						name="passwordConfirm"
+            label="Confirm password"
 						type="password"
 						component={renderField}
 						validate={[required, nonEmpty, matchesPassword]}

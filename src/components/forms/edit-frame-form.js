@@ -127,33 +127,31 @@ export class EditFrameForm extends React.Component {
 								/>
 							</label>
 						</div>
-					</fieldset>
-					<div className="form-field form-btns">
-            <button
-							className="form-delete-btn"
-							title="Delete frame"
-              onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
-              <i className="fa fa-trash-o" aria-hidden="true"></i>
-            </button>
-						<button 
-							className="form-reset-btn" 
-							type="button" 
-							title="Reset frame form"
-							onClick={() => this.setState({error: null})}>Reset
-						</button>
-            <div className="form-btns">
-              <button
+						<div className="form-field form-btns">
+							<button
+								className="form-delete-btn"
+								title="Delete frame"
+								onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
+								<i className="fa fa-trash-o" aria-hidden="true"></i>
+							</button>
+							<button
+								className="form-reset-btn"
+								type="reset"
+								title="Reset frame form"
+								onClick={() => this.setState({error: null})}>
+								Reset
+							</button>
+							<button
 								className="form-submit-btn"
 								title="Submit Edited Frame"
-                type='submit'
-                disabled={this.state.error}
-							>
-                Save
-              </button>
-            </div>
-					</div>
+								type='submit'
+								disabled={this.state.error}>
+								Save
+							</button>
+						</div>
 					{error}
-				</form>
+          </fieldset>
+					</form>
 			</div>
 			</div>);
 	}

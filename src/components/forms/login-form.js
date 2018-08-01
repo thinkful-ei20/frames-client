@@ -5,7 +5,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 
 import renderField from './field';
 import { login } from '../../actions/auth';
-import {required, nonEmpty, isTrimmed} from './formValidators';
+import {required, nonEmpty, isTrimmed} from './form-validators';
 
 export class LoginForm extends React.Component {
 	onSubmit = (values) => {
@@ -24,45 +24,40 @@ export class LoginForm extends React.Component {
 
 		return (
 			<div className="login-form-wrapper">
-				<h2 className="form-header">Login</h2>
+				<h2 className="form-header">Log in</h2>
 				<form
-					className="login-form"
 					onSubmit={this.props.handleSubmit(this.onSubmit)}>
 					<fieldset>
-						<legend>Login</legend>
-						<label>Username
+						<legend>Log in</legend>
 							<Field
 								name="username"
+								label="Username"
 								type="text"
 								component={renderField}
 								validate={[required, nonEmpty, isTrimmed]}
 								autocomplete="off"
 								placeholder="username"
 							/>
-						</label>
-						<label>Password
 							<Field
 								name="password"
+								label="Password"
 								type="password"
 								component={renderField}
 								validate={[required, nonEmpty]}
 								autocomplete="off"
 								placeholder="password"
 							/>
-						</label>
-					</fieldset>
-					<div className="form-field form-btns">
-            <button
-							className="form-submit-btn"
-							title="login submit button"
-              disabled={this.props.pristine || this.props.submitting}
-            >
-              Log in
-            </button>
+						<div className="form-field form-btns">
+							<button
+								className="form-submit-btn"
+								title="login submit button"
+								disabled={this.props.pristine || this.props.submitting}
+            	>
+             		Log in
+            	</button>
             {error}
-
-					</div>
-
+						</div>
+          </fieldset>
 				</form>
         <p className="sign-up-link">
           New to Frames?

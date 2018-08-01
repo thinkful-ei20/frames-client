@@ -1,16 +1,12 @@
-.employees-wrapper {
-    position: relative;
-    top: 50px;
-    color: #edeef0;
-    background-color: #2b2d3d;
+.employee-page {
     padding: 5%;
+    color: #edeef0;
 }
 
 .employee-header {
     display: flex;
     align-items: center;
     padding: 0 5% 0 5%;
-    background-color: #232633;
     border-bottom: 1px solid #eabb32;
 }
 
@@ -26,7 +22,6 @@
     text-align: center;
 }
 
-
 .employee-section {
     background-color: #232633;
     animation: fadein 0.8s;
@@ -36,6 +31,12 @@
     align-items: space-between;
     flex-direction: column; 
 }
+
+.employee-section,
+.employee-header {
+    background-color: #0b0e19;
+}
+
 
 .employee-section-details {
     display: flex;

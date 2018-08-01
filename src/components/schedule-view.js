@@ -41,8 +41,8 @@ export class ScheduleView extends React.Component {
 
 		return (
 			<div className="view-filter">
-				<h2>{startSchedule} - {endSchedule}</h2>
-				<div className="red-border">
+				<h3>{startSchedule} - {endSchedule}</h3>
+				<div className="view-filter-btns">
 					<button className={this.props.view === 'daily' ? 'active view-btn' : 'view-btn'} title="Daily Schedule"
 						onClick={() => this.handleDaily()}
 					>

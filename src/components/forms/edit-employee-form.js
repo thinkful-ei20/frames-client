@@ -28,72 +28,83 @@ export class EditEmployeeForm extends React.Component {
 
 	render(){
 
-		let formError;
+		let error;
 		if (this.props.error){
-			formError = this.props.error.message;
+      error = (
+        <div className="form-modal-error" aria-live="polite">
+          {this.props.error.message}
+        </div>
+      );
 		}
 
 		return (
 			<React.Fragment>
-				<h2 className="form-header">Edit Employee</h2>
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
-				<div className="form-wrapper">
-					<form onSubmit={e => this.handleSubmit(e)}>
-						<fieldset>
-							<legend>Edit Employee</legend>
-							<div className="form-field">
-								<label htmlFor="firstname">First Name
-									<input
-										type='text'
-										id='firstname'
-										name='firstname'
-										defaultValue={this.props.employee.firstname}
-									/>
-								</label>
-							</div>
-							<div className="form-field">
-								<label htmlFor="lastname">Last Name
-									<input
-										type='text'
-										id='lasttname'
-										name='lastname'
-										defaultValue={this.props.employee.lastname}
-									/>
-								</label>
-							</div>
-							<div className="form-field">
-								<label htmlFor="email">Email Address
-									<input
-										type='email'
-										id='email'
-										name='email'
-										required
-										defaultValue={this.props.employee.email}
-									/>
-								</label>
-							</div>
-							<div className="form-field">
-								<label htmlFor="phoneNumber">Phone Number
-									<input
-										type='tel'
-										id='phoneNumber'
-										name='phoneNumber'
-										required
-										defaultValue={this.props.employee.phoneNumber}
-										pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
-									/>
-								</label>
-							</div>
-						</fieldset>
-						<input className="form-reset-btn" type="reset"/>
-						<div className="form-btns">
-							<button className="form-submit-btn" title="Edit employee form submit button" type='submit'>Save</button>
-							<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
-								<i className="fa fa-trash-o" aria-hidden="true"></i>
-							</button>
-						</div>
-						<p className="form-error">{formError}</p>
-					</form>
+        <div className="modal-form-wrapper">
+					<div className="form-wrapper">
+						<h2 className="form-header">Edit Employee</h2>
+						<form onSubmit={e => this.handleSubmit(e)}>
+							<fieldset>
+								<legend>Edit Employee</legend>
+								<div className="form-field">
+									<label htmlFor="firstname">First Name
+										<input
+											type='text'
+											id='firstname'
+											name='firstname'
+											defaultValue={this.props.employee.firstname}
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="lastname">Last Name
+										<input
+											type='text'
+											id='lasttname'
+											name='lastname'
+											defaultValue={this.props.employee.lastname}
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="email">Email Address
+										<input
+											type='email'
+											id='email'
+											name='email'
+											required
+											defaultValue={this.props.employee.email}
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="phoneNumber">Phone Number
+										<input
+											type='tel'
+											id='phoneNumber'
+											name='phoneNumber'
+											required
+											defaultValue={this.props.employee.phoneNumber}
+											pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
+										/>
+									</label>
+								</div>
+								<div className="form-field form-btns">
+									<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
+										<i className="fa fa-trash-o" aria-hidden="true"></i>
+									</button>
+									<button className="form-reset-btn" type="reset">Reset</button>
+									<button
+										className="form-submit-btn"
+										title="Edit employee form submit button"
+										type="submit"
+										disabled={this.props.error}
+									>Save</button>
+								</div>
+								{error}
+              </fieldset>
+						</form>
+					</div>
 				</div>
 			</React.Fragment>
 		);
