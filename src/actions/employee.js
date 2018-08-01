@@ -22,7 +22,6 @@ export const employeesSuccess = data => {
 //Set loading to false and add error.message
 export const EMPLOYEES_ERROR = 'EMPLOYEES_ERROR';
 export const employeesError = error => {
-	console.log(error);
 	return {
 		type: EMPLOYEES_ERROR,
 		error

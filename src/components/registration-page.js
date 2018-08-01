@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import RegisterForm from './forms/registerForm';
+import RegisterForm from './forms/register-form';
 import PropTypes from 'prop-types';
 
 import './styles/registration.css';

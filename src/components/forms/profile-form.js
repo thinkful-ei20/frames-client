@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import renderField from './field';
 import {editProfile} from '../../actions/profile';
-import {isTrimmed, length, nonEmpty, required, validEmail, validPhone} from './formValidators';
+import {isTrimmed, length, nonEmpty, required, validEmail, validPhone} from './form-validators';
 
 const passwordLength = length({ min: 8, max: 72 });
 
@@ -49,59 +49,54 @@ export class ProfileForm extends React.Component {
 			);
 		}
 		return (
-      	<div className="form-wrapper">
-			<form onSubmit={this.props.handleSubmit(this.onSubmit)}>	
-				{error}
-				<fieldset>
-					<legend>Edit Profile</legend>
-					<label>Company name
+			<div className="form-wrapper">
+				<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+					{error}
+					<fieldset>
+						<legend>Edit Profile</legend>
 						<Field
 							name="companyName"
+							label="Company name"
 							type="text"
 							component={renderField}
 							validate={[required, nonEmpty, isTrimmed]}
 						/>
-					</label>
-					<label>Username
 						<Field
 							name="username"
+							label="Username"
 							type="text"
 							component={renderField}
 							validate={[required, nonEmpty, isTrimmed]}
 						/>
-					</label>
-					<label>Email Address
 						<Field
 							name="email"
+							label="Email"
 							type="text"
 							component={renderField}
 							validate={[required, validEmail]}
 						/>
-					</label>
-					<label>Phone Number
 						<Field
 							name="phoneNumber"
+							label="Phone number"
 							type="tel"
 							component={renderField}
 							validate={[required, nonEmpty, isTrimmed, validPhone]}
 						/>
-					</label>
-					<label>Password
 						<Field
 							name="password"
+							label="Password"
 							type="password"
 							component={renderField}
 							validate={[required, isTrimmed, passwordLength]}
 							autocomplete="off"
 						/>
-					</label>
-				</fieldset>
-				<div className="form-field profile-form-field form-btns">
-					<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
-					<button className="form-submit-btn" type="submit">Save</button>
-				</div>
-			</form>
-      	</div>
+						<div className="form-field form-btns">
+							<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+							<button className="form-submit-btn	" type="submit">Save</button>
+						</div>
+          </fieldset>
+				</form>
+			</div>
 		);
 	}
 }

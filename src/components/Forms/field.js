@@ -9,6 +9,7 @@ export const Field = props => {
 		<div className="form-field" id={props.id}>
 			<label htmlFor={props.input.name}>{props.label}</label>
 			<Element
+				id={props.input.name}
 				className={(props.meta.error && props.meta.touched) ? 'error-border' : 'placeholder-class'}
 				type={props.type}
 				value={props.value}

@@ -1,3 +1,25 @@
+.main-section {
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    max-width: 960px;
+    background-color: #13182a;
+    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    -webkit-background-size: 3px 3px;
+    -moz-background-size: 3px 3px;
+    background-size: 3px 3px;
+}
+
+.App {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+
+
 /*
 .App {
   text-align: center;
@@ -52,69 +74,5 @@
   border-radius: 3px;
   background-color: #2b2d3d;
   color: #edeef0;
-}
-
-.modal-close-btn {
-  position: absolute;
-  margin: 10px;
-  padding: 20px;
-  width: 20px;
-  height: 20px;
-  transition: transform .25s ease-in-out;
-  top: 0;
-  right: 0;
-  color: #edeef0;
-  border: none;
-  background: none;
-}
-
-.modal-close-btn:before {
-  content: "";
-  position: absolute;
-  display: block;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 20px;
-  height: 0;
-  border-top: 2px solid #edeef0;
-  transform: rotate(45deg);
-  transform-origin: center;
-}
-
-.modal-close-btn:after {
-  content: "";
-  position: absolute;
-  display: block;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 20px;
-  height: 0;
-  border-top: 2px solid #edeef0;
-  transform: rotate(-45deg);
-  transform-origin: center;
-}
-
-.modal-close-btn:hover {
-  transform: rotate(180deg);
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1
-  }
 }
 */

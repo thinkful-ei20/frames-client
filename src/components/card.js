@@ -30,7 +30,7 @@ export const Card = (props) => {
 	return(
 		<article className="card">
 			<div className="card-container">
-				<div className="card-info">
+				{/*<div className="card-info">*/}
 					<div className="card-img"><img className="contain" src={img} alt={emplName}/></div>
 					<div className="card-employee">
 						<div className="card-name">{emplName}</div>
@@ -44,7 +44,7 @@ export const Card = (props) => {
 					<button className='opt-btn' title="Edit Frame" onClick={() => { props.dispatch(showModal('edit', id));}}>
 						<i className="fa fa-ellipsis-h"></i>
 					</button>
-				</div>
+				{/*</div>*/}
 			</div>
 		</article>
 	);

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ProfileForm from './forms/profileForm';
+import ProfileForm from './forms/profile-form';
 import requiresLogin from './requires-login';
 import {fetchProfile} from '../actions/profile';
 
@@ -41,52 +41,52 @@ export class Profile extends React.Component {
 		}
 
 		return (
-			<main className="profile-wrapper">
-        		{error}
+			<div className="profile-page">
+				{error}
 				<header className="profile-header">
-          			<h2>My profile</h2>
+					<h2>My profile</h2>
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
-							onClick={this.handleEdit}
 							title={this.state.editing ? 'Profile cancel button' : 'Profile edit button'}
-          				>
-          				</button>
+							type="button"
+							onClick={this.handleEdit}>
+						</button>
 					</div>
 				</header>
-					{this.state.editing
-					?
-            <ProfileForm
-              initialValues={{
-                adminId:this.props.adminId.id,
-                companyName:this.props.name,
-                username:this.props.username,
-                email:this.props.email,
-                phoneNumber:this.props.phone
-              }}
-              setEdit={this.handleEdit}
-            />
-					:
-            <section className="profile-section">
-              <div className="profile-section-details">
-                <h3>Company</h3>
-                <p>{this.props.name}</p>
-              </div>
-							<div className="profile-section-details">
-                <h3>Username</h3>
-                <p>{this.props.username}</p>
-							</div>
-              <div className="profile-section-details">
-                <h3>Email</h3>
-                <p>{this.props.email}</p>
-							</div>
-              <div className="profile-section-details">
-                <h3>Phone</h3>
-                <p>{phoneNumber}</p>
-							</div>
-            </section>
-					}
-			</main>
+				{this.state.editing
+				?
+					<ProfileForm
+						initialValues={{
+							adminId:this.props.adminId.id,
+							companyName:this.props.name,
+							username:this.props.username,
+							email:this.props.email,
+							phoneNumber:this.props.phone
+						}}
+						setEdit={this.handleEdit}
+					/>
+				:
+					<section className="profile-section">
+						<div className="profile-section-details">
+							<h3>Company</h3>
+							<p>{this.props.name}</p>
+						</div>
+						<div className="profile-section-details">
+							<h3>Username</h3>
+							<p>{this.props.username}</p>
+						</div>
+						<div className="profile-section-details">
+							<h3>Email</h3>
+							<p>{this.props.email}</p>
+						</div>
+						<div className="profile-section-details">
+							<h3>Phone</h3>
+							<p>{phoneNumber}</p>
+						</div>
+					</section>
+				}
+    	</div>
 		);
 	}
 }

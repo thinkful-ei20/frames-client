@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createUser } from '../../actions/users';
-import RegisterFormFirstPage from './registerFormFirstPage';
-import RegisterFormSecondPage from './registerFormSecondPage';
+import RegisterFormFirstPage from './register-form-first-page';
+import RegisterFormSecondPage from './register-form-second-page';
 
 import './styles/forms.css';
 

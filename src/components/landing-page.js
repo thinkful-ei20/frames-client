@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import LoginForm from './forms/loginForm';
+import LoginForm from './forms/login-form';
 import About from './about';
 import Footer from './footer';
 
@@ -16,7 +16,7 @@ export class LandingPage extends React.Component {
 		}
 
 		return (
-			<main className="landing-page" role="main">
+			<div className="landing-page">
 				<section className="hero-section">
 					<div className="hero-section-text-wrapper">
 						<h1>Employee shift management made easy</h1>
@@ -29,7 +29,7 @@ export class LandingPage extends React.Component {
 					<About/>
 				</section>
 				<Footer />
-			</main>
+			</div>
 		);
 	}
 }

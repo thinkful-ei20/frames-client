@@ -119,12 +119,12 @@ export class CreateFrameForm extends React.Component {
 										onChange={() => this.validateFrame()}
 									/>
 								</div>
-							</fieldset>
-							<div className="form-field form-btns">
-								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
-								<button className="form-submit-btn">Save</button>
-							</div>
-							{error}
+								<div className="form-field form-btns">
+									<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
+									<button className="form-submit-btn">Save</button>
+								</div>
+								{error}
+              </fieldset>
 						</form>
 					</div>
 				</div>

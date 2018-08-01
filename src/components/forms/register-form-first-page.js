@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import {isTrimmed, nonEmpty, required, validPhone} from './formValidators';
+import {isTrimmed, nonEmpty, required, validPhone} from './form-validators';
 import renderField from './field';
 
 export const RegisterFormFirstPage = props => {
@@ -11,46 +11,43 @@ export const RegisterFormFirstPage = props => {
 		<form onSubmit={handleSubmit}>
 			<fieldset>
 				<legend>Registration</legend>
-				<label>Username
 					<Field
 						name="username"
+            label="Username"
 						type="text"
 						component={renderField}
 						validate={[required, nonEmpty, isTrimmed]}
 						autocomplete="off"
 						placeholder='myusername'
 					/>
-				</label>
-				<label>Company Name
 					<Field
 						name="companyName"
+						label="Company Name"
 						type="text"
 						component={renderField}
 						validate={[required, nonEmpty, isTrimmed]}
 						autocomplete="off"
 						placeholder='My Company Name'
 					/>
-				</label>
-				<label>Phone Number
 					<Field
 						name="phoneNumber"
+            label="Phone Number"
 						type="tel"
 						placeholder="1234567890"
 						component={renderField}
 						validate={[required, nonEmpty, isTrimmed, validPhone]}
 						autocomplete="off"
 					/>
-				</label>
-			</fieldset>
-			<div className="form-field form-btns">
-				<button
-					type="submit"
-					className="next form-submit-btn"
-					title="Next"
-				>
-					Next
-				</button>
-			</div>
+				<div className="form-field form-btns">
+					<button
+						type="submit"
+						className="next form-submit-btn"
+						title="Next"
+					>
+						Next
+					</button>
+				</div>
+      </fieldset>
 		</form>
 	);
 };

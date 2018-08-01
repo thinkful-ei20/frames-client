@@ -10,7 +10,7 @@ export default function Footer() {
 					<a href="https://github.com/mdargitz">Marina Dargitz</a>
 					<img
 						src='https://cdn.iconscout.com/public/images/icon/free/png-128/github-logo-brand-development-tools-318f14f5797bb6cc-128x128.png'
-						alt='Marina Dargitz Github'
+						alt='Github logo'
 					/>
 				</li>
 
@@ -18,7 +18,7 @@ export default function Footer() {
 					<a href="https://github.com/csprier">Cameron Prier</a>
 					<img
 						src='https://cdn.iconscout.com/public/images/icon/free/png-128/github-logo-brand-development-tools-318f14f5797bb6cc-128x128.png'
-						alt='Cameron Prier Github'
+						alt='Github logo'
 					/>
 				</li>
 
@@ -26,7 +26,7 @@ export default function Footer() {
 					<a href="https://github.com/patersog">Gianluca Paterson</a>
 					<img
 						src='https://cdn.iconscout.com/public/images/icon/free/png-128/github-logo-brand-development-tools-318f14f5797bb6cc-128x128.png'
-						alt='Gianluca Paterson'
+						alt='Github logo'
 					/>
 				</li>
 
@@ -34,7 +34,7 @@ export default function Footer() {
 					<a href="https://github.com/Sakela17">Marina Valiquette</a>
 					<img
 						src='https://cdn.iconscout.com/public/images/icon/free/png-128/github-logo-brand-development-tools-318f14f5797bb6cc-128x128.png'
-						alt='Marina Valiquette Github'
+						alt='Github logo'
 					/>
 				</li>
 			</ul>

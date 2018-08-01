@@ -7,17 +7,28 @@
     }
 }
 
+fieldset {
+    border: none;
+}
+
 .form-wrapper {
     margin: 0 auto;
     padding: 20px;
-    background-color: #232633;
+    background-color: #0b0e19;
     animation: fadein 0.8s;
 }
 
-.form-wrapper h2 {
+.form-wrapper legend {
+    color: #0b0e19;
+    line-height: 0;
+}
+
+.form-header {
     text-align: center;
     color: #ffffff;
     font-size: calc(1rem + 0.8vw);
+    margin: 0 0 5%;
+    text-transform: uppercase;
 }
 
 .form-field {
@@ -44,10 +55,12 @@
     font-size: 12px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background-color: #32364a;
+    background-color: #151b30;
     color: #FFFFFF;
-    border: 1px solid #32364a;
+    border: 1px solid #151b30;
     padding-left: 2.5%;
+    min-width: 200px;
+
 }
 
 .form-field select {
@@ -98,7 +111,6 @@
 	transition-property: background,color;
     transition-duration: .2s;
     letter-spacing: 1px;
-    margin: 0 10px;
 }
 
 .form-delete-btn:hover,
@@ -136,31 +148,15 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-}
-
-/* ========================================================================================================= */
-/* PROFILE FORM */
-.profile-form-field {
-    text-align: center;
     padding-top: 25px;
-}
-
-.profile-save-btn:hover,
-.profile-save-btn:focus {
-    color: black;
-    background: #35df5c;
-    cursor: pointer;
-    transition-property: background,color;
-    transition-duration: .2s;
 }
 
 /* ========================================================================================================= */
 /* LOGIN FORM */
-.login-form {
-    margin-top: 5%;
-}
 
 .login-form-wrapper {
+    color: #ffffff;
+    text-align: center;
     background: rgba(11, 14, 25, 0.8);
     padding: 5%;
     border-top: 1px solid;
@@ -168,14 +164,11 @@
     border-image: linear-gradient(to right,rgba(11, 14, 25, 0.8) 25%, rgba(11, 14, 25, 1) 25%, #03A9F4 50%, #03A9F4 50%, rgba(11, 14, 25, 1) 75%, rgba(11, 14, 25, 0.8) 75%) 5;
 }
 
-.login-form-wrapper h2 {
-    font-size: calc(1rem + 0.8vw);
-    margin: 0 auto;
-    text-transform: uppercase;
+.login-form-wrapper legend {
+    color: rgba(11, 14, 25, 0.8);
 }
 
 .login-form-wrapper input {
-    min-width: 200px;
     background-color: #0b0e19;
     border: 0.5px solid #036794;
     border-left: 2px solid #03A9F4
@@ -235,19 +228,12 @@
 /* ========================================================================================================= */
 /* REGISTRATION FORM */
 .register-form-wrapper {
-    margin: 0 auto;
-    background: rgba(11, 14, 25, .9);
+    color: #ffffff;
 }
 
 .register-form-wrapper input { 
     border: 0.5px solid #35df5c !important;
     border-left: 2px solid #35df5c !important;
-}
-
-.register-form-wrapper h2 {
-    color: white;
-    text-transform: uppercase;
-    margin-bottom: 20px;
 }
 
 .next {

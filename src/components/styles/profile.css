@@ -7,16 +7,12 @@
     }
 }
 
-.profile-wrapper {
-    position: relative;
-    top: 50px;
-    color: #edeef0;
-    background-color: #2b2d3d;
+.profile-page {
     padding: 5%;
+    color: #edeef0;
 }
 
 .profile-section {
-    background-color: #232633;
     animation: fadein 0.8s;
     padding: 0 5% 0 5%;
     margin: 0;
@@ -24,7 +20,7 @@
 }
 
 .profile-section-details {
-    border-bottom: 1px solid #2b2d3d;
+    border-bottom: 1px solid #151b30;
 }
 
 .profile-section-details:last-child {
@@ -38,6 +34,11 @@
 	text-align: center;
 	color: red;
 	font-size: 20px;
+}
+
+.profile-section,
+.profile-header {
+    background-color: #0b0e19;
 }
 
 .profile-section h3 {
@@ -60,7 +61,6 @@
 	align-items: center;
 	justify-content: space-between;
     padding: 0 5% 0 5%;
-    background-color: #232633;
     border-bottom: 1px solid #35df5c;
 }
 
@@ -72,12 +72,12 @@
 
 .profile-header div {
     flex: 0 0 10%;
+    text-align: right;
 }
 
 .profile-edit-btn,
 .profile-cancel-btn {
     color: #edeef0;
-    width: 100%;
     border: none;
     background: none;
     padding: 0;

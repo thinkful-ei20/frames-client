@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import {logout} from '../actions/auth';
 
-import './styles/navBar.css';
+import './styles/nav-bar.css';
 
 export class NavBar extends React.Component {
 	constructor(props) {
@@ -20,8 +20,7 @@ export class NavBar extends React.Component {
 		let menu;
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (
-				<nav className="main-header-navbar" >
-
+				<nav className="navbar-links-wrapper" >
 					<ul className="navbar-links">
 						<li>
 							<Link to="/dashboard" title="Go to Dashboard" className={(this.props.location.pathname === '/dashboard') ? 'active' : ''}>
@@ -51,17 +50,19 @@ export class NavBar extends React.Component {
 						</li>
 					</ul>
 				</nav>
-
 			);
 		}
 
 		return (
-			<header className="main-header" role="banner">
-				<div className="main-header-logo-wrapper">
-					<Link to="/" title="Home / Dashboard"><i className="fa fa-window-restore" aria-hidden="true" title="Home / Dashboard"></i></Link>
-					{!this.props.loggedIn && <h1>Frames</h1>}
+			<header className="navbar-wrapper" role="banner">
+				<div className="navbar">
+          <div className="navbar-logo-wrapper">
+            <Link to="/" title="Home / Dashboard"><i className="fa fa-window-restore" aria-hidden="true" title="Home / Dashboard"></i></Link>
+            {!this.props.loggedIn && <h1>Frames</h1>}
+          </div>
+          {menu}
 				</div>
-				{menu}
+
 			</header>
 		);
 	}
