@@ -13,6 +13,10 @@ body {
   height: 100%;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .loader,
 .loader:before,
 .loader:after {

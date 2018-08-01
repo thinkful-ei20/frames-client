@@ -11,6 +11,17 @@ export class CreateEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
+		const availability = [];
+		const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+		daysOfWeek.forEach(day => {
+			if (data.get(day)){
+				availability.push({
+					day,
+					start : data.get(`${day}-start`),
+					end: data.get(`${day}-end`)
+				});
+			}
+		});
 		const newEmployee = {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
@@ -18,7 +29,7 @@ export class CreateEmployeeForm extends React.Component {
 			phoneNumber : data.get('phoneNumber'),
 			img : data.get('image'),
 			password : data.get('password'),
-			availability: data.get('availability')
+			availability
 		};
 		this.props.dispatch(createEmployee(newEmployee));
 	}
@@ -58,6 +69,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='text'
 											id='firstname'
 											name='firstname'
+											required
 										/>
 									</label>
 								</div>
@@ -67,6 +79,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='text'
 											id='lasttname'
 											name='lastname'
+											required
 										/>
 									</label>
 								</div>
