@@ -13,6 +13,7 @@ export const requestEmployees = () => {
 // Set loading to false and add array of employees
 export const EMPLOYEES_SUCCESS = 'EMPLOYEES_SUCCESS';
 export const employeesSuccess = data => {
+	console.log(data);
 	return {
 		type: EMPLOYEES_SUCCESS,
 		data
@@ -46,12 +47,12 @@ export const fetchEmployees = () => dispatch => {
 			'Authorization' : `Bearer ${token}`
 		}
 	})
-    .then(res => normalizeResponseErrors(res))
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
 		.then(data => dispatch(employeesSuccess(data)))
 		.catch(error => {
-			console.log('ERRRO');
-			dispatch(employeesError(error.message))
-    });
+			dispatch(employeesError(error.message));
+		});
 };
 
 // Asynch action to update an employee
