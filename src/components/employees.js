@@ -13,13 +13,23 @@ import './styles/employees.css';
 export class Employees extends React.Component {
 
 	componentDidMount(){
+		console.log('FETCH EMPLOYEES ran');
 		this.props.dispatch(fetchEmployees());
 	}
 
 	render(){
+    let error;
+    if(this.props.error) {
+      error = (
+        <div className="error-msg" aria-live="polite">
+          {this.props.error}
+        </div>
+      )
+    }
 
 		return (
 			<div className="employee-page">
+				{error}
 				<header className="employee-header">
 					<h2>Employees</h2>
 					<div>
@@ -54,7 +64,8 @@ export class Employees extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		employees : state.employees.employees
+		employees : state.employees.employees,
+		error : state.employees.error
 	};
 };
 

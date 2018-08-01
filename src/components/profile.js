@@ -26,14 +26,14 @@ export class Profile extends React.Component {
 	};
 
 	render() {
-		let {error} = this.props
-		if(error) {
-			error = (
-				<div className="profile-error">
-					{error}
-				</div>
-			)
-		}
+    let error;
+    if(this.props.error) {
+      error = (
+        <div className="error-msg" aria-live="polite">
+          {this.props.error}
+        </div>
+      )
+    }
 
 		let phoneNumber;
 		if (this.props.phone){

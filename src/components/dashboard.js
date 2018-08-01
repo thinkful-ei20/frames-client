@@ -32,13 +32,10 @@ export class Dashboard extends React.Component {
 			return (<div className="loader">Loading...</div>);
 		}
 
-		//Display error if any from the server
-		// let error = this.props.error ? this.props.error : undefined;
-
 		let error;
 		if(this.props.error) {
 			error = (
-        <div className="form-modal-error" aria-live="polite">
+        <div className="error-msg" aria-live="polite">
           {this.props.error}
         </div>
 			)
