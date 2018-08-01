@@ -1,9 +1,11 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {createEmployee} from '../../actions/employee';
-import {hideModal} from '../../actions/modals';
+import { createEmployee } from '../../actions/employee';
+import { hideModal } from '../../actions/modals';
+
+import EmployeeAvailability from '../employeeAvailability';
 
 export class CreateEmployeeForm extends React.Component {
 	handleSubmit(e){
@@ -15,7 +17,8 @@ export class CreateEmployeeForm extends React.Component {
 			email : data.get('email'),
 			phoneNumber : data.get('phoneNumber'),
 			img : data.get('image'),
-			password : data.get('password')
+			password : data.get('password'),
+			availability: data.get('availability')
 		};
 		this.props.dispatch(createEmployee(newEmployee));
 	}
@@ -97,6 +100,11 @@ export class CreateEmployeeForm extends React.Component {
 										/>
 									</label>
 								</div>
+
+								<div className="form-field">
+									<EmployeeAvailability />
+								</div>
+
 								<div className="form-field">
 									<label htmlFor="password">Password
 										<input
