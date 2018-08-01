@@ -82,6 +82,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='email'
 											id='email'
 											name='email'
+											required
 										/>
 									</label>
 								</div>
@@ -91,6 +92,8 @@ export class CreateEmployeeForm extends React.Component {
 											type='tel'
 											id='phoneNumber'
 											name='phoneNumber'
+											pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
+											required
 										/>
 									</label>
 								</div>
@@ -100,6 +103,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='password'
 											id='password'
 											name='password'
+											required
 										/>
 									</label>
 								</div>
@@ -107,7 +111,7 @@ export class CreateEmployeeForm extends React.Component {
 									<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
 									<button className="form-submit-btn" type='submit'>Save</button>
 								</div>
-                {error}
+								{error}
 							</fieldset>
 						</form>
 					</div>
