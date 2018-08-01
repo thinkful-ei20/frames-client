@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import {hideModal} from '../../actions/modals';
-import {editFrame,deleteFrame,clearFrameError} from '../../actions/edit-frame';
+import {editFrame, deleteFrame, clearFrameError} from '../../actions/edit-frame';
 
 import './styles/forms.css';
 
@@ -51,6 +51,11 @@ export class EditFrameForm extends React.Component {
 			this.setState({error : null});
 			this.props.dispatch(clearFrameError());
     }
+	};
+
+	handleReset = () => {
+		this.setState({error: null});
+		this.props.dispatch(clearFrameError());
 	};
 
 	handleCancel() {
@@ -138,14 +143,14 @@ export class EditFrameForm extends React.Component {
 								className="form-reset-btn"
 								type="reset"
 								title="Reset frame form"
-								onClick={() => this.setState({error: null})}>
+								onClick={this.handleReset}>
 								Reset
 							</button>
 							<button
 								className="form-submit-btn"
 								title="Submit Edited Frame"
 								type='submit'
-								disabled={this.state.error}>
+								disabled={this.state.error || this.props.error}>
 								Save
 							</button>
 						</div>

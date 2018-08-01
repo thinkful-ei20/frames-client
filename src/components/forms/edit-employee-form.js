@@ -104,7 +104,7 @@ export class EditEmployeeForm extends React.Component {
 									<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
 										<i className="fa fa-trash-o" aria-hidden="true"></i>
 									</button>
-									<button onClick={() => this.props.dispatch(clearEmployeeError())}className="form-reset-btn" type="reset">Reset</button>
+									<button onClick={() => this.props.dispatch(clearEmployeeError())} className="form-reset-btn" type="reset">Reset</button>
 									<button
 										className="form-submit-btn"
 										title="Edit employee form submit button"

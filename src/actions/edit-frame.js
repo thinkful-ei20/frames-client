@@ -20,6 +20,14 @@ export const editFrameError = error => {
 	};
 };
 
+export const CLEAR_FRAME_ERROR = 'CLEAR_FRAME_ERROR';
+export const clearFrameError = () => {
+	return {
+		type: CLEAR_FRAME_ERROR
+	}
+};
+
+
 // Asynch edit frame action to grab and store Frames array
 export const editFrame = (frameId, updatedFrame) => dispatch => {
 	dispatch(requestEditFrame());
