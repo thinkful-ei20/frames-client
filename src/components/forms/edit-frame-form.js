@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import {hideModal} from '../../actions/modals';
-import {editFrame, deleteFrame, clearFrameError} from '../../actions/edit-frame';
+import {editFrame, deleteFrame, clearFrameError} from '../../actions/frames';
 
 import './styles/forms.css';
 

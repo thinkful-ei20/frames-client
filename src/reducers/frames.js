@@ -1,5 +1,4 @@
-import {REQUEST_FRAMES,FRAMES_SUCCESS,FRAMES_ERROR,SET_FRAMES_VIEW} from '../actions/frames';
-import {REQUEST_EDIT_FRAME, EDIT_FRAME_ERROR, CLEAR_FRAME_ERROR} from '../actions/edit-frame';
+import {REQUEST_FRAMES,FRAMES_SUCCESS,FRAMES_ERROR,SET_FRAMES_VIEW, CLEAR_FRAME_ERROR} from '../actions/frames';
 
 const initialState = {
 	frames: [],
@@ -10,7 +9,7 @@ const initialState = {
 
 
 export default function framesReducer(state = initialState, action){
-	if (action.type === (REQUEST_FRAMES || REQUEST_EDIT_FRAME)){
+	if (action.type === (REQUEST_FRAMES)){
 		return {
 			...state,
 			loading: true
@@ -34,14 +33,6 @@ export default function framesReducer(state = initialState, action){
 		};
 	}
 
-	if (action.type === EDIT_FRAME_ERROR){
-		return {
-			...state,
-			loading: false,
-			error: action.error
-		};
-	}
-
 	if (action.type === SET_FRAMES_VIEW){
 		return {
 			...state,
@@ -49,12 +40,12 @@ export default function framesReducer(state = initialState, action){
 		};
 	}
 
-  if(action.type === CLEAR_FRAME_ERROR) {
-    return {
-      ...state,
-      error: null
-    };
-  }
+	if(action.type === CLEAR_FRAME_ERROR) {
+		return {
+			...state,
+			error: null
+		};
+	}
 
 	return state;
 }

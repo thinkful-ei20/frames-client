@@ -66,19 +66,19 @@ export class Dashboard extends React.Component {
 		return(
 			<div className="dashboard-page">
 				{error}
-					<header className="dashboard-header">
-						<h2>Dashboard</h2>
-						<div className="dashboard-section-header">
-							{/*<ScheduleView />*/}
-							<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>
-                <i className="fa fa-filter" aria-hidden="true"></i>
-							</button>
-              <button className="frame-add-btn" title="Add a frame" onClick={() => this.props.dispatch(showModal('newFrame', null))}>
-                <i className="fa fa-plus-circle" aria-hidden="true"></i>
-              </button>
-						</div>
-					</header>
-        <ScheduleView />
+				<header className="dashboard-header">
+					<h2>scheduler</h2>
+					<div className="dashboard-section-header">
+						{/*<ScheduleView />*/}
+						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>
+							<i className="fa fa-filter" aria-hidden="true"></i>
+						</button>
+						<button className="frame-add-btn" title="Add a frame" onClick={() => this.props.dispatch(showModal('newFrame', null))}>
+							<i className="fa fa-plus-circle" aria-hidden="true"></i>
+						</button>
+					</div>
+				</header>
+				<ScheduleView />
 				<section className="dashboard-section">
 					{listOfFramesToBeRendered.length
 						? <CardList list={listOfFramesToBeRendered} />

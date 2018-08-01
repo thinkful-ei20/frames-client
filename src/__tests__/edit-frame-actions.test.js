@@ -1,4 +1,4 @@
-import { requestEditFrame, REQUEST_EDIT_FRAME, editFrameError, EDIT_FRAME_ERROR } from '../actions/edit-frame';
+import { requestEditFrame, REQUEST_EDIT_FRAME, editFrameError, EDIT_FRAME_ERROR } from '../actions/frame';
 
 describe('Edit Frame actions', () => {
 

@@ -44,7 +44,7 @@ export class Profile extends React.Component {
 			<div className="profile-page">
 				{error}
 				<header className="profile-header">
-					<h2>My profile</h2>
+					<h2>profile</h2>
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
