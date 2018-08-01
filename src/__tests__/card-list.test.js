@@ -14,9 +14,8 @@ describe('CardList', () => {
 					lastname: 'test',
 					img:'test.jpg'
 				},
-				startFrame: '2018-07-27T12:00:00.000Z',//<---
-				// these are the only things that matter for the render
-				endFrame: '2018-07-27T15:00:00.000Z',  //<---
+				startFrame: '2018-07-27T12:00:00.000Z',
+				endFrame: '2018-07-27T15:00:00.000Z',
 				id : '000'
 			}]
 		};

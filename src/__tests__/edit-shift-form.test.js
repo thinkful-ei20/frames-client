@@ -1,11 +1,11 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {EditShiftForm} from '../components/forms/edit-shift-form';
+import {EditFrameForm} from '../components/forms/edit-frame-form';
 
-describe('Edit Shift Form', () => {
+describe('Edit Frame Form', () => {
 	it('should be render', () => {
 		shallow(
-			<EditShiftForm
+			<EditFrameForm
 				dispatch={jest.fn}
 				currentFrame={{}}
 				employees={{employees: [{}]}}

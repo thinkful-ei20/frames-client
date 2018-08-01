@@ -9,5 +9,4 @@ describe('Super Filter', () => {
 			frames={[{},{}]}
 		/>);
 	});
-
 });

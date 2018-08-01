@@ -9,7 +9,7 @@ import ModalConductor from './modals/modal-conductor';
 import Profile from './profile';
 import Employees from './employees';
 
-export default class App extends Component {
+export class App extends Component {
 	render() {
 		return (
 			<div className="App">
@@ -27,4 +27,6 @@ export default class App extends Component {
 		);
 	}
 }
+
+export default App;
 

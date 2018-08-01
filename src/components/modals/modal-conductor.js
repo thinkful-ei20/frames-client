@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import EditEmployeeForm from '../forms/edit-employee-form';
-import AddEmployeeForm from '../forms/create-employee-form';
+import CreateEmployeeForm from '../forms/create-employee-form';
 import CreateFrameForm from '../forms/create-frame-form';
 import EditFrameForm from '../forms/edit-frame-form';
 import SuperFilter from '../super-filter';
@@ -24,7 +24,7 @@ export function ModalConductor(props) {
 		content = <EditEmployeeForm/>;
 	} else if (props.modalType === 'newEmployee') {
 		contentLabel= 'Create an Employee';
-		content = <AddEmployeeForm />;
+		content = <CreateEmployeeForm />;
 	} else if (props.modalType === 'newFrame') {
 		contentLabel = 'Create a Frame';
 		content = <CreateFrameForm />;

@@ -1,4 +1,4 @@
-import { SET_TOKEN, setToken, clearToken, CLEAR_TOKEN, requestLogin, REQUEST_LOGIN, loginError, LOGIN_ERROR } from '../actions/auth';
+import {clearToken, CLEAR_TOKEN, requestLogin, REQUEST_LOGIN, loginError, LOGIN_ERROR } from '../actions/auth';
 
 describe('Set Auth Token Action', () => {
 

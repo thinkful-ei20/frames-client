@@ -1,7 +1,9 @@
 import React from 'react';
-import App from '../App';
-import {shallow, mount} from 'enzyme';
+import {App} from '../components/app';
+import {shallow} from 'enzyme';
 
-it('renders without crashing', () => {
-  shallow(<App />);
+describe('App', () => {
+	it('renders without crashing', () => {
+		shallow(<App />);
+	});
 });

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {createEmployee} from '../../actions/employee';
 import {hideModal} from '../../actions/modals';
 
-export class AddEmployeeForm extends React.Component {
+export class CreateEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
@@ -113,7 +113,7 @@ export class AddEmployeeForm extends React.Component {
 }
 
 
-AddEmployeeForm.propTypes = {
+CreateEmployeeForm.propTypes = {
 	dispatch : PropTypes.func,
 	id : PropTypes.string,
 	employee : PropTypes.object
@@ -125,4 +125,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(AddEmployeeForm);
+export default connect(mapStateToProps)(CreateEmployeeForm);

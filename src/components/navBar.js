@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { logout } from '../actions/auth';
+import {withRouter} from 'react-router';
 import PropTypes from 'prop-types';
 
-import { withRouter } from 'react-router';
+import {logout} from '../actions/auth';
 
 import './styles/navBar.css';
 
