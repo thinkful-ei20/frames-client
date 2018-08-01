@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import {addFrame,clearFrameError} from '../../actions/edit-frame';
+import {addFrame,clearFrameError} from '../../actions/frames';
 import {hideModal} from '../../actions/modals';
 
 import '../styles/app.css';
@@ -124,7 +124,7 @@ export class CreateFrameForm extends React.Component {
 									<button className="form-submit-btn">Save</button>
 								</div>
 								{error}
-              </fieldset>
+							</fieldset>
 						</form>
 					</div>
 				</div>

@@ -1,4 +1,4 @@
-import { REQUEST_EMPLOYEES, EMPLOYEES_SUCCESS, EMPLOYEES_ERROR } from '../actions/employee';
+import {REQUEST_EMPLOYEES,EMPLOYEES_SUCCESS,EMPLOYEES_ERROR,CLEAR_EMPLOYEE_ERROR} from '../actions/employee';
 
 const initialState = {
 	employees: [],
@@ -28,6 +28,13 @@ export default function employeesReducer(state = initialState, action) {
 			...state,
 			loading: false,
 			error: action.error
+		};
+	}
+
+	if(action.type === CLEAR_EMPLOYEE_ERROR) {
+		return {
+			...state,
+			error: null
 		};
 	}
 	return state;

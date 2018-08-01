@@ -1,5 +1,5 @@
-import { API_BASE_URL } from '../config';
-import { hideModal } from './modals';
+import {API_BASE_URL} from '../config';
+import {hideModal} from './modals';
 import {normalizeResponseErrors} from './utils';
 
 // Set loading to true
@@ -28,6 +28,13 @@ export const employeesError = error => {
 	};
 };
 
+export const CLEAR_EMPLOYEE_ERROR = 'CLEAR_EMPLOYEE_ERROR';
+export const clearEmployeeError = () => {
+	return {
+		type: CLEAR_EMPLOYEE_ERROR
+	};
+};
+
 // Asynch action to fetch all employees from server
 export const fetchEmployees = () => dispatch => {
 	const token = localStorage.getItem('authToken');
@@ -39,9 +46,12 @@ export const fetchEmployees = () => dispatch => {
 			'Authorization' : `Bearer ${token}`
 		}
 	})
-		.then(res => res.json())
+    .then(res => normalizeResponseErrors(res))
 		.then(data => dispatch(employeesSuccess(data)))
-		.catch(error => dispatch(employeesError(error.message)));
+		.catch(error => {
+			console.log('ERRRO');
+			dispatch(employeesError(error.message))
+    });
 };
 
 // Asynch action to update an employee
@@ -62,7 +72,8 @@ export const updateEmployee = (employeeId, updatedEmployee) => dispatch => {
 			dispatch(hideModal());
 		})
 		.catch(error => {
-			dispatch(employeesError(error))});
+			dispatch(employeesError(error.message));
+		});
 };
 
 //Asynch action to create an employee

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {updateEmployee,deleteEmployee} from '../../actions/employee';
+import {updateEmployee,deleteEmployee,clearEmployeeError} from '../../actions/employee';
 import {hideModal} from '../../actions/modals';
 
 import EmployeeAvailability from '../employeeAvailability';
@@ -124,7 +124,7 @@ export class EditEmployeeForm extends React.Component {
 									<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
 										<i className="fa fa-trash-o" aria-hidden="true"></i>
 									</button>
-									<button className="form-reset-btn" type="reset">Reset</button>
+									<button onClick={() => this.props.dispatch(clearEmployeeError())} className="form-reset-btn" type="reset">Reset</button>
 									<button
 										className="form-submit-btn"
 										title="Edit employee form submit button"

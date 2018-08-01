@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import {hideModal} from '../../actions/modals';
-import {editFrame,deleteFrame,clearFrameError} from '../../actions/edit-frame';
+import {editFrame, deleteFrame, clearFrameError} from '../../actions/frames';
 
 import './styles/forms.css';
 
@@ -31,7 +31,7 @@ export class EditFrameForm extends React.Component {
 		if (updatedFrame.employeeId === 'open'){
 			updatedFrame.employeeId = null;
 		}
-
+		console.log('HANDLE SUBMIT EDIT FRAME ran');
 		// grab the id of the current frame from the modal state
 		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
 	};
@@ -51,6 +51,11 @@ export class EditFrameForm extends React.Component {
 			this.setState({error : null});
 			this.props.dispatch(clearFrameError());
     }
+	};
+
+	handleReset = () => {
+		this.setState({error: null});
+		this.props.dispatch(clearFrameError());
 	};
 
 	handleCancel() {
@@ -131,6 +136,7 @@ export class EditFrameForm extends React.Component {
 							<button
 								className="form-delete-btn"
 								title="Delete frame"
+								type="button"
 								onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
 								<i className="fa fa-trash-o" aria-hidden="true"></i>
 							</button>
@@ -138,14 +144,14 @@ export class EditFrameForm extends React.Component {
 								className="form-reset-btn"
 								type="reset"
 								title="Reset frame form"
-								onClick={() => this.setState({error: null})}>
+								onClick={this.handleReset}>
 								Reset
 							</button>
 							<button
 								className="form-submit-btn"
 								title="Submit Edited Frame"
-								type='submit'
-								disabled={this.state.error}>
+								type="submit"
+								disabled={this.state.error || this.props.error}>
 								Save
 							</button>
 						</div>

@@ -26,14 +26,14 @@ export class Profile extends React.Component {
 	};
 
 	render() {
-		let {error} = this.props
-		if(error) {
-			error = (
-				<div className="profile-error">
-					{error}
-				</div>
-			)
-		}
+    let error;
+    if(this.props.error) {
+      error = (
+        <div className="error-msg" aria-live="polite">
+          {this.props.error}
+        </div>
+      )
+    }
 
 		let phoneNumber;
 		if (this.props.phone){
@@ -44,7 +44,7 @@ export class Profile extends React.Component {
 			<div className="profile-page">
 				{error}
 				<header className="profile-header">
-					<h2>My profile</h2>
+					<h2>profile</h2>
 					<div>
 						<button
 							className={this.state.editing ? 'profile-cancel-btn' : 'profile-edit-btn'}
