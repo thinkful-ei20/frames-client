@@ -25,16 +25,16 @@ export class EmployeeAvailability extends React.Component {
 							onChange={() => this.toggleHidden([`${weekday}-start`, `${weekday}-end`])}
 							defaultChecked={dayAvailability}/>
 						<input
-							className="hidden"
+							className={dayAvailability ? '' : 'hidden'}
 							type="time"
 							id={`${weekday}-start`}
 							name={`${weekday}-start`}
 							defaultValue={dayAvailability ? dayAvailability.start : null}
 						/>
-						<input 
-							className="hidden" 
+						<input
+							className={dayAvailability ? '' : 'hidden'}
 							type="time"
-							id={`${weekday}-end`} 
+							id={`${weekday}-end`}
 							name={`${weekday}-end`}
 							defaultValue={dayAvailability ? dayAvailability.end : null}
 						/>

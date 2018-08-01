@@ -9,13 +9,12 @@ export function EmployeeCard (props){
 	//Format availability
 	let availabilityTable;
 	if (props.availability){
-		console.log(props.availability);
-		const availabilityRows = props.availability.map(day => {
+		const availabilityRows = props.availability.map((day,index) => {
 			const startFormatted = formatTwelveHourTime(day.start);
-			const endFormatted = formatTwelveHourTime(day.end);			
-
+			const endFormatted = formatTwelveHourTime(day.end);
+		
 			return (
-				<tr key={day}>
+				<tr key={index}>
 					<td>{day.day}</td>
 					<td>{startFormatted}</td>
 					<td>{endFormatted}</td>
@@ -47,6 +46,7 @@ export function EmployeeCard (props){
 				<p>{phoneNumber}</p>
 			</div>
 			<div>
+				<h3>Availability</h3>
 				{availabilityTable}
 			</div>
 			<div>
@@ -64,7 +64,8 @@ EmployeeCard.propTypes = {
 	email : PropTypes.string,
 	phoneNumber : PropTypes.string,
 	dispatch : PropTypes.func,
-	id : PropTypes.string
+	id : PropTypes.string,
+	availability : PropTypes.array
 };
 
 export default connect()(EmployeeCard);

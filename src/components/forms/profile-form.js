@@ -26,7 +26,7 @@ export class ProfileForm extends React.Component {
 				updatedProfile[key] = values[key];
 			}
 		});
-		console.log('UPDATED PROFILE', updatedProfile);
+	
 		this.props.dispatch(editProfile(this.props.initialValues.adminId, updatedProfile))
 		/* work around for messy state logic with redux-forms, definitely should make it more succinct */
 			.then( res => {

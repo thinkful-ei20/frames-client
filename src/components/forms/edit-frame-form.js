@@ -31,7 +31,7 @@ export class EditFrameForm extends React.Component {
 		if (updatedFrame.employeeId === 'open'){
 			updatedFrame.employeeId = null;
 		}
-		console.log('HANDLE SUBMIT EDIT FRAME ran');
+		
 		// grab the id of the current frame from the modal state
 		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
 	};

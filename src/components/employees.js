@@ -13,19 +13,18 @@ import './styles/employees.css';
 export class Employees extends React.Component {
 
 	componentDidMount(){
-		console.log('FETCH EMPLOYEES ran');
 		this.props.dispatch(fetchEmployees());
 	}
 
 	render(){
-    let error;
-    if(this.props.error) {
-      error = (
-        <div className="error-msg" aria-live="polite">
-          {this.props.error}
-        </div>
-      )
-    }
+		let error;
+		if(this.props.error) {
+			error = (
+				<div className="error-msg" aria-live="polite">
+					{this.props.error}
+				</div>
+			);
+		}
 
 		return (
 			<div className="employee-page">
@@ -72,7 +71,8 @@ const mapStateToProps = state => {
 
 Employees.propTypes = {
 	dispatch : PropTypes.func,
-	employees : PropTypes.array
+	employees : PropTypes.array,
+	error : PropTypes.any
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Employees));

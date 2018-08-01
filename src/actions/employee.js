@@ -13,7 +13,6 @@ export const requestEmployees = () => {
 // Set loading to false and add array of employees
 export const EMPLOYEES_SUCCESS = 'EMPLOYEES_SUCCESS';
 export const employeesSuccess = data => {
-	console.log(data);
 	return {
 		type: EMPLOYEES_SUCCESS,
 		data
