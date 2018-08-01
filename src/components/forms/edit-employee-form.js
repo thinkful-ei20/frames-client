@@ -107,7 +107,7 @@ export class EditEmployeeForm extends React.Component {
 								</div>
 
 								<div className="form-field">
-									<EmployeeAvailability />
+									<EmployeeAvailability availability={this.props.employee.availability}/>
 								</div>
 
 								<div className="form-field">

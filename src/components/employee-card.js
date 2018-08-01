@@ -2,18 +2,23 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {showModal} from '../actions/modals';
 import PropTypes from 'prop-types';
+import { formatTwelveHourTime } from '../actions/utils';
 
 export function EmployeeCard (props){
 
 	//Format availability
 	let availabilityTable;
 	if (props.availability){
+		console.log(props.availability);
 		const availabilityRows = props.availability.map(day => {
+			const startFormatted = formatTwelveHourTime(day.start);
+			const endFormatted = formatTwelveHourTime(day.end);			
+
 			return (
 				<tr key={day}>
 					<td>{day.day}</td>
-					<td>{day.start}</td>
-					<td>{day.end}</td>
+					<td>{startFormatted}</td>
+					<td>{endFormatted}</td>
 				</tr>
 			);
 		});
