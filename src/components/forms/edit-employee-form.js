@@ -13,7 +13,8 @@ export class EditEmployeeForm extends React.Component {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
 			email : data.get('email'),
-			phoneNumber : data.get('phoneNumber')
+			phoneNumber : data.get('phoneNumber'),
+			password : data.get('password')
 		};
 		this.props.dispatch(updateEmployee(this.props.id, updatedEmployee));
 	}
@@ -30,17 +31,17 @@ export class EditEmployeeForm extends React.Component {
 
 		let error;
 		if (this.props.error){
-      error = (
-        <div className="form-modal-error" aria-live="polite">
-          {this.props.error.message}
-        </div>
-      );
+			error = (
+				<div className="form-modal-error" aria-live="polite">
+					{this.props.error.message}
+				</div>
+			);
 		}
 
 		return (
 			<React.Fragment>
 				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
-        <div className="modal-form-wrapper">
+				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className="form-header">Edit Employee</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
@@ -89,6 +90,16 @@ export class EditEmployeeForm extends React.Component {
 										/>
 									</label>
 								</div>
+								<div className="form-field">
+									<label htmlFor="password">Password
+										<input
+											type='password'
+											id='password'
+											name='password'
+											required
+										/>
+									</label>
+								</div>
 								<div className="form-field form-btns">
 									<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
 										<i className="fa fa-trash-o" aria-hidden="true"></i>
@@ -102,7 +113,7 @@ export class EditEmployeeForm extends React.Component {
 									>Save</button>
 								</div>
 								{error}
-              </fieldset>
+							</fieldset>
 						</form>
 					</div>
 				</div>

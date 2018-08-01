@@ -38,7 +38,7 @@ export const RegisterFormSecondPage = props => {
 				<label>Password
 					<Field
 						name="password"
-            label="Password"
+						label="Password"
 						type="password"
 						component={renderField}
 						validate={[required, isTrimmed, passwordLength]}
@@ -48,7 +48,7 @@ export const RegisterFormSecondPage = props => {
 				<label>Confirm password
 					<Field
 						name="passwordConfirm"
-            label="Confirm password"
+						label="Confirm password"
 						type="password"
 						component={renderField}
 						validate={[required, nonEmpty, matchesPassword]}
