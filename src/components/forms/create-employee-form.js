@@ -1,21 +1,36 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {createEmployee} from '../../actions/employee';
-import {hideModal} from '../../actions/modals';
+import { createEmployee } from '../../actions/employee';
+import { hideModal } from '../../actions/modals';
+
+import EmployeeAvailability from '../employeeAvailability';
 
 export class CreateEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
+		const availability = [];
+		const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+		daysOfWeek.forEach(day => {
+			if (data.get(day)){
+				availability.push({
+					day,
+					start : data.get(`${day}-start`),
+					end: data.get(`${day}-end`)
+				});
+			}
+		});
+		
 		const newEmployee = {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
 			email : data.get('email'),
 			phoneNumber : data.get('phoneNumber'),
 			img : data.get('image'),
-			password : data.get('password')
+			password : data.get('password'),
+			availability
 		};
 		this.props.dispatch(createEmployee(newEmployee));
 	}
@@ -55,6 +70,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='text'
 											id='firstname'
 											name='firstname'
+											required
 										/>
 									</label>
 								</div>
@@ -64,6 +80,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='text'
 											id='lasttname'
 											name='lastname'
+											required
 										/>
 									</label>
 								</div>
@@ -97,6 +114,11 @@ export class CreateEmployeeForm extends React.Component {
 										/>
 									</label>
 								</div>
+
+								<div className="form-field">
+									<EmployeeAvailability availability={[]}/>
+								</div>
+
 								<div className="form-field">
 									<label htmlFor="password">Password
 										<input

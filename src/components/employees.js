@@ -52,6 +52,7 @@ export class Employees extends React.Component {
 									email={employee.email}
 									phoneNumber={employee.phoneNumber}
 									id={employee.id}
+									availability={employee.availability}
 								/>
 							);
 						})

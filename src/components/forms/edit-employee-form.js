@@ -5,16 +5,31 @@ import PropTypes from 'prop-types';
 import {updateEmployee,deleteEmployee,clearEmployeeError} from '../../actions/employee';
 import {hideModal} from '../../actions/modals';
 
+import EmployeeAvailability from '../employeeAvailability';
+
 export class EditEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
+		const availability = [];
+		const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+		daysOfWeek.forEach(day => {
+			if (data.get(day)){
+				availability.push({
+					day,
+					start : data.get(`${day}-start`),
+					end: data.get(`${day}-end`)
+				});
+			}
+		});
+
 		const updatedEmployee = {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
 			email : data.get('email'),
 			phoneNumber : data.get('phoneNumber'),
-			password : data.get('password')
+			password : data.get('password'),
+			availability
 		};
 		this.props.dispatch(updateEmployee(this.props.id, updatedEmployee));
 	}
@@ -90,6 +105,11 @@ export class EditEmployeeForm extends React.Component {
 										/>
 									</label>
 								</div>
+
+								<div className="form-field">
+									<EmployeeAvailability availability={this.props.employee.availability}/>
+								</div>
+
 								<div className="form-field">
 									<label htmlFor="password">Password
 										<input
