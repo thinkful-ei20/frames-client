@@ -8,15 +8,14 @@ weekly or monthly views.
 
 Live demo can be viewed [here](https://frames-client.netlify.com/).
 
-Demo account for testing:
+**Demo account for testing:**
 
-username: username
+<span style="background-color: #FFFF00">username: username</span>
 
-password: password
+<span style="background-color: #FFFF00">password: password</span>
 
 ## Screenshots
 <img src="src/images/readme_schreenshot.png" alt="app log" width="100%">
-
 
 ## Installation
 Clone the GitHub repository and use [NPM](https://www.npmjs.com/) to install project dependencies.
