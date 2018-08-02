@@ -7,6 +7,7 @@ maintain a list of employees and contact information and keep their schedules st
 weekly or monthly views.
 
 Live app can be viewed [here](https://frames-client.netlify.com/).
+Check out the server repo [here](https://github.com/thinkful-ei20/frames-server).
 
 **Demo account for testing:**  
 username: **username**  
