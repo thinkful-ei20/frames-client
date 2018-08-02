@@ -13,11 +13,12 @@ export const createUser = user => dispatch => {
 		body: JSON.stringify(user)
 	})
 		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
 		.then(res => {
-			res.json();
 			dispatch(login(user.username, user.password));
 		})
 		.catch(error => {
+			console.log(error);
 			const {message} = error;
 			return Promise.reject( new SubmissionError({_error : message}));
 		});

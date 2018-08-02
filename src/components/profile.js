@@ -21,6 +21,10 @@ export class Profile extends React.Component {
 		this.props.dispatch(fetchProfile(this.props.adminId.id));
 	}
 
+	componentWillUnmount() {
+		// Clear any possible memory leaks
+		this.state.editing = false;
+	}
 	handleEdit = () => {
 		this.setState({ editing: !this.state.editing });
 	};
