@@ -1,4 +1,4 @@
-<img src="src/images/Logo-2.png" alt="app log" width="15%"> [Frames](https://frames-client.netlify.com/) - staff scheduling app
+<img src="src/images/Logo-2.png" alt="app log" width="5%"> [Frames](https://frames-client.netlify.com/) - staff scheduling app
 ============================
 Small, intuitive, and easy to use staff scheduling application for small businesses. 
 When scheduling for multiple shifts, multiple employees over multiple divergent time zones, 
