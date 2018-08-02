@@ -15,7 +15,7 @@ username: username
 password: password
 
 ## Screenshots
-
+<img src="src/images/readme_schreenshot.png" alt="app log" width="100%">
 
 
 ## Installation
