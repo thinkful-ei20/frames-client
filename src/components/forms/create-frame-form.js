@@ -18,7 +18,6 @@ export class CreateFrameForm extends React.Component {
 
 	handleSubmit (e) {
 		e.preventDefault();
-
 		const data = new FormData(e.target);
 		const newFrame = {
 			employeeId : data.get('employee-select'),
@@ -61,22 +60,25 @@ export class CreateFrameForm extends React.Component {
 			);
 		}
 
+    if (this.state.frameError) {
+      error = (
+        <div className="form-modal-error" aria-live="polite">
+          {this.state.frameError}
+        </div>
+      );
+    }
 
 		const defaultStart = moment().format().slice(0,-9);
 		const defaultEnd = moment().format().slice(0,-9);
 
-		if (this.state.frameError) {
-			error = (
-				<div className="form-modal-error" aria-live="polite">
-					{this.state.frameError}
-				</div>
-			);
-		}
-
 		return (
 			<React.Fragment>
-				<button className="modal-close-btn" title="Close Create Frame Form" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
+          <button
+						className="modal-close-btn"
+						title="Close create frame form"
+						onClick={() => this.handleCancel()}>
+					</button>
 					<div className="form-wrapper">
 						<h2 className='form-header'>Add Frame</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>

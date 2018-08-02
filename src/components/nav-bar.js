@@ -29,10 +29,6 @@ export class NavBar extends React.Component {
 		const { view } = this.state;
 		const wideScreenView = view >= 640;
 
-		// if(window.innerWidth >= 640) {
-		// 	wideScreenView = true;
-		// }
-
 		let menu;
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (

@@ -52,13 +52,13 @@ export class CreateEmployeeForm extends React.Component {
 
 		return (
 			<React.Fragment>
-				<button
-					className="modal-close-btn"
-					title="Close create employee form"
-					type="button"
-					onClick={() => this.handleCancel()}>
-				</button>
 				<div className="modal-form-wrapper">
+          <button
+            className="modal-close-btn"
+            title="Close create employee form"
+            type="button"
+            onClick={() => this.handleCancel()}>
+          </button>
 					<div className="form-wrapper">
 						<h2 className='form-header'>New Employee</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>

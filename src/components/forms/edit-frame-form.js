@@ -88,9 +88,13 @@ export class EditFrameForm extends React.Component {
 
 		return(
 			<div className="modal-form-wrapper">
-				<button className="modal-close-btn" title="Close Edit Frame Form" onClick={() => this.handleCancel()}></button>
+				<button
+					className="modal-close-btn"
+					title="Close edit frame form"
+					onClick={() => this.handleCancel()}>
+				</button>
 				<div className="form-wrapper">
-          			<h2 className="form-header">Edit Frame</h2>
+					<h2 className="form-header">Edit Frame</h2>
 					<form onSubmit={this.handleSubmit}>
 					<fieldset>
 						<legend>Edit Frame</legend>

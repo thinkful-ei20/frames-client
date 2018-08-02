@@ -50,8 +50,12 @@ export class SuperFilter extends React.Component{
 
 		return (
 			<React.Fragment>
-				<button className="modal-close-btn" title="Close Filter" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
+          <button
+						className="modal-close-btn"
+						title="Close filter"
+						onClick={() => this.handleCancel()}>
+					</button>
 					<div className="form-wrapper">
 						<h2 className='form-header'>Advanced Filter</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
