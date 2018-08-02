@@ -9,8 +9,8 @@ weekly or monthly views.
 Live app can be viewed [here](https://frames-client.netlify.com/).
 
 **Demo account for testing:**  
-username: ==username==  
-password: ==password==
+username: **username**  
+password: **password**
 
 ## Screenshots
 <img src="src/images/readme_schreenshot.png" alt="app log" width="100%">
