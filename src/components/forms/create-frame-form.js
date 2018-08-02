@@ -40,6 +40,8 @@ export class CreateFrameForm extends React.Component {
 
 		if(start > end){
 			this.setState({frameError : 'The end of the shift must be later than the start'});
+		} else if (start.getDate() !== end.getDate()){
+			this.setState({frameError : 'The shift may only be scheduled for one day, if you need to schedule multiple days, please create multiple frames.'});
 		} else {
 			this.setState({frameError : null});
 		}

@@ -42,12 +42,15 @@ export class EditFrameForm extends React.Component {
 
 	validateFrame = () => {
 		// Validate that the endFrame is later than the start frame
+
 		const start = new Date(document.getElementById('startDate').value);
 		const end = new Date(document.getElementById('endDate').value);
 
-    if(start >= end){
+    if(start >= end) {
 			this.setState({error : 'The end time must be later than the start time'});
-		} else {
+		} else if (start.getDate() !== end.getDate()){
+			this.setState({error : 'The shift may only be scheduled for one day, if you need to schedule multiple days, please create multiple frames.'});
+		}else {
 			this.setState({error : null});
 			this.props.dispatch(clearFrameError());
     }
