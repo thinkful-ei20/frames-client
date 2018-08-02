@@ -12,11 +12,27 @@ export class NavBar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isOpen: true
+			isOpen: true,
+			view: window.innerWidth
 		};
 	}
 
+	componentWillMount() {
+		window.addEventListener('resize', this.handleWindowSizeChange)
+	}
+
+	handleWindowSizeChange = () => {
+		this.setState({ view: window.innerWidth })
+	};
+
 	render() {
+		const { view } = this.state;
+		const wideScreenView = view >= 640;
+
+		// if(window.innerWidth >= 640) {
+		// 	wideScreenView = true;
+		// }
+
 		let menu;
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (
@@ -24,19 +40,19 @@ export class NavBar extends React.Component {
 					<ul className="navbar-links">
 						<li>
 							<Link to="/dashboard" title="Go to Dashboard" className={(this.props.location.pathname === '/dashboard') ? 'active' : ''}>
-								<i aria-hidden="true" title="Go to Dashboard" className="fa fa-calendar-o"></i>
+								{wideScreenView ? <div>Schedule</div> : <i aria-hidden="true" title="Go to Schedule" className="fa fa-calendar-o"></i>}
 							</Link>
 						</li>
 
 						<li>
 							<Link to="/profile" title="Go to User Profile" className={(this.props.location.pathname === '/profile') ? 'active' : ''}>
-								<i aria-hidden="true" title="Go to User Profile" className="fa fa-user"></i>
+								{wideScreenView ? <div>Profile</div> : <i aria-hidden="true" title="Go to User Profile" className="fa fa-user"></i>}
 							</Link>
 						</li>
 
 						<li>
 							<Link to="/employees" title="Go to Employee Page" className={(this.props.location.pathname === '/employees') ? 'active' : ''}>
-								<i aria-hidden="true" title="Go to Employee Page" className="fa fa-users"></i>
+								{wideScreenView ? <div>Employee</div> : <i aria-hidden="true" title="Go to Employee Page" className="fa fa-users"></i>}
 							</Link>
 						</li>
 
@@ -45,7 +61,7 @@ export class NavBar extends React.Component {
 								className="navbar-signout-btn"
 								title="Log out"
 								onClick={() => this.props.dispatch(logout())}>
-								<i className="fa fa-sign-out" aria-hidden="true"></i>
+								{wideScreenView ? <div>Sign out</div> : <i className="fa fa-sign-out" aria-hidden="true"></i>}
 							</button>
 						</li>
 					</ul>
