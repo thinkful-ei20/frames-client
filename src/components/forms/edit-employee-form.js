@@ -31,15 +31,16 @@ export class EditEmployeeForm extends React.Component {
 			password : data.get('password'),
 			availability
 		};
-		this.props.dispatch(updateEmployee(this.props.id, updatedEmployee));
+
+		return this.props.dispatch(updateEmployee(this.props.id, updatedEmployee));
 	}
 
 	handleCancel() {
-		this.props.dispatch(hideModal());
+		return this.props.dispatch(hideModal());
 	}
 
 	handleDelete() {
-		this.props.dispatch(deleteEmployee(this.props.id));
+		return this.props.dispatch(deleteEmployee(this.props.id));
 	}
 
 	render(){
@@ -125,7 +126,7 @@ export class EditEmployeeForm extends React.Component {
 									</label>
 								</div>
 								<div className="form-field form-btns">
-									<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
+									<button className="form-delete-btn" title="Delete employee button" type='button' onClick={() => this.handleDelete()}>
 										<i className="fa fa-trash-o" aria-hidden="true"></i>
 									</button>
 									<button onClick={() => this.props.dispatch(clearEmployeeError())} className="form-reset-btn" type="reset">Reset</button>

@@ -50,6 +50,34 @@ export class CreateEmployeeForm extends React.Component {
 			);
 		}
 
+		const defaultAvailability = [
+			{
+				day : 'monday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'tuesday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'wednesday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'thursday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'friday',
+				start : '08:00',
+				end:'17:00'
+			},
+		];
+
 		return (
 			<React.Fragment>
 				<div className="modal-form-wrapper">
@@ -116,7 +144,7 @@ export class CreateEmployeeForm extends React.Component {
 								</div>
 
 								<div className="form-field">
-									<EmployeeAvailability availability={[]}/>
+									<EmployeeAvailability availability={defaultAvailability} type='create'/>
 								</div>
 								<div className="form-field">
 									<label htmlFor="password">Password
@@ -146,7 +174,8 @@ export class CreateEmployeeForm extends React.Component {
 CreateEmployeeForm.propTypes = {
 	dispatch : PropTypes.func,
 	id : PropTypes.string,
-	employee : PropTypes.object
+	employee : PropTypes.object,
+	error : PropTypes.any
 };
 
 const mapStateToProps = state => {

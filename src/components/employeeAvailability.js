@@ -13,8 +13,8 @@ export class EmployeeAvailability extends React.Component {
 	render() {
 		const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 		const dayofWeekInput = daysOfWeek.map(weekday => {
-			const dayAvailability = this.props.availability.find(item => item.day === weekday);
-
+			let dayAvailability = this.props.availability.find(item => item.day === weekday);
+			
 			return (
 				<label
 					key={weekday}
