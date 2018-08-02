@@ -17,6 +17,10 @@ export class Employees extends React.Component {
 	}
 
 	render(){
+    if (this.props.loading){
+      return (<div className="loader">Loading...</div>);
+    }
+
 		let error;
 		if(this.props.error) {
 			error = (
@@ -64,6 +68,7 @@ export class Employees extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		loading : state.employees.loading,
 		employees : state.employees.employees,
 		error : state.employees.error
 	};
@@ -72,7 +77,8 @@ const mapStateToProps = state => {
 Employees.propTypes = {
 	dispatch : PropTypes.func,
 	employees : PropTypes.array,
-	error : PropTypes.any
+  loading: PropTypes.bool,
+  error : PropTypes.any
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Employees));

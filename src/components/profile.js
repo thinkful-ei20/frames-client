@@ -26,6 +26,10 @@ export class Profile extends React.Component {
 	};
 
 	render() {
+    if (this.props.loading){
+      return (<div className="loader">Loading...</div>);
+    }
+
     let error;
     if(this.props.error) {
       error = (
@@ -95,7 +99,8 @@ const mapStateToProps = state => {
 	return {
 		loggedIn: state.auth.user !== null,
 		adminId: state.auth.user,
-		username: state.profile.data.username,
+    loading: state.profile.loading,
+    username: state.profile.data.username,
 		name: state.profile.data.companyName,
 		phone: state.profile.data.phoneNumber,
 		email: state.profile.data.email,
@@ -109,7 +114,9 @@ Profile.propTypes = {
 	name: PropTypes.string,
 	username: PropTypes.string,
 	email: PropTypes.string,
-	phone: PropTypes.string
+	phone: PropTypes.string,
+  loading: PropTypes.bool,
+  error : PropTypes.string
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Profile));
