@@ -50,18 +50,21 @@ nav a,
 .navbar-signout-btn {
     color: #edeef0;
     font-size: 18px;
+    text-decoration: none;
 }
 
 nav a:hover,
 nav a:focus,
 .navbar-signout-btn:hover,
 .navbar-signout-btn:focus {
+    text-decoration: none;
     color: #03A9F4;
     text-shadow: 0 0 1px #03A9F4,
                  0 0 10px rgb(3, 169, 244, 0.8)
 }
 
 nav a.active {
+    text-decoration: underline;
     background-color: #0b0e19;
     color: #03A9F4;
     border-bottom: 1px solid #03A9F4;
@@ -85,10 +88,15 @@ nav a.active {
 }
 
 .navbar-links li {
-    padding: 2.5%;
+    padding-left: 10%;
+    padding-right: 10%;
     align-self: center;
-    flex: 0 0 25%;
-    text-align: end;
+    /*flex: 0 0 25%;*/
+    /*text-align: end;*/
+}
+
+.navbar-links li:first-child {
+    padding-left: 0;
 }
 
 .navbar-links li:last-child {
@@ -99,4 +107,11 @@ nav a.active {
     border: none;
     background: transparent;
     padding: 0;
+}
+
+@media screen and (min-width: 640px) {
+    .navbar-links li {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
