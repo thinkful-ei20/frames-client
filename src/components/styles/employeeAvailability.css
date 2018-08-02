@@ -8,3 +8,7 @@
 .employee-availability label {
   text-align: left;
 }
+
+.light {
+  color: rgb(202, 202, 202);
+}

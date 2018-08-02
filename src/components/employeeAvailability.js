@@ -47,6 +47,7 @@ export class EmployeeAvailability extends React.Component {
 			<div className="employee-availability">
 				<fieldset>
 					<legend>Select Days/Hours of Employee Availability</legend>
+					<h3 className="light">Select Days/Hours of Employee Availability</h3>
 					{dayofWeekInput}
 				</fieldset>
 			</div>
