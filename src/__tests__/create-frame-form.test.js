@@ -5,7 +5,6 @@ import {CreateFrameForm} from '../components/forms/create-frame-form';
 import {hideModal} from '../actions/modals';
 import {clearFrameError} from '../actions/frames';
 
-
 const mockAddFrame = {
 	type: 'ADD_FRAME'
 };
@@ -59,7 +58,7 @@ describe('<CreateFrameForm/>', () => {
 	});
 
 	it('should dispatch clearFrameError() and hideModal() on click cancel', () => {
-
+		dispatch = jest.fn();
 		wrapper = shallow(<CreateFrameForm dispatch={dispatch} {...props}/>);
 
 		wrapper.find('.form-reset-btn').simulate('click');
