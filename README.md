@@ -6,13 +6,11 @@ Frames steps in to take out the leg work. Users can easily add, assign, edit and
 maintain a list of employees and contact information and keep their schedules straight in daily, 
 weekly or monthly views.
 
-Live demo can be viewed [here](https://frames-client.netlify.com/).
+Live app can be viewed [here](https://frames-client.netlify.com/).
 
-**Demo account for testing:**
-
-<mark>username: username</mark>
-
-<mark>password: password</mark>
+**Demo account for testing:**  
+username: ==username==  
+password: ==password==
 
 ## Screenshots
 <img src="src/images/readme_schreenshot.png" alt="app log" width="100%">
@@ -30,8 +28,8 @@ $ npm install
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [jwt-decode](https://www.npmjs.com/package/jwt-decode)
-
-## Authors
+ 
+ ## Authors
 * [Cameron Prier](https://github.com/Csprier)
 * [Marina Dargitz](https://github.com/mdargitz)
 * [Marina Valiquette](https://github.com/Sakela17)
