@@ -92,7 +92,6 @@ export const createEmployee = newEmployee => dispatch => {
 		.catch(error => dispatch(employeesError(error.message)));
 };
 
-
 //Asynch action to delete an employee
 export const deleteEmployee = employeeId => dispatch => {
 	dispatch(requestEmployees());

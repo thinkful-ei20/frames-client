@@ -61,7 +61,7 @@ export class EditEmployeeForm extends React.Component {
 									<label htmlFor="lastname">Last Name
 										<input
 											type='text'
-											id='lasttname'
+											id='lastname'
 											name='lastname'
 											defaultValue={this.props.employee.lastname}
 										/>
@@ -122,6 +122,13 @@ export class EditEmployeeForm extends React.Component {
 	}
 }
 
+EditEmployeeForm.propTypes = {
+	dispatch : PropTypes.func,
+	id : PropTypes.string,
+	employee : PropTypes.object,
+	error : PropTypes.object
+};
+
 const mapStateToProps = state => {
 	const id = state.modal.currentId;
 	const currentEmployee = state.employees.employees.filter(employee => employee.id === id)[0];
@@ -130,13 +137,6 @@ const mapStateToProps = state => {
 		id,
 		error : state.employees.error
 	};
-};
-
-EditEmployeeForm.propTypes = {
-	dispatch : PropTypes.func,
-	id : PropTypes.string,
-	employee : PropTypes.object,
-	error : PropTypes.object
 };
 
 export default connect(mapStateToProps)(EditEmployeeForm);

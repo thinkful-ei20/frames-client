@@ -45,13 +45,13 @@ export class EditFrameForm extends React.Component {
 		const start = new Date(document.getElementById('startDate').value);
 		const end = new Date(document.getElementById('endDate').value);
 
-    if(start >= end){
+		if(start >= end) {
 			this.setState({error : 'The end time must be later than the start time'});
 		} else {
 			this.setState({error : null});
 			this.props.dispatch(clearFrameError());
-    }
-	};
+		}
+	}	
 
 	handleReset = () => {
 		this.setState({error: null});
