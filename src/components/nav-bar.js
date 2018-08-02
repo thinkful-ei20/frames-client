@@ -29,14 +29,10 @@ export class NavBar extends React.Component {
 		const { view } = this.state;
 		const wideScreenView = view >= 640;
 
-		// if(window.innerWidth >= 640) {
-		// 	wideScreenView = true;
-		// }
-
 		let menu;
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (
-				<nav className="navbar-links-wrapper" >
+				<nav className="navbar-links-wrapper">
 					<ul className="navbar-links">
 						<li>
 							<Link to="/dashboard" title="Go to Dashboard" className={(this.props.location.pathname === '/dashboard') ? 'active' : ''}>

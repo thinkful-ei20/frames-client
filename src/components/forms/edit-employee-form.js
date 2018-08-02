@@ -56,7 +56,7 @@ export class EditEmployeeForm extends React.Component {
 
 		return (
 			<React.Fragment>
-				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<button className="modal-close-btn" title="Close edit employee menu" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
 					<div className="form-wrapper">
 						<h2 className="form-header">Edit Employee</h2>
