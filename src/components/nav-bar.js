@@ -32,7 +32,7 @@ export class NavBar extends React.Component {
 		let menu;
 		if(this.state.isOpen & this.props.loggedIn){
 			menu = (
-				<nav className="navbar-links-wrapper" >
+				<nav className="navbar-links-wrapper">
 					<ul className="navbar-links">
 						<li>
 							<Link to="/dashboard" title="Go to Dashboard" className={(this.props.location.pathname === '/dashboard') ? 'active' : ''}>
