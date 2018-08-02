@@ -11,7 +11,7 @@ import './styles/landing-page.css';
 
 export class LandingPage extends React.Component {
 	render() {
-		if(this.props.loggedIn) {
+		if (this.props.loggedIn) {
 			return <Redirect to="/dashboard" />;
 		}
 

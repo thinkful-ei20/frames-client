@@ -13,11 +13,11 @@ function RegistrationPage(props) {
 
 	return (
 		<React.Fragment>
-			<main className="registration">
+			<div className="registration">
 				<section>
 					<RegisterForm />
 				</section>
-			</main>
+			</div>
 		</React.Fragment>
 	);
 }

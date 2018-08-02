@@ -93,7 +93,6 @@ export class ProfileForm extends React.Component {
 							<button className="form-reset-btn" type="button" onClick={this.props.setEdit}>Cancel</button>
 							<button className="form-submit-btn	" type="submit">Save</button>
               {error}
-
 						</div>
 					</fieldset>
 				</form>

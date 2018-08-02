@@ -28,15 +28,15 @@ export class ScheduleView extends React.Component {
 	}
 
 	render(){
-		let startSchedule = moment(getThisWeek().start).format('MMMM, DD');
-		let endSchedule = moment(getThisWeek().end).format('MMMM, DD');
+		let startSchedule = moment(getThisWeek().start).format('MMMM, Do');
+		let endSchedule = moment(getThisWeek().end).format('MMMM, Do');
 		if (this.props.view === 'daily'){
-			startSchedule = moment(getToday().start).format('MMMM, DD');
-			endSchedule = moment(getToday().end).format('MMMM, DD');
+			startSchedule = moment(getToday().start).format('MMMM, Do');
+			endSchedule = moment(getToday().end).format('MMMM, Do');
 		}
 		if (this.props.view === 'monthly'){
-			startSchedule = moment(getThisMonth().start).format('MMMM, DD');
-			endSchedule = moment(getThisMonth().end).format('MMMM, DD');
+			startSchedule = moment(getThisMonth().start).format('MMMM, Do');
+			endSchedule = moment(getThisMonth().end).format('MMMM, Do');
 		}
 
 		return (
