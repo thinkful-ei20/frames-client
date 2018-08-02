@@ -29,7 +29,7 @@ export class Profile extends React.Component {
     let error;
     if(this.props.error) {
       error = (
-        <div className="error-msg" aria-live="polite">
+        <div className="error-msg" aria-live="polite" role="alert">
           {this.props.error}
         </div>
       )

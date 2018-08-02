@@ -75,7 +75,6 @@ export class Dashboard extends React.Component {
 				<header className="dashboard-header">
 					<h2>schedule</h2>
 					<div className="dashboard-section-header">
-						{/*<ScheduleView />*/}
 						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>
 							<i className="fa fa-filter" aria-hidden="true"></i>
 						</button>

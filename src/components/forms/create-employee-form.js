@@ -118,7 +118,6 @@ export class CreateEmployeeForm extends React.Component {
 								<div className="form-field">
 									<EmployeeAvailability availability={[]}/>
 								</div>
-
 								<div className="form-field">
 									<label htmlFor="password">Password
 										<input

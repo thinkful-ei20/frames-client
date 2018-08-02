@@ -43,7 +43,7 @@ export class ProfileForm extends React.Component {
 		let {error} = this.state;
 		if (error) {
 			error = (
-				<div className="form-error" aria-live="polite">
+				<div className="error-msg" aria-live="polite">
 					{this.state.error}
 				</div>
 			);
@@ -51,7 +51,6 @@ export class ProfileForm extends React.Component {
 		return (
 			<div className="form-wrapper">
 				<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-					{error}
 					<fieldset>
 						<legend>Edit Profile</legend>
 						<Field
@@ -91,10 +90,12 @@ export class ProfileForm extends React.Component {
 							autocomplete="off"
 						/>
 						<div className="form-field form-btns">
-							<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+							<button className="form-reset-btn" type="button" onClick={this.props.setEdit}>Cancel</button>
 							<button className="form-submit-btn	" type="submit">Save</button>
+              {error}
+
 						</div>
-          </fieldset>
+					</fieldset>
 				</form>
 			</div>
 		);

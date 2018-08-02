@@ -14,9 +14,25 @@ username: username
 
 password: password
 
+## Screenshots
 
 
-##Authors
+
+## Installation
+Clone the GitHub repository and use [NPM](https://www.npmjs.com/) to install project dependencies.
+```$xslt
+$ git clone https://github.com/thinkful-ei20/frames-client.git
+$ cd frames-client
+$ npm install
+```
+
+## Tech Stack
+* [create-react-app](https://github.com/facebook/create-react-app)
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [jwt-decode](https://www.npmjs.com/package/jwt-decode)
+
+## Authors
 * [Cameron Prier](https://github.com/Csprier)
 * [Marina Dargitz](https://github.com/mdargitz)
 * [Marina Valiquette](https://github.com/Sakela17)

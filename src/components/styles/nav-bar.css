@@ -3,7 +3,6 @@
     top: 0;
     width: 100%;
     max-width: 960px;
-
     z-index: 3;
 }
 
@@ -88,6 +87,8 @@ nav a.active {
 .navbar-links li {
     padding: 2.5%;
     align-self: center;
+    flex: 0 0 25%;
+    text-align: end;
 }
 
 .navbar-links li:last-child {
