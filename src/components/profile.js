@@ -23,7 +23,7 @@ export class Profile extends React.Component {
 
 	componentWillUnmount() {
 		// Clear any possible memory leaks
-		this.state.editing = false;
+		this.setState({editing: false});
 	}
 	handleEdit = () => {
 		this.setState({ editing: !this.state.editing });

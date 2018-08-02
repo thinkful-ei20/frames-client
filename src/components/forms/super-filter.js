@@ -9,6 +9,14 @@ import {hideModal} from '../../actions/modals';
 import './styles/forms.css';
 
 export class SuperFilter extends React.Component{
+
+	constructor(props){
+		super(props);
+		this.state = {
+			frameError : null
+		};
+	}
+
 	removeDuplicates(arr) {
 		let uniqueArray = [];
 		for (let i = 0; i < arr.length; i++) {
@@ -43,6 +51,20 @@ export class SuperFilter extends React.Component{
 		this.props.dispatch(hideModal());
 	}
 
+	validateFrame() {
+		// Validate that the endFrame is later than the start frame
+		const start = new Date(document.getElementById('startdatetime').value);
+		const end = new Date(document.getElementById('enddatetime').value);
+
+		if(start > end){
+			this.setState({frameError : 'The end of the shift must be later than the start'});
+		} else if (start.getDate() !== end.getDate()){
+			this.setState({frameError : 'The shift may only be scheduled for one day, if you need to schedule multiple days, please create multiple frames.'});
+		} else {
+			this.setState({frameError : null});
+		}
+	}
+
 	render(){
 		// Define default values for the form, remove the trailing GMT times
 		const defaultStart = moment().format().slice(0,-9);
@@ -51,13 +73,14 @@ export class SuperFilter extends React.Component{
 		return (
 			<React.Fragment>
 				<div className="modal-form-wrapper">
-          <button
+					<button
 						className="modal-close-btn"
 						title="Close filter"
 						onClick={() => this.handleCancel()}>
 					</button>
 					<div className="form-wrapper">
 						<h2 className='form-header'>Advanced Filter</h2>
+						
 						<form onSubmit={e => this.handleSubmit(e)}>
 							<fieldset>
 								<legend>Filter</legend>
@@ -104,8 +127,8 @@ export class SuperFilter extends React.Component{
 										id='startdatetime'
 										name='startdatetime'
 										type='datetime-local'
-										onChange={this.validateTime}
-										// defaultValue={defaultStart}
+										onChange={() => this.validateFrame()}
+										defaultValue={defaultStart}
 									/>
 								</div>
 								<div className="form-field">
@@ -114,14 +137,16 @@ export class SuperFilter extends React.Component{
 										id='enddatetime'
 										name='enddatetime'
 										type='datetime-local'
-										// defaultValue={defaultEnd}
+										onChange={() => this.validateFrame()}
+										defaultValue={defaultEnd}
 									/>
 								</div>
-							<div className="form-field form-btns">
-								<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
-								<button className="form-submit-btn" type="submit">Submit</button>
-							</div>
-              </fieldset>
+								<div className="form-field-error">{this.state.frameError}</div>
+								<div className="form-field form-btns">
+									<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
+									<button className="form-submit-btn" type="submit">Submit</button>
+								</div>
+							</fieldset>
 						</form>
 					</div>
 				</div>
