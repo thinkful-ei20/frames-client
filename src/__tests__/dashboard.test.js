@@ -57,7 +57,7 @@ describe('Dashboard', () => {
 		});
 	});
 
-	describe('Connected', () => {});
+	// describe('Connected', () => {});
 
 	// 	let wrapper;
 	// 	let store;

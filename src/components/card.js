@@ -31,19 +31,19 @@ export const Card = (props) => {
 		<article className="card">
 			<div className="card-container">
 				{/*<div className="card-info">*/}
-					<div className="card-img"><img className="contain" src={img} alt={emplName}/></div>
-					<div className="card-employee">
-						<div className="card-name">{emplName}</div>
-						<div className="card-frame">
-							<p>{start} - {end}</p>
-						</div>
+				<div className="card-img"><img className="contain" src={img} alt={emplName}/></div>
+				<div className="card-employee">
+					<div className="card-name">{emplName}</div>
+					<div className="card-frame">
+						<p>{start} - {end}</p>
 					</div>
-					<div className="card-time">
-						<div className="card-time-diff">{`${timeDiff} ${timeDiff === 1 ? 'hr' : 'hrs'}`}</div>
-					</div>
-					<button className='opt-btn' title="Edit Frame" onClick={() => { props.dispatch(showModal('edit', id));}}>
-						<i className="fa fa-ellipsis-h"></i>
-					</button>
+				</div>
+				<div className="card-time">
+					<div className="card-time-diff">{`${timeDiff} ${timeDiff === 1 ? 'hr' : 'hrs'}`}</div>
+				</div>
+				<button className='opt-btn' title="Edit Frame" onClick={() => { props.dispatch(showModal('edit', id));}}>
+					<i className="fa fa-ellipsis-h"></i>
+				</button>
 				{/*</div>*/}
 			</div>
 		</article>

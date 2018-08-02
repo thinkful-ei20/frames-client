@@ -106,7 +106,7 @@ export class CreateEmployeeForm extends React.Component {
 									<label htmlFor="lastname">Last Name
 										<input
 											type='text'
-											id='lasttname'
+											id='lastname'
 											name='lastname'
 											required
 										/>
