@@ -7,7 +7,7 @@ import EditEmployeeForm from '../forms/edit-employee-form';
 import CreateEmployeeForm from '../forms/create-employee-form';
 import CreateFrameForm from '../forms/create-frame-form';
 import EditFrameForm from '../forms/edit-frame-form';
-import SuperFilter from '../super-filter';
+import SuperFilter from '../forms/super-filter';
 import {hideModal} from '../../actions/modals';
 
 import './styles/modal.css';

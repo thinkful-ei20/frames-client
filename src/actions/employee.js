@@ -46,9 +46,12 @@ export const fetchEmployees = () => dispatch => {
 			'Authorization' : `Bearer ${token}`
 		}
 	})
+		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(data => dispatch(employeesSuccess(data)))
-		.catch(error => dispatch(employeesError(error.message)));
+		.catch(error => {
+			dispatch(employeesError(error.message));
+		});
 };
 
 // Asynch action to update an employee
@@ -69,7 +72,8 @@ export const updateEmployee = (employeeId, updatedEmployee) => dispatch => {
 			dispatch(hideModal());
 		})
 		.catch(error => {
-			dispatch(employeesError(error));});
+			dispatch(employeesError(error.message));
+		});
 };
 
 //Asynch action to create an employee

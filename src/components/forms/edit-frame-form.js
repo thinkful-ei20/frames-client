@@ -31,7 +31,7 @@ export class EditFrameForm extends React.Component {
 		if (updatedFrame.employeeId === 'open'){
 			updatedFrame.employeeId = null;
 		}
-
+		
 		// grab the id of the current frame from the modal state
 		this.props.dispatch(editFrame(this.props.currentFrame.id, updatedFrame));
 	};
@@ -42,12 +42,15 @@ export class EditFrameForm extends React.Component {
 
 	validateFrame = () => {
 		// Validate that the endFrame is later than the start frame
+
 		const start = new Date(document.getElementById('startDate').value);
 		const end = new Date(document.getElementById('endDate').value);
 
 		if(start >= end) {
 			this.setState({error : 'The end time must be later than the start time'});
-		} else {
+		} else if (start.getDate() !== end.getDate()){
+			this.setState({error : 'The shift may only be scheduled for one day, if you need to schedule multiple days, please create multiple frames.'});
+		}else {
 			this.setState({error : null});
 			this.props.dispatch(clearFrameError());
 		}
@@ -88,9 +91,13 @@ export class EditFrameForm extends React.Component {
 
 		return(
 			<div className="modal-form-wrapper">
-				<button className="modal-close-btn" title="Close Edit Frame Form" onClick={() => this.handleCancel()}></button>
+				<button
+					className="modal-close-btn"
+					title="Close edit frame form"
+					onClick={() => this.handleCancel()}>
+				</button>
 				<div className="form-wrapper">
-          			<h2 className="form-header">Edit Frame</h2>
+					<h2 className="form-header">Edit Frame</h2>
 					<form onSubmit={this.handleSubmit}>
 					<fieldset>
 						<legend>Edit Frame</legend>
@@ -136,6 +143,7 @@ export class EditFrameForm extends React.Component {
 							<button
 								className="form-delete-btn"
 								title="Delete frame"
+								type="button"
 								onClick={() => this.props.dispatch(deleteFrame(this.props.currentFrame.id))}>
 								<i className="fa fa-trash-o" aria-hidden="true"></i>
 							</button>
@@ -149,7 +157,7 @@ export class EditFrameForm extends React.Component {
 							<button
 								className="form-submit-btn"
 								title="Submit Edited Frame"
-								type='submit'
+								type="submit"
 								disabled={this.state.error || this.props.error}>
 								Save
 							</button>

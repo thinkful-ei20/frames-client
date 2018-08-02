@@ -42,10 +42,12 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid #393c50;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .employee-section-details div:first-child {
-    flex: 0 0 90%;
+
     text-align: left;
 }
 

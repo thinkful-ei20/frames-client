@@ -5,26 +5,42 @@ import PropTypes from 'prop-types';
 import {updateEmployee,deleteEmployee,clearEmployeeError} from '../../actions/employee';
 import {hideModal} from '../../actions/modals';
 
+import EmployeeAvailability from '../employeeAvailability';
+
 export class EditEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
+		const availability = [];
+		const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+		daysOfWeek.forEach(day => {
+			if (data.get(day)){
+				availability.push({
+					day,
+					start : data.get(`${day}-start`),
+					end: data.get(`${day}-end`)
+				});
+			}
+		});
+
 		const updatedEmployee = {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
 			email : data.get('email'),
 			phoneNumber : data.get('phoneNumber'),
-			password : data.get('password')
+			password : data.get('password'),
+			availability
 		};
-		this.props.dispatch(updateEmployee(this.props.id, updatedEmployee));
+
+		return this.props.dispatch(updateEmployee(this.props.id, updatedEmployee));
 	}
 
 	handleCancel() {
-		this.props.dispatch(hideModal());
+		return this.props.dispatch(hideModal());
 	}
 
 	handleDelete() {
-		this.props.dispatch(deleteEmployee(this.props.id));
+		return this.props.dispatch(deleteEmployee(this.props.id));
 	}
 
 	render(){
@@ -40,8 +56,13 @@ export class EditEmployeeForm extends React.Component {
 
 		return (
 			<React.Fragment>
-				<button className="modal-close-btn" onClick={() => this.handleCancel()}></button>
+				<button className="modal-close-btn" title="Close edit employee menu" onClick={() => this.handleCancel()}></button>
 				<div className="modal-form-wrapper">
+					<button
+						className="modal-close-btn"
+						title="Close edit employee form"
+						onClick={() => this.handleCancel()}>
+					</button>
 					<div className="form-wrapper">
 						<h2 className="form-header">Edit Employee</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
@@ -68,6 +89,16 @@ export class EditEmployeeForm extends React.Component {
 									</label>
 								</div>
 								<div className="form-field">
+									<label htmlFor="img">Image
+										<input
+											type='text'
+											id='img'
+											name='img'
+											defaultValue={this.props.employee.img ? this.props.employee.img : null}
+										/>
+									</label>
+								</div>
+								<div className="form-field">
 									<label htmlFor="email">Email Address
 										<input
 											type='email'
@@ -90,6 +121,11 @@ export class EditEmployeeForm extends React.Component {
 										/>
 									</label>
 								</div>
+
+								<div className="form-field">
+									<EmployeeAvailability availability={this.props.employee.availability}/>
+								</div>
+
 								<div className="form-field">
 									<label htmlFor="password">Password
 										<input
@@ -101,7 +137,7 @@ export class EditEmployeeForm extends React.Component {
 									</label>
 								</div>
 								<div className="form-field form-btns">
-									<button className="form-delete-btn" title="Delete employee button" onClick={() => this.handleDelete()}>
+									<button className="form-delete-btn" title="Delete employee button" type='button' onClick={() => this.handleDelete()}>
 										<i className="fa fa-trash-o" aria-hidden="true"></i>
 									</button>
 									<button onClick={() => this.props.dispatch(clearEmployeeError())} className="form-reset-btn" type="reset">Reset</button>

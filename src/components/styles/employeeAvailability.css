@@ -1,0 +1,14 @@
+.employee-availability {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.employee-availability input,
+.employee-availability label {
+  text-align: left;
+}
+
+.light {
+  color: rgb(202, 202, 202);
+}

@@ -54,3 +54,13 @@ export const getThisMonth = () => {
 		end
 	};
 };
+
+export const formatTwelveHourTime = (time) => {
+	// Assumes time variable is a string like so - '13:00' or '03:00'
+	if (Number.parseInt(time, 10) > 12){
+		const hours = Number.parseInt(time, 10) -12;
+		const minutes = time.slice(2, 5);
+		return  `${hours}${minutes} PM`;
+	}
+	return `${time} AM`;
+};

@@ -32,8 +32,14 @@ export class Dashboard extends React.Component {
 			return (<div className="loader">Loading...</div>);
 		}
 
-		//Display error if any from the server
-		let error = this.props.error ? this.props.error : undefined;
+		let error;
+		if(this.props.error) {
+			error = (
+        <div className="error-msg" aria-live="polite">
+          {this.props.error}
+        </div>
+			)
+		}
 
 		let frameList = this.props.frames;
 		let listOfFramesToBeRendered = frameList;
@@ -69,7 +75,6 @@ export class Dashboard extends React.Component {
 				<header className="dashboard-header">
 					<h2>schedule</h2>
 					<div className="dashboard-section-header">
-						{/*<ScheduleView />*/}
 						<button className="super-filter-btn" title="Filter" onClick={() => this.props.dispatch(showModal('superFilter', null))}>
 							<i className="fa fa-filter" aria-hidden="true"></i>
 						</button>
@@ -82,7 +87,7 @@ export class Dashboard extends React.Component {
 				<section className="dashboard-section">
 					{listOfFramesToBeRendered.length
 						? <CardList list={listOfFramesToBeRendered} />
-						: <div className="no-schedule">No frames on the schedule!</div>}
+						: <div className="no-schedule">No frames on the schedule</div>}
 				</section>
 			</div>
 		);

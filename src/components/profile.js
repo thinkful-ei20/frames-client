@@ -21,19 +21,27 @@ export class Profile extends React.Component {
 		this.props.dispatch(fetchProfile(this.props.adminId.id));
 	}
 
+	componentWillUnmount() {
+		// Clear any possible memory leaks
+		this.setState({editing: false});
+	}
 	handleEdit = () => {
 		this.setState({ editing: !this.state.editing });
 	};
 
 	render() {
-		let {error} = this.props
-		if(error) {
-			error = (
-				<div className="profile-error">
-					{error}
-				</div>
-			)
-		}
+    if (this.props.loading){
+      return (<div className="loader">Loading...</div>);
+    }
+
+    let error;
+    if(this.props.error) {
+      error = (
+        <div className="error-msg" aria-live="polite" role="alert">
+          {this.props.error}
+        </div>
+      )
+    }
 
 		let phoneNumber;
 		if (this.props.phone){
@@ -95,7 +103,8 @@ const mapStateToProps = state => {
 	return {
 		loggedIn: state.auth.user !== null,
 		adminId: state.auth.user,
-		username: state.profile.data.username,
+    loading: state.profile.loading,
+    username: state.profile.data.username,
 		name: state.profile.data.companyName,
 		phone: state.profile.data.phoneNumber,
 		email: state.profile.data.email,
@@ -109,7 +118,9 @@ Profile.propTypes = {
 	name: PropTypes.string,
 	username: PropTypes.string,
 	email: PropTypes.string,
-	phone: PropTypes.string
+	phone: PropTypes.string,
+  loading: PropTypes.bool,
+  error : PropTypes.string
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Profile));

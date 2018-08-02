@@ -1,21 +1,36 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {createEmployee} from '../../actions/employee';
-import {hideModal} from '../../actions/modals';
+import { createEmployee } from '../../actions/employee';
+import { hideModal } from '../../actions/modals';
+
+import EmployeeAvailability from '../employeeAvailability';
 
 export class CreateEmployeeForm extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		const data = new FormData(e.target);
+		const availability = [];
+		const daysOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+		daysOfWeek.forEach(day => {
+			if (data.get(day)){
+				availability.push({
+					day,
+					start : data.get(`${day}-start`),
+					end: data.get(`${day}-end`)
+				});
+			}
+		});
+		
 		const newEmployee = {
 			firstname : data.get('firstname'),
 			lastname : data.get('lastname'),
 			email : data.get('email'),
 			phoneNumber : data.get('phoneNumber'),
 			img : data.get('image'),
-			password : data.get('password')
+			password : data.get('password'),
+			availability
 		};
 		this.props.dispatch(createEmployee(newEmployee));
 	}
@@ -35,15 +50,43 @@ export class CreateEmployeeForm extends React.Component {
 			);
 		}
 
+		const defaultAvailability = [
+			{
+				day : 'monday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'tuesday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'wednesday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'thursday',
+				start : '08:00',
+				end:'17:00'
+			},
+			{
+				day : 'friday',
+				start : '08:00',
+				end:'17:00'
+			},
+		];
+
 		return (
 			<React.Fragment>
-				<button
-					className="modal-close-btn"
-					title="Close create employee form"
-					type="button"
-					onClick={() => this.handleCancel()}>
-				</button>
 				<div className="modal-form-wrapper">
+          <button
+            className="modal-close-btn"
+            title="Close create employee form"
+            type="button"
+            onClick={() => this.handleCancel()}>
+          </button>
 					<div className="form-wrapper">
 						<h2 className='form-header'>New Employee</h2>
 						<form onSubmit={e => this.handleSubmit(e)}>
@@ -55,6 +98,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='text'
 											id='firstname'
 											name='firstname'
+											required
 										/>
 									</label>
 								</div>
@@ -64,6 +108,7 @@ export class CreateEmployeeForm extends React.Component {
 											type='text'
 											id='lastname'
 											name='lastname'
+											required
 										/>
 									</label>
 								</div>
@@ -97,6 +142,10 @@ export class CreateEmployeeForm extends React.Component {
 										/>
 									</label>
 								</div>
+
+								<div className="form-field">
+									<EmployeeAvailability availability={defaultAvailability} type='create'/>
+								</div>
 								<div className="form-field">
 									<label htmlFor="password">Password
 										<input
@@ -125,7 +174,8 @@ export class CreateEmployeeForm extends React.Component {
 CreateEmployeeForm.propTypes = {
 	dispatch : PropTypes.func,
 	id : PropTypes.string,
-	employee : PropTypes.object
+	employee : PropTypes.object,
+	error : PropTypes.any
 };
 
 const mapStateToProps = state => {
