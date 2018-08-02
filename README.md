@@ -10,12 +10,12 @@ Live demo can be viewed [here](https://frames-client.netlify.com/).
 
 **Demo account for testing:**
 
-<span style="background-color: #FFFF00">username: username</span>
+<p><span style="background-color: #FFFF00">username: username</span></p>
 
-<span style="background-color: #FFFF00">password: password</span>
+<p><span style="background-color: #FFFF00">password: password</span></p>
 
 ## Screenshots
-<img src="src/images/readme_schreenshot.png" alt="app log" width="100%">
+<img src="src/images/readme_schreenshot.png" alt="app log" width="100%" border="10">
 
 ## Installation
 Clone the GitHub repository and use [NPM](https://www.npmjs.com/) to install project dependencies.
