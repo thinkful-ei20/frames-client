@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import {filterSuccess} from '../actions/filter';
-import {hideModal} from '../actions/modals';
+import {filterSuccess} from '../../actions/filter';
+import {hideModal} from '../../actions/modals';
 
-import './forms/styles/forms.css';
+import './styles/forms.css';
 
 export class SuperFilter extends React.Component{
 	removeDuplicates(arr) {
@@ -105,7 +105,7 @@ export class SuperFilter extends React.Component{
 										name='startdatetime'
 										type='datetime-local'
 										onChange={this.validateTime}
-										defaultValue={defaultStart}
+										// defaultValue={defaultStart}
 									/>
 								</div>
 								<div className="form-field">
@@ -114,14 +114,14 @@ export class SuperFilter extends React.Component{
 										id='enddatetime'
 										name='enddatetime'
 										type='datetime-local'
-										defaultValue={defaultEnd}
+										// defaultValue={defaultEnd}
 									/>
 								</div>
-							</fieldset>
 							<div className="form-field form-btns">
-								<button className="form-reset-btn" type="reset" onClick={() => this.handleCancel()}>Cancel</button>
+								<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
 								<button className="form-submit-btn" type="submit">Submit</button>
 							</div>
+              </fieldset>
 						</form>
 					</div>
 				</div>
