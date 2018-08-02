@@ -146,7 +146,8 @@ export class CreateEmployeeForm extends React.Component {
 CreateEmployeeForm.propTypes = {
 	dispatch : PropTypes.func,
 	id : PropTypes.string,
-	employee : PropTypes.object
+	employee : PropTypes.object,
+	error : PropTypes.any
 };
 
 const mapStateToProps = state => {

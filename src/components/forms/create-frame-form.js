@@ -121,7 +121,7 @@ export class CreateFrameForm extends React.Component {
 								</div>
 								<div className="form-field form-btns">
 									<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
-									<button className="form-submit-btn">Save</button>
+									<button className="form-submit-btn" type="submit">Save</button>
 								</div>
 								{error}
 							</fieldset>
