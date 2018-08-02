@@ -57,10 +57,10 @@ export class EditEmployeeForm extends React.Component {
 		return (
 			<React.Fragment>
 				<div className="modal-form-wrapper">
-          <button
+					<button
 						className="modal-close-btn"
-            title="Close edit employee form"
-            onClick={() => this.handleCancel()}>
+						title="Close edit employee form"
+						onClick={() => this.handleCancel()}>
 					</button>
 					<div className="form-wrapper">
 						<h2 className="form-header">Edit Employee</h2>
@@ -84,6 +84,16 @@ export class EditEmployeeForm extends React.Component {
 											id='lasttname'
 											name='lastname'
 											defaultValue={this.props.employee.lastname}
+										/>
+									</label>
+								</div>
+								<div className="form-field">
+									<label htmlFor="img">Image
+										<input
+											type='text'
+											id='img'
+											name='img'
+											defaultValue={this.props.employee.img ? this.props.employee.img : null}
 										/>
 									</label>
 								</div>
