@@ -105,5 +105,4 @@ describe('<EditFrameForm/>', () => {
 	// 	wrapper.find('input #startDate').simulate('change',{target: {value: startDate}} );
 	// 	wrapper.find('input #endDate').simulate('change',{target: {value: endDate}} );
 	// });
-
 });

@@ -39,6 +39,7 @@ describe('Frames Actions', () => {
 	describe('Asynchronous', () => {
 		let dispatch;
 		const data = 'test';
+		const token = '1234567';
 
 		describe('On Success',() => {
 
@@ -47,7 +48,7 @@ describe('Frames Actions', () => {
 			});
 
 			afterEach(() => {
-				localStorage.removeItem('authToken');
+				localStorage.clear();
 			});
 
 			it('fetchFrames() should dispatch framesSuccess()', () => {

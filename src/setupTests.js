@@ -24,5 +24,4 @@ Object.defineProperty(window, 'localStorage', {
 	value: localStorageMock
 });
 
-
 global.fetch = require('jest-fetch-mock');

@@ -49,7 +49,7 @@ export const fetchFrames = (start, end) => dispatch => {
 	const token = localStorage.getItem('authToken');
 	dispatch(requestFrames());
 
-  return fetch(`${API_BASE_URL}/frames/?startDate=${start}&endDate=${end}`, {
+	return fetch(`${API_BASE_URL}/frames/?startDate=${start}&endDate=${end}`, {
 		method : 'GET',
 		headers : {
 			'Content-Type' : 'application/json',
@@ -59,10 +59,10 @@ export const fetchFrames = (start, end) => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(data => {
-      dispatch(framesSuccess(data));
+			dispatch(framesSuccess(data));
 		})
 		.catch(error => {
-      dispatch(framesError(error.message));
+			dispatch(framesError(error.message));
 		});
 };
 
@@ -131,9 +131,9 @@ export const deleteFrame = frameId => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(() => {
 			dispatch(fetchFrames(week.start, week.end));
-      dispatch(hideModal());
-    })
+			dispatch(hideModal());
+		})
 		.catch(error =>	{
-			dispatch(framesError(error))
-    });
+			dispatch(framesError(error));
+		});
 };
