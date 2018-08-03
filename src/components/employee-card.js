@@ -35,7 +35,7 @@ export function EmployeeCard (props){
 
 	let phoneNumber;
 	if (props.phoneNumber){
-		phoneNumber = `(${props.phoneNumber.slice(0,3)}) ${props.phoneNumber.slice(3,6)}-${props.phoneNumber.slice(6,9)}`;
+		phoneNumber = `(${props.phoneNumber.slice(0,3)}) ${props.phoneNumber.slice(3,6)}-${props.phoneNumber.slice(6,10)}`;
 	}
 
 	return (
