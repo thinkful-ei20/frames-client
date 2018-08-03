@@ -65,10 +65,11 @@ export const editProfile = (adminId, updatedProfile) => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(() => {
-
 			dispatch(fetchProfile(adminId));
-		})	/* Not a Dispatch */
-		.catch(error => profileError(error.message));
+		})
+		.catch(error => {
+			dispatch(profileError(error.message));
+    });
 };
 
 // **************  DELETE PROFILE INFO  ************** //
