@@ -55,17 +55,23 @@ export class SuperFilter extends React.Component{
 		// Validate that the endFrame is later than the start frame
 		const start = new Date(document.getElementById('startdatetime').value);
 		const end = new Date(document.getElementById('enddatetime').value);
-
 		if(start > end){
 			this.setState({frameError : 'The end of the shift must be later than the start'});
-		} else if (start.getDate() !== end.getDate()){
-			this.setState({frameError : 'The shift may only be scheduled for one day, if you need to schedule multiple days, please create multiple frames.'});
 		} else {
 			this.setState({frameError : null});
 		}
 	}
 
 	render(){
+		let error;
+    if (this.state.frameError) {
+      error = (
+        <div className="form-modal-error" aria-live="polite">
+          {this.state.frameError}
+        </div>
+      );
+    }
+
 		// Define default values for the form, remove the trailing GMT times
 		const defaultStart = moment().format().slice(0,-9);
 		const defaultEnd = moment().format().slice(0,-9);
@@ -101,9 +107,8 @@ export class SuperFilter extends React.Component{
 									</label>
 								</div>
 								<div className="form-field">
-									<label className="filterByTime">Filter by frames:
+									<label htmlFor="filterByTime" className="filterByTime">Filter by frames:
 										<select
-											htmlFor="filterByTime"
 											name="filterByTime"
 											id="filterByTime"
 										>
@@ -141,11 +146,16 @@ export class SuperFilter extends React.Component{
 										defaultValue={defaultEnd}
 									/>
 								</div>
-								<div className="form-field-error">{this.state.frameError}</div>
 								<div className="form-field form-btns">
 									<button className="form-reset-btn" type="button" onClick={() => this.handleCancel()}>Cancel</button>
-									<button className="form-submit-btn" type="submit">Submit</button>
+									<button
+										className="form-submit-btn"
+										type="submit"
+                    disabled={this.state.frameError}>
+										Submit
+									</button>
 								</div>
+								{error}
 							</fieldset>
 						</form>
 					</div>
