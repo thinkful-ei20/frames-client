@@ -133,7 +133,6 @@ export class SuperFilter extends React.Component{
 										name='startdatetime'
 										type='datetime-local'
 										onChange={() => this.validateFrame()}
-										defaultValue={defaultStart}
 									/>
 								</div>
 								<div className="form-field">
@@ -143,7 +142,6 @@ export class SuperFilter extends React.Component{
 										name='enddatetime'
 										type='datetime-local'
 										onChange={() => this.validateFrame()}
-										defaultValue={defaultEnd}
 									/>
 								</div>
 								<div className="form-field form-btns">
