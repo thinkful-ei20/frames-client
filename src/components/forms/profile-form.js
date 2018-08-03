@@ -52,6 +52,7 @@ export class ProfileForm extends React.Component {
 				</div>
 			);
 		}
+		
 		return (
 			<div className="form-wrapper">
 				<form onSubmit={this.props.handleSubmit(this.onSubmit)}>

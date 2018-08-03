@@ -56,6 +56,10 @@
 	color: #edeef0;
 }
 
+.card-name {
+	text-align: left;
+}
+
 .card-frame {
 	font-size: 10px;
 }

@@ -95,9 +95,9 @@
     text-align: center;
 }
 
-.employee-availability table {
+/* .employee-availability table {
     margin: 0 auto;
-}
+} */
 
 .employee-section-details:last-child {
     border-bottom: none;
