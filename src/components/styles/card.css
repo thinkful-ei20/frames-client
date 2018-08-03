@@ -27,9 +27,8 @@
 }
 
 .card-img {
-	max-width: 54px;
-	max-height: 54px;
-	/*padding: 1%;*/
+	width: 54px;
+	height: 54px;
 }
 
 .card-img img {
@@ -48,7 +47,7 @@
 .contain {
 	height: 100%;
 	width: 100%;
-	object-fit: contain;
+	object-fit: cover;
 }
 
 .card-name, 

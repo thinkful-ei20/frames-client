@@ -4,6 +4,7 @@ import './styles/about.css';
 
 import employeeScreenshot from '../images/employee_screenshot.png';
 import dashboardScreenshot from '../images/dashboard_screenshot.png';
+import filterScreenshot from '../images/filter_screeshot.png';
 
 export const About = () => {
 	return(
@@ -24,7 +25,7 @@ export const About = () => {
 					<p>Filter your schedule however you like with advanced tools that make at-a-glace decsions easier than ever.</p>
 				</div>
 				<div className="about-section-img-wrapper">
-					<img src={dashboardScreenshot} alt="Dashboard screenshot"/>
+					<img src={filterScreenshot} alt="Dashboard screenshot"/>
 				</div>
 			</section>
 

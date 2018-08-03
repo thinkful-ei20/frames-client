@@ -29,6 +29,7 @@
     perspective: 500px;
     padding: 5%;
     order: 1;
+    text-align: center;
 }
 
 .about-section-img-wrapper img {
@@ -54,7 +55,7 @@
 }
 
 .about-section-text-wrapper p {
-    font-size: calc(1.2rem + 0.8vw);
+    font-size: calc(1rem + 0.8vw);
 }
 
 .about-section-text-wrapper:first-child,
