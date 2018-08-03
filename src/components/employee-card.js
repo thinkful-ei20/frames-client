@@ -40,20 +40,25 @@ export function EmployeeCard (props){
 
 	return (
 		<div className="employee-section-details">
-			<div>
-				<h3>{props.name}</h3>
-				<p>{props.email}</p>
-				<p>{phoneNumber}</p>
+			<div className="employee-profile">
+				<div className="employee-profile-info">
+          <p className="employee-profile-info-name">{props.name}</p>
+					<div>
+            <p>{props.email}</p>
+            <p>{phoneNumber}</p>
+					</div>
+				</div>
+        <div className="employee-profile-edit-btn">
+          <button className="opt-btn" title="Edit Employee Info" onClick={() => props.dispatch(showModal('employee', props.id))}>
+            <i className="fa fa-address-card" aria-hidden="true"></i>
+          </button>
+        </div>
 			</div>
-			<div>
+			<div className="employee-availability">
 				<h3>Availability</h3>
 				{availabilityTable}
 			</div>
-			<div>
-				<button className="opt-btn" title="Edit Employee Info" onClick={() => props.dispatch(showModal('employee', props.id))}>
-					<i className="fa fa-address-card" aria-hidden="true"></i>
-				</button>
-			</div>
+
 
 		</div>
 	);
