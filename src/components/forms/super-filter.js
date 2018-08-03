@@ -72,10 +72,6 @@ export class SuperFilter extends React.Component{
       );
     }
 
-		// Define default values for the form, remove the trailing GMT times
-		const defaultStart = moment().format().slice(0,-9);
-		const defaultEnd = moment().format().slice(0,-9);
-
 		return (
 			<React.Fragment>
 				<div className="modal-form-wrapper">
