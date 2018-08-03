@@ -18,6 +18,11 @@ export class ProfileForm extends React.Component {
 		}
 	}
 
+	componentWillUnmount() {
+		// Clear any possible memory leaks
+		this.setState({error: null});
+	}
+
 	onSubmit = values => {
 		const updatedProfile = {};
 		Object.keys(values).forEach(key => {
@@ -33,7 +38,6 @@ export class ProfileForm extends React.Component {
 				if( res ) {
 					this.setState({error: res.error});
 				} else {
-					this.setState({error: null});
 					this.props.setEdit();
 				}
 			});
