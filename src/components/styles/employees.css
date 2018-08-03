@@ -39,7 +39,7 @@
 }
 
 
-.employee-section-details {
+.employee-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,62 +58,57 @@
 }
 
 .employee-profile-info {
+    display: flex;
     flex: 0 0 90%;
     align-items: center;
 }
 
-.employee-profile-edit-btn {
+/*.card-name, .card-img {*/
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+/*}*/
+
+.employee-img {
+
+    margin-right: 2.5%;
+    /*padding: 1%;*/
+}
+
+.employee-img img {
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+}
+
+.employee-data p:first-child {
+    font-size: 1.2em;
+}
+
+
+.employee-edit-btn {
     flex: 0 0 10%;
     text-align: center;
 }
 
 .employee-availability {
     width: 100%;
-}
-
-.employee-availability table {
     text-align: center;
 }
 
-/*.employee-section-details div:first-child {*/
-/**/
-    /*text-align: left;*/
-/*}*/
-
-/*.employee-section-details div:last-child {*/
-    /*flex: 0 0 10%;*/
-    /*text-align: center;*/
-/*}*/
+.employee-availability table {
+    margin: 0 auto;
+}
 
 .employee-section-details:last-child {
     border-bottom: none;
 }
 
-/*.employee-section h3 {*/
-    /*margin: 0;*/
-    /*padding: 2.5% 0 2.5% 0;*/
-    /*font-size: 15px;*/
-    /*color: #edeef0;*/
-/*}*/
+.employee-profile-info div:last-child {
+
+}
 
 .employee-profile-info p {
-    /*font-size: 0.8em;*/
     margin: 0;
-    padding-right: 2.5%;
-    /*color: #9fa0a4;*/
-}
-
-.employee-profile-info div {
-    display: inline-block;
-}
-
-.employee-profile-info-name {
-    display: inline-block;
-
-    /*flex: 0 0 30%;*/
-    width: 30%;
-    text-overflow: ellipsis;
-    overflow: hidden;
 }
 
 .employee-add-btn {

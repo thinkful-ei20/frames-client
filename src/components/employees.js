@@ -52,6 +52,7 @@ export class Employees extends React.Component {
 								<EmployeeCard
 									key={employee.id}
 									name={`${employee.firstname} ${employee.lastname}`}
+									img={employee.img}
 									email={employee.email}
 									phoneNumber={employee.phoneNumber}
 									id={employee.id}
