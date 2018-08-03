@@ -1,12 +1,13 @@
 <img src="src/images/Logo-2.png" alt="app log" width="5%"> [Frames](https://frames-client.netlify.com/) - staff scheduling app
 ============================
-Small, intuitive, and easy to use staff scheduling application for small businesses. 
+Mobile-friendly, intuitive, and easy to use staff scheduling application for small businesses. 
 When scheduling for multiple shifts, multiple employees over multiple divergent time zones, 
 Frames steps in to take out the leg work. Users can easily add, assign, edit and delete shifts, 
 maintain a list of employees and contact information and keep their schedules straight in daily, 
 weekly or monthly views.
 
-Live app can be viewed [here](https://frames-client.netlify.com/).
+Live app can be viewed [here](http://frames.surge.sh/).
+
 Check out the server repo [here](https://github.com/thinkful-ei20/frames-server).
 
 **Demo account for testing:**  
@@ -29,6 +30,10 @@ $ npm install
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [jwt-decode](https://www.npmjs.com/package/jwt-decode)
+* [Jest](https://jestjs.io)
+* [Enzyme](https://airbnb.io/projects/enzyme)
+* [Moment.js](https://momentjs.com)
+* [Surge.sh](https://surge.sh)
  
  ## Authors
 * [Cameron Prier](https://github.com/Csprier)
