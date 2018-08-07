@@ -1,4 +1,4 @@
-<img src="src/images/Logo-2.png" alt="app log" width="5%"> [Frames](https://frames.surge.sh) - staff scheduling app
+<img src="src/images/Logo-2.png" alt="app log" width="5%"> [Frames](https://frames.surge.sh/) - staff scheduling app
 ============================
 Mobile-friendly, intuitive, and easy to use staff scheduling application for small businesses. 
 When scheduling for multiple shifts, multiple employees over multiple divergent time zones, 
