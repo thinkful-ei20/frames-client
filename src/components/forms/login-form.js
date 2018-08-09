@@ -63,6 +63,7 @@ export class LoginForm extends React.Component {
           New to Frames?
           <Link to="/register">Sign Up</Link>
         </p>
+				<p className="sign-up-link">Or check out<button className="demo-btn" title="login as demo user" onClick={() => this.props.dispatch(login('username', 'password'))}>DEMO</button>account</p>
 			</div>
 		);
 	}
